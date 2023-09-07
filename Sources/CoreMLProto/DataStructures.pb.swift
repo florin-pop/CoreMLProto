@@ -28,7 +28,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// *
 /// A mapping from a string
 /// to a 64-bit integer.
-struct CoreML_Specification_StringToInt64Map {
+public struct CoreML_Specification_StringToInt64Map {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -43,7 +43,7 @@ struct CoreML_Specification_StringToInt64Map {
 /// *
 /// A mapping from a 64-bit integer
 /// to a string.
-struct CoreML_Specification_Int64ToStringMap {
+public struct CoreML_Specification_Int64ToStringMap {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -58,7 +58,7 @@ struct CoreML_Specification_Int64ToStringMap {
 /// *
 /// A mapping from a string
 /// to a double-precision floating point number.
-struct CoreML_Specification_StringToDoubleMap {
+public struct CoreML_Specification_StringToDoubleMap {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -73,7 +73,7 @@ struct CoreML_Specification_StringToDoubleMap {
 /// *
 /// A mapping from a 64-bit integer
 /// to a double-precision floating point number.
-struct CoreML_Specification_Int64ToDoubleMap {
+public struct CoreML_Specification_Int64ToDoubleMap {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -87,7 +87,7 @@ struct CoreML_Specification_Int64ToDoubleMap {
 
 /// *
 /// A vector of strings.
-struct CoreML_Specification_StringVector {
+public struct CoreML_Specification_StringVector {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -101,7 +101,7 @@ struct CoreML_Specification_StringVector {
 
 /// *
 /// A vector of 64-bit integers.
-struct CoreML_Specification_Int64Vector {
+public struct CoreML_Specification_Int64Vector {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -115,7 +115,7 @@ struct CoreML_Specification_Int64Vector {
 
 /// *
 /// A vector of floating point numbers.
-struct CoreML_Specification_FloatVector {
+public struct CoreML_Specification_FloatVector {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -129,7 +129,7 @@ struct CoreML_Specification_FloatVector {
 
 /// *
 /// A vector of double-precision floating point numbers.
-struct CoreML_Specification_DoubleVector {
+public struct CoreML_Specification_DoubleVector {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -143,7 +143,7 @@ struct CoreML_Specification_DoubleVector {
 
 /// *
 /// A range of int64 values
-struct CoreML_Specification_Int64Range {
+public struct CoreML_Specification_Int64Range {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -159,7 +159,7 @@ struct CoreML_Specification_Int64Range {
 
 /// *
 /// A set of int64 values
-struct CoreML_Specification_Int64Set {
+public struct CoreML_Specification_Int64Set {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -173,7 +173,7 @@ struct CoreML_Specification_Int64Set {
 
 /// *
 /// A range of double values
-struct CoreML_Specification_DoubleRange {
+public struct CoreML_Specification_DoubleRange {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

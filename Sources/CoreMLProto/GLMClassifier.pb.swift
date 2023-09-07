@@ -27,7 +27,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 
 /// *
 /// A generalized linear model classifier.
-struct CoreML_Specification_GLMClassifier {
+public struct CoreML_Specification_GLMClassifier {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

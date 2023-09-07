@@ -79,7 +79,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 
 /// *
 /// A pipeline consisting of one or more models.
-struct CoreML_Specification_Pipeline {
+public struct CoreML_Specification_Pipeline {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -98,7 +98,7 @@ struct CoreML_Specification_Pipeline {
 
 /// *
 /// A classifier pipeline.
-struct CoreML_Specification_PipelineClassifier {
+public struct CoreML_Specification_PipelineClassifier {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -122,7 +122,7 @@ struct CoreML_Specification_PipelineClassifier {
 
 /// *
 /// A regressor pipeline.
-struct CoreML_Specification_PipelineRegressor {
+public struct CoreML_Specification_PipelineRegressor {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -147,7 +147,7 @@ struct CoreML_Specification_PipelineRegressor {
 /// *
 /// A feature description,
 /// consisting of a name, short description, and type.
-struct CoreML_Specification_FeatureDescription {
+public struct CoreML_Specification_FeatureDescription {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -178,7 +178,7 @@ struct CoreML_Specification_FeatureDescription {
 /// consisting of a short description, a version string,
 /// an author, a license, and any other user defined
 /// key/value meta data.
-struct CoreML_Specification_Metadata {
+public struct CoreML_Specification_Metadata {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -206,7 +206,7 @@ struct CoreML_Specification_Metadata {
 /// Classifier models can specify the output feature containing
 /// probabilities for the predicted classes
 /// (``predictedProbabilitiesName``).
-struct CoreML_Specification_ModelDescription {
+public struct CoreML_Specification_ModelDescription {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -244,7 +244,7 @@ struct CoreML_Specification_ModelDescription {
     fileprivate var _metadata: CoreML_Specification_Metadata?
 }
 
-struct CoreML_Specification_SerializedModel {
+public struct CoreML_Specification_SerializedModel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -332,7 +332,7 @@ struct CoreML_Specification_SerializedModel {
 /// 6 : iOS 15, macOS 12, tvOS 15, watchOS 8 (Core ML 5)
 /// - Core ML Audio Feature Print
 /// - new type of model: mlprogram (MILSpec.Program)
-struct CoreML_Specification_Model {
+public struct CoreML_Specification_Model {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

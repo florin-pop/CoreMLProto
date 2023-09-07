@@ -27,7 +27,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 
 /// *
 /// The 64-bit integer feature type.
-struct CoreML_Specification_Int64FeatureType {
+public struct CoreML_Specification_Int64FeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -39,7 +39,7 @@ struct CoreML_Specification_Int64FeatureType {
 
 /// *
 /// The double-precision floating point number feature type.
-struct CoreML_Specification_DoubleFeatureType {
+public struct CoreML_Specification_DoubleFeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -51,7 +51,7 @@ struct CoreML_Specification_DoubleFeatureType {
 
 /// *
 /// The string feature type.
-struct CoreML_Specification_StringFeatureType {
+public struct CoreML_Specification_StringFeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -61,7 +61,7 @@ struct CoreML_Specification_StringFeatureType {
     init() {}
 }
 
-struct CoreML_Specification_SizeRange {
+public struct CoreML_Specification_SizeRange {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -78,7 +78,7 @@ struct CoreML_Specification_SizeRange {
 
 /// *
 /// The image feature type.
-struct CoreML_Specification_ImageFeatureType {
+public struct CoreML_Specification_ImageFeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -251,7 +251,7 @@ struct CoreML_Specification_ImageFeatureType {
 
 /// *
 /// The array feature type.
-struct CoreML_Specification_ArrayFeatureType {
+public struct CoreML_Specification_ArrayFeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -455,7 +455,7 @@ struct CoreML_Specification_ArrayFeatureType {
 
 /// *
 /// The dictionary feature type.
-struct CoreML_Specification_DictionaryFeatureType {
+public struct CoreML_Specification_DictionaryFeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -517,7 +517,7 @@ struct CoreML_Specification_DictionaryFeatureType {
 
 /// *
 /// The Sequence feature type.
-struct CoreML_Specification_SequenceFeatureType {
+public struct CoreML_Specification_SequenceFeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -588,7 +588,7 @@ struct CoreML_Specification_SequenceFeatureType {
 
 /// *
 /// A feature, which may be optional.
-struct CoreML_Specification_FeatureType {
+public struct CoreML_Specification_FeatureType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

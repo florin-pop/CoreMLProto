@@ -38,7 +38,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 ///
 /// For example: if the ``stringToIndex`` parameter is set to ``["a", "c", "b", "z"]``,
 /// then an input of ``{"a": 4, "c": 8}`` will produce an output of ``[4, 8, 0, 0]``.
-struct CoreML_Specification_DictVectorizer {
+public struct CoreML_Specification_DictVectorizer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

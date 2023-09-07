@@ -28,7 +28,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// *
 /// A model which takes audio signal samples as input and outputs an array of
 /// preprocessed samples according to the specified preprocessing types
-struct CoreML_Specification_CoreMLModels_SoundAnalysisPreprocessing {
+public struct CoreML_Specification_CoreMLModels_SoundAnalysisPreprocessing {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

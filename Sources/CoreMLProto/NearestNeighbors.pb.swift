@@ -27,7 +27,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 
 /// *
 /// A k-Nearest-Neighbor classifier
-struct CoreML_Specification_KNearestNeighborsClassifier {
+public struct CoreML_Specification_KNearestNeighborsClassifier {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -208,7 +208,7 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
 
 /// *
 /// The "core" attributes of a Nearest Neighbors model.
-struct CoreML_Specification_NearestNeighborsIndex {
+public struct CoreML_Specification_NearestNeighborsIndex {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -312,7 +312,7 @@ struct CoreML_Specification_NearestNeighborsIndex {
 /// *
 /// Specifies a uniform weighting scheme (i.e. each neighbor receives equal
 /// voting power).
-struct CoreML_Specification_UniformWeighting {
+public struct CoreML_Specification_UniformWeighting {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -325,7 +325,7 @@ struct CoreML_Specification_UniformWeighting {
 /// *
 /// Specifies a inverse-distance weighting scheme (i.e. closest neighbors receives higher
 /// voting power). A nearest neighbor with highest sum of (1 / distance) is picked.
-struct CoreML_Specification_InverseDistanceWeighting {
+public struct CoreML_Specification_InverseDistanceWeighting {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -337,7 +337,7 @@ struct CoreML_Specification_InverseDistanceWeighting {
 
 /// *
 /// Specifies a flat index of data points to be searched by brute force.
-struct CoreML_Specification_LinearIndex {
+public struct CoreML_Specification_LinearIndex {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -349,7 +349,7 @@ struct CoreML_Specification_LinearIndex {
 
 /// *
 /// Specifies a kd-tree backend for the nearest neighbors model.
-struct CoreML_Specification_SingleKdTreeIndex {
+public struct CoreML_Specification_SingleKdTreeIndex {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -365,7 +365,7 @@ struct CoreML_Specification_SingleKdTreeIndex {
 
 /// *
 /// Specifies the Squared Euclidean Distance function.
-struct CoreML_Specification_SquaredEuclideanDistance {
+public struct CoreML_Specification_SquaredEuclideanDistance {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

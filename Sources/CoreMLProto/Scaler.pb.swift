@@ -44,7 +44,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// perform the scaling operation. If the output type is an integer,
 /// then it is cast to an integer. If that cast is lossy, then an
 /// error is generated.
-struct CoreML_Specification_Scaler {
+public struct CoreML_Specification_Scaler {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

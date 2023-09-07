@@ -27,7 +27,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 
 /// *
 /// A parameterized model whose function is defined in code
-struct CoreML_Specification_CustomModel {
+public struct CoreML_Specification_CustomModel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

@@ -94,7 +94,7 @@ enum CoreML_Specification_TreeEnsemblePostEvaluationTransform: SwiftProtobuf.Enu
 
 /// *
 /// Tree ensemble parameters.
-struct CoreML_Specification_TreeEnsembleParameters {
+public struct CoreML_Specification_TreeEnsembleParameters {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -265,7 +265,7 @@ struct CoreML_Specification_TreeEnsembleParameters {
 
 /// *
 /// A tree ensemble classifier.
-struct CoreML_Specification_TreeEnsembleClassifier {
+public struct CoreML_Specification_TreeEnsembleClassifier {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -335,7 +335,7 @@ struct CoreML_Specification_TreeEnsembleClassifier {
 
 /// *
 /// A tree ensemble regressor.
-struct CoreML_Specification_TreeEnsembleRegressor {
+public struct CoreML_Specification_TreeEnsembleRegressor {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

@@ -60,7 +60,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 ///
 /// Before the algorithm, boxes that fall below the confidence threshold are
 /// discarded.
-struct CoreML_Specification_NonMaximumSuppression {
+public struct CoreML_Specification_NonMaximumSuppression {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

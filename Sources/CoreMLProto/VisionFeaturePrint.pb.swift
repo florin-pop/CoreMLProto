@@ -28,7 +28,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// *
 /// A model which takes an input image and outputs array(s) of features
 /// according to the specified feature types
-struct CoreML_Specification_CoreMLModels_VisionFeaturePrint {
+public struct CoreML_Specification_CoreMLModels_VisionFeaturePrint {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

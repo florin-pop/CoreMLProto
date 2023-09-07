@@ -29,7 +29,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// A model which takes a single input string and outputs a
 /// sequence of tokens, tags for tokens, along with their
 /// locations and lengths, in the original string.
-struct CoreML_Specification_CoreMLModels_WordTagger {
+public struct CoreML_Specification_CoreMLModels_WordTagger {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

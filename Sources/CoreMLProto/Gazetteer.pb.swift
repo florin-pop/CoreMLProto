@@ -28,7 +28,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// *
 /// A model which uses an efficient probabilistic representation
 /// for assigning labels to a set of strings.
-struct CoreML_Specification_CoreMLModels_Gazetteer {
+public struct CoreML_Specification_CoreMLModels_Gazetteer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

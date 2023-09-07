@@ -32,7 +32,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 ///
 /// .. math::
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \boldsymbol{x}^T \boldsymbol{x'}
-struct CoreML_Specification_LinearKernel {
+public struct CoreML_Specification_LinearKernel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -50,7 +50,7 @@ struct CoreML_Specification_LinearKernel {
 /// .. math::
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \
 ///          \exp(-\gamma || \boldsymbol{x} - \boldsymbol{x'} ||^2 )
-struct CoreML_Specification_RBFKernel {
+public struct CoreML_Specification_RBFKernel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -70,7 +70,7 @@ struct CoreML_Specification_RBFKernel {
 /// .. math::
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \
 ///           (\gamma \boldsymbol{x}^T \boldsymbol{x'} + c)^{degree}
-struct CoreML_Specification_PolyKernel {
+public struct CoreML_Specification_PolyKernel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -94,7 +94,7 @@ struct CoreML_Specification_PolyKernel {
 /// .. math::
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \
 ///           \tanh(\gamma \boldsymbol{x}^T \boldsymbol{x'} + c)
-struct CoreML_Specification_SigmoidKernel {
+public struct CoreML_Specification_SigmoidKernel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -110,7 +110,7 @@ struct CoreML_Specification_SigmoidKernel {
 
 /// *
 /// A kernel.
-struct CoreML_Specification_Kernel {
+public struct CoreML_Specification_Kernel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -190,7 +190,7 @@ struct CoreML_Specification_Kernel {
 
 /// *
 /// A sparse node.
-struct CoreML_Specification_SparseNode {
+public struct CoreML_Specification_SparseNode {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -207,7 +207,7 @@ struct CoreML_Specification_SparseNode {
 
 /// *
 /// A sparse vector.
-struct CoreML_Specification_SparseVector {
+public struct CoreML_Specification_SparseVector {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -221,7 +221,7 @@ struct CoreML_Specification_SparseVector {
 
 /// *
 /// One or more sparse support vectors.
-struct CoreML_Specification_SparseSupportVectors {
+public struct CoreML_Specification_SparseSupportVectors {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -235,7 +235,7 @@ struct CoreML_Specification_SparseSupportVectors {
 
 /// *
 /// A dense vector.
-struct CoreML_Specification_DenseVector {
+public struct CoreML_Specification_DenseVector {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -249,7 +249,7 @@ struct CoreML_Specification_DenseVector {
 
 /// *
 /// One or more dense support vectors.
-struct CoreML_Specification_DenseSupportVectors {
+public struct CoreML_Specification_DenseSupportVectors {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -263,7 +263,7 @@ struct CoreML_Specification_DenseSupportVectors {
 
 /// *
 /// One or more coefficients.
-struct CoreML_Specification_Coefficients {
+public struct CoreML_Specification_Coefficients {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -277,7 +277,7 @@ struct CoreML_Specification_Coefficients {
 
 /// *
 /// A support vector regressor.
-struct CoreML_Specification_SupportVectorRegressor {
+public struct CoreML_Specification_SupportVectorRegressor {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -359,7 +359,7 @@ struct CoreML_Specification_SupportVectorRegressor {
 
 /// *
 /// A support vector classifier
-struct CoreML_Specification_SupportVectorClassifier {
+public struct CoreML_Specification_SupportVectorClassifier {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

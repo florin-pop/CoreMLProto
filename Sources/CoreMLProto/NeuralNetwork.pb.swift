@@ -263,7 +263,7 @@ enum CoreML_Specification_ScatterMode: SwiftProtobuf.Enum {
 
 /// *
 /// A neural network.
-struct CoreML_Specification_NeuralNetwork {
+public struct CoreML_Specification_NeuralNetwork {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -327,7 +327,7 @@ struct CoreML_Specification_NeuralNetwork {
 /// .. code::
 ///
 ///     Y[0, :, :] = channelScale * X[0, :, :] + grayBias
-struct CoreML_Specification_NeuralNetworkImageScaler {
+public struct CoreML_Specification_NeuralNetworkImageScaler {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -357,7 +357,7 @@ struct CoreML_Specification_NeuralNetworkImageScaler {
 /// subtracts the provided mean image from the input image.
 /// The mean image is subtracted from the input named
 /// ``NeuralNetworkPreprocessing.featureName``.
-struct CoreML_Specification_NeuralNetworkMeanImage {
+public struct CoreML_Specification_NeuralNetworkMeanImage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -373,7 +373,7 @@ struct CoreML_Specification_NeuralNetworkMeanImage {
 }
 
 //// Preprocessing parameters for image inputs.
-struct CoreML_Specification_NeuralNetworkPreprocessing {
+public struct CoreML_Specification_NeuralNetworkPreprocessing {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -435,7 +435,7 @@ struct CoreML_Specification_NeuralNetworkPreprocessing {
 ///
 /// .. math::
 ///     f(x) = \text{max}(0, x)
-struct CoreML_Specification_ActivationReLU {
+public struct CoreML_Specification_ActivationReLU {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -455,7 +455,7 @@ struct CoreML_Specification_ActivationReLU {
 ///             x      & \text{if } x \geq 0 \\
 ///             \alpha x & \text{if } x < 0
 ///            \end{cases}
-struct CoreML_Specification_ActivationLeakyReLU {
+public struct CoreML_Specification_ActivationLeakyReLU {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -475,7 +475,7 @@ struct CoreML_Specification_ActivationLeakyReLU {
 ///
 /// .. math::
 ///     f(x) = \dfrac{1 - e^{-2x}}{1 + e^{-2x}}
-struct CoreML_Specification_ActivationTanh {
+public struct CoreML_Specification_ActivationTanh {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -492,7 +492,7 @@ struct CoreML_Specification_ActivationTanh {
 ///
 /// .. math::
 ///     f(x) = \alpha \tanh(\beta x)
-struct CoreML_Specification_ActivationScaledTanh {
+public struct CoreML_Specification_ActivationScaledTanh {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -513,7 +513,7 @@ struct CoreML_Specification_ActivationScaledTanh {
 ///
 /// .. math::
 ///     f(x) = \dfrac{1}{1 + e^{-x}}
-struct CoreML_Specification_ActivationSigmoid {
+public struct CoreML_Specification_ActivationSigmoid {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -530,7 +530,7 @@ struct CoreML_Specification_ActivationSigmoid {
 ///
 /// .. math::
 ///     f(x) = \alpha x + \beta
-struct CoreML_Specification_ActivationLinear {
+public struct CoreML_Specification_ActivationLinear {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -551,7 +551,7 @@ struct CoreML_Specification_ActivationLinear {
 ///
 /// .. math::
 ///     f(x) = \text{min}(\text{max}(\alpha x + \beta, 0), 1)
-struct CoreML_Specification_ActivationSigmoidHard {
+public struct CoreML_Specification_ActivationSigmoidHard {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -577,7 +577,7 @@ struct CoreML_Specification_ActivationSigmoidHard {
 ///                 x_i          & \text{if } x_i \geq 0 \\
 ///                 \alpha_i x_i & \text{if } x_i < 0
 ///             \end{cases} \;,\;i=1,...,C
-struct CoreML_Specification_ActivationPReLU {
+public struct CoreML_Specification_ActivationPReLU {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -611,7 +611,7 @@ struct CoreML_Specification_ActivationPReLU {
 ///             x              & \text{if } x \geq 0 \\
 ///             \alpha (e^x - 1) & \text{if } x < 0
 ///            \end{cases}
-struct CoreML_Specification_ActivationELU {
+public struct CoreML_Specification_ActivationELU {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -633,7 +633,7 @@ struct CoreML_Specification_ActivationELU {
 ///             x & \text{if } x \geq \alpha \\
 ///             0 & \text{if } x < \alpha
 ///            \end{cases}
-struct CoreML_Specification_ActivationThresholdedReLU {
+public struct CoreML_Specification_ActivationThresholdedReLU {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -652,7 +652,7 @@ struct CoreML_Specification_ActivationThresholdedReLU {
 ///
 /// .. math::
 ///     f(x) = \dfrac{x}{1 + |x|}
-struct CoreML_Specification_ActivationSoftsign {
+public struct CoreML_Specification_ActivationSoftsign {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -669,7 +669,7 @@ struct CoreML_Specification_ActivationSoftsign {
 ///
 /// .. math::
 ///     f(x) = \text{log}(1 + e^x)
-struct CoreML_Specification_ActivationSoftplus {
+public struct CoreML_Specification_ActivationSoftplus {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -688,7 +688,7 @@ struct CoreML_Specification_ActivationSoftplus {
 ///
 /// .. math::
 ///     f(x_i) = \alpha_i \text{log}(1 + e^{\beta_i x_i}) \;,\;i=1,...,C
-struct CoreML_Specification_ActivationParametricSoftplus {
+public struct CoreML_Specification_ActivationParametricSoftplus {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -723,7 +723,7 @@ struct CoreML_Specification_ActivationParametricSoftplus {
     fileprivate var _beta: CoreML_Specification_WeightParams?
 }
 
-struct CoreML_Specification_ActivationParams {
+public struct CoreML_Specification_ActivationParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -920,7 +920,7 @@ struct CoreML_Specification_ActivationParams {
 
 /// *
 /// Representation of the intermediate tensors
-struct CoreML_Specification_Tensor {
+public struct CoreML_Specification_Tensor {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -939,7 +939,7 @@ struct CoreML_Specification_Tensor {
 
 /// *
 /// A single neural network layer.
-struct CoreML_Specification_NeuralNetworkLayer {
+public struct CoreML_Specification_NeuralNetworkLayer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3103,7 +3103,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
 /// if or the else branch based on the value of the input.
 ///
 /// Input is the condition predicate. Must be a scalar (length 1 tensor).
-struct CoreML_Specification_BranchLayerParams {
+public struct CoreML_Specification_BranchLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3188,7 +3188,7 @@ struct CoreML_Specification_BranchLayerParams {
 ///      bodyNetwork()
 ///      loopIterator = loopIterator + 1
 ///      conditionVar = conditionNetwork()
-struct CoreML_Specification_LoopLayerParams {
+public struct CoreML_Specification_LoopLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3246,7 +3246,7 @@ struct CoreML_Specification_LoopLayerParams {
 /// If present, it should always reside in the "bodyNetwork" of the loop layer
 ///
 /// No inputs/outputs
-struct CoreML_Specification_LoopBreakLayerParams {
+public struct CoreML_Specification_LoopBreakLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3263,7 +3263,7 @@ struct CoreML_Specification_LoopBreakLayerParams {
 /// If present, it should always reside in the "bodyNetwork" of the loop layer
 ///
 /// No inputs/outputs
-struct CoreML_Specification_LoopContinueLayerParams {
+public struct CoreML_Specification_LoopContinueLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3280,7 +3280,7 @@ struct CoreML_Specification_LoopContinueLayerParams {
 /// Must have 1 input and 1 output, with distinct names.
 /// This is the only layer that is allowed to re-generate an output that is already present in the neural network prior to this layer,
 /// in which case it will overwrite the output tensor.
-struct CoreML_Specification_CopyLayerParams {
+public struct CoreML_Specification_CopyLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3306,7 +3306,7 @@ struct CoreML_Specification_CopyLayerParams {
 ///      y = x1 > alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_GreaterThanLayerParams {
+public struct CoreML_Specification_GreaterThanLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3336,7 +3336,7 @@ struct CoreML_Specification_GreaterThanLayerParams {
 ///      y = x1 >= alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_GreaterEqualLayerParams {
+public struct CoreML_Specification_GreaterEqualLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3366,7 +3366,7 @@ struct CoreML_Specification_GreaterEqualLayerParams {
 ///      y = x1 < alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LessThanLayerParams {
+public struct CoreML_Specification_LessThanLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3396,7 +3396,7 @@ struct CoreML_Specification_LessThanLayerParams {
 ///      y = x1 <= alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LessEqualLayerParams {
+public struct CoreML_Specification_LessEqualLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3426,7 +3426,7 @@ struct CoreML_Specification_LessEqualLayerParams {
 ///      y = x1 == alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_EqualLayerParams {
+public struct CoreML_Specification_EqualLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3456,7 +3456,7 @@ struct CoreML_Specification_EqualLayerParams {
 ///      y = x1 != alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_NotEqualLayerParams {
+public struct CoreML_Specification_NotEqualLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3484,7 +3484,7 @@ struct CoreML_Specification_NotEqualLayerParams {
 ///      y = AND(x1, x2)
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LogicalAndLayerParams {
+public struct CoreML_Specification_LogicalAndLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3508,7 +3508,7 @@ struct CoreML_Specification_LogicalAndLayerParams {
 ///      y = OR(x1, x2)
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LogicalOrLayerParams {
+public struct CoreML_Specification_LogicalOrLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3532,7 +3532,7 @@ struct CoreML_Specification_LogicalOrLayerParams {
 ///      y = XOR(x1, x2)
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LogicalXorLayerParams {
+public struct CoreML_Specification_LogicalXorLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3554,7 +3554,7 @@ struct CoreML_Specification_LogicalXorLayerParams {
 /// .. code::
 ///
 ///      y = NOT(x)
-struct CoreML_Specification_LogicalNotLayerParams {
+public struct CoreML_Specification_LogicalNotLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3590,7 +3590,7 @@ struct CoreML_Specification_LogicalNotLayerParams {
 ///     bottomCropAmount == Height endEdgeSize
 ///     leftCropAmount == Width startEdgeSize
 ///     rightCropAmount == Width endEdgeSize
-struct CoreML_Specification_BorderAmounts {
+public struct CoreML_Specification_BorderAmounts {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3661,7 +3661,7 @@ struct CoreML_Specification_BorderAmounts {
 /// which results in a "true" valid padding.
 /// If non-zero values are provided for ``paddingAmounts``,
 /// "valid" convolution/pooling is performed within the spatially expanded input.
-struct CoreML_Specification_ValidPadding {
+public struct CoreML_Specification_ValidPadding {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3729,7 +3729,7 @@ struct CoreML_Specification_ValidPadding {
 ///
 ///    H_out = H_in * stride[0]
 ///    W_out = W_in * stride[1]
-struct CoreML_Specification_SamePadding {
+public struct CoreML_Specification_SamePadding {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3788,7 +3788,7 @@ struct CoreML_Specification_SamePadding {
 /// Note: numpy.linspace(start = start, end = end, num = N, endpoint = True) corresponds to sampling
 /// N points uniformly from the interval [start, end], endpoints included.
 /// The methods vary in how the ``start`` and ``end`` values are computed.
-struct CoreML_Specification_SamplingMode {
+public struct CoreML_Specification_SamplingMode {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3870,7 +3870,7 @@ struct CoreML_Specification_SamplingMode {
 /// *
 /// Specifies the convention used to specify four bounding box coordinates for an image of size (Height, Width).
 /// The (0,0) coordinate corresponds to the top-left corner of the image.
-struct CoreML_Specification_BoxCoordinatesMode {
+public struct CoreML_Specification_BoxCoordinatesMode {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3946,7 +3946,7 @@ struct CoreML_Specification_BoxCoordinatesMode {
 /// Weights are stored as repeated floating point numbers
 /// using row-major ordering
 /// and can represent 1-, 2-, 3-, or 4-dimensional data.
-struct CoreML_Specification_WeightParams {
+public struct CoreML_Specification_WeightParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4001,7 +4001,7 @@ struct CoreML_Specification_WeightParams {
 
 /// *
 /// Quantization parameters.
-struct CoreML_Specification_QuantizationParams {
+public struct CoreML_Specification_QuantizationParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4055,7 +4055,7 @@ struct CoreML_Specification_QuantizationParams {
     init() {}
 }
 
-struct CoreML_Specification_LinearQuantizationParams {
+public struct CoreML_Specification_LinearQuantizationParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4078,7 +4078,7 @@ struct CoreML_Specification_LinearQuantizationParams {
     init() {}
 }
 
-struct CoreML_Specification_LookUpTableQuantizationParams {
+public struct CoreML_Specification_LookUpTableQuantizationParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4131,7 +4131,7 @@ struct CoreML_Specification_LookUpTableQuantizationParams {
 /// and "SamePadding". Padded values are all zeros.
 ///
 /// For Deconvolution, ``ConvolutionPaddingType`` (``valid`` or ``same``) is ignored when ``outputShape`` is set.
-struct CoreML_Specification_ConvolutionLayerParams {
+public struct CoreML_Specification_ConvolutionLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4326,7 +4326,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
 ///   bottom/right of the height/width dimensions. Thus, the padding applied to the input will be
 ///   ``[1, 1, 0, 1, 0, 1]`` (front, back, top, bottom, left, right). Finally, the output produced
 ///   will have size ``[1, 2, 2, 4, 4]``.
-struct CoreML_Specification_Convolution3DLayerParams {
+public struct CoreML_Specification_Convolution3DLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4603,7 +4603,7 @@ struct CoreML_Specification_Convolution3DLayerParams {
 ///      rank 3: (x1, x2, C_out)
 ///      rank 4: (x1, C_out, 1, 1)
 ///      rank 5: (x1, x2, C_out, 1, 1)
-struct CoreML_Specification_InnerProductLayerParams {
+public struct CoreML_Specification_InnerProductLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4691,7 +4691,7 @@ struct CoreML_Specification_InnerProductLayerParams {
 ///      Output rank is same as the input rank. Please see input description above.
 ///      rank 4: shape (x1, outputChannels, 1, 1)
 ///      rank 5: shape (x1, x2, outputChannels, 1, 1)
-struct CoreML_Specification_EmbeddingLayerParams {
+public struct CoreML_Specification_EmbeddingLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4767,7 +4767,7 @@ struct CoreML_Specification_EmbeddingLayerParams {
 ///      rank 3: shape (x1, x2, embeddingSize)
 ///      rank 4: shape (x1, x2, x3, embeddingSize)
 ///      rank 5: shape (x1, x2, x3, x4, embeddingSize)
-struct CoreML_Specification_EmbeddingNDLayerParams {
+public struct CoreML_Specification_EmbeddingNDLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4842,7 +4842,7 @@ struct CoreML_Specification_EmbeddingNDLayerParams {
 ///
 /// Output
 ///     A blob with the same shape as the input.
-struct CoreML_Specification_BatchnormLayerParams {
+public struct CoreML_Specification_BatchnormLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4961,7 +4961,7 @@ struct CoreML_Specification_BatchnormLayerParams {
 ///
 /// The equivalent expressions hold true for ``W_out`` as well.
 /// Only symmetric padding is supported with this option.
-struct CoreML_Specification_PoolingLayerParams {
+public struct CoreML_Specification_PoolingLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5144,7 +5144,7 @@ struct CoreML_Specification_PoolingLayerParams {
 /// +----+----+
 /// | 17 | 18 |
 /// +----+----+
-struct CoreML_Specification_Pooling3DLayerParams {
+public struct CoreML_Specification_Pooling3DLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5324,7 +5324,7 @@ struct CoreML_Specification_Pooling3DLayerParams {
 /// +----+
 /// | 18 |
 /// +----+
-struct CoreML_Specification_GlobalPooling3DLayerParams {
+public struct CoreML_Specification_GlobalPooling3DLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5451,7 +5451,7 @@ struct CoreML_Specification_GlobalPooling3DLayerParams {
 ///                     1   1   1  2   3   4
 ///                     5   5   5  6   7   8
 ///                     9   9   9  10  11  12
-struct CoreML_Specification_PaddingLayerParams {
+public struct CoreML_Specification_PaddingLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5584,7 +5584,7 @@ struct CoreML_Specification_PaddingLayerParams {
 ///
 /// Output
 ///   Same rank as the input.
-struct CoreML_Specification_ConcatLayerParams {
+public struct CoreML_Specification_ConcatLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5621,7 +5621,7 @@ struct CoreML_Specification_ConcatLayerParams {
 ///
 /// where the summation is done over a ``(localSize, 1, 1)`` neighborhood ---
 /// that is, over a window "across" channels in 1x1 spatial neighborhoods.
-struct CoreML_Specification_LRNLayerParams {
+public struct CoreML_Specification_LRNLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5664,7 +5664,7 @@ struct CoreML_Specification_LRNLayerParams {
 ///
 /// .. math::
 ///     x_i \leftarrow \dfrac{e^{x_i}}{\sum_i{e^{x_i}}}
-struct CoreML_Specification_SoftmaxLayerParams {
+public struct CoreML_Specification_SoftmaxLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5690,7 +5690,7 @@ struct CoreML_Specification_SoftmaxLayerParams {
 /// Output
 ///     ``nOutputs`` blobs each with same rank as the input.
 ///     e.g.: For input that is of shape ``[C, H, W]``, output shapes will be ``[C/nOutputs, H, W]``
-struct CoreML_Specification_SplitLayerParams {
+public struct CoreML_Specification_SplitLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5724,7 +5724,7 @@ struct CoreML_Specification_SplitLayerParams {
 ///
 /// .. math::
 ///     y = x + \alpha
-struct CoreML_Specification_AddLayerParams {
+public struct CoreML_Specification_AddLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5760,7 +5760,7 @@ struct CoreML_Specification_AddLayerParams {
 ///
 /// .. math::
 ///     y = \alpha x
-struct CoreML_Specification_MultiplyLayerParams {
+public struct CoreML_Specification_MultiplyLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5793,7 +5793,7 @@ struct CoreML_Specification_MultiplyLayerParams {
 ///
 /// .. math::
 ///     x \leftarrow \text{scale} \cdot x + \text{shift}
-struct CoreML_Specification_UnaryFunctionLayerParams {
+public struct CoreML_Specification_UnaryFunctionLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5936,7 +5936,7 @@ struct CoreML_Specification_UnaryFunctionLayerParams {
 /// Output
 ///     Same rank as the input.
 ///     e.g.: blob with shape ``[C, scalingFactor[0] * H, scalingFactor[1] * W]``
-struct CoreML_Specification_UpsampleLayerParams {
+public struct CoreML_Specification_UpsampleLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6078,7 +6078,7 @@ struct CoreML_Specification_UpsampleLayerParams {
 /// Output
 ///     Same rank as the input.
 ///     e.g.: blob with shape ``[C, H_out, W_out]``.
-struct CoreML_Specification_ResizeBilinearLayerParams {
+public struct CoreML_Specification_ResizeBilinearLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6143,7 +6143,7 @@ struct CoreML_Specification_ResizeBilinearLayerParams {
 ///     A blob with rank 5.
 ///           - Shape is [N, Batch, C, H_out, W_out] if input RoI shape is [N, 1, 4, 1, 1]
 ///           - Shape is [N, 1, C, H_out, W_out] if input RoI shape is [N, 1, 5, 1, 1]
-struct CoreML_Specification_CropResizeLayerParams {
+public struct CoreML_Specification_CropResizeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6217,7 +6217,7 @@ struct CoreML_Specification_CropResizeLayerParams {
 ///     For ranks greater than 3, the leading dimensions, starting from 0 to -4 (inclusive), are all treated as batch.
 /// Output
 ///     A blob with the same shape as the input.
-struct CoreML_Specification_BiasLayerParams {
+public struct CoreML_Specification_BiasLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6265,7 +6265,7 @@ struct CoreML_Specification_BiasLayerParams {
 ///     For ranks greater than 3, the leading dimensions, starting from 0 to -4 (inclusive), are all treated as batch.
 /// Output
 ///     A blob with the same shape as the input.
-struct CoreML_Specification_ScaleLayerParams {
+public struct CoreML_Specification_ScaleLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6339,7 +6339,7 @@ struct CoreML_Specification_ScaleLayerParams {
 ///
 /// Output:
 ///     A blob with rank 5 and shape ``[1, 1, C, H, W]``
-struct CoreML_Specification_LoadConstantLayerParams {
+public struct CoreML_Specification_LoadConstantLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6389,7 +6389,7 @@ struct CoreML_Specification_LoadConstantLayerParams {
 ///
 /// .. math::
 ///     x_i \leftarrow \dfrac{x_i}{\sqrt{\sum{x_i^2} + \epsilon}}
-struct CoreML_Specification_L2NormalizeLayerParams {
+public struct CoreML_Specification_L2NormalizeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6425,7 +6425,7 @@ struct CoreML_Specification_L2NormalizeLayerParams {
 /// ``CHANNEL_FIRST`` does not require data to be rearranged,
 /// because row major ordering is used by internal storage.
 /// ``CHANNEL_LAST`` requires data to be rearranged.
-struct CoreML_Specification_FlattenLayerParams {
+public struct CoreML_Specification_FlattenLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6502,7 +6502,7 @@ struct CoreML_Specification_FlattenLayerParams {
 /// reshaping it to ``[Seq_out, 1, H_out, W_out, C_out]`` (it is now in "H_out-major"" order),
 /// and then permuting it to ``[C_out, H_out, W_out]``;
 /// both the flattening and permuting requires the data to be rearranged.
-struct CoreML_Specification_ReshapeLayerParams {
+public struct CoreML_Specification_ReshapeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6595,7 +6595,7 @@ struct CoreML_Specification_ReshapeLayerParams {
 ///
 /// - If ``axis`` is not set, or is set to ``[0, 1, 2, 3]``,
 ///   the output is the same as the input.
-struct CoreML_Specification_PermuteLayerParams {
+public struct CoreML_Specification_PermuteLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6682,7 +6682,7 @@ struct CoreML_Specification_PermuteLayerParams {
 ///
 ///     [[ 9 11 10 12]
 ///      [13 15 14 16]]]
-struct CoreML_Specification_ReorganizeDataLayerParams {
+public struct CoreML_Specification_ReorganizeDataLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6761,7 +6761,7 @@ struct CoreML_Specification_ReorganizeDataLayerParams {
 /// stride must be positive and represents the step size for slicing.
 /// Negative indexing is supported for startIndex and endIndex.
 /// -1 denotes N-1, -2 denotes N-2 and so on, where N is the length of the dimension to be sliced.
-struct CoreML_Specification_SliceLayerParams {
+public struct CoreML_Specification_SliceLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6847,7 +6847,7 @@ struct CoreML_Specification_SliceLayerParams {
 ///     Values supported for axis are [-1], [-2], [-3], [-2,-1], [-3,-2,-1]
 ///     and the equivalent positive values (depending on the rank of the input)
 ///     For mode == 'ArgMax', axis must be [-1] or [-2] or [-3].
-struct CoreML_Specification_ReduceLayerParams {
+public struct CoreML_Specification_ReduceLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7087,7 +7087,7 @@ struct CoreML_Specification_ReduceLayerParams {
 /// .. code::
 ///
 ///      y = x1[:, offset[0]:offset[0] + H_out, offset[1]:offset[1] + W_out]
-struct CoreML_Specification_CropLayerParams {
+public struct CoreML_Specification_CropLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7134,7 +7134,7 @@ struct CoreML_Specification_CropLayerParams {
 ///     [B, 1, 1, 1], [B, C, 1, 1], [B, 1, H, W], [B, C, H, W]
 /// Output
 ///     A blob with the same shape as each input.
-struct CoreML_Specification_AverageLayerParams {
+public struct CoreML_Specification_AverageLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7159,7 +7159,7 @@ struct CoreML_Specification_AverageLayerParams {
 ///     [B, C, 1, 1], [B, C, H, W]
 /// Output
 ///     A blob with the same shape as each input.
-struct CoreML_Specification_MaxLayerParams {
+public struct CoreML_Specification_MaxLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7184,7 +7184,7 @@ struct CoreML_Specification_MaxLayerParams {
 ///     [B, C, 1, 1], [B, C, H, W]
 /// Output
 ///     A blob with the same shape as each input.
-struct CoreML_Specification_MinLayerParams {
+public struct CoreML_Specification_MinLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7211,7 +7211,7 @@ struct CoreML_Specification_MinLayerParams {
 /// Output
 ///     Same rank as the input.
 ///     e.g. for rank 4 inputs, output shape: [B, 1, 1, 1]
-struct CoreML_Specification_DotProductLayerParams {
+public struct CoreML_Specification_DotProductLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7250,7 +7250,7 @@ struct CoreML_Specification_DotProductLayerParams {
 /// If ``acrossChannels == false``
 /// normalization is performed within a channel,
 /// across spatial dimensions (i.e. last two dimensions).
-struct CoreML_Specification_MeanVarianceNormalizeLayerParams {
+public struct CoreML_Specification_MeanVarianceNormalizeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7288,7 +7288,7 @@ struct CoreML_Specification_MeanVarianceNormalizeLayerParams {
 /// Output
 ///     A blob with the same rank as the input.
 ///     e.g.: for input shape ``[Seq, B, C, H, W]``, output shape is ``[nRepetitions * Seq, B, C, H, W]``.
-struct CoreML_Specification_SequenceRepeatLayerParams {
+public struct CoreML_Specification_SequenceRepeatLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7333,7 +7333,7 @@ struct CoreML_Specification_SequenceRepeatLayerParams {
 /// - ``b`` is a 1-dimensional bias vector (``[outputVectorSize]``)
 /// - ``f()`` is an activation
 /// - ``clip()`` is a function that constrains values between ``[-50.0, 50.0]``
-struct CoreML_Specification_SimpleRecurrentLayerParams {
+public struct CoreML_Specification_SimpleRecurrentLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7479,7 +7479,7 @@ struct CoreML_Specification_SimpleRecurrentLayerParams {
 /// - ``f()``, ``g()`` are activations
 /// - ``clip()`` is a function that constrains values between ``[-50.0, 50.0]``
 /// - ``⊙`` denotes the elementwise product of matrices
-struct CoreML_Specification_GRULayerParams {
+public struct CoreML_Specification_GRULayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7686,7 +7686,7 @@ struct CoreML_Specification_GRULayerParams {
 /// - ``f()``, ``g()``, ``h()`` are activations
 /// - ``clip()`` is a function that constrains values between ``[-50.0, 50.0]``
 /// - ``⊙`` denotes the elementwise product of matrices
-struct CoreML_Specification_LSTMParams {
+public struct CoreML_Specification_LSTMParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7732,7 +7732,7 @@ struct CoreML_Specification_LSTMParams {
 
 /// *
 /// Weights for long short-term memory (LSTM) layers
-struct CoreML_Specification_LSTMWeightParams {
+public struct CoreML_Specification_LSTMWeightParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7925,7 +7925,7 @@ struct CoreML_Specification_LSTMWeightParams {
 ///
 /// - Output Shape: ``[1, Batch, outputVectorSize, 1, 1]`` , if ``sequenceOutput == false``
 /// - Output Shape: ``[Seq, Batch, outputVectorSize, 1, 1]`` , if ``sequenceOutput == true``
-struct CoreML_Specification_UniDirectionalLSTMLayerParams {
+public struct CoreML_Specification_UniDirectionalLSTMLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8018,7 +8018,7 @@ struct CoreML_Specification_UniDirectionalLSTMLayerParams {
 ///
 /// - if ``sequenceOutput = True`` : { ``[yf_1, yb_3]``,  ``[yf_2, yb_2]``,  ``[yf_3, yb_1]`` }
 /// - if ``sequenceOutput = False`` : { ``[yf_3, yb_3]`` }
-struct CoreML_Specification_BiDirectionalLSTMLayerParams {
+public struct CoreML_Specification_BiDirectionalLSTMLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8068,7 +8068,7 @@ struct CoreML_Specification_BiDirectionalLSTMLayerParams {
     fileprivate var _params: CoreML_Specification_LSTMParams?
 }
 
-struct CoreML_Specification_CustomLayerParams {
+public struct CoreML_Specification_CustomLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8181,7 +8181,7 @@ struct CoreML_Specification_CustomLayerParams {
     init() {}
 }
 
-struct CoreML_Specification_TransposeLayerParams {
+public struct CoreML_Specification_TransposeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8232,7 +8232,7 @@ struct CoreML_Specification_TransposeLayerParams {
 ///             - if "a" is rank 2 (B1, X1) --> no need to reshape. Output shape will be (B1, X2)
 ///             - if "a" is rank 3 (B1, B2, X1) --> (B1 * B2, X1). Output shape will be (B1, B2, X2)
 ///             - etc
-struct CoreML_Specification_BatchedMatMulLayerParams {
+public struct CoreML_Specification_BatchedMatMulLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8352,7 +8352,7 @@ struct CoreML_Specification_BatchedMatMulLayerParams {
 /// output[0::2, :] = in1
 /// output[1::2, :] = in2
 /// value = [[1, 2], [7, 8], [3, 4], [9, 10], [5, 6], [11, 12]]
-struct CoreML_Specification_ConcatNDLayerParams {
+public struct CoreML_Specification_ConcatNDLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8382,7 +8382,7 @@ struct CoreML_Specification_ConcatNDLayerParams {
 /// Requires 1 input and produces 1 output.
 ///
 /// Output shape is same as the input.
-struct CoreML_Specification_SoftmaxNDLayerParams {
+public struct CoreML_Specification_SoftmaxNDLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8402,7 +8402,7 @@ struct CoreML_Specification_SoftmaxNDLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_ReverseLayerParams {
+public struct CoreML_Specification_ReverseLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8468,7 +8468,7 @@ struct CoreML_Specification_ReverseLayerParams {
 /// [6 7] (slice = 1)
 ///
 /// Output shape is same as the input.
-struct CoreML_Specification_ReverseSeqLayerParams {
+public struct CoreML_Specification_ReverseSeqLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8493,7 +8493,7 @@ struct CoreML_Specification_ReverseSeqLayerParams {
 /// Requires no input and produces 1 output.
 ///
 /// Output: A tensor with shape as provided in the parameter "shape"
-struct CoreML_Specification_LoadConstantNDLayerParams {
+public struct CoreML_Specification_LoadConstantNDLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8536,7 +8536,7 @@ struct CoreML_Specification_LoadConstantNDLayerParams {
 ///
 /// Output
 ///     A N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_FillLikeLayerParams {
+public struct CoreML_Specification_FillLikeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8560,7 +8560,7 @@ struct CoreML_Specification_FillLikeLayerParams {
 ///
 /// Output
 ///     A N-Dimensional tensor of shape "targetShape".
-struct CoreML_Specification_FillStaticLayerParams {
+public struct CoreML_Specification_FillStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8589,7 +8589,7 @@ struct CoreML_Specification_FillStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_FillDynamicLayerParams {
+public struct CoreML_Specification_FillDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8617,7 +8617,7 @@ struct CoreML_Specification_FillDynamicLayerParams {
 /// (the shapes must be broadcastable)
 ///
 /// output.rank = max(input[0].rank, input[1].rank, input[2].rank)
-struct CoreML_Specification_WhereBroadcastableLayerParams {
+public struct CoreML_Specification_WhereBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8637,7 +8637,7 @@ struct CoreML_Specification_WhereBroadcastableLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_SinLayerParams {
+public struct CoreML_Specification_SinLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8657,7 +8657,7 @@ struct CoreML_Specification_SinLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_CosLayerParams {
+public struct CoreML_Specification_CosLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8677,7 +8677,7 @@ struct CoreML_Specification_CosLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_TanLayerParams {
+public struct CoreML_Specification_TanLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8697,7 +8697,7 @@ struct CoreML_Specification_TanLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AsinLayerParams {
+public struct CoreML_Specification_AsinLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8717,7 +8717,7 @@ struct CoreML_Specification_AsinLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AcosLayerParams {
+public struct CoreML_Specification_AcosLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8737,7 +8737,7 @@ struct CoreML_Specification_AcosLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AtanLayerParams {
+public struct CoreML_Specification_AtanLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8757,7 +8757,7 @@ struct CoreML_Specification_AtanLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_SinhLayerParams {
+public struct CoreML_Specification_SinhLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8777,7 +8777,7 @@ struct CoreML_Specification_SinhLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_CoshLayerParams {
+public struct CoreML_Specification_CoshLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8797,7 +8797,7 @@ struct CoreML_Specification_CoshLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_TanhLayerParams {
+public struct CoreML_Specification_TanhLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8817,7 +8817,7 @@ struct CoreML_Specification_TanhLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AsinhLayerParams {
+public struct CoreML_Specification_AsinhLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8837,7 +8837,7 @@ struct CoreML_Specification_AsinhLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AcoshLayerParams {
+public struct CoreML_Specification_AcoshLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8857,7 +8857,7 @@ struct CoreML_Specification_AcoshLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AtanhLayerParams {
+public struct CoreML_Specification_AtanhLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8884,7 +8884,7 @@ struct CoreML_Specification_AtanhLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the broadcast shape.
-struct CoreML_Specification_PowBroadcastableLayerParams {
+public struct CoreML_Specification_PowBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8904,7 +8904,7 @@ struct CoreML_Specification_PowBroadcastableLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_Exp2LayerParams {
+public struct CoreML_Specification_Exp2LayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8945,7 +8945,7 @@ struct CoreML_Specification_Exp2LayerParams {
 /// [1. 2.]
 /// [2. 0.]
 /// [2. 1.]
-struct CoreML_Specification_WhereNonZeroLayerParams {
+public struct CoreML_Specification_WhereNonZeroLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8969,7 +8969,7 @@ struct CoreML_Specification_WhereNonZeroLayerParams {
 /// Output shape is same as the input shape.
 /// Rank of the input must be at least 2.
 /// For rank higher than 2, the last 2 dimensions are treated as the matrix, while the rest are treated as batch.
-struct CoreML_Specification_MatrixBandPartLayerParams {
+public struct CoreML_Specification_MatrixBandPartLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8991,7 +8991,7 @@ struct CoreML_Specification_MatrixBandPartLayerParams {
 /// Output shape is same as the input shape.
 /// Rank of the input must be at least 2.
 /// For rank higher than 2, the last 2 dimensions are treated as the matrix, while the rest are treated as batch.
-struct CoreML_Specification_UpperTriangularLayerParams {
+public struct CoreML_Specification_UpperTriangularLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9012,7 +9012,7 @@ struct CoreML_Specification_UpperTriangularLayerParams {
 /// Output shape is same as the input shape.
 /// Rank of the input must be at least 2.
 /// For rank higher than 2, the last 2 dimensions are treated as the matrix, while the rest are treated as batch.
-struct CoreML_Specification_LowerTriangularLayerParams {
+public struct CoreML_Specification_LowerTriangularLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9035,7 +9035,7 @@ struct CoreML_Specification_LowerTriangularLayerParams {
 /// used to determine the shape of the output. Values of second input are not used.
 ///
 /// Output is a tensor with the same shape as the second input.
-struct CoreML_Specification_BroadcastToLikeLayerParams {
+public struct CoreML_Specification_BroadcastToLikeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9053,7 +9053,7 @@ struct CoreML_Specification_BroadcastToLikeLayerParams {
 ///
 /// Output tensor is the broadcasted version of the input and has shape as specified in the
 /// parameter "targetShape".
-struct CoreML_Specification_BroadcastToStaticLayerParams {
+public struct CoreML_Specification_BroadcastToStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9074,7 +9074,7 @@ struct CoreML_Specification_BroadcastToStaticLayerParams {
 /// First input is the one that is broadcasted to produce the output.
 /// Second input is a rank 1 tensor specifying the shape of the output.
 /// Output tensor has shape as specified by the values in the 2nd input tensor.
-struct CoreML_Specification_BroadcastToDynamicLayerParams {
+public struct CoreML_Specification_BroadcastToDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9088,7 +9088,7 @@ struct CoreML_Specification_BroadcastToDynamicLayerParams {
 /// A layer that performs element-wise addition operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_AddBroadcastableLayerParams {
+public struct CoreML_Specification_AddBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9102,7 +9102,7 @@ struct CoreML_Specification_AddBroadcastableLayerParams {
 /// A layer that performs element-wise maximum operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_MaxBroadcastableLayerParams {
+public struct CoreML_Specification_MaxBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9116,7 +9116,7 @@ struct CoreML_Specification_MaxBroadcastableLayerParams {
 /// A layer that performs element-wise minimum operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_MinBroadcastableLayerParams {
+public struct CoreML_Specification_MinBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9130,7 +9130,7 @@ struct CoreML_Specification_MinBroadcastableLayerParams {
 /// A layer that performs element-wise modular operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_ModBroadcastableLayerParams {
+public struct CoreML_Specification_ModBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9144,7 +9144,7 @@ struct CoreML_Specification_ModBroadcastableLayerParams {
 /// A layer that performs element-wise floor division operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_FloorDivBroadcastableLayerParams {
+public struct CoreML_Specification_FloorDivBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9158,7 +9158,7 @@ struct CoreML_Specification_FloorDivBroadcastableLayerParams {
 /// A layer that performs element-wise subtract operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_SubtractBroadcastableLayerParams {
+public struct CoreML_Specification_SubtractBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9172,7 +9172,7 @@ struct CoreML_Specification_SubtractBroadcastableLayerParams {
 /// A layer that performs element-wise multiply operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_MultiplyBroadcastableLayerParams {
+public struct CoreML_Specification_MultiplyBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9186,7 +9186,7 @@ struct CoreML_Specification_MultiplyBroadcastableLayerParams {
 /// A layer that performs element-wise division operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_DivideBroadcastableLayerParams {
+public struct CoreML_Specification_DivideBroadcastableLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9228,7 +9228,7 @@ struct CoreML_Specification_DivideBroadcastableLayerParams {
 /// indices shape = (6, 8)
 /// axis = 1
 /// output shape = (2,) + (6, 8) + (5,) =  (2, 6, 8, 5)
-struct CoreML_Specification_GatherLayerParams {
+public struct CoreML_Specification_GatherLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9240,7 +9240,7 @@ struct CoreML_Specification_GatherLayerParams {
     init() {}
 }
 
-struct CoreML_Specification_ScatterLayerParams {
+public struct CoreML_Specification_ScatterLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9291,7 +9291,7 @@ struct CoreML_Specification_ScatterLayerParams {
 /// input[0] shape = (5, 3, 2, 5)
 /// input[1] shape = (2, 7, 3, 2)
 /// output shape = (2, 7, 3) + (2, 5) = (2, 7, 3, 2, 5)
-struct CoreML_Specification_GatherNDLayerParams {
+public struct CoreML_Specification_GatherNDLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9333,7 +9333,7 @@ struct CoreML_Specification_GatherNDLayerParams {
 /// indices shape = (4, 7, 2, 5, 1)
 /// updates shape = (4, 7, 2, 5, 6)
 /// output shape = (7, 6)
-struct CoreML_Specification_ScatterNDLayerParams {
+public struct CoreML_Specification_ScatterNDLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9372,7 +9372,7 @@ struct CoreML_Specification_ScatterNDLayerParams {
 /// indices shape = (4, 5, 7)
 /// axis = 1
 /// output shape = (4, 5, 7)
-struct CoreML_Specification_GatherAlongAxisLayerParams {
+public struct CoreML_Specification_GatherAlongAxisLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9411,7 +9411,7 @@ struct CoreML_Specification_GatherAlongAxisLayerParams {
 /// updates shape = (2, 2, 6)
 /// axis = -2
 /// output shape = (2, 5, 6)
-struct CoreML_Specification_ScatterAlongAxisLayerParams {
+public struct CoreML_Specification_ScatterAlongAxisLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9447,7 +9447,7 @@ struct CoreML_Specification_ScatterAlongAxisLayerParams {
 /// number of inputs = 5
 /// axis = -2
 /// output shape = (2, 4, 5, 2)
-struct CoreML_Specification_StackLayerParams {
+public struct CoreML_Specification_StackLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9478,7 +9478,7 @@ struct CoreML_Specification_StackLayerParams {
 /// input shape = (10,3,5)
 /// targetShape = (25,0,-1)
 /// output shape = (25,3,2)
-struct CoreML_Specification_RankPreservingReshapeLayerParams {
+public struct CoreML_Specification_RankPreservingReshapeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9529,7 +9529,7 @@ struct CoreML_Specification_RankPreservingReshapeLayerParams {
 /// input shape = (20,10,5)
 /// padAmounts = [0,0,17,0,0,14]
 /// output shape = (20,17,14)
-struct CoreML_Specification_ConstantPaddingLayerParams {
+public struct CoreML_Specification_ConstantPaddingLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9570,7 +9570,7 @@ struct CoreML_Specification_ConstantPaddingLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_RandomNormalLikeLayerParams {
+public struct CoreML_Specification_RandomNormalLikeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9599,7 +9599,7 @@ struct CoreML_Specification_RandomNormalLikeLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor of shape "outputShape".
-struct CoreML_Specification_RandomNormalStaticLayerParams {
+public struct CoreML_Specification_RandomNormalStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9632,7 +9632,7 @@ struct CoreML_Specification_RandomNormalStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_RandomNormalDynamicLayerParams {
+public struct CoreML_Specification_RandomNormalDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9664,7 +9664,7 @@ struct CoreML_Specification_RandomNormalDynamicLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_RandomUniformLikeLayerParams {
+public struct CoreML_Specification_RandomUniformLikeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9693,7 +9693,7 @@ struct CoreML_Specification_RandomUniformLikeLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor of shape "outputShape".
-struct CoreML_Specification_RandomUniformStaticLayerParams {
+public struct CoreML_Specification_RandomUniformStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9726,7 +9726,7 @@ struct CoreML_Specification_RandomUniformStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_RandomUniformDynamicLayerParams {
+public struct CoreML_Specification_RandomUniformDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9757,7 +9757,7 @@ struct CoreML_Specification_RandomUniformDynamicLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_RandomBernoulliLikeLayerParams {
+public struct CoreML_Specification_RandomBernoulliLikeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9783,7 +9783,7 @@ struct CoreML_Specification_RandomBernoulliLikeLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor of shape "outputShape".
-struct CoreML_Specification_RandomBernoulliStaticLayerParams {
+public struct CoreML_Specification_RandomBernoulliStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9813,7 +9813,7 @@ struct CoreML_Specification_RandomBernoulliStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_RandomBernoulliDynamicLayerParams {
+public struct CoreML_Specification_RandomBernoulliDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9841,7 +9841,7 @@ struct CoreML_Specification_RandomBernoulliDynamicLayerParams {
 ///
 /// Input tensor shape = [D_1, D_2, ... , D_(R-1), D_R] (Rank = R)
 /// Then the shape of the output is [D_1, D_2, ... , D_(R-1), numSamples] (Rank = R)
-struct CoreML_Specification_CategoricalDistributionLayerParams {
+public struct CoreML_Specification_CategoricalDistributionLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9871,7 +9871,7 @@ struct CoreML_Specification_CategoricalDistributionLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceL1LayerParams {
+public struct CoreML_Specification_ReduceL1LayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9897,7 +9897,7 @@ struct CoreML_Specification_ReduceL1LayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceL2LayerParams {
+public struct CoreML_Specification_ReduceL2LayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9923,7 +9923,7 @@ struct CoreML_Specification_ReduceL2LayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceMaxLayerParams {
+public struct CoreML_Specification_ReduceMaxLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9949,7 +9949,7 @@ struct CoreML_Specification_ReduceMaxLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceMinLayerParams {
+public struct CoreML_Specification_ReduceMinLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9975,7 +9975,7 @@ struct CoreML_Specification_ReduceMinLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceSumLayerParams {
+public struct CoreML_Specification_ReduceSumLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10001,7 +10001,7 @@ struct CoreML_Specification_ReduceSumLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceProdLayerParams {
+public struct CoreML_Specification_ReduceProdLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10027,7 +10027,7 @@ struct CoreML_Specification_ReduceProdLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceMeanLayerParams {
+public struct CoreML_Specification_ReduceMeanLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10053,7 +10053,7 @@ struct CoreML_Specification_ReduceMeanLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceLogSumLayerParams {
+public struct CoreML_Specification_ReduceLogSumLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10079,7 +10079,7 @@ struct CoreML_Specification_ReduceLogSumLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceSumSquareLayerParams {
+public struct CoreML_Specification_ReduceSumSquareLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10105,7 +10105,7 @@ struct CoreML_Specification_ReduceSumSquareLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceLogSumExpLayerParams {
+public struct CoreML_Specification_ReduceLogSumExpLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10139,7 +10139,7 @@ struct CoreML_Specification_ReduceLogSumExpLayerParams {
 /// input shape = (10,5)
 /// axes = (-2,-1)
 /// output shape = (10,5,1,1)
-struct CoreML_Specification_ExpandDimsLayerParams {
+public struct CoreML_Specification_ExpandDimsLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10187,7 +10187,7 @@ struct CoreML_Specification_ExpandDimsLayerParams {
 /// input shape:  (2, 3, 2)
 /// axis:  -1
 /// output shape:  (6, 2)
-struct CoreML_Specification_FlattenTo2DLayerParams {
+public struct CoreML_Specification_FlattenTo2DLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10206,7 +10206,7 @@ struct CoreML_Specification_FlattenTo2DLayerParams {
 ///
 /// Output tensor is the reshaped version of the input and has shape as specified in the
 /// parameter "targetShape".
-struct CoreML_Specification_ReshapeStaticLayerParams {
+public struct CoreML_Specification_ReshapeStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10227,7 +10227,7 @@ struct CoreML_Specification_ReshapeStaticLayerParams {
 /// used to determine the shape of the output. Values of the second input are not used.
 ///
 /// Output is a tensor with the same shape as the second input.
-struct CoreML_Specification_ReshapeLikeLayerParams {
+public struct CoreML_Specification_ReshapeLikeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10245,7 +10245,7 @@ struct CoreML_Specification_ReshapeLikeLayerParams {
 /// First input is the one that is reshaped to produce the output.
 /// Second input is a rank 1 tensor specifying the shape of the output.
 /// Output tensor has shape as specified by the values in the 2nd input tensor.
-struct CoreML_Specification_ReshapeDynamicLayerParams {
+public struct CoreML_Specification_ReshapeDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10280,7 +10280,7 @@ struct CoreML_Specification_ReshapeDynamicLayerParams {
 /// input shape = (1,)
 /// axes = (0)
 /// output shape = (1,)
-struct CoreML_Specification_SqueezeLayerParams {
+public struct CoreML_Specification_SqueezeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10315,7 +10315,7 @@ struct CoreML_Specification_SqueezeLayerParams {
 /// first input's shape = (45, 34, 10, 5)
 /// axis = 1
 /// output shape, for both outputs = (45, K, 10, 5)
-struct CoreML_Specification_TopKLayerParams {
+public struct CoreML_Specification_TopKLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10352,7 +10352,7 @@ struct CoreML_Specification_TopKLayerParams {
 /// input shape = (5,)
 /// axis = 0
 /// output shape = (1,), if removeDim = False or True
-struct CoreML_Specification_ArgMaxLayerParams {
+public struct CoreML_Specification_ArgMaxLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10384,7 +10384,7 @@ struct CoreML_Specification_ArgMaxLayerParams {
 /// input shape = (5,)
 /// axis = 0
 /// output shape = (1,), if removeDim = False or True
-struct CoreML_Specification_ArgMinLayerParams {
+public struct CoreML_Specification_ArgMinLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10418,7 +10418,7 @@ struct CoreML_Specification_ArgMinLayerParams {
 /// axis = -3, split_sizes = [3, 2]
 /// output shape:  (3, 3, 4)
 /// output shape:  (2, 3, 4)
-struct CoreML_Specification_SplitNDLayerParams {
+public struct CoreML_Specification_SplitNDLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10440,7 +10440,7 @@ struct CoreML_Specification_SplitNDLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_CeilLayerParams {
+public struct CoreML_Specification_CeilLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10456,7 +10456,7 @@ struct CoreML_Specification_CeilLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_RoundLayerParams {
+public struct CoreML_Specification_RoundLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10472,7 +10472,7 @@ struct CoreML_Specification_RoundLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_FloorLayerParams {
+public struct CoreML_Specification_FloorLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10488,7 +10488,7 @@ struct CoreML_Specification_FloorLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_SignLayerParams {
+public struct CoreML_Specification_SignLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10510,7 +10510,7 @@ struct CoreML_Specification_SignLayerParams {
 /// output =  min(max(input, minVal), maxVal)
 ///
 /// Output shape is same as the input.
-struct CoreML_Specification_ClipLayerParams {
+public struct CoreML_Specification_ClipLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10566,7 +10566,7 @@ struct CoreML_Specification_ClipLayerParams {
 /// SqueezeMasks:  [False, True, False]
 /// output shape:  (2, 3)
 /// This is equivalent to input[:3:2, 2, ::2]
-struct CoreML_Specification_SliceStaticLayerParams {
+public struct CoreML_Specification_SliceStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10607,7 +10607,7 @@ struct CoreML_Specification_SliceStaticLayerParams {
 /// The 5th input, if present, corresponds to "beginMasks". In this case the value of the "beginMasks" parameter is ignored.
 /// The 6th input, if present, corresponds to "endMasks". In this case the value of the "endMasks" parameter is ignored.
 /// The 7th input, if present, corresponds to "squeezeMasks". In this case the value of the "squeezeMasks" parameter is ignored.
-struct CoreML_Specification_SliceDynamicLayerParams {
+public struct CoreML_Specification_SliceDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10657,7 +10657,7 @@ struct CoreML_Specification_SliceDynamicLayerParams {
 /// second input = [1, 2, 6] -> shape: (3,)
 /// reps = N/A [Ignored]
 /// output shape = (2, 8, 12)
-struct CoreML_Specification_TileLayerParams {
+public struct CoreML_Specification_TileLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10677,7 +10677,7 @@ struct CoreML_Specification_TileLayerParams {
 /// Input: a tensor.
 /// Output: a vector of length R, where R is the rank of the input tensor
 /// Output is always a rank 1 tensor.
-struct CoreML_Specification_GetShapeLayerParams {
+public struct CoreML_Specification_GetShapeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10696,7 +10696,7 @@ struct CoreML_Specification_GetShapeLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_ErfLayerParams {
+public struct CoreML_Specification_ErfLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10724,7 +10724,7 @@ struct CoreML_Specification_ErfLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_GeluLayerParams {
+public struct CoreML_Specification_GeluLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10786,7 +10786,7 @@ struct CoreML_Specification_GeluLayerParams {
 ///
 /// Requires no input and produces 1 output.
 /// Output is a rank 1 tensor.
-struct CoreML_Specification_RangeStaticLayerParams {
+public struct CoreML_Specification_RangeStaticLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10814,7 +10814,7 @@ struct CoreML_Specification_RangeStaticLayerParams {
 /// The first input represents the "endValue".
 /// The second input, if present, corresponds to "startValue". In this case the value of the "startValue" parameter is ignored.
 /// The third input, if present, corresponds to "stepSizeValue". In this case the value of the "stepSizeValue" parameter is ignored.
-struct CoreML_Specification_RangeDynamicLayerParams {
+public struct CoreML_Specification_RangeDynamicLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10853,7 +10853,7 @@ struct CoreML_Specification_RangeDynamicLayerParams {
 ///      - L, C, B refer to input length, feature dimension length & batch size respectively
 ///      - W is the window size.
 ///      - M is the number of windows/slices calculated as M = (L - W) / step + 1
-struct CoreML_Specification_SlidingWindowsLayerParams {
+public struct CoreML_Specification_SlidingWindowsLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10890,7 +10890,7 @@ struct CoreML_Specification_SlidingWindowsLayerParams {
 ///
 /// input shape = (10,5,6,7)
 /// normalized shape = (7,) or (6,7) or (5,6,7) or (10,5,6,7)
-struct CoreML_Specification_LayerNormalizationLayerParams {
+public struct CoreML_Specification_LayerNormalizationLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10979,7 +10979,7 @@ struct CoreML_Specification_LayerNormalizationLayerParams {
 ///
 /// Note that the 4th output can be used to dynamically slice the first 3 outputs, in case
 /// the padded outputs are not required.
-struct CoreML_Specification_NonMaximumSuppressionLayerParams {
+public struct CoreML_Specification_NonMaximumSuppressionLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11022,7 +11022,7 @@ struct CoreML_Specification_NonMaximumSuppressionLayerParams {
 /// Output shape is same as the input.
 ///
 /// Available (iOS >= 14, macOS >= 11.0, watchOS >= 7)
-struct CoreML_Specification_ClampedReLULayerParams {
+public struct CoreML_Specification_ClampedReLULayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11060,7 +11060,7 @@ struct CoreML_Specification_ClampedReLULayerParams {
 /// output shape = (2,3)
 /// output values = [[0, 1, 2], [0, 2, 1]], descending = False
 /// output values = [[2, 1, 0], [1, 2, 0]], descending = True
-struct CoreML_Specification_ArgSortLayerParams {
+public struct CoreML_Specification_ArgSortLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11092,7 +11092,7 @@ struct CoreML_Specification_ArgSortLayerParams {
 /// axis: 1
 ///
 /// Output: x[:, begin:begin+2, :]
-struct CoreML_Specification_SliceBySizeLayerParams {
+public struct CoreML_Specification_SliceBySizeLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11108,7 +11108,7 @@ struct CoreML_Specification_SliceBySizeLayerParams {
 
 /// *
 /// A neural network specialized as a classifier.
-struct CoreML_Specification_NeuralNetworkClassifier {
+public struct CoreML_Specification_NeuralNetworkClassifier {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11189,7 +11189,7 @@ struct CoreML_Specification_NeuralNetworkClassifier {
     fileprivate var _updateParams: CoreML_Specification_NetworkUpdateParameters?
 }
 
-struct CoreML_Specification_OneHotLayerParams {
+public struct CoreML_Specification_OneHotLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11209,7 +11209,7 @@ struct CoreML_Specification_OneHotLayerParams {
     init() {}
 }
 
-struct CoreML_Specification_CumSumLayerParams {
+public struct CoreML_Specification_CumSumLayerParams {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11232,7 +11232,7 @@ struct CoreML_Specification_CumSumLayerParams {
 
 /// *
 /// A neural network specialized as a regressor.
-struct CoreML_Specification_NeuralNetworkRegressor {
+public struct CoreML_Specification_NeuralNetworkRegressor {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11266,7 +11266,7 @@ struct CoreML_Specification_NeuralNetworkRegressor {
 
 /// *
 /// Details on how the network will be updated
-struct CoreML_Specification_NetworkUpdateParameters {
+public struct CoreML_Specification_NetworkUpdateParameters {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11329,7 +11329,7 @@ struct CoreML_Specification_NetworkUpdateParameters {
 
 /// *
 /// Loss layer - categorical cross entropy and mean squared error are the only supported loss functions currently
-struct CoreML_Specification_LossLayer {
+public struct CoreML_Specification_LossLayer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11393,7 +11393,7 @@ struct CoreML_Specification_LossLayer {
 ///
 /// math:
 /// Loss_{CCE}(input, target) = -\sum_{i=1}^{N} (target == i) log( input[i] ) = - log (input[target])
-struct CoreML_Specification_CategoricalCrossEntropyLossLayer {
+public struct CoreML_Specification_CategoricalCrossEntropyLossLayer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11410,7 +11410,7 @@ struct CoreML_Specification_CategoricalCrossEntropyLossLayer {
 /// *
 /// Mean squared error loss layer,
 /// specifying input and target
-struct CoreML_Specification_MeanSquaredErrorLossLayer {
+public struct CoreML_Specification_MeanSquaredErrorLossLayer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11426,7 +11426,7 @@ struct CoreML_Specification_MeanSquaredErrorLossLayer {
 
 /// *
 /// Optimizer - stochastic gradient descent and adam are the only supported optimizers currently
-struct CoreML_Specification_Optimizer {
+public struct CoreML_Specification_Optimizer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11481,7 +11481,7 @@ struct CoreML_Specification_Optimizer {
 /// *
 /// Stochastic gradient descent optimizer,
 /// specifying configurable learning rate, mini batch size, and momentum
-struct CoreML_Specification_SGDOptimizer {
+public struct CoreML_Specification_SGDOptimizer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11528,7 +11528,7 @@ struct CoreML_Specification_SGDOptimizer {
 /// *
 /// Adam optimizer,
 /// specifying configurable learning rate, mini batch size, betas, and eps
-struct CoreML_Specification_AdamOptimizer {
+public struct CoreML_Specification_AdamOptimizer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

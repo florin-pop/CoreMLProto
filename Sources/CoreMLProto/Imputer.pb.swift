@@ -38,7 +38,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// if the input is an array of doubles, then any instances
 /// of ``NaN`` in the array is replaced with the corresponding
 /// value in ``imputedDoubleArray``.
-struct CoreML_Specification_Imputer {
+public struct CoreML_Specification_Imputer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

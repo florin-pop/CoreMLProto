@@ -28,7 +28,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// *
 /// A model which takes a single input string and outputs a
 /// label for the input.
-struct CoreML_Specification_CoreMLModels_TextClassifier {
+public struct CoreML_Specification_CoreMLModels_TextClassifier {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

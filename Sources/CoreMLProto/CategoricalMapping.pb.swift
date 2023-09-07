@@ -29,7 +29,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// A categorical mapping.
 ///
 /// This allows conversion from integers to strings, or from strings to integers.
-struct CoreML_Specification_CategoricalMapping {
+public struct CoreML_Specification_CategoricalMapping {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

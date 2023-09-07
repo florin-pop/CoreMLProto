@@ -27,7 +27,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 
 /// *
 /// A model which wraps another (compiled) model external to this one
-struct CoreML_Specification_LinkedModel {
+public struct CoreML_Specification_LinkedModel {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -68,7 +68,7 @@ struct CoreML_Specification_LinkedModel {
 }
 
 /// Model is referenced by a model file name and search path
-struct CoreML_Specification_LinkedModelFile {
+public struct CoreML_Specification_LinkedModelFile {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

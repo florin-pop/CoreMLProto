@@ -29,7 +29,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// Int64 parameter,
 /// consisting of a default int64 value, and allowed range or set of values
 /// value is unbounded if AllowedValues is not set.
-struct CoreML_Specification_Int64Parameter {
+public struct CoreML_Specification_Int64Parameter {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -87,7 +87,7 @@ struct CoreML_Specification_Int64Parameter {
 /// Double parameter,
 /// consisting of a default double value, and allowed range of values
 /// value is unbounded if AllowedValues is not set.
-struct CoreML_Specification_DoubleParameter {
+public struct CoreML_Specification_DoubleParameter {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -130,7 +130,7 @@ struct CoreML_Specification_DoubleParameter {
 /// *
 /// String parameter,
 /// A default string value must be provided
-struct CoreML_Specification_StringParameter {
+public struct CoreML_Specification_StringParameter {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -145,7 +145,7 @@ struct CoreML_Specification_StringParameter {
 /// *
 /// String parameter,
 /// A default bool value must be provided
-struct CoreML_Specification_BoolParameter {
+public struct CoreML_Specification_BoolParameter {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

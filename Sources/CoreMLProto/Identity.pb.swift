@@ -30,7 +30,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 ///
 /// This model returns given inputs as outputs, unchanged.
 /// Intended to be used for testing purposes.
-struct CoreML_Specification_Identity {
+public struct CoreML_Specification_Identity {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

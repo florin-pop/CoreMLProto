@@ -32,7 +32,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// Each categorical value will map to an index, this mapping is given by
 /// either the ``stringCategories`` parameter or the ``int64Categories``
 /// parameter.
-struct CoreML_Specification_OneHotEncoder {
+public struct CoreML_Specification_OneHotEncoder {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

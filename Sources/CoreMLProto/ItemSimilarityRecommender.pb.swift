@@ -62,7 +62,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 ///
 ///
 ///  References:
-struct CoreML_Specification_ItemSimilarityRecommender {
+public struct CoreML_Specification_ItemSimilarityRecommender {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

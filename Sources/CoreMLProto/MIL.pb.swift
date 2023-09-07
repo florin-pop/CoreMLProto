@@ -144,7 +144,7 @@ enum CoreML_Specification_MILSpec_DataType: SwiftProtobuf.Enum {
 #endif // swift(>=4.2)
 
 /// The top level container.
-struct CoreML_Specification_MILSpec_Program {
+public struct CoreML_Specification_MILSpec_Program {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -167,7 +167,7 @@ struct CoreML_Specification_MILSpec_Program {
 }
 
 /// A program-level function.
-struct CoreML_Specification_MILSpec_Function {
+public struct CoreML_Specification_MILSpec_Function {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -203,7 +203,7 @@ struct CoreML_Specification_MILSpec_Function {
 }
 
 /// A basic block with a single entry and exit in SSA form.
-struct CoreML_Specification_MILSpec_Block {
+public struct CoreML_Specification_MILSpec_Block {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -235,7 +235,7 @@ struct CoreML_Specification_MILSpec_Block {
 }
 
 /// Argument is list of Binding to either name or value
-struct CoreML_Specification_MILSpec_Argument {
+public struct CoreML_Specification_MILSpec_Argument {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -304,7 +304,7 @@ struct CoreML_Specification_MILSpec_Argument {
 }
 
 /// A single operation/node/layer.
-struct CoreML_Specification_MILSpec_Operation {
+public struct CoreML_Specification_MILSpec_Operation {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -347,7 +347,7 @@ struct CoreML_Specification_MILSpec_Operation {
 
 /// Named Value parameters
 /// (name, type) pair
-struct CoreML_Specification_MILSpec_NamedValueType {
+public struct CoreML_Specification_MILSpec_NamedValueType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -374,7 +374,7 @@ struct CoreML_Specification_MILSpec_NamedValueType {
 }
 
 /// A type of any kind
-struct CoreML_Specification_MILSpec_ValueType {
+public struct CoreML_Specification_MILSpec_ValueType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -457,7 +457,7 @@ struct CoreML_Specification_MILSpec_ValueType {
     fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct CoreML_Specification_MILSpec_TensorType {
+public struct CoreML_Specification_MILSpec_TensorType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -481,7 +481,7 @@ struct CoreML_Specification_MILSpec_TensorType {
     init() {}
 }
 
-struct CoreML_Specification_MILSpec_TupleType {
+public struct CoreML_Specification_MILSpec_TupleType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -494,7 +494,7 @@ struct CoreML_Specification_MILSpec_TupleType {
     init() {}
 }
 
-struct CoreML_Specification_MILSpec_ListType {
+public struct CoreML_Specification_MILSpec_ListType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -529,7 +529,7 @@ struct CoreML_Specification_MILSpec_ListType {
 }
 
 /// An unordered key-value mapping
-struct CoreML_Specification_MILSpec_DictionaryType {
+public struct CoreML_Specification_MILSpec_DictionaryType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -561,7 +561,7 @@ struct CoreML_Specification_MILSpec_DictionaryType {
     fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct CoreML_Specification_MILSpec_Dimension {
+public struct CoreML_Specification_MILSpec_Dimension {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -638,7 +638,7 @@ struct CoreML_Specification_MILSpec_Dimension {
 }
 
 /// See Variable vs Value primer above.
-struct CoreML_Specification_MILSpec_Value {
+public struct CoreML_Specification_MILSpec_Value {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -801,7 +801,7 @@ struct CoreML_Specification_MILSpec_Value {
     fileprivate var _type: CoreML_Specification_MILSpec_ValueType?
 }
 
-struct CoreML_Specification_MILSpec_TensorValue {
+public struct CoreML_Specification_MILSpec_TensorValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1002,7 +1002,7 @@ struct CoreML_Specification_MILSpec_TensorValue {
     init() {}
 }
 
-struct CoreML_Specification_MILSpec_TupleValue {
+public struct CoreML_Specification_MILSpec_TupleValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1015,7 +1015,7 @@ struct CoreML_Specification_MILSpec_TupleValue {
     init() {}
 }
 
-struct CoreML_Specification_MILSpec_ListValue {
+public struct CoreML_Specification_MILSpec_ListValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1027,7 +1027,7 @@ struct CoreML_Specification_MILSpec_ListValue {
     init() {}
 }
 
-struct CoreML_Specification_MILSpec_DictionaryValue {
+public struct CoreML_Specification_MILSpec_DictionaryValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

@@ -32,7 +32,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 /// ``inputList``.
 ///
 /// ``inputDimensions`` is a zero based index.
-struct CoreML_Specification_FeatureVectorizer {
+public struct CoreML_Specification_FeatureVectorizer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

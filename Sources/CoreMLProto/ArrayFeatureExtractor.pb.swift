@@ -30,7 +30,7 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 ///
 /// Given an index, extracts the value at that index from its array input.
 /// Indexes are zero-based.
-struct CoreML_Specification_ArrayFeatureExtractor {
+public struct CoreML_Specification_ArrayFeatureExtractor {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
