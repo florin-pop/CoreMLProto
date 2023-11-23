@@ -21,8 +21,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
@@ -38,7 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// if the input is an array of doubles, then any instances
 /// of ``NaN`` in the array is replaced with the corresponding
 /// value in ``imputedDoubleArray``.
-struct CoreML_Specification_Imputer {
+public struct CoreML_Specification_Imputer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -127,9 +127,9 @@ struct CoreML_Specification_Imputer {
     set {replaceValue = .replaceStringValue(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_ImputedValue: Equatable {
+  public enum OneOf_ImputedValue: Equatable {
     case imputedDoubleValue(Double)
     case imputedInt64Value(Int64)
     case imputedStringValue(String)
@@ -139,7 +139,7 @@ struct CoreML_Specification_Imputer {
     case imputedInt64Dictionary(CoreML_Specification_Int64ToDoubleMap)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_Imputer.OneOf_ImputedValue, rhs: CoreML_Specification_Imputer.OneOf_ImputedValue) -> Bool {
+    public static func ==(lhs: CoreML_Specification_Imputer.OneOf_ImputedValue, rhs: CoreML_Specification_Imputer.OneOf_ImputedValue) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -178,13 +178,13 @@ struct CoreML_Specification_Imputer {
   #endif
   }
 
-  enum OneOf_ReplaceValue: Equatable {
+  public enum OneOf_ReplaceValue: Equatable {
     case replaceDoubleValue(Double)
     case replaceInt64Value(Int64)
     case replaceStringValue(String)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_Imputer.OneOf_ReplaceValue, rhs: CoreML_Specification_Imputer.OneOf_ReplaceValue) -> Bool {
+    public static func ==(lhs: CoreML_Specification_Imputer.OneOf_ReplaceValue, rhs: CoreML_Specification_Imputer.OneOf_ReplaceValue) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -207,7 +207,7 @@ struct CoreML_Specification_Imputer {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -215,8 +215,8 @@ struct CoreML_Specification_Imputer {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_Imputer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Imputer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Imputer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "imputedDoubleValue"),
     2: .same(proto: "imputedInt64Value"),
     3: .same(proto: "imputedStringValue"),
@@ -229,7 +229,7 @@ extension CoreML_Specification_Imputer: SwiftProtobuf.Message, SwiftProtobuf._Me
     13: .same(proto: "replaceStringValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -340,7 +340,7 @@ extension CoreML_Specification_Imputer: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -394,7 +394,7 @@ extension CoreML_Specification_Imputer: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Imputer, rhs: CoreML_Specification_Imputer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Imputer, rhs: CoreML_Specification_Imputer) -> Bool {
     if lhs.imputedValue != rhs.imputedValue {return false}
     if lhs.replaceValue != rhs.replaceValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

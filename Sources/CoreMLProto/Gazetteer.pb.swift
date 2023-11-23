@@ -21,14 +21,14 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A model which uses an efficient probabilistic representation
 /// for assigning labels to a set of strings.
-struct CoreML_Specification_CoreMLModels_Gazetteer {
+public struct CoreML_Specification_CoreMLModels_Gazetteer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -59,15 +59,15 @@ struct CoreML_Specification_CoreMLModels_Gazetteer {
     set {classLabels = .stringClassLabels(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///
   /// Stores the set of output class labels
-  enum OneOf_ClassLabels: Equatable {
+  public enum OneOf_ClassLabels: Equatable {
     case stringClassLabels(CoreML_Specification_StringVector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_CoreMLModels_Gazetteer.OneOf_ClassLabels, rhs: CoreML_Specification_CoreMLModels_Gazetteer.OneOf_ClassLabels) -> Bool {
+    public static func ==(lhs: CoreML_Specification_CoreMLModels_Gazetteer.OneOf_ClassLabels, rhs: CoreML_Specification_CoreMLModels_Gazetteer.OneOf_ClassLabels) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -81,7 +81,7 @@ struct CoreML_Specification_CoreMLModels_Gazetteer {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -89,15 +89,15 @@ struct CoreML_Specification_CoreMLModels_Gazetteer {
 fileprivate let _protobuf_package = "CoreML.Specification.CoreMLModels"
 
 extension CoreML_Specification_CoreMLModels_Gazetteer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Gazetteer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Gazetteer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "revision"),
     10: .same(proto: "language"),
     100: .same(proto: "modelParameterData"),
     200: .same(proto: "stringClassLabels"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -124,7 +124,7 @@ extension CoreML_Specification_CoreMLModels_Gazetteer: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -144,7 +144,7 @@ extension CoreML_Specification_CoreMLModels_Gazetteer: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CoreMLModels_Gazetteer, rhs: CoreML_Specification_CoreMLModels_Gazetteer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CoreMLModels_Gazetteer, rhs: CoreML_Specification_CoreMLModels_Gazetteer) -> Bool {
     if lhs.revision != rhs.revision {return false}
     if lhs.language != rhs.language {return false}
     if lhs.modelParameterData != rhs.modelParameterData {return false}

@@ -21,15 +21,15 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A model which takes a single input string and outputs a
 /// sequence of tokens, tags for tokens, along with their
 /// locations and lengths, in the original string.
-struct CoreML_Specification_CoreMLModels_WordTagger {
+public struct CoreML_Specification_CoreMLModels_WordTagger {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -84,15 +84,15 @@ struct CoreML_Specification_CoreMLModels_WordTagger {
     set {tags = .stringTags(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///
   /// Stores the set of output tags
-  enum OneOf_Tags: Equatable {
+  public enum OneOf_Tags: Equatable {
     case stringTags(CoreML_Specification_StringVector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_CoreMLModels_WordTagger.OneOf_Tags, rhs: CoreML_Specification_CoreMLModels_WordTagger.OneOf_Tags) -> Bool {
+    public static func ==(lhs: CoreML_Specification_CoreMLModels_WordTagger.OneOf_Tags, rhs: CoreML_Specification_CoreMLModels_WordTagger.OneOf_Tags) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -106,7 +106,7 @@ struct CoreML_Specification_CoreMLModels_WordTagger {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -114,8 +114,8 @@ struct CoreML_Specification_CoreMLModels_WordTagger {
 fileprivate let _protobuf_package = "CoreML.Specification.CoreMLModels"
 
 extension CoreML_Specification_CoreMLModels_WordTagger: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WordTagger"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WordTagger"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "revision"),
     10: .same(proto: "language"),
     20: .same(proto: "tokensOutputFeatureName"),
@@ -126,7 +126,7 @@ extension CoreML_Specification_CoreMLModels_WordTagger: SwiftProtobuf.Message, S
     200: .same(proto: "stringTags"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -157,7 +157,7 @@ extension CoreML_Specification_CoreMLModels_WordTagger: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -189,7 +189,7 @@ extension CoreML_Specification_CoreMLModels_WordTagger: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CoreMLModels_WordTagger, rhs: CoreML_Specification_CoreMLModels_WordTagger) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CoreMLModels_WordTagger, rhs: CoreML_Specification_CoreMLModels_WordTagger) -> Bool {
     if lhs.revision != rhs.revision {return false}
     if lhs.language != rhs.language {return false}
     if lhs.tokensOutputFeatureName != rhs.tokensOutputFeatureName {return false}

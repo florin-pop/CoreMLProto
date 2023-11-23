@@ -19,7 +19,7 @@
 // a list of input names, a list of output names,
 // and a collection of parameters specific to the layer type.
 //
-// The graph structure and connectivity of the neural network
+// The graph public structure and connectivity of the neural network
 // is inferred from the input and output names.
 // A neural network starts with the layer
 // whose input name is equal to the value specified in
@@ -72,12 +72,12 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
-enum CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   ///
   /// Default legacy value. Only supported for Core ML Specification version <= 3.
@@ -85,7 +85,7 @@ enum CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf.Enu
   /// The default legacy shape mapping resolves all input shapes to a rank 5 equivalent
   /// with axis notation of [Seq, Batch, Channel, Height, Width].
   ///
-  /// When this enum value is selected,
+  /// When this public enum value is selected,
   /// the repeated shape field in the message "ArrayFeatureType" in feature types proto,
   /// must be either length 1 or length 3.
   ///
@@ -94,7 +94,7 @@ enum CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf.Enu
   /// rank 3 shape is mapped to shape [1,1,C,H,W]
   /// At runtime, the first two dimensions (Seq or Batch) can be presented as well, with non-1 values.
   ///
-  /// It is invalid to use this enum value if any of the layers added
+  /// It is invalid to use this public enum value if any of the layers added
   /// Specification version 4 (iOS >= 13, macOS >= 10.15) onwards are used in the network.
   /// Validator will raise an error in that case.
   case rank5ArrayMapping // = 0
@@ -106,11 +106,11 @@ enum CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf.Enu
   case exactArrayMapping // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .rank5ArrayMapping
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .rank5ArrayMapping
     case 1: self = .exactArrayMapping
@@ -118,7 +118,7 @@ enum CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf.Enu
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .rank5ArrayMapping: return 0
     case .exactArrayMapping: return 1
@@ -132,7 +132,7 @@ enum CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf.Enu
 
 extension CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_NeuralNetworkMultiArrayShapeMapping] = [
+  public static var allCases: [CoreML_Specification_NeuralNetworkMultiArrayShapeMapping] = [
     .rank5ArrayMapping,
     .exactArrayMapping,
   ]
@@ -140,8 +140,8 @@ extension CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: CaseIterable
 
 #endif  // swift(>=4.2)
 
-enum CoreML_Specification_NeuralNetworkImageShapeMapping: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CoreML_Specification_NeuralNetworkImageShapeMapping: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   ///
   /// In this case, image input is mapped to a rank 5 tensor.
@@ -156,11 +156,11 @@ enum CoreML_Specification_NeuralNetworkImageShapeMapping: SwiftProtobuf.Enum {
   case rank4ImageMapping // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .rank5ImageMapping
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .rank5ImageMapping
     case 1: self = .rank4ImageMapping
@@ -168,7 +168,7 @@ enum CoreML_Specification_NeuralNetworkImageShapeMapping: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .rank5ImageMapping: return 0
     case .rank4ImageMapping: return 1
@@ -182,7 +182,7 @@ enum CoreML_Specification_NeuralNetworkImageShapeMapping: SwiftProtobuf.Enum {
 
 extension CoreML_Specification_NeuralNetworkImageShapeMapping: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_NeuralNetworkImageShapeMapping] = [
+  public static var allCases: [CoreML_Specification_NeuralNetworkImageShapeMapping] = [
     .rank5ImageMapping,
     .rank4ImageMapping,
   ]
@@ -192,8 +192,8 @@ extension CoreML_Specification_NeuralNetworkImageShapeMapping: CaseIterable {
 
 ///
 /// Scatter accumulation mode.
-enum CoreML_Specification_ScatterMode: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CoreML_Specification_ScatterMode: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case scatterUpdate // = 0
 
   //// add
@@ -215,11 +215,11 @@ enum CoreML_Specification_ScatterMode: SwiftProtobuf.Enum {
   case scatterMin // = 6
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .scatterUpdate
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .scatterUpdate
     case 1: self = .scatterAdd
@@ -232,7 +232,7 @@ enum CoreML_Specification_ScatterMode: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .scatterUpdate: return 0
     case .scatterAdd: return 1
@@ -251,7 +251,7 @@ enum CoreML_Specification_ScatterMode: SwiftProtobuf.Enum {
 
 extension CoreML_Specification_ScatterMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_ScatterMode] = [
+  public static var allCases: [CoreML_Specification_ScatterMode] = [
     .scatterUpdate,
     .scatterAdd,
     .scatterSub,
@@ -266,33 +266,33 @@ extension CoreML_Specification_ScatterMode: CaseIterable {
 
 ///*
 ///A neural network.
-struct CoreML_Specification_NeuralNetwork {
+public struct CoreML_Specification_NeuralNetwork {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var layers: [CoreML_Specification_NeuralNetworkLayer] = []
+  public var layers: [CoreML_Specification_NeuralNetworkLayer] = []
 
-  var preprocessing: [CoreML_Specification_NeuralNetworkPreprocessing] = []
+  public var preprocessing: [CoreML_Specification_NeuralNetworkPreprocessing] = []
 
-  /// use this enum value to determine the input tensor shapes to the neural network, for multiarray inputs
-  var arrayInputShapeMapping: CoreML_Specification_NeuralNetworkMultiArrayShapeMapping = .rank5ArrayMapping
+  /// use this public enum value to determine the input tensor shapes to the neural network, for multiarray inputs
+  public var arrayInputShapeMapping: CoreML_Specification_NeuralNetworkMultiArrayShapeMapping = .rank5ArrayMapping
 
-  /// use this enum value to determine the input tensor shapes to the neural network, for image inputs
-  var imageInputShapeMapping: CoreML_Specification_NeuralNetworkImageShapeMapping = .rank5ImageMapping
+  /// use this public enum value to determine the input tensor shapes to the neural network, for image inputs
+  public var imageInputShapeMapping: CoreML_Specification_NeuralNetworkImageShapeMapping = .rank5ImageMapping
 
-  var updateParams: CoreML_Specification_NetworkUpdateParameters {
+  public var updateParams: CoreML_Specification_NetworkUpdateParameters {
     get {return _updateParams ?? CoreML_Specification_NetworkUpdateParameters()}
     set {_updateParams = newValue}
   }
   /// Returns true if `updateParams` has been explicitly set.
-  var hasUpdateParams: Bool {return self._updateParams != nil}
+  public var hasUpdateParams: Bool {return self._updateParams != nil}
   /// Clears the value of `updateParams`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateParams() {self._updateParams = nil}
+  public mutating func clearUpdateParams() {self._updateParams = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _updateParams: CoreML_Specification_NetworkUpdateParameters? = nil
 }
@@ -329,7 +329,7 @@ struct CoreML_Specification_NeuralNetwork {
 /// .. code::
 ///
 ///     Y[0, :, :] = channelScale * X[0, :, :] + grayBias
-struct CoreML_Specification_NeuralNetworkImageScaler {
+public struct CoreML_Specification_NeuralNetworkImageScaler {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -349,9 +349,9 @@ struct CoreML_Specification_NeuralNetworkImageScaler {
   ////Scalar bias to be added for grayscale images.
   var grayBias: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -359,7 +359,7 @@ struct CoreML_Specification_NeuralNetworkImageScaler {
 /// subtracts the provided mean image from the input image.
 /// The mean image is subtracted from the input named
 /// ``NeuralNetworkPreprocessing.featureName``.
-struct CoreML_Specification_NeuralNetworkMeanImage {
+public struct CoreML_Specification_NeuralNetworkMeanImage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -369,13 +369,13 @@ struct CoreML_Specification_NeuralNetworkMeanImage {
   /// representing shape [Channel,Height,Width].
   var meanImage: [Float] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 //// Preprocessing parameters for image inputs.
-struct CoreML_Specification_NeuralNetworkPreprocessing {
+public struct CoreML_Specification_NeuralNetworkPreprocessing {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -401,14 +401,14 @@ struct CoreML_Specification_NeuralNetworkPreprocessing {
     set {preprocessor = .meanImage(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Preprocessor: Equatable {
+  public enum OneOf_Preprocessor: Equatable {
     case scaler(CoreML_Specification_NeuralNetworkImageScaler)
     case meanImage(CoreML_Specification_NeuralNetworkMeanImage)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_NeuralNetworkPreprocessing.OneOf_Preprocessor, rhs: CoreML_Specification_NeuralNetworkPreprocessing.OneOf_Preprocessor) -> Bool {
+    public static func ==(lhs: CoreML_Specification_NeuralNetworkPreprocessing.OneOf_Preprocessor, rhs: CoreML_Specification_NeuralNetworkPreprocessing.OneOf_Preprocessor) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -427,7 +427,7 @@ struct CoreML_Specification_NeuralNetworkPreprocessing {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -437,14 +437,14 @@ struct CoreML_Specification_NeuralNetworkPreprocessing {
 ///
 /// .. math::
 ///     f(x) = \text{max}(0, x)
-struct CoreML_Specification_ActivationReLU {
+public struct CoreML_Specification_ActivationReLU {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -457,7 +457,7 @@ struct CoreML_Specification_ActivationReLU {
 ///             x      & \text{if } x \geq 0 \\
 ///             \alpha x & \text{if } x < 0
 ///            \end{cases}
-struct CoreML_Specification_ActivationLeakyReLU {
+public struct CoreML_Specification_ActivationLeakyReLU {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -465,9 +465,9 @@ struct CoreML_Specification_ActivationLeakyReLU {
   ///negative slope value for leakyReLU
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -477,14 +477,14 @@ struct CoreML_Specification_ActivationLeakyReLU {
 ///
 /// .. math::
 ///     f(x) = \dfrac{1 - e^{-2x}}{1 + e^{-2x}}
-struct CoreML_Specification_ActivationTanh {
+public struct CoreML_Specification_ActivationTanh {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -494,7 +494,7 @@ struct CoreML_Specification_ActivationTanh {
 ///
 /// .. math::
 ///     f(x) = \alpha \tanh(\beta x)
-struct CoreML_Specification_ActivationScaledTanh {
+public struct CoreML_Specification_ActivationScaledTanh {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -503,9 +503,9 @@ struct CoreML_Specification_ActivationScaledTanh {
 
   var beta: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -515,14 +515,14 @@ struct CoreML_Specification_ActivationScaledTanh {
 ///
 /// .. math::
 ///     f(x) = \dfrac{1}{1 + e^{-x}}
-struct CoreML_Specification_ActivationSigmoid {
+public struct CoreML_Specification_ActivationSigmoid {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -532,7 +532,7 @@ struct CoreML_Specification_ActivationSigmoid {
 ///
 /// .. math::
 ///     f(x) = \alpha x + \beta
-struct CoreML_Specification_ActivationLinear {
+public struct CoreML_Specification_ActivationLinear {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -541,9 +541,9 @@ struct CoreML_Specification_ActivationLinear {
 
   var beta: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -553,7 +553,7 @@ struct CoreML_Specification_ActivationLinear {
 ///
 /// .. math::
 ///     f(x) = \text{min}(\text{max}(\alpha x + \beta, 0), 1)
-struct CoreML_Specification_ActivationSigmoidHard {
+public struct CoreML_Specification_ActivationSigmoidHard {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -562,9 +562,9 @@ struct CoreML_Specification_ActivationSigmoidHard {
 
   var beta: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -579,7 +579,7 @@ struct CoreML_Specification_ActivationSigmoidHard {
 ///                 x_i          & \text{if } x_i \geq 0 \\
 ///                 \alpha_i x_i & \text{if } x_i < 0
 ///             \end{cases} \;,\;i=1,...,C
-struct CoreML_Specification_ActivationPReLU {
+public struct CoreML_Specification_ActivationPReLU {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -593,11 +593,11 @@ struct CoreML_Specification_ActivationPReLU {
   /// Returns true if `alpha` has been explicitly set.
   var hasAlpha: Bool {return self._alpha != nil}
   /// Clears the value of `alpha`. Subsequent reads from it will return its default value.
-  mutating func clearAlpha() {self._alpha = nil}
+  public mutating func clearAlpha() {self._alpha = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _alpha: CoreML_Specification_WeightParams? = nil
 }
@@ -612,16 +612,16 @@ struct CoreML_Specification_ActivationPReLU {
 ///             x              & \text{if } x \geq 0 \\
 ///             \alpha (e^x - 1) & \text{if } x < 0
 ///            \end{cases}
-struct CoreML_Specification_ActivationELU {
+public struct CoreML_Specification_ActivationELU {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -634,16 +634,16 @@ struct CoreML_Specification_ActivationELU {
 ///             x & \text{if } x \geq \alpha \\
 ///             0 & \text{if } x < \alpha
 ///            \end{cases}
-struct CoreML_Specification_ActivationThresholdedReLU {
+public struct CoreML_Specification_ActivationThresholdedReLU {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -653,14 +653,14 @@ struct CoreML_Specification_ActivationThresholdedReLU {
 ///
 /// .. math::
 ///     f(x) = \dfrac{x}{1 + |x|}
-struct CoreML_Specification_ActivationSoftsign {
+public struct CoreML_Specification_ActivationSoftsign {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -670,14 +670,14 @@ struct CoreML_Specification_ActivationSoftsign {
 ///
 /// .. math::
 ///     f(x) = \text{log}(1 + e^x)
-struct CoreML_Specification_ActivationSoftplus {
+public struct CoreML_Specification_ActivationSoftplus {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -689,7 +689,7 @@ struct CoreML_Specification_ActivationSoftplus {
 ///
 /// .. math::
 ///     f(x_i) = \alpha_i \text{log}(1 + e^{\beta_i x_i}) \;,\;i=1,...,C
-struct CoreML_Specification_ActivationParametricSoftplus {
+public struct CoreML_Specification_ActivationParametricSoftplus {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -702,7 +702,7 @@ struct CoreML_Specification_ActivationParametricSoftplus {
   /// Returns true if `alpha` has been explicitly set.
   var hasAlpha: Bool {return self._alpha != nil}
   /// Clears the value of `alpha`. Subsequent reads from it will return its default value.
-  mutating func clearAlpha() {self._alpha = nil}
+  public mutating func clearAlpha() {self._alpha = nil}
 
   ///parameter of length C or 1
   var beta: CoreML_Specification_WeightParams {
@@ -712,17 +712,17 @@ struct CoreML_Specification_ActivationParametricSoftplus {
   /// Returns true if `beta` has been explicitly set.
   var hasBeta: Bool {return self._beta != nil}
   /// Clears the value of `beta`. Subsequent reads from it will return its default value.
-  mutating func clearBeta() {self._beta = nil}
+  public mutating func clearBeta() {self._beta = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _alpha: CoreML_Specification_WeightParams? = nil
   fileprivate var _beta: CoreML_Specification_WeightParams? = nil
 }
 
-struct CoreML_Specification_ActivationParams {
+public struct CoreML_Specification_ActivationParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -833,9 +833,9 @@ struct CoreML_Specification_ActivationParams {
     set {nonlinearityType = .parametricSoftplus(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_NonlinearityType: Equatable {
+  public enum OneOf_NonlinearityType: Equatable {
     case linear(CoreML_Specification_ActivationLinear)
     case reLu(CoreML_Specification_ActivationReLU)
     case leakyReLu(CoreML_Specification_ActivationLeakyReLU)
@@ -851,7 +851,7 @@ struct CoreML_Specification_ActivationParams {
     case parametricSoftplus(CoreML_Specification_ActivationParametricSoftplus)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_ActivationParams.OneOf_NonlinearityType, rhs: CoreML_Specification_ActivationParams.OneOf_NonlinearityType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_ActivationParams.OneOf_NonlinearityType, rhs: CoreML_Specification_ActivationParams.OneOf_NonlinearityType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -914,12 +914,12 @@ struct CoreML_Specification_ActivationParams {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Representation of the intermediate tensors
-struct CoreML_Specification_Tensor {
+public struct CoreML_Specification_Tensor {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -931,42 +931,42 @@ struct CoreML_Specification_Tensor {
   /// must be of length "rank". Can contain -1s for unknown dimensions.
   var dimValue: [Int64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A single neural network layer.
-struct CoreML_Specification_NeuralNetworkLayer {
+public struct CoreML_Specification_NeuralNetworkLayer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   ///descriptive name of the layer
-  var name: String {
+  public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  var input: [String] {
+  public var input: [String] {
     get {return _storage._input}
     set {_uniqueStorage()._input = newValue}
   }
 
-  var output: [String] {
+  public var output: [String] {
     get {return _storage._output}
     set {_uniqueStorage()._output = newValue}
   }
 
   /// must be the same length as the "input" field
-  var inputTensor: [CoreML_Specification_Tensor] {
+  public var inputTensor: [CoreML_Specification_Tensor] {
     get {return _storage._inputTensor}
     set {_uniqueStorage()._inputTensor = newValue}
   }
 
   /// must be the same length as the "output" field
-  var outputTensor: [CoreML_Specification_Tensor] {
+  public var outputTensor: [CoreML_Specification_Tensor] {
     get {return _storage._outputTensor}
     set {_uniqueStorage()._outputTensor = newValue}
   }
@@ -974,18 +974,18 @@ struct CoreML_Specification_NeuralNetworkLayer {
   /// Must be set to true to mark the layer as updatable.
   /// If true, the weightParams in the layer's properties must also be set to updatable
   /// If false, the value of the isUpdatable parameter within the layer's weights are ignored
-  var isUpdatable: Bool {
+  public var isUpdatable: Bool {
     get {return _storage._isUpdatable}
     set {_uniqueStorage()._isUpdatable = newValue}
   }
 
-  var layer: OneOf_Layer? {
+  public var layer: OneOf_Layer? {
     get {return _storage._layer}
     set {_uniqueStorage()._layer = newValue}
   }
 
   /// Start at 100 here
-  var convolution: CoreML_Specification_ConvolutionLayerParams {
+  public var convolution: CoreML_Specification_ConvolutionLayerParams {
     get {
       if case .convolution(let v)? = _storage._layer {return v}
       return CoreML_Specification_ConvolutionLayerParams()
@@ -993,7 +993,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .convolution(newValue)}
   }
 
-  var pooling: CoreML_Specification_PoolingLayerParams {
+  public var pooling: CoreML_Specification_PoolingLayerParams {
     get {
       if case .pooling(let v)? = _storage._layer {return v}
       return CoreML_Specification_PoolingLayerParams()
@@ -1001,7 +1001,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .pooling(newValue)}
   }
 
-  var activation: CoreML_Specification_ActivationParams {
+  public var activation: CoreML_Specification_ActivationParams {
     get {
       if case .activation(let v)? = _storage._layer {return v}
       return CoreML_Specification_ActivationParams()
@@ -1009,7 +1009,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .activation(newValue)}
   }
 
-  var innerProduct: CoreML_Specification_InnerProductLayerParams {
+  public var innerProduct: CoreML_Specification_InnerProductLayerParams {
     get {
       if case .innerProduct(let v)? = _storage._layer {return v}
       return CoreML_Specification_InnerProductLayerParams()
@@ -1017,7 +1017,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .innerProduct(newValue)}
   }
 
-  var embedding: CoreML_Specification_EmbeddingLayerParams {
+  public var embedding: CoreML_Specification_EmbeddingLayerParams {
     get {
       if case .embedding(let v)? = _storage._layer {return v}
       return CoreML_Specification_EmbeddingLayerParams()
@@ -1026,7 +1026,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Normalization-related Layers
-  var batchnorm: CoreML_Specification_BatchnormLayerParams {
+  public var batchnorm: CoreML_Specification_BatchnormLayerParams {
     get {
       if case .batchnorm(let v)? = _storage._layer {return v}
       return CoreML_Specification_BatchnormLayerParams()
@@ -1034,7 +1034,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .batchnorm(newValue)}
   }
 
-  var mvn: CoreML_Specification_MeanVarianceNormalizeLayerParams {
+  public var mvn: CoreML_Specification_MeanVarianceNormalizeLayerParams {
     get {
       if case .mvn(let v)? = _storage._layer {return v}
       return CoreML_Specification_MeanVarianceNormalizeLayerParams()
@@ -1042,7 +1042,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .mvn(newValue)}
   }
 
-  var l2Normalize: CoreML_Specification_L2NormalizeLayerParams {
+  public var l2Normalize: CoreML_Specification_L2NormalizeLayerParams {
     get {
       if case .l2Normalize(let v)? = _storage._layer {return v}
       return CoreML_Specification_L2NormalizeLayerParams()
@@ -1050,7 +1050,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .l2Normalize(newValue)}
   }
 
-  var softmax: CoreML_Specification_SoftmaxLayerParams {
+  public var softmax: CoreML_Specification_SoftmaxLayerParams {
     get {
       if case .softmax(let v)? = _storage._layer {return v}
       return CoreML_Specification_SoftmaxLayerParams()
@@ -1058,7 +1058,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .softmax(newValue)}
   }
 
-  var lrn: CoreML_Specification_LRNLayerParams {
+  public var lrn: CoreML_Specification_LRNLayerParams {
     get {
       if case .lrn(let v)? = _storage._layer {return v}
       return CoreML_Specification_LRNLayerParams()
@@ -1066,7 +1066,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .lrn(newValue)}
   }
 
-  var crop: CoreML_Specification_CropLayerParams {
+  public var crop: CoreML_Specification_CropLayerParams {
     get {
       if case .crop(let v)? = _storage._layer {return v}
       return CoreML_Specification_CropLayerParams()
@@ -1074,7 +1074,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .crop(newValue)}
   }
 
-  var padding: CoreML_Specification_PaddingLayerParams {
+  public var padding: CoreML_Specification_PaddingLayerParams {
     get {
       if case .padding(let v)? = _storage._layer {return v}
       return CoreML_Specification_PaddingLayerParams()
@@ -1082,7 +1082,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .padding(newValue)}
   }
 
-  var upsample: CoreML_Specification_UpsampleLayerParams {
+  public var upsample: CoreML_Specification_UpsampleLayerParams {
     get {
       if case .upsample(let v)? = _storage._layer {return v}
       return CoreML_Specification_UpsampleLayerParams()
@@ -1090,7 +1090,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .upsample(newValue)}
   }
 
-  var resizeBilinear: CoreML_Specification_ResizeBilinearLayerParams {
+  public var resizeBilinear: CoreML_Specification_ResizeBilinearLayerParams {
     get {
       if case .resizeBilinear(let v)? = _storage._layer {return v}
       return CoreML_Specification_ResizeBilinearLayerParams()
@@ -1098,7 +1098,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .resizeBilinear(newValue)}
   }
 
-  var cropResize: CoreML_Specification_CropResizeLayerParams {
+  public var cropResize: CoreML_Specification_CropResizeLayerParams {
     get {
       if case .cropResize(let v)? = _storage._layer {return v}
       return CoreML_Specification_CropResizeLayerParams()
@@ -1106,7 +1106,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .cropResize(newValue)}
   }
 
-  var unary: CoreML_Specification_UnaryFunctionLayerParams {
+  public var unary: CoreML_Specification_UnaryFunctionLayerParams {
     get {
       if case .unary(let v)? = _storage._layer {return v}
       return CoreML_Specification_UnaryFunctionLayerParams()
@@ -1115,7 +1115,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Element-wise Operations
-  var add: CoreML_Specification_AddLayerParams {
+  public var add: CoreML_Specification_AddLayerParams {
     get {
       if case .add(let v)? = _storage._layer {return v}
       return CoreML_Specification_AddLayerParams()
@@ -1123,7 +1123,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .add(newValue)}
   }
 
-  var multiply: CoreML_Specification_MultiplyLayerParams {
+  public var multiply: CoreML_Specification_MultiplyLayerParams {
     get {
       if case .multiply(let v)? = _storage._layer {return v}
       return CoreML_Specification_MultiplyLayerParams()
@@ -1131,7 +1131,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .multiply(newValue)}
   }
 
-  var average: CoreML_Specification_AverageLayerParams {
+  public var average: CoreML_Specification_AverageLayerParams {
     get {
       if case .average(let v)? = _storage._layer {return v}
       return CoreML_Specification_AverageLayerParams()
@@ -1139,7 +1139,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .average(newValue)}
   }
 
-  var scale: CoreML_Specification_ScaleLayerParams {
+  public var scale: CoreML_Specification_ScaleLayerParams {
     get {
       if case .scale(let v)? = _storage._layer {return v}
       return CoreML_Specification_ScaleLayerParams()
@@ -1147,7 +1147,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .scale(newValue)}
   }
 
-  var bias: CoreML_Specification_BiasLayerParams {
+  public var bias: CoreML_Specification_BiasLayerParams {
     get {
       if case .bias(let v)? = _storage._layer {return v}
       return CoreML_Specification_BiasLayerParams()
@@ -1155,7 +1155,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .bias(newValue)}
   }
 
-  var max: CoreML_Specification_MaxLayerParams {
+  public var max: CoreML_Specification_MaxLayerParams {
     get {
       if case .max(let v)? = _storage._layer {return v}
       return CoreML_Specification_MaxLayerParams()
@@ -1163,7 +1163,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .max(newValue)}
   }
 
-  var min: CoreML_Specification_MinLayerParams {
+  public var min: CoreML_Specification_MinLayerParams {
     get {
       if case .min(let v)? = _storage._layer {return v}
       return CoreML_Specification_MinLayerParams()
@@ -1171,7 +1171,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .min(newValue)}
   }
 
-  var dot: CoreML_Specification_DotProductLayerParams {
+  public var dot: CoreML_Specification_DotProductLayerParams {
     get {
       if case .dot(let v)? = _storage._layer {return v}
       return CoreML_Specification_DotProductLayerParams()
@@ -1179,7 +1179,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .dot(newValue)}
   }
 
-  var reduce: CoreML_Specification_ReduceLayerParams {
+  public var reduce: CoreML_Specification_ReduceLayerParams {
     get {
       if case .reduce(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceLayerParams()
@@ -1187,7 +1187,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduce(newValue)}
   }
 
-  var loadConstant: CoreML_Specification_LoadConstantLayerParams {
+  public var loadConstant: CoreML_Specification_LoadConstantLayerParams {
     get {
       if case .loadConstant(let v)? = _storage._layer {return v}
       return CoreML_Specification_LoadConstantLayerParams()
@@ -1196,7 +1196,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Data Reorganization
-  var reshape: CoreML_Specification_ReshapeLayerParams {
+  public var reshape: CoreML_Specification_ReshapeLayerParams {
     get {
       if case .reshape(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReshapeLayerParams()
@@ -1204,7 +1204,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reshape(newValue)}
   }
 
-  var flatten: CoreML_Specification_FlattenLayerParams {
+  public var flatten: CoreML_Specification_FlattenLayerParams {
     get {
       if case .flatten(let v)? = _storage._layer {return v}
       return CoreML_Specification_FlattenLayerParams()
@@ -1212,7 +1212,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .flatten(newValue)}
   }
 
-  var permute: CoreML_Specification_PermuteLayerParams {
+  public var permute: CoreML_Specification_PermuteLayerParams {
     get {
       if case .permute(let v)? = _storage._layer {return v}
       return CoreML_Specification_PermuteLayerParams()
@@ -1220,7 +1220,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .permute(newValue)}
   }
 
-  var concat: CoreML_Specification_ConcatLayerParams {
+  public var concat: CoreML_Specification_ConcatLayerParams {
     get {
       if case .concat(let v)? = _storage._layer {return v}
       return CoreML_Specification_ConcatLayerParams()
@@ -1228,7 +1228,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .concat(newValue)}
   }
 
-  var split: CoreML_Specification_SplitLayerParams {
+  public var split: CoreML_Specification_SplitLayerParams {
     get {
       if case .split(let v)? = _storage._layer {return v}
       return CoreML_Specification_SplitLayerParams()
@@ -1236,7 +1236,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .split(newValue)}
   }
 
-  var sequenceRepeat: CoreML_Specification_SequenceRepeatLayerParams {
+  public var sequenceRepeat: CoreML_Specification_SequenceRepeatLayerParams {
     get {
       if case .sequenceRepeat(let v)? = _storage._layer {return v}
       return CoreML_Specification_SequenceRepeatLayerParams()
@@ -1244,7 +1244,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .sequenceRepeat(newValue)}
   }
 
-  var reorganizeData: CoreML_Specification_ReorganizeDataLayerParams {
+  public var reorganizeData: CoreML_Specification_ReorganizeDataLayerParams {
     get {
       if case .reorganizeData(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReorganizeDataLayerParams()
@@ -1252,7 +1252,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reorganizeData(newValue)}
   }
 
-  var slice: CoreML_Specification_SliceLayerParams {
+  public var slice: CoreML_Specification_SliceLayerParams {
     get {
       if case .slice(let v)? = _storage._layer {return v}
       return CoreML_Specification_SliceLayerParams()
@@ -1261,7 +1261,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Recurrent Layers
-  var simpleRecurrent: CoreML_Specification_SimpleRecurrentLayerParams {
+  public var simpleRecurrent: CoreML_Specification_SimpleRecurrentLayerParams {
     get {
       if case .simpleRecurrent(let v)? = _storage._layer {return v}
       return CoreML_Specification_SimpleRecurrentLayerParams()
@@ -1269,7 +1269,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .simpleRecurrent(newValue)}
   }
 
-  var gru: CoreML_Specification_GRULayerParams {
+  public var gru: CoreML_Specification_GRULayerParams {
     get {
       if case .gru(let v)? = _storage._layer {return v}
       return CoreML_Specification_GRULayerParams()
@@ -1277,7 +1277,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .gru(newValue)}
   }
 
-  var uniDirectionalLstm: CoreML_Specification_UniDirectionalLSTMLayerParams {
+  public var uniDirectionalLstm: CoreML_Specification_UniDirectionalLSTMLayerParams {
     get {
       if case .uniDirectionalLstm(let v)? = _storage._layer {return v}
       return CoreML_Specification_UniDirectionalLSTMLayerParams()
@@ -1285,7 +1285,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .uniDirectionalLstm(newValue)}
   }
 
-  var biDirectionalLstm: CoreML_Specification_BiDirectionalLSTMLayerParams {
+  public var biDirectionalLstm: CoreML_Specification_BiDirectionalLSTMLayerParams {
     get {
       if case .biDirectionalLstm(let v)? = _storage._layer {return v}
       return CoreML_Specification_BiDirectionalLSTMLayerParams()
@@ -1294,7 +1294,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Custom (user-implemented) Layer
-  var custom: CoreML_Specification_CustomLayerParams {
+  public var custom: CoreML_Specification_CustomLayerParams {
     get {
       if case .custom(let v)? = _storage._layer {return v}
       return CoreML_Specification_CustomLayerParams()
@@ -1303,7 +1303,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Control Flow related Layers
-  var copy: CoreML_Specification_CopyLayerParams {
+  public var copy: CoreML_Specification_CopyLayerParams {
     get {
       if case .copy(let v)? = _storage._layer {return v}
       return CoreML_Specification_CopyLayerParams()
@@ -1311,7 +1311,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .copy(newValue)}
   }
 
-  var branch: CoreML_Specification_BranchLayerParams {
+  public var branch: CoreML_Specification_BranchLayerParams {
     get {
       if case .branch(let v)? = _storage._layer {return v}
       return CoreML_Specification_BranchLayerParams()
@@ -1319,7 +1319,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .branch(newValue)}
   }
 
-  var loop: CoreML_Specification_LoopLayerParams {
+  public var loop: CoreML_Specification_LoopLayerParams {
     get {
       if case .loop(let v)? = _storage._layer {return v}
       return CoreML_Specification_LoopLayerParams()
@@ -1327,7 +1327,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .loop(newValue)}
   }
 
-  var loopBreak: CoreML_Specification_LoopBreakLayerParams {
+  public var loopBreak: CoreML_Specification_LoopBreakLayerParams {
     get {
       if case .loopBreak(let v)? = _storage._layer {return v}
       return CoreML_Specification_LoopBreakLayerParams()
@@ -1335,7 +1335,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .loopBreak(newValue)}
   }
 
-  var loopContinue: CoreML_Specification_LoopContinueLayerParams {
+  public var loopContinue: CoreML_Specification_LoopContinueLayerParams {
     get {
       if case .loopContinue(let v)? = _storage._layer {return v}
       return CoreML_Specification_LoopContinueLayerParams()
@@ -1343,7 +1343,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .loopContinue(newValue)}
   }
 
-  var rangeStatic: CoreML_Specification_RangeStaticLayerParams {
+  public var rangeStatic: CoreML_Specification_RangeStaticLayerParams {
     get {
       if case .rangeStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RangeStaticLayerParams()
@@ -1351,7 +1351,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .rangeStatic(newValue)}
   }
 
-  var rangeDynamic: CoreML_Specification_RangeDynamicLayerParams {
+  public var rangeDynamic: CoreML_Specification_RangeDynamicLayerParams {
     get {
       if case .rangeDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RangeDynamicLayerParams()
@@ -1360,7 +1360,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Element-wise Unary Layers
-  var clip: CoreML_Specification_ClipLayerParams {
+  public var clip: CoreML_Specification_ClipLayerParams {
     get {
       if case .clip(let v)? = _storage._layer {return v}
       return CoreML_Specification_ClipLayerParams()
@@ -1368,7 +1368,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .clip(newValue)}
   }
 
-  var ceil: CoreML_Specification_CeilLayerParams {
+  public var ceil: CoreML_Specification_CeilLayerParams {
     get {
       if case .ceil(let v)? = _storage._layer {return v}
       return CoreML_Specification_CeilLayerParams()
@@ -1376,7 +1376,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .ceil(newValue)}
   }
 
-  var floor: CoreML_Specification_FloorLayerParams {
+  public var floor: CoreML_Specification_FloorLayerParams {
     get {
       if case .floor(let v)? = _storage._layer {return v}
       return CoreML_Specification_FloorLayerParams()
@@ -1384,7 +1384,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .floor(newValue)}
   }
 
-  var sign: CoreML_Specification_SignLayerParams {
+  public var sign: CoreML_Specification_SignLayerParams {
     get {
       if case .sign(let v)? = _storage._layer {return v}
       return CoreML_Specification_SignLayerParams()
@@ -1392,7 +1392,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .sign(newValue)}
   }
 
-  var round: CoreML_Specification_RoundLayerParams {
+  public var round: CoreML_Specification_RoundLayerParams {
     get {
       if case .round(let v)? = _storage._layer {return v}
       return CoreML_Specification_RoundLayerParams()
@@ -1400,7 +1400,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .round(newValue)}
   }
 
-  var exp2: CoreML_Specification_Exp2LayerParams {
+  public var exp2: CoreML_Specification_Exp2LayerParams {
     get {
       if case .exp2(let v)? = _storage._layer {return v}
       return CoreML_Specification_Exp2LayerParams()
@@ -1408,7 +1408,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .exp2(newValue)}
   }
 
-  var sin: CoreML_Specification_SinLayerParams {
+  public var sin: CoreML_Specification_SinLayerParams {
     get {
       if case .sin(let v)? = _storage._layer {return v}
       return CoreML_Specification_SinLayerParams()
@@ -1416,7 +1416,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .sin(newValue)}
   }
 
-  var cos: CoreML_Specification_CosLayerParams {
+  public var cos: CoreML_Specification_CosLayerParams {
     get {
       if case .cos(let v)? = _storage._layer {return v}
       return CoreML_Specification_CosLayerParams()
@@ -1424,7 +1424,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .cos(newValue)}
   }
 
-  var tan: CoreML_Specification_TanLayerParams {
+  public var tan: CoreML_Specification_TanLayerParams {
     get {
       if case .tan(let v)? = _storage._layer {return v}
       return CoreML_Specification_TanLayerParams()
@@ -1432,7 +1432,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .tan(newValue)}
   }
 
-  var asin: CoreML_Specification_AsinLayerParams {
+  public var asin: CoreML_Specification_AsinLayerParams {
     get {
       if case .asin(let v)? = _storage._layer {return v}
       return CoreML_Specification_AsinLayerParams()
@@ -1440,7 +1440,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .asin(newValue)}
   }
 
-  var acos: CoreML_Specification_AcosLayerParams {
+  public var acos: CoreML_Specification_AcosLayerParams {
     get {
       if case .acos(let v)? = _storage._layer {return v}
       return CoreML_Specification_AcosLayerParams()
@@ -1448,7 +1448,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .acos(newValue)}
   }
 
-  var atan: CoreML_Specification_AtanLayerParams {
+  public var atan: CoreML_Specification_AtanLayerParams {
     get {
       if case .atan(let v)? = _storage._layer {return v}
       return CoreML_Specification_AtanLayerParams()
@@ -1456,7 +1456,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .atan(newValue)}
   }
 
-  var sinh: CoreML_Specification_SinhLayerParams {
+  public var sinh: CoreML_Specification_SinhLayerParams {
     get {
       if case .sinh(let v)? = _storage._layer {return v}
       return CoreML_Specification_SinhLayerParams()
@@ -1464,7 +1464,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .sinh(newValue)}
   }
 
-  var cosh: CoreML_Specification_CoshLayerParams {
+  public var cosh: CoreML_Specification_CoshLayerParams {
     get {
       if case .cosh(let v)? = _storage._layer {return v}
       return CoreML_Specification_CoshLayerParams()
@@ -1472,7 +1472,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .cosh(newValue)}
   }
 
-  var tanh: CoreML_Specification_TanhLayerParams {
+  public var tanh: CoreML_Specification_TanhLayerParams {
     get {
       if case .tanh(let v)? = _storage._layer {return v}
       return CoreML_Specification_TanhLayerParams()
@@ -1480,7 +1480,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .tanh(newValue)}
   }
 
-  var asinh: CoreML_Specification_AsinhLayerParams {
+  public var asinh: CoreML_Specification_AsinhLayerParams {
     get {
       if case .asinh(let v)? = _storage._layer {return v}
       return CoreML_Specification_AsinhLayerParams()
@@ -1488,7 +1488,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .asinh(newValue)}
   }
 
-  var acosh: CoreML_Specification_AcoshLayerParams {
+  public var acosh: CoreML_Specification_AcoshLayerParams {
     get {
       if case .acosh(let v)? = _storage._layer {return v}
       return CoreML_Specification_AcoshLayerParams()
@@ -1496,7 +1496,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .acosh(newValue)}
   }
 
-  var atanh: CoreML_Specification_AtanhLayerParams {
+  public var atanh: CoreML_Specification_AtanhLayerParams {
     get {
       if case .atanh(let v)? = _storage._layer {return v}
       return CoreML_Specification_AtanhLayerParams()
@@ -1504,7 +1504,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .atanh(newValue)}
   }
 
-  var erf: CoreML_Specification_ErfLayerParams {
+  public var erf: CoreML_Specification_ErfLayerParams {
     get {
       if case .erf(let v)? = _storage._layer {return v}
       return CoreML_Specification_ErfLayerParams()
@@ -1512,7 +1512,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .erf(newValue)}
   }
 
-  var gelu: CoreML_Specification_GeluLayerParams {
+  public var gelu: CoreML_Specification_GeluLayerParams {
     get {
       if case .gelu(let v)? = _storage._layer {return v}
       return CoreML_Specification_GeluLayerParams()
@@ -1521,7 +1521,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Element-wise Binary with Broadcasting Support
-  var equal: CoreML_Specification_EqualLayerParams {
+  public var equal: CoreML_Specification_EqualLayerParams {
     get {
       if case .equal(let v)? = _storage._layer {return v}
       return CoreML_Specification_EqualLayerParams()
@@ -1529,7 +1529,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .equal(newValue)}
   }
 
-  var notEqual: CoreML_Specification_NotEqualLayerParams {
+  public var notEqual: CoreML_Specification_NotEqualLayerParams {
     get {
       if case .notEqual(let v)? = _storage._layer {return v}
       return CoreML_Specification_NotEqualLayerParams()
@@ -1537,7 +1537,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .notEqual(newValue)}
   }
 
-  var lessThan: CoreML_Specification_LessThanLayerParams {
+  public var lessThan: CoreML_Specification_LessThanLayerParams {
     get {
       if case .lessThan(let v)? = _storage._layer {return v}
       return CoreML_Specification_LessThanLayerParams()
@@ -1545,7 +1545,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .lessThan(newValue)}
   }
 
-  var lessEqual: CoreML_Specification_LessEqualLayerParams {
+  public var lessEqual: CoreML_Specification_LessEqualLayerParams {
     get {
       if case .lessEqual(let v)? = _storage._layer {return v}
       return CoreML_Specification_LessEqualLayerParams()
@@ -1553,7 +1553,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .lessEqual(newValue)}
   }
 
-  var greaterThan: CoreML_Specification_GreaterThanLayerParams {
+  public var greaterThan: CoreML_Specification_GreaterThanLayerParams {
     get {
       if case .greaterThan(let v)? = _storage._layer {return v}
       return CoreML_Specification_GreaterThanLayerParams()
@@ -1561,7 +1561,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .greaterThan(newValue)}
   }
 
-  var greaterEqual: CoreML_Specification_GreaterEqualLayerParams {
+  public var greaterEqual: CoreML_Specification_GreaterEqualLayerParams {
     get {
       if case .greaterEqual(let v)? = _storage._layer {return v}
       return CoreML_Specification_GreaterEqualLayerParams()
@@ -1569,7 +1569,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .greaterEqual(newValue)}
   }
 
-  var logicalOr: CoreML_Specification_LogicalOrLayerParams {
+  public var logicalOr: CoreML_Specification_LogicalOrLayerParams {
     get {
       if case .logicalOr(let v)? = _storage._layer {return v}
       return CoreML_Specification_LogicalOrLayerParams()
@@ -1577,7 +1577,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .logicalOr(newValue)}
   }
 
-  var logicalXor: CoreML_Specification_LogicalXorLayerParams {
+  public var logicalXor: CoreML_Specification_LogicalXorLayerParams {
     get {
       if case .logicalXor(let v)? = _storage._layer {return v}
       return CoreML_Specification_LogicalXorLayerParams()
@@ -1585,7 +1585,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .logicalXor(newValue)}
   }
 
-  var logicalNot: CoreML_Specification_LogicalNotLayerParams {
+  public var logicalNot: CoreML_Specification_LogicalNotLayerParams {
     get {
       if case .logicalNot(let v)? = _storage._layer {return v}
       return CoreML_Specification_LogicalNotLayerParams()
@@ -1593,7 +1593,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .logicalNot(newValue)}
   }
 
-  var logicalAnd: CoreML_Specification_LogicalAndLayerParams {
+  public var logicalAnd: CoreML_Specification_LogicalAndLayerParams {
     get {
       if case .logicalAnd(let v)? = _storage._layer {return v}
       return CoreML_Specification_LogicalAndLayerParams()
@@ -1601,7 +1601,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .logicalAnd(newValue)}
   }
 
-  var modBroadcastable: CoreML_Specification_ModBroadcastableLayerParams {
+  public var modBroadcastable: CoreML_Specification_ModBroadcastableLayerParams {
     get {
       if case .modBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_ModBroadcastableLayerParams()
@@ -1609,7 +1609,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .modBroadcastable(newValue)}
   }
 
-  var minBroadcastable: CoreML_Specification_MinBroadcastableLayerParams {
+  public var minBroadcastable: CoreML_Specification_MinBroadcastableLayerParams {
     get {
       if case .minBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_MinBroadcastableLayerParams()
@@ -1617,7 +1617,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .minBroadcastable(newValue)}
   }
 
-  var maxBroadcastable: CoreML_Specification_MaxBroadcastableLayerParams {
+  public var maxBroadcastable: CoreML_Specification_MaxBroadcastableLayerParams {
     get {
       if case .maxBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_MaxBroadcastableLayerParams()
@@ -1625,7 +1625,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .maxBroadcastable(newValue)}
   }
 
-  var addBroadcastable: CoreML_Specification_AddBroadcastableLayerParams {
+  public var addBroadcastable: CoreML_Specification_AddBroadcastableLayerParams {
     get {
       if case .addBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_AddBroadcastableLayerParams()
@@ -1633,7 +1633,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .addBroadcastable(newValue)}
   }
 
-  var powBroadcastable: CoreML_Specification_PowBroadcastableLayerParams {
+  public var powBroadcastable: CoreML_Specification_PowBroadcastableLayerParams {
     get {
       if case .powBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_PowBroadcastableLayerParams()
@@ -1641,7 +1641,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .powBroadcastable(newValue)}
   }
 
-  var divideBroadcastable: CoreML_Specification_DivideBroadcastableLayerParams {
+  public var divideBroadcastable: CoreML_Specification_DivideBroadcastableLayerParams {
     get {
       if case .divideBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_DivideBroadcastableLayerParams()
@@ -1649,7 +1649,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .divideBroadcastable(newValue)}
   }
 
-  var floorDivBroadcastable: CoreML_Specification_FloorDivBroadcastableLayerParams {
+  public var floorDivBroadcastable: CoreML_Specification_FloorDivBroadcastableLayerParams {
     get {
       if case .floorDivBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_FloorDivBroadcastableLayerParams()
@@ -1657,7 +1657,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .floorDivBroadcastable(newValue)}
   }
 
-  var multiplyBroadcastable: CoreML_Specification_MultiplyBroadcastableLayerParams {
+  public var multiplyBroadcastable: CoreML_Specification_MultiplyBroadcastableLayerParams {
     get {
       if case .multiplyBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_MultiplyBroadcastableLayerParams()
@@ -1665,7 +1665,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .multiplyBroadcastable(newValue)}
   }
 
-  var subtractBroadcastable: CoreML_Specification_SubtractBroadcastableLayerParams {
+  public var subtractBroadcastable: CoreML_Specification_SubtractBroadcastableLayerParams {
     get {
       if case .subtractBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_SubtractBroadcastableLayerParams()
@@ -1674,7 +1674,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Tensor Manipulations
-  var tile: CoreML_Specification_TileLayerParams {
+  public var tile: CoreML_Specification_TileLayerParams {
     get {
       if case .tile(let v)? = _storage._layer {return v}
       return CoreML_Specification_TileLayerParams()
@@ -1682,7 +1682,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .tile(newValue)}
   }
 
-  var stack: CoreML_Specification_StackLayerParams {
+  public var stack: CoreML_Specification_StackLayerParams {
     get {
       if case .stack(let v)? = _storage._layer {return v}
       return CoreML_Specification_StackLayerParams()
@@ -1690,7 +1690,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .stack(newValue)}
   }
 
-  var gather: CoreML_Specification_GatherLayerParams {
+  public var gather: CoreML_Specification_GatherLayerParams {
     get {
       if case .gather(let v)? = _storage._layer {return v}
       return CoreML_Specification_GatherLayerParams()
@@ -1698,7 +1698,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .gather(newValue)}
   }
 
-  var scatter: CoreML_Specification_ScatterLayerParams {
+  public var scatter: CoreML_Specification_ScatterLayerParams {
     get {
       if case .scatter(let v)? = _storage._layer {return v}
       return CoreML_Specification_ScatterLayerParams()
@@ -1706,7 +1706,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .scatter(newValue)}
   }
 
-  var gatherNd: CoreML_Specification_GatherNDLayerParams {
+  public var gatherNd: CoreML_Specification_GatherNDLayerParams {
     get {
       if case .gatherNd(let v)? = _storage._layer {return v}
       return CoreML_Specification_GatherNDLayerParams()
@@ -1714,7 +1714,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .gatherNd(newValue)}
   }
 
-  var scatterNd: CoreML_Specification_ScatterNDLayerParams {
+  public var scatterNd: CoreML_Specification_ScatterNDLayerParams {
     get {
       if case .scatterNd(let v)? = _storage._layer {return v}
       return CoreML_Specification_ScatterNDLayerParams()
@@ -1722,7 +1722,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .scatterNd(newValue)}
   }
 
-  var softmaxNd: CoreML_Specification_SoftmaxNDLayerParams {
+  public var softmaxNd: CoreML_Specification_SoftmaxNDLayerParams {
     get {
       if case .softmaxNd(let v)? = _storage._layer {return v}
       return CoreML_Specification_SoftmaxNDLayerParams()
@@ -1730,7 +1730,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .softmaxNd(newValue)}
   }
 
-  var gatherAlongAxis: CoreML_Specification_GatherAlongAxisLayerParams {
+  public var gatherAlongAxis: CoreML_Specification_GatherAlongAxisLayerParams {
     get {
       if case .gatherAlongAxis(let v)? = _storage._layer {return v}
       return CoreML_Specification_GatherAlongAxisLayerParams()
@@ -1738,7 +1738,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .gatherAlongAxis(newValue)}
   }
 
-  var scatterAlongAxis: CoreML_Specification_ScatterAlongAxisLayerParams {
+  public var scatterAlongAxis: CoreML_Specification_ScatterAlongAxisLayerParams {
     get {
       if case .scatterAlongAxis(let v)? = _storage._layer {return v}
       return CoreML_Specification_ScatterAlongAxisLayerParams()
@@ -1746,7 +1746,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .scatterAlongAxis(newValue)}
   }
 
-  var reverse: CoreML_Specification_ReverseLayerParams {
+  public var reverse: CoreML_Specification_ReverseLayerParams {
     get {
       if case .reverse(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReverseLayerParams()
@@ -1754,7 +1754,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reverse(newValue)}
   }
 
-  var reverseSeq: CoreML_Specification_ReverseSeqLayerParams {
+  public var reverseSeq: CoreML_Specification_ReverseSeqLayerParams {
     get {
       if case .reverseSeq(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReverseSeqLayerParams()
@@ -1762,7 +1762,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reverseSeq(newValue)}
   }
 
-  var splitNd: CoreML_Specification_SplitNDLayerParams {
+  public var splitNd: CoreML_Specification_SplitNDLayerParams {
     get {
       if case .splitNd(let v)? = _storage._layer {return v}
       return CoreML_Specification_SplitNDLayerParams()
@@ -1770,7 +1770,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .splitNd(newValue)}
   }
 
-  var concatNd: CoreML_Specification_ConcatNDLayerParams {
+  public var concatNd: CoreML_Specification_ConcatNDLayerParams {
     get {
       if case .concatNd(let v)? = _storage._layer {return v}
       return CoreML_Specification_ConcatNDLayerParams()
@@ -1778,7 +1778,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .concatNd(newValue)}
   }
 
-  var transpose: CoreML_Specification_TransposeLayerParams {
+  public var transpose: CoreML_Specification_TransposeLayerParams {
     get {
       if case .transpose(let v)? = _storage._layer {return v}
       return CoreML_Specification_TransposeLayerParams()
@@ -1786,7 +1786,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .transpose(newValue)}
   }
 
-  var sliceStatic: CoreML_Specification_SliceStaticLayerParams {
+  public var sliceStatic: CoreML_Specification_SliceStaticLayerParams {
     get {
       if case .sliceStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_SliceStaticLayerParams()
@@ -1794,7 +1794,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .sliceStatic(newValue)}
   }
 
-  var sliceDynamic: CoreML_Specification_SliceDynamicLayerParams {
+  public var sliceDynamic: CoreML_Specification_SliceDynamicLayerParams {
     get {
       if case .sliceDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_SliceDynamicLayerParams()
@@ -1802,7 +1802,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .sliceDynamic(newValue)}
   }
 
-  var slidingWindows: CoreML_Specification_SlidingWindowsLayerParams {
+  public var slidingWindows: CoreML_Specification_SlidingWindowsLayerParams {
     get {
       if case .slidingWindows(let v)? = _storage._layer {return v}
       return CoreML_Specification_SlidingWindowsLayerParams()
@@ -1810,7 +1810,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .slidingWindows(newValue)}
   }
 
-  var topK: CoreML_Specification_TopKLayerParams {
+  public var topK: CoreML_Specification_TopKLayerParams {
     get {
       if case .topK(let v)? = _storage._layer {return v}
       return CoreML_Specification_TopKLayerParams()
@@ -1818,7 +1818,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .topK(newValue)}
   }
 
-  var argMin: CoreML_Specification_ArgMinLayerParams {
+  public var argMin: CoreML_Specification_ArgMinLayerParams {
     get {
       if case .argMin(let v)? = _storage._layer {return v}
       return CoreML_Specification_ArgMinLayerParams()
@@ -1826,7 +1826,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .argMin(newValue)}
   }
 
-  var argMax: CoreML_Specification_ArgMaxLayerParams {
+  public var argMax: CoreML_Specification_ArgMaxLayerParams {
     get {
       if case .argMax(let v)? = _storage._layer {return v}
       return CoreML_Specification_ArgMaxLayerParams()
@@ -1834,7 +1834,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .argMax(newValue)}
   }
 
-  var embeddingNd: CoreML_Specification_EmbeddingNDLayerParams {
+  public var embeddingNd: CoreML_Specification_EmbeddingNDLayerParams {
     get {
       if case .embeddingNd(let v)? = _storage._layer {return v}
       return CoreML_Specification_EmbeddingNDLayerParams()
@@ -1842,7 +1842,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .embeddingNd(newValue)}
   }
 
-  var batchedMatmul: CoreML_Specification_BatchedMatMulLayerParams {
+  public var batchedMatmul: CoreML_Specification_BatchedMatMulLayerParams {
     get {
       if case .batchedMatmul(let v)? = _storage._layer {return v}
       return CoreML_Specification_BatchedMatMulLayerParams()
@@ -1851,7 +1851,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Tensor Allocation / Reshape-related Operations
-  var getShape: CoreML_Specification_GetShapeLayerParams {
+  public var getShape: CoreML_Specification_GetShapeLayerParams {
     get {
       if case .getShape(let v)? = _storage._layer {return v}
       return CoreML_Specification_GetShapeLayerParams()
@@ -1859,7 +1859,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .getShape(newValue)}
   }
 
-  var loadConstantNd: CoreML_Specification_LoadConstantNDLayerParams {
+  public var loadConstantNd: CoreML_Specification_LoadConstantNDLayerParams {
     get {
       if case .loadConstantNd(let v)? = _storage._layer {return v}
       return CoreML_Specification_LoadConstantNDLayerParams()
@@ -1867,7 +1867,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .loadConstantNd(newValue)}
   }
 
-  var fillLike: CoreML_Specification_FillLikeLayerParams {
+  public var fillLike: CoreML_Specification_FillLikeLayerParams {
     get {
       if case .fillLike(let v)? = _storage._layer {return v}
       return CoreML_Specification_FillLikeLayerParams()
@@ -1875,7 +1875,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .fillLike(newValue)}
   }
 
-  var fillStatic: CoreML_Specification_FillStaticLayerParams {
+  public var fillStatic: CoreML_Specification_FillStaticLayerParams {
     get {
       if case .fillStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_FillStaticLayerParams()
@@ -1883,7 +1883,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .fillStatic(newValue)}
   }
 
-  var fillDynamic: CoreML_Specification_FillDynamicLayerParams {
+  public var fillDynamic: CoreML_Specification_FillDynamicLayerParams {
     get {
       if case .fillDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_FillDynamicLayerParams()
@@ -1891,7 +1891,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .fillDynamic(newValue)}
   }
 
-  var broadcastToLike: CoreML_Specification_BroadcastToLikeLayerParams {
+  public var broadcastToLike: CoreML_Specification_BroadcastToLikeLayerParams {
     get {
       if case .broadcastToLike(let v)? = _storage._layer {return v}
       return CoreML_Specification_BroadcastToLikeLayerParams()
@@ -1899,7 +1899,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .broadcastToLike(newValue)}
   }
 
-  var broadcastToStatic: CoreML_Specification_BroadcastToStaticLayerParams {
+  public var broadcastToStatic: CoreML_Specification_BroadcastToStaticLayerParams {
     get {
       if case .broadcastToStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_BroadcastToStaticLayerParams()
@@ -1907,7 +1907,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .broadcastToStatic(newValue)}
   }
 
-  var broadcastToDynamic: CoreML_Specification_BroadcastToDynamicLayerParams {
+  public var broadcastToDynamic: CoreML_Specification_BroadcastToDynamicLayerParams {
     get {
       if case .broadcastToDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_BroadcastToDynamicLayerParams()
@@ -1915,7 +1915,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .broadcastToDynamic(newValue)}
   }
 
-  var squeeze: CoreML_Specification_SqueezeLayerParams {
+  public var squeeze: CoreML_Specification_SqueezeLayerParams {
     get {
       if case .squeeze(let v)? = _storage._layer {return v}
       return CoreML_Specification_SqueezeLayerParams()
@@ -1923,7 +1923,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .squeeze(newValue)}
   }
 
-  var expandDims: CoreML_Specification_ExpandDimsLayerParams {
+  public var expandDims: CoreML_Specification_ExpandDimsLayerParams {
     get {
       if case .expandDims(let v)? = _storage._layer {return v}
       return CoreML_Specification_ExpandDimsLayerParams()
@@ -1931,7 +1931,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .expandDims(newValue)}
   }
 
-  var flattenTo2D: CoreML_Specification_FlattenTo2DLayerParams {
+  public var flattenTo2D: CoreML_Specification_FlattenTo2DLayerParams {
     get {
       if case .flattenTo2D(let v)? = _storage._layer {return v}
       return CoreML_Specification_FlattenTo2DLayerParams()
@@ -1939,7 +1939,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .flattenTo2D(newValue)}
   }
 
-  var reshapeLike: CoreML_Specification_ReshapeLikeLayerParams {
+  public var reshapeLike: CoreML_Specification_ReshapeLikeLayerParams {
     get {
       if case .reshapeLike(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReshapeLikeLayerParams()
@@ -1947,7 +1947,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reshapeLike(newValue)}
   }
 
-  var reshapeStatic: CoreML_Specification_ReshapeStaticLayerParams {
+  public var reshapeStatic: CoreML_Specification_ReshapeStaticLayerParams {
     get {
       if case .reshapeStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReshapeStaticLayerParams()
@@ -1955,7 +1955,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reshapeStatic(newValue)}
   }
 
-  var reshapeDynamic: CoreML_Specification_ReshapeDynamicLayerParams {
+  public var reshapeDynamic: CoreML_Specification_ReshapeDynamicLayerParams {
     get {
       if case .reshapeDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReshapeDynamicLayerParams()
@@ -1963,7 +1963,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reshapeDynamic(newValue)}
   }
 
-  var rankPreservingReshape: CoreML_Specification_RankPreservingReshapeLayerParams {
+  public var rankPreservingReshape: CoreML_Specification_RankPreservingReshapeLayerParams {
     get {
       if case .rankPreservingReshape(let v)? = _storage._layer {return v}
       return CoreML_Specification_RankPreservingReshapeLayerParams()
@@ -1971,7 +1971,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .rankPreservingReshape(newValue)}
   }
 
-  var constantPad: CoreML_Specification_ConstantPaddingLayerParams {
+  public var constantPad: CoreML_Specification_ConstantPaddingLayerParams {
     get {
       if case .constantPad(let v)? = _storage._layer {return v}
       return CoreML_Specification_ConstantPaddingLayerParams()
@@ -1980,7 +1980,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Random Distributions
-  var randomNormalLike: CoreML_Specification_RandomNormalLikeLayerParams {
+  public var randomNormalLike: CoreML_Specification_RandomNormalLikeLayerParams {
     get {
       if case .randomNormalLike(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomNormalLikeLayerParams()
@@ -1988,7 +1988,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomNormalLike(newValue)}
   }
 
-  var randomNormalStatic: CoreML_Specification_RandomNormalStaticLayerParams {
+  public var randomNormalStatic: CoreML_Specification_RandomNormalStaticLayerParams {
     get {
       if case .randomNormalStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomNormalStaticLayerParams()
@@ -1996,7 +1996,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomNormalStatic(newValue)}
   }
 
-  var randomNormalDynamic: CoreML_Specification_RandomNormalDynamicLayerParams {
+  public var randomNormalDynamic: CoreML_Specification_RandomNormalDynamicLayerParams {
     get {
       if case .randomNormalDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomNormalDynamicLayerParams()
@@ -2004,7 +2004,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomNormalDynamic(newValue)}
   }
 
-  var randomUniformLike: CoreML_Specification_RandomUniformLikeLayerParams {
+  public var randomUniformLike: CoreML_Specification_RandomUniformLikeLayerParams {
     get {
       if case .randomUniformLike(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomUniformLikeLayerParams()
@@ -2012,7 +2012,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomUniformLike(newValue)}
   }
 
-  var randomUniformStatic: CoreML_Specification_RandomUniformStaticLayerParams {
+  public var randomUniformStatic: CoreML_Specification_RandomUniformStaticLayerParams {
     get {
       if case .randomUniformStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomUniformStaticLayerParams()
@@ -2020,7 +2020,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomUniformStatic(newValue)}
   }
 
-  var randomUniformDynamic: CoreML_Specification_RandomUniformDynamicLayerParams {
+  public var randomUniformDynamic: CoreML_Specification_RandomUniformDynamicLayerParams {
     get {
       if case .randomUniformDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomUniformDynamicLayerParams()
@@ -2028,7 +2028,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomUniformDynamic(newValue)}
   }
 
-  var randomBernoulliLike: CoreML_Specification_RandomBernoulliLikeLayerParams {
+  public var randomBernoulliLike: CoreML_Specification_RandomBernoulliLikeLayerParams {
     get {
       if case .randomBernoulliLike(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomBernoulliLikeLayerParams()
@@ -2036,7 +2036,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomBernoulliLike(newValue)}
   }
 
-  var randomBernoulliStatic: CoreML_Specification_RandomBernoulliStaticLayerParams {
+  public var randomBernoulliStatic: CoreML_Specification_RandomBernoulliStaticLayerParams {
     get {
       if case .randomBernoulliStatic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomBernoulliStaticLayerParams()
@@ -2044,7 +2044,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomBernoulliStatic(newValue)}
   }
 
-  var randomBernoulliDynamic: CoreML_Specification_RandomBernoulliDynamicLayerParams {
+  public var randomBernoulliDynamic: CoreML_Specification_RandomBernoulliDynamicLayerParams {
     get {
       if case .randomBernoulliDynamic(let v)? = _storage._layer {return v}
       return CoreML_Specification_RandomBernoulliDynamicLayerParams()
@@ -2052,7 +2052,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .randomBernoulliDynamic(newValue)}
   }
 
-  var categoricalDistribution: CoreML_Specification_CategoricalDistributionLayerParams {
+  public var categoricalDistribution: CoreML_Specification_CategoricalDistributionLayerParams {
     get {
       if case .categoricalDistribution(let v)? = _storage._layer {return v}
       return CoreML_Specification_CategoricalDistributionLayerParams()
@@ -2061,7 +2061,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Reduction-related Layers:
-  var reduceL1: CoreML_Specification_ReduceL1LayerParams {
+  public var reduceL1: CoreML_Specification_ReduceL1LayerParams {
     get {
       if case .reduceL1(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceL1LayerParams()
@@ -2069,7 +2069,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceL1(newValue)}
   }
 
-  var reduceL2: CoreML_Specification_ReduceL2LayerParams {
+  public var reduceL2: CoreML_Specification_ReduceL2LayerParams {
     get {
       if case .reduceL2(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceL2LayerParams()
@@ -2077,7 +2077,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceL2(newValue)}
   }
 
-  var reduceMax: CoreML_Specification_ReduceMaxLayerParams {
+  public var reduceMax: CoreML_Specification_ReduceMaxLayerParams {
     get {
       if case .reduceMax(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceMaxLayerParams()
@@ -2085,7 +2085,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceMax(newValue)}
   }
 
-  var reduceMin: CoreML_Specification_ReduceMinLayerParams {
+  public var reduceMin: CoreML_Specification_ReduceMinLayerParams {
     get {
       if case .reduceMin(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceMinLayerParams()
@@ -2093,7 +2093,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceMin(newValue)}
   }
 
-  var reduceSum: CoreML_Specification_ReduceSumLayerParams {
+  public var reduceSum: CoreML_Specification_ReduceSumLayerParams {
     get {
       if case .reduceSum(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceSumLayerParams()
@@ -2101,7 +2101,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceSum(newValue)}
   }
 
-  var reduceProd: CoreML_Specification_ReduceProdLayerParams {
+  public var reduceProd: CoreML_Specification_ReduceProdLayerParams {
     get {
       if case .reduceProd(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceProdLayerParams()
@@ -2109,7 +2109,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceProd(newValue)}
   }
 
-  var reduceMean: CoreML_Specification_ReduceMeanLayerParams {
+  public var reduceMean: CoreML_Specification_ReduceMeanLayerParams {
     get {
       if case .reduceMean(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceMeanLayerParams()
@@ -2117,7 +2117,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceMean(newValue)}
   }
 
-  var reduceLogSum: CoreML_Specification_ReduceLogSumLayerParams {
+  public var reduceLogSum: CoreML_Specification_ReduceLogSumLayerParams {
     get {
       if case .reduceLogSum(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceLogSumLayerParams()
@@ -2125,7 +2125,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceLogSum(newValue)}
   }
 
-  var reduceSumSquare: CoreML_Specification_ReduceSumSquareLayerParams {
+  public var reduceSumSquare: CoreML_Specification_ReduceSumSquareLayerParams {
     get {
       if case .reduceSumSquare(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceSumSquareLayerParams()
@@ -2133,7 +2133,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .reduceSumSquare(newValue)}
   }
 
-  var reduceLogSumExp: CoreML_Specification_ReduceLogSumExpLayerParams {
+  public var reduceLogSumExp: CoreML_Specification_ReduceLogSumExpLayerParams {
     get {
       if case .reduceLogSumExp(let v)? = _storage._layer {return v}
       return CoreML_Specification_ReduceLogSumExpLayerParams()
@@ -2142,7 +2142,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Masking / Selection Layers
-  var whereNonZero: CoreML_Specification_WhereNonZeroLayerParams {
+  public var whereNonZero: CoreML_Specification_WhereNonZeroLayerParams {
     get {
       if case .whereNonZero(let v)? = _storage._layer {return v}
       return CoreML_Specification_WhereNonZeroLayerParams()
@@ -2150,7 +2150,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .whereNonZero(newValue)}
   }
 
-  var matrixBandPart: CoreML_Specification_MatrixBandPartLayerParams {
+  public var matrixBandPart: CoreML_Specification_MatrixBandPartLayerParams {
     get {
       if case .matrixBandPart(let v)? = _storage._layer {return v}
       return CoreML_Specification_MatrixBandPartLayerParams()
@@ -2158,7 +2158,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .matrixBandPart(newValue)}
   }
 
-  var lowerTriangular: CoreML_Specification_LowerTriangularLayerParams {
+  public var lowerTriangular: CoreML_Specification_LowerTriangularLayerParams {
     get {
       if case .lowerTriangular(let v)? = _storage._layer {return v}
       return CoreML_Specification_LowerTriangularLayerParams()
@@ -2166,7 +2166,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .lowerTriangular(newValue)}
   }
 
-  var upperTriangular: CoreML_Specification_UpperTriangularLayerParams {
+  public var upperTriangular: CoreML_Specification_UpperTriangularLayerParams {
     get {
       if case .upperTriangular(let v)? = _storage._layer {return v}
       return CoreML_Specification_UpperTriangularLayerParams()
@@ -2174,7 +2174,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .upperTriangular(newValue)}
   }
 
-  var whereBroadcastable: CoreML_Specification_WhereBroadcastableLayerParams {
+  public var whereBroadcastable: CoreML_Specification_WhereBroadcastableLayerParams {
     get {
       if case .whereBroadcastable(let v)? = _storage._layer {return v}
       return CoreML_Specification_WhereBroadcastableLayerParams()
@@ -2183,7 +2183,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   }
 
   /// Normalization Layers
-  var layerNormalization: CoreML_Specification_LayerNormalizationLayerParams {
+  public var layerNormalization: CoreML_Specification_LayerNormalizationLayerParams {
     get {
       if case .layerNormalization(let v)? = _storage._layer {return v}
       return CoreML_Specification_LayerNormalizationLayerParams()
@@ -2191,7 +2191,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .layerNormalization(newValue)}
   }
 
-  var nonMaximumSuppression: CoreML_Specification_NonMaximumSuppressionLayerParams {
+  public var nonMaximumSuppression: CoreML_Specification_NonMaximumSuppressionLayerParams {
     get {
       if case .nonMaximumSuppression(let v)? = _storage._layer {return v}
       return CoreML_Specification_NonMaximumSuppressionLayerParams()
@@ -2201,7 +2201,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
 
   /// Following layers are available only after Core ML Specification
   /// version >= 5 (iOS >= 14, macOS >= 11.0)
-  var oneHot: CoreML_Specification_OneHotLayerParams {
+  public var oneHot: CoreML_Specification_OneHotLayerParams {
     get {
       if case .oneHot(let v)? = _storage._layer {return v}
       return CoreML_Specification_OneHotLayerParams()
@@ -2209,7 +2209,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .oneHot(newValue)}
   }
 
-  var cumSum: CoreML_Specification_CumSumLayerParams {
+  public var cumSum: CoreML_Specification_CumSumLayerParams {
     get {
       if case .cumSum(let v)? = _storage._layer {return v}
       return CoreML_Specification_CumSumLayerParams()
@@ -2217,7 +2217,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .cumSum(newValue)}
   }
 
-  var clampedReLu: CoreML_Specification_ClampedReLULayerParams {
+  public var clampedReLu: CoreML_Specification_ClampedReLULayerParams {
     get {
       if case .clampedReLu(let v)? = _storage._layer {return v}
       return CoreML_Specification_ClampedReLULayerParams()
@@ -2225,7 +2225,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .clampedReLu(newValue)}
   }
 
-  var argSort: CoreML_Specification_ArgSortLayerParams {
+  public var argSort: CoreML_Specification_ArgSortLayerParams {
     get {
       if case .argSort(let v)? = _storage._layer {return v}
       return CoreML_Specification_ArgSortLayerParams()
@@ -2233,7 +2233,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .argSort(newValue)}
   }
 
-  var pooling3D: CoreML_Specification_Pooling3DLayerParams {
+  public var pooling3D: CoreML_Specification_Pooling3DLayerParams {
     get {
       if case .pooling3D(let v)? = _storage._layer {return v}
       return CoreML_Specification_Pooling3DLayerParams()
@@ -2241,7 +2241,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .pooling3D(newValue)}
   }
 
-  var globalPooling3D: CoreML_Specification_GlobalPooling3DLayerParams {
+  public var globalPooling3D: CoreML_Specification_GlobalPooling3DLayerParams {
     get {
       if case .globalPooling3D(let v)? = _storage._layer {return v}
       return CoreML_Specification_GlobalPooling3DLayerParams()
@@ -2249,7 +2249,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .globalPooling3D(newValue)}
   }
 
-  var sliceBySize: CoreML_Specification_SliceBySizeLayerParams {
+  public var sliceBySize: CoreML_Specification_SliceBySizeLayerParams {
     get {
       if case .sliceBySize(let v)? = _storage._layer {return v}
       return CoreML_Specification_SliceBySizeLayerParams()
@@ -2257,7 +2257,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .sliceBySize(newValue)}
   }
 
-  var convolution3D: CoreML_Specification_Convolution3DLayerParams {
+  public var convolution3D: CoreML_Specification_Convolution3DLayerParams {
     get {
       if case .convolution3D(let v)? = _storage._layer {return v}
       return CoreML_Specification_Convolution3DLayerParams()
@@ -2265,9 +2265,9 @@ struct CoreML_Specification_NeuralNetworkLayer {
     set {_uniqueStorage()._layer = .convolution3D(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Layer: Equatable {
+  public enum OneOf_Layer: Equatable {
     /// Start at 100 here
     case convolution(CoreML_Specification_ConvolutionLayerParams)
     case pooling(CoreML_Specification_PoolingLayerParams)
@@ -2445,7 +2445,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
     case convolution3D(CoreML_Specification_Convolution3DLayerParams)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_NeuralNetworkLayer.OneOf_Layer, rhs: CoreML_Specification_NeuralNetworkLayer.OneOf_Layer) -> Bool {
+    public static func ==(lhs: CoreML_Specification_NeuralNetworkLayer.OneOf_Layer, rhs: CoreML_Specification_NeuralNetworkLayer.OneOf_Layer) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -3088,7 +3088,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -3102,7 +3102,7 @@ struct CoreML_Specification_NeuralNetworkLayer {
 /// if or the else branch based on the value of the input.
 ///
 /// Input is the condition predicate. Must be a scalar (length 1 tensor).
-struct CoreML_Specification_BranchLayerParams {
+public struct CoreML_Specification_BranchLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3117,7 +3117,7 @@ struct CoreML_Specification_BranchLayerParams {
   /// Returns true if `ifBranch` has been explicitly set.
   var hasIfBranch: Bool {return self._ifBranch != nil}
   /// Clears the value of `ifBranch`. Subsequent reads from it will return its default value.
-  mutating func clearIfBranch() {self._ifBranch = nil}
+  public mutating func clearIfBranch() {self._ifBranch = nil}
 
   ///*
   /// execute this graph if the absolute value of the input Tensor is less than 1e-6
@@ -3129,11 +3129,11 @@ struct CoreML_Specification_BranchLayerParams {
   /// Returns true if `elseBranch` has been explicitly set.
   var hasElseBranch: Bool {return self._elseBranch != nil}
   /// Clears the value of `elseBranch`. Subsequent reads from it will return its default value.
-  mutating func clearElseBranch() {self._elseBranch = nil}
+  public mutating func clearElseBranch() {self._elseBranch = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _ifBranch: CoreML_Specification_NeuralNetwork? = nil
   fileprivate var _elseBranch: CoreML_Specification_NeuralNetwork? = nil
@@ -3185,7 +3185,7 @@ struct CoreML_Specification_BranchLayerParams {
 ///      bodyNetwork()
 ///      loopIterator = loopIterator + 1
 ///      conditionVar = conditionNetwork()
-struct CoreML_Specification_LoopLayerParams {
+public struct CoreML_Specification_LoopLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3212,7 +3212,7 @@ struct CoreML_Specification_LoopLayerParams {
   /// Returns true if `conditionNetwork` has been explicitly set.
   var hasConditionNetwork: Bool {return self._conditionNetwork != nil}
   /// Clears the value of `conditionNetwork`. Subsequent reads from it will return its default value.
-  mutating func clearConditionNetwork() {self._conditionNetwork = nil}
+  public mutating func clearConditionNetwork() {self._conditionNetwork = nil}
 
   ///*
   /// Body of the loop.
@@ -3224,11 +3224,11 @@ struct CoreML_Specification_LoopLayerParams {
   /// Returns true if `bodyNetwork` has been explicitly set.
   var hasBodyNetwork: Bool {return self._bodyNetwork != nil}
   /// Clears the value of `bodyNetwork`. Subsequent reads from it will return its default value.
-  mutating func clearBodyNetwork() {self._bodyNetwork = nil}
+  public mutating func clearBodyNetwork() {self._bodyNetwork = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _conditionNetwork: CoreML_Specification_NeuralNetwork? = nil
   fileprivate var _bodyNetwork: CoreML_Specification_NeuralNetwork? = nil
@@ -3241,14 +3241,14 @@ struct CoreML_Specification_LoopLayerParams {
 /// If present, it should always reside in the "bodyNetwork" of the loop layer
 ///
 /// No inputs/outputs
-struct CoreML_Specification_LoopBreakLayerParams {
+public struct CoreML_Specification_LoopBreakLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3258,14 +3258,14 @@ struct CoreML_Specification_LoopBreakLayerParams {
 /// If present, it should always reside in the "bodyNetwork" of the loop layer
 ///
 /// No inputs/outputs
-struct CoreML_Specification_LoopContinueLayerParams {
+public struct CoreML_Specification_LoopContinueLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3275,14 +3275,14 @@ struct CoreML_Specification_LoopContinueLayerParams {
 /// Must have 1 input and 1 output, with distinct names.
 /// This is the only layer that is allowed to re-generate an output that is already present in the neural network prior to this layer,
 /// in which case it will overwrite the output tensor.
-struct CoreML_Specification_CopyLayerParams {
+public struct CoreML_Specification_CopyLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3301,7 +3301,7 @@ struct CoreML_Specification_CopyLayerParams {
 ///      y = x1 > alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_GreaterThanLayerParams {
+public struct CoreML_Specification_GreaterThanLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3310,9 +3310,9 @@ struct CoreML_Specification_GreaterThanLayerParams {
   /// Compare to the scalar value provided here if there is 1 input
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3331,7 +3331,7 @@ struct CoreML_Specification_GreaterThanLayerParams {
 ///      y = x1 >= alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_GreaterEqualLayerParams {
+public struct CoreML_Specification_GreaterEqualLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3340,9 +3340,9 @@ struct CoreML_Specification_GreaterEqualLayerParams {
   /// Compare to the scalar value provided here if there is 1 input
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3361,7 +3361,7 @@ struct CoreML_Specification_GreaterEqualLayerParams {
 ///      y = x1 < alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LessThanLayerParams {
+public struct CoreML_Specification_LessThanLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3370,9 +3370,9 @@ struct CoreML_Specification_LessThanLayerParams {
   /// Compare to the scalar value provided here if there is 1 input
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3391,7 +3391,7 @@ struct CoreML_Specification_LessThanLayerParams {
 ///      y = x1 <= alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LessEqualLayerParams {
+public struct CoreML_Specification_LessEqualLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3400,9 +3400,9 @@ struct CoreML_Specification_LessEqualLayerParams {
   /// Compare to the scalar value provided here if there is 1 input
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3421,7 +3421,7 @@ struct CoreML_Specification_LessEqualLayerParams {
 ///      y = x1 == alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_EqualLayerParams {
+public struct CoreML_Specification_EqualLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3430,9 +3430,9 @@ struct CoreML_Specification_EqualLayerParams {
   /// Compare to the scalar value provided here if there is 1 input
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3451,7 +3451,7 @@ struct CoreML_Specification_EqualLayerParams {
 ///      y = x1 != alpha, if only one input is provided
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_NotEqualLayerParams {
+public struct CoreML_Specification_NotEqualLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3460,9 +3460,9 @@ struct CoreML_Specification_NotEqualLayerParams {
   /// Compare to the scalar value provided here if there is 1 input
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3479,14 +3479,14 @@ struct CoreML_Specification_NotEqualLayerParams {
 ///      y = AND(x1, x2)
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LogicalAndLayerParams {
+public struct CoreML_Specification_LogicalAndLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3503,14 +3503,14 @@ struct CoreML_Specification_LogicalAndLayerParams {
 ///      y = OR(x1, x2)
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LogicalOrLayerParams {
+public struct CoreML_Specification_LogicalOrLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3527,14 +3527,14 @@ struct CoreML_Specification_LogicalOrLayerParams {
 ///      y = XOR(x1, x2)
 ///
 /// Broadcasting is supported.
-struct CoreML_Specification_LogicalXorLayerParams {
+public struct CoreML_Specification_LogicalXorLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3549,14 +3549,14 @@ struct CoreML_Specification_LogicalXorLayerParams {
 /// .. code::
 ///
 ///      y = NOT(x)
-struct CoreML_Specification_LogicalNotLayerParams {
+public struct CoreML_Specification_LogicalNotLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3585,7 +3585,7 @@ struct CoreML_Specification_LogicalNotLayerParams {
 ///     bottomCropAmount == Height endEdgeSize
 ///     leftCropAmount == Width startEdgeSize
 ///     rightCropAmount == Width endEdgeSize
-struct CoreML_Specification_BorderAmounts {
+public struct CoreML_Specification_BorderAmounts {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3595,9 +3595,9 @@ struct CoreML_Specification_BorderAmounts {
   /// This must be length 2 in the order ``[H, W]``.
   var borderAmounts: [CoreML_Specification_BorderAmounts.EdgeSizes] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct EdgeSizes {
+  public struct EdgeSizes {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3610,12 +3610,12 @@ struct CoreML_Specification_BorderAmounts {
     /// The amount to be padded or cropped from the end.
     var endEdgeSize: UInt64 = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -3656,7 +3656,7 @@ struct CoreML_Specification_BorderAmounts {
 /// which results in a "true" valid padding.
 /// If non-zero values are provided for ``paddingAmounts``,
 /// "valid" convolution/pooling is performed within the spatially expanded input.
-struct CoreML_Specification_ValidPadding {
+public struct CoreML_Specification_ValidPadding {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3668,11 +3668,11 @@ struct CoreML_Specification_ValidPadding {
   /// Returns true if `paddingAmounts` has been explicitly set.
   var hasPaddingAmounts: Bool {return self._paddingAmounts != nil}
   /// Clears the value of `paddingAmounts`. Subsequent reads from it will return its default value.
-  mutating func clearPaddingAmounts() {self._paddingAmounts = nil}
+  public mutating func clearPaddingAmounts() {self._paddingAmounts = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _paddingAmounts: CoreML_Specification_BorderAmounts? = nil
 }
@@ -3723,26 +3723,26 @@ struct CoreML_Specification_ValidPadding {
 ///
 ///    H_out = H_in * stride[0]
 ///    W_out = W_in * stride[1]
-struct CoreML_Specification_SamePadding {
+public struct CoreML_Specification_SamePadding {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var asymmetryMode: CoreML_Specification_SamePadding.SamePaddingMode = .bottomRightHeavy
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum SamePaddingMode: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum SamePaddingMode: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case bottomRightHeavy // = 0
     case topLeftHeavy // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .bottomRightHeavy
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .bottomRightHeavy
       case 1: self = .topLeftHeavy
@@ -3750,7 +3750,7 @@ struct CoreML_Specification_SamePadding {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .bottomRightHeavy: return 0
       case .topLeftHeavy: return 1
@@ -3760,14 +3760,14 @@ struct CoreML_Specification_SamePadding {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_SamePadding.SamePaddingMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_SamePadding.SamePaddingMode] = [
+  public static var allCases: [CoreML_Specification_SamePadding.SamePaddingMode] = [
     .bottomRightHeavy,
     .topLeftHeavy,
   ]
@@ -3783,17 +3783,17 @@ extension CoreML_Specification_SamePadding.SamePaddingMode: CaseIterable {
 /// Note: numpy.linspace(start = start, end = end, num = N, endpoint = True) corresponds to sampling
 /// N points uniformly from the interval [start, end], endpoints included.
 /// The methods vary in how the ``start`` and ``end`` values are computed.
-struct CoreML_Specification_SamplingMode {
+public struct CoreML_Specification_SamplingMode {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var samplingMethod: CoreML_Specification_SamplingMode.Method = .strictAlignEndpointsMode
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Method: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Method: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
 
     ///*
     /// start = 0, end = X-1
@@ -3820,11 +3820,11 @@ struct CoreML_Specification_SamplingMode {
     case roiAlignMode // = 3
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .strictAlignEndpointsMode
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .strictAlignEndpointsMode
       case 1: self = .alignEndpointsMode
@@ -3834,7 +3834,7 @@ struct CoreML_Specification_SamplingMode {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .strictAlignEndpointsMode: return 0
       case .alignEndpointsMode: return 1
@@ -3846,14 +3846,14 @@ struct CoreML_Specification_SamplingMode {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_SamplingMode.Method: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_SamplingMode.Method] = [
+  public static var allCases: [CoreML_Specification_SamplingMode.Method] = [
     .strictAlignEndpointsMode,
     .alignEndpointsMode,
     .upsampleMode,
@@ -3866,17 +3866,17 @@ extension CoreML_Specification_SamplingMode.Method: CaseIterable {
 ///*
 /// Specifies the convention used to specify four bounding box coordinates for an image of size (Height, Width).
 /// The (0,0) coordinate corresponds to the top-left corner of the image.
-struct CoreML_Specification_BoxCoordinatesMode {
+public struct CoreML_Specification_BoxCoordinatesMode {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var boxMode: CoreML_Specification_BoxCoordinatesMode.Coordinates = .cornersHeightFirst
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Coordinates: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Coordinates: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
 
     ///*
     /// [h_start, w_start, h_end, w_end]
@@ -3895,11 +3895,11 @@ struct CoreML_Specification_BoxCoordinatesMode {
     case centerSizeWidthFirst // = 3
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .cornersHeightFirst
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .cornersHeightFirst
       case 1: self = .cornersWidthFirst
@@ -3909,7 +3909,7 @@ struct CoreML_Specification_BoxCoordinatesMode {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .cornersHeightFirst: return 0
       case .cornersWidthFirst: return 1
@@ -3921,14 +3921,14 @@ struct CoreML_Specification_BoxCoordinatesMode {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_BoxCoordinatesMode.Coordinates: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_BoxCoordinatesMode.Coordinates] = [
+  public static var allCases: [CoreML_Specification_BoxCoordinatesMode.Coordinates] = [
     .cornersHeightFirst,
     .cornersWidthFirst,
     .centerSizeHeightFirst,
@@ -3943,18 +3943,18 @@ extension CoreML_Specification_BoxCoordinatesMode.Coordinates: CaseIterable {
 /// Weights are stored as repeated floating point numbers
 /// using row-major ordering
 /// and can represent 1-, 2-, 3-, or 4-dimensional data.
-struct CoreML_Specification_WeightParams {
+public struct CoreML_Specification_WeightParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   ///*
   /// Values specified in single / float / FP32 precision.
-  var floatValue: [Float] = []
+  public var floatValue: [Float] = []
 
   ///*
   /// Values in 16-bit half precision floating point.
-  var float16Value: Data = Data()
+  public var float16Value: Data = Data()
 
   ///*
   /// Raw value specification for quantized lower precisions.
@@ -3963,7 +3963,7 @@ struct CoreML_Specification_WeightParams {
   /// E.g. if n=8, the field is interpreted as an array of UINT8.
   /// Use this field for quantized parameters unless specifically noted to use
   /// int8RawValue.
-  var rawValue: Data = Data()
+  public var rawValue: Data = Data()
 
   ///*
   /// Field to be used if int8DynamicQuantize is set in the parent layer.
@@ -3973,31 +3973,31 @@ struct CoreML_Specification_WeightParams {
   /// If this field is set, following conditions must hold true:
   /// * QuantizationType == LinearQuantizationParams, such that
   ///   * size of the "scale" field is 1 and "bias" field is empty in "LinearQuantizationParams"
-  var int8RawValue: Data = Data()
+  public var int8RawValue: Data = Data()
 
   ///*
   /// Quantization related parameters.
-  var quantization: CoreML_Specification_QuantizationParams {
+  public var quantization: CoreML_Specification_QuantizationParams {
     get {return _quantization ?? CoreML_Specification_QuantizationParams()}
     set {_quantization = newValue}
   }
   /// Returns true if `quantization` has been explicitly set.
-  var hasQuantization: Bool {return self._quantization != nil}
+  public var hasQuantization: Bool {return self._quantization != nil}
   /// Clears the value of `quantization`. Subsequent reads from it will return its default value.
-  mutating func clearQuantization() {self._quantization = nil}
+  public mutating func clearQuantization() {self._quantization = nil}
 
-  var isUpdatable: Bool = false
+  public var isUpdatable: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _quantization: CoreML_Specification_QuantizationParams? = nil
 }
 
 ///*
 /// Quantization parameters.
-struct CoreML_Specification_QuantizationParams {
+public struct CoreML_Specification_QuantizationParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4022,14 +4022,14 @@ struct CoreML_Specification_QuantizationParams {
     set {quantizationType = .lookupTableQuantization(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_QuantizationType: Equatable {
+  public enum OneOf_QuantizationType: Equatable {
     case linearQuantization(CoreML_Specification_LinearQuantizationParams)
     case lookupTableQuantization(CoreML_Specification_LookUpTableQuantizationParams)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_QuantizationParams.OneOf_QuantizationType, rhs: CoreML_Specification_QuantizationParams.OneOf_QuantizationType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_QuantizationParams.OneOf_QuantizationType, rhs: CoreML_Specification_QuantizationParams.OneOf_QuantizationType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -4048,10 +4048,10 @@ struct CoreML_Specification_QuantizationParams {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_LinearQuantizationParams {
+public struct CoreML_Specification_LinearQuantizationParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4069,12 +4069,12 @@ struct CoreML_Specification_LinearQuantizationParams {
 
   var bias: [Float] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_LookUpTableQuantizationParams {
+public struct CoreML_Specification_LookUpTableQuantizationParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4083,9 +4083,9 @@ struct CoreML_Specification_LookUpTableQuantizationParams {
   ///(2^numberOfBits) Elements.
   var floatValue: [Float] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -4127,7 +4127,7 @@ struct CoreML_Specification_LookUpTableQuantizationParams {
 /// and "SamePadding". Padded values are all zeros.
 ///
 /// For Deconvolution, ``ConvolutionPaddingType`` (``valid`` or ``same``) is ignored when ``outputShape`` is set.
-struct CoreML_Specification_ConvolutionLayerParams {
+public struct CoreML_Specification_ConvolutionLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4135,7 +4135,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
   ///*
   /// The number of kernels.
   /// Same as ``C_out`` used in the layer description.
-  var outputChannels: UInt64 {
+  public var outputChannels: UInt64 {
     get {return _storage._outputChannels}
     set {_uniqueStorage()._outputChannels = newValue}
   }
@@ -4144,7 +4144,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
   /// Channel dimension of the kernels.
   /// Must be equal to ``inputChannels / nGroups``, if isDeconvolution == False
   /// Must be equal to ``inputChannels``, if isDeconvolution == True
-  var kernelChannels: UInt64 {
+  public var kernelChannels: UInt64 {
     get {return _storage._kernelChannels}
     set {_uniqueStorage()._kernelChannels = newValue}
   }
@@ -4154,7 +4154,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
   /// Input and kernels are divided into g groups
   /// and convolution / deconvolution is applied within the groups independently.
   /// If not set or 0, it is set to the default value 1.
-  var nGroups: UInt64 {
+  public var nGroups: UInt64 {
     get {return _storage._nGroups}
     set {_uniqueStorage()._nGroups = newValue}
   }
@@ -4162,7 +4162,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
   ///*
   /// Must be length 2 in the order ``[H, W]``.
   /// If not set, default value ``[3, 3]`` is used.
-  var kernelSize: [UInt64] {
+  public var kernelSize: [UInt64] {
     get {return _storage._kernelSize}
     set {_uniqueStorage()._kernelSize = newValue}
   }
@@ -4170,7 +4170,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
   ///*
   /// Must be length 2 in the order ``[H, W]``.
   /// If not set, default value ``[1, 1]`` is used.
-  var stride: [UInt64] {
+  public var stride: [UInt64] {
     get {return _storage._stride}
     set {_uniqueStorage()._stride = newValue}
   }
@@ -4179,19 +4179,19 @@ struct CoreML_Specification_ConvolutionLayerParams {
   /// Must be length 2 in order ``[H, W]``.
   /// If not set, default value ``[1, 1]`` is used.
   /// It is ignored if ``isDeconvolution == true``.
-  var dilationFactor: [UInt64] {
+  public var dilationFactor: [UInt64] {
     get {return _storage._dilationFactor}
     set {_uniqueStorage()._dilationFactor = newValue}
   }
 
   ///*
   /// The type of padding.
-  var convolutionPaddingType: OneOf_ConvolutionPaddingType? {
+  public var convolutionPaddingType: OneOf_ConvolutionPaddingType? {
     get {return _storage._convolutionPaddingType}
     set {_uniqueStorage()._convolutionPaddingType = newValue}
   }
 
-  var valid: CoreML_Specification_ValidPadding {
+  public var valid: CoreML_Specification_ValidPadding {
     get {
       if case .valid(let v)? = _storage._convolutionPaddingType {return v}
       return CoreML_Specification_ValidPadding()
@@ -4199,7 +4199,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
     set {_uniqueStorage()._convolutionPaddingType = .valid(newValue)}
   }
 
-  var same: CoreML_Specification_SamePadding {
+  public var same: CoreML_Specification_SamePadding {
     get {
       if case .same(let v)? = _storage._convolutionPaddingType {return v}
       return CoreML_Specification_SamePadding()
@@ -4209,14 +4209,14 @@ struct CoreML_Specification_ConvolutionLayerParams {
 
   ///*
   /// Flag to specify whether it is a deconvolution layer.
-  var isDeconvolution: Bool {
+  public var isDeconvolution: Bool {
     get {return _storage._isDeconvolution}
     set {_uniqueStorage()._isDeconvolution = newValue}
   }
 
   ///*
   /// Flag to specify whether a bias is to be added or not.
-  var hasBias_p: Bool {
+  public var hasBias_p: Bool {
     get {return _storage._hasBias_p}
     set {_uniqueStorage()._hasBias_p = newValue}
   }
@@ -4227,45 +4227,45 @@ struct CoreML_Specification_ConvolutionLayerParams {
   /// ``[outputChannels, kernelChannels, kernelHeight, kernelWidth]``, where kernelChannels == inputChannels / nGroups
   /// If deconvolution (``isDeconvolution == true``) weights have the shape
   /// ``[kernelChannels, outputChannels / nGroups, kernelHeight, kernelWidth]``, where kernelChannels == inputChannels
-  var weights: CoreML_Specification_WeightParams {
+  public var weights: CoreML_Specification_WeightParams {
     get {return _storage._weights ?? CoreML_Specification_WeightParams()}
     set {_uniqueStorage()._weights = newValue}
   }
   /// Returns true if `weights` has been explicitly set.
-  var hasWeights: Bool {return _storage._weights != nil}
+  public var hasWeights: Bool {return _storage._weights != nil}
   /// Clears the value of `weights`. Subsequent reads from it will return its default value.
-  mutating func clearWeights() {_uniqueStorage()._weights = nil}
+  public mutating func clearWeights() {_uniqueStorage()._weights = nil}
 
   //// Must be of size [outputChannels].
-  var bias: CoreML_Specification_WeightParams {
+  public var bias: CoreML_Specification_WeightParams {
     get {return _storage._bias ?? CoreML_Specification_WeightParams()}
     set {_uniqueStorage()._bias = newValue}
   }
   /// Returns true if `bias` has been explicitly set.
-  var hasBias: Bool {return _storage._bias != nil}
+  public var hasBias: Bool {return _storage._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {_uniqueStorage()._bias = nil}
+  public mutating func clearBias() {_uniqueStorage()._bias = nil}
 
   ///*
   /// The output shape, which has length 2 ``[H_out, W_out]``.
   /// This is used only for deconvolution (``isDeconvolution == true``).
   /// If not set, the deconvolution output shape is calculated
   /// based on ``ConvolutionPaddingType``.
-  var outputShape: [UInt64] {
+  public var outputShape: [UInt64] {
     get {return _storage._outputShape}
     set {_uniqueStorage()._outputShape = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// The type of padding.
-  enum OneOf_ConvolutionPaddingType: Equatable {
+  public enum OneOf_ConvolutionPaddingType: Equatable {
     case valid(CoreML_Specification_ValidPadding)
     case same(CoreML_Specification_SamePadding)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_ConvolutionLayerParams.OneOf_ConvolutionPaddingType, rhs: CoreML_Specification_ConvolutionLayerParams.OneOf_ConvolutionPaddingType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_ConvolutionLayerParams.OneOf_ConvolutionPaddingType, rhs: CoreML_Specification_ConvolutionLayerParams.OneOf_ConvolutionPaddingType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -4284,7 +4284,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -4320,7 +4320,7 @@ struct CoreML_Specification_ConvolutionLayerParams {
 ///   bottom/right of the height/width dimensions. Thus, the padding applied to the input will be
 ///   ``[1, 1, 0, 1, 0, 1]`` (front, back, top, bottom, left, right). Finally, the output produced
 ///   will have size ``[1, 2, 2, 4, 4]``.
-struct CoreML_Specification_Convolution3DLayerParams {
+public struct CoreML_Specification_Convolution3DLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4427,7 +4427,7 @@ struct CoreML_Specification_Convolution3DLayerParams {
   /// Returns true if `weights` has been explicitly set.
   var hasWeights: Bool {return _storage._weights != nil}
   /// Clears the value of `weights`. Subsequent reads from it will return its default value.
-  mutating func clearWeights() {_uniqueStorage()._weights = nil}
+  public mutating func clearWeights() {_uniqueStorage()._weights = nil}
 
   ///*
   /// Must be of size ``[outputChannels]``.
@@ -4438,7 +4438,7 @@ struct CoreML_Specification_Convolution3DLayerParams {
   /// Returns true if `bias` has been explicitly set.
   var hasBias: Bool {return _storage._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {_uniqueStorage()._bias = nil}
+  public mutating func clearBias() {_uniqueStorage()._bias = nil}
 
   var paddingType: CoreML_Specification_Convolution3DLayerParams.PaddingType {
     get {return _storage._paddingType}
@@ -4503,7 +4503,7 @@ struct CoreML_Specification_Convolution3DLayerParams {
     set {_uniqueStorage()._outputShape = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// The type of padding.
@@ -4521,18 +4521,18 @@ struct CoreML_Specification_Convolution3DLayerParams {
   /// back/bottom/right side of the respective dimension. For example, if the total padding needed
   /// in the depth dimension is 3, 1 zero will be added to the front side of the depth dimension
   /// and 2 zeros will be added to the back side.
-  enum PaddingType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum PaddingType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case custom // = 0
     case valid // = 1
     case same // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .custom
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .custom
       case 1: self = .valid
@@ -4541,7 +4541,7 @@ struct CoreML_Specification_Convolution3DLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .custom: return 0
       case .valid: return 1
@@ -4552,7 +4552,7 @@ struct CoreML_Specification_Convolution3DLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -4561,7 +4561,7 @@ struct CoreML_Specification_Convolution3DLayerParams {
 
 extension CoreML_Specification_Convolution3DLayerParams.PaddingType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_Convolution3DLayerParams.PaddingType] = [
+  public static var allCases: [CoreML_Specification_Convolution3DLayerParams.PaddingType] = [
     .custom,
     .valid,
     .same,
@@ -4596,48 +4596,48 @@ extension CoreML_Specification_Convolution3DLayerParams.PaddingType: CaseIterabl
 ///      rank 3: (x1, x2, C_out)
 ///      rank 4: (x1, C_out, 1, 1)
 ///      rank 5: (x1, x2, C_out, 1, 1)
-struct CoreML_Specification_InnerProductLayerParams {
+public struct CoreML_Specification_InnerProductLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   //// Input size: C_in.
-  var inputChannels: UInt64 {
+  public var inputChannels: UInt64 {
     get {return _storage._inputChannels}
     set {_uniqueStorage()._inputChannels = newValue}
   }
 
   //// Output size: C_out.
-  var outputChannels: UInt64 {
+  public var outputChannels: UInt64 {
     get {return _storage._outputChannels}
     set {_uniqueStorage()._outputChannels = newValue}
   }
 
   //// Whether a bias is added or not.
-  var hasBias_p: Bool {
+  public var hasBias_p: Bool {
     get {return _storage._hasBias_p}
     set {_uniqueStorage()._hasBias_p = newValue}
   }
 
   //// Weight matrix [C_out, C_in].
-  var weights: CoreML_Specification_WeightParams {
+  public var weights: CoreML_Specification_WeightParams {
     get {return _storage._weights ?? CoreML_Specification_WeightParams()}
     set {_uniqueStorage()._weights = newValue}
   }
   /// Returns true if `weights` has been explicitly set.
-  var hasWeights: Bool {return _storage._weights != nil}
+  public var hasWeights: Bool {return _storage._weights != nil}
   /// Clears the value of `weights`. Subsequent reads from it will return its default value.
-  mutating func clearWeights() {_uniqueStorage()._weights = nil}
+  public mutating func clearWeights() {_uniqueStorage()._weights = nil}
 
   //// Bias vector [C_out].
-  var bias: CoreML_Specification_WeightParams {
+  public var bias: CoreML_Specification_WeightParams {
     get {return _storage._bias ?? CoreML_Specification_WeightParams()}
     set {_uniqueStorage()._bias = newValue}
   }
   /// Returns true if `bias` has been explicitly set.
-  var hasBias: Bool {return _storage._bias != nil}
+  public var hasBias: Bool {return _storage._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {_uniqueStorage()._bias = nil}
+  public mutating func clearBias() {_uniqueStorage()._bias = nil}
 
   ///*
   /// If set, this layer, at runtime, quantizes the floating point input blob to int8 before applying an
@@ -4649,14 +4649,14 @@ struct CoreML_Specification_InnerProductLayerParams {
   ///   * size of the "scale" field is 1 and "bias" field is empty in "LinearQuantizationParams"
   /// * numberOfBits == 8
   /// * weights->rawValue_size to be empty
-  var int8DynamicQuantize: Bool {
+  public var int8DynamicQuantize: Bool {
     get {return _storage._int8DynamicQuantize}
     set {_uniqueStorage()._int8DynamicQuantize = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -4682,7 +4682,7 @@ struct CoreML_Specification_InnerProductLayerParams {
 ///      Output rank is same as the input rank. Please see input description above.
 ///      rank 4: shape (x1, outputChannels, 1, 1)
 ///      rank 5: shape (x1, x2, outputChannels, 1, 1)
-struct CoreML_Specification_EmbeddingLayerParams {
+public struct CoreML_Specification_EmbeddingLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4713,7 +4713,7 @@ struct CoreML_Specification_EmbeddingLayerParams {
   /// Returns true if `weights` has been explicitly set.
   var hasWeights: Bool {return _storage._weights != nil}
   /// Clears the value of `weights`. Subsequent reads from it will return its default value.
-  mutating func clearWeights() {_uniqueStorage()._weights = nil}
+  public mutating func clearWeights() {_uniqueStorage()._weights = nil}
 
   //// Bias of size [outputChannels].
   var bias: CoreML_Specification_WeightParams {
@@ -4723,11 +4723,11 @@ struct CoreML_Specification_EmbeddingLayerParams {
   /// Returns true if `bias` has been explicitly set.
   var hasBias: Bool {return _storage._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {_uniqueStorage()._bias = nil}
+  public mutating func clearBias() {_uniqueStorage()._bias = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -4756,7 +4756,7 @@ struct CoreML_Specification_EmbeddingLayerParams {
 ///      rank 3: shape (x1, x2, embeddingSize)
 ///      rank 4: shape (x1, x2, x3, embeddingSize)
 ///      rank 5: shape (x1, x2, x3, x4, embeddingSize)
-struct CoreML_Specification_EmbeddingNDLayerParams {
+public struct CoreML_Specification_EmbeddingNDLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4787,7 +4787,7 @@ struct CoreML_Specification_EmbeddingNDLayerParams {
   /// Returns true if `weights` has been explicitly set.
   var hasWeights: Bool {return _storage._weights != nil}
   /// Clears the value of `weights`. Subsequent reads from it will return its default value.
-  mutating func clearWeights() {_uniqueStorage()._weights = nil}
+  public mutating func clearWeights() {_uniqueStorage()._weights = nil}
 
   //// Bias of size [embeddingSize].
   var bias: CoreML_Specification_WeightParams {
@@ -4797,11 +4797,11 @@ struct CoreML_Specification_EmbeddingNDLayerParams {
   /// Returns true if `bias` has been explicitly set.
   var hasBias: Bool {return _storage._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {_uniqueStorage()._bias = nil}
+  public mutating func clearBias() {_uniqueStorage()._bias = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -4829,7 +4829,7 @@ struct CoreML_Specification_EmbeddingNDLayerParams {
 ///
 /// Output
 ///     A blob with the same shape as the input.
-struct CoreML_Specification_BatchnormLayerParams {
+public struct CoreML_Specification_BatchnormLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4841,7 +4841,7 @@ struct CoreML_Specification_BatchnormLayerParams {
   }
 
   ///*
-  /// If ``computeMeanVar == true``,
+  /// If ``computeMeanvar == true``,
   /// the mean and variance are calculated from either
   /// the single input instance, if ``instanceNormalization == true``,
   /// or the whole batch, if ``instanceNormalization = false``.
@@ -4872,7 +4872,7 @@ struct CoreML_Specification_BatchnormLayerParams {
   /// Returns true if `gamma` has been explicitly set.
   var hasGamma: Bool {return _storage._gamma != nil}
   /// Clears the value of `gamma`. Subsequent reads from it will return its default value.
-  mutating func clearGamma() {_uniqueStorage()._gamma = nil}
+  public mutating func clearGamma() {_uniqueStorage()._gamma = nil}
 
   //// Parameter of length [channels]
   var beta: CoreML_Specification_WeightParams {
@@ -4882,7 +4882,7 @@ struct CoreML_Specification_BatchnormLayerParams {
   /// Returns true if `beta` has been explicitly set.
   var hasBeta: Bool {return _storage._beta != nil}
   /// Clears the value of `beta`. Subsequent reads from it will return its default value.
-  mutating func clearBeta() {_uniqueStorage()._beta = nil}
+  public mutating func clearBeta() {_uniqueStorage()._beta = nil}
 
   //// Parameter of length [channels]
   var mean: CoreML_Specification_WeightParams {
@@ -4892,7 +4892,7 @@ struct CoreML_Specification_BatchnormLayerParams {
   /// Returns true if `mean` has been explicitly set.
   var hasMean: Bool {return _storage._mean != nil}
   /// Clears the value of `mean`. Subsequent reads from it will return its default value.
-  mutating func clearMean() {_uniqueStorage()._mean = nil}
+  public mutating func clearMean() {_uniqueStorage()._mean = nil}
 
   //// Parameter of length [channels]
   var variance: CoreML_Specification_WeightParams {
@@ -4902,11 +4902,11 @@ struct CoreML_Specification_BatchnormLayerParams {
   /// Returns true if `variance` has been explicitly set.
   var hasVariance: Bool {return _storage._variance != nil}
   /// Clears the value of `variance`. Subsequent reads from it will return its default value.
-  mutating func clearVariance() {_uniqueStorage()._variance = nil}
+  public mutating func clearVariance() {_uniqueStorage()._variance = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -4944,7 +4944,7 @@ struct CoreML_Specification_BatchnormLayerParams {
 ///
 /// The equivalent expressions hold true for ``W_out`` as well.
 /// Only symmetric padding is supported with this option.
-struct CoreML_Specification_PoolingLayerParams {
+public struct CoreML_Specification_PoolingLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4998,15 +4998,15 @@ struct CoreML_Specification_PoolingLayerParams {
   /// Kernel size is inferred from the input data spatial dimensions.
   var globalPooling: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_PoolingPaddingType: Equatable {
+  public enum OneOf_PoolingPaddingType: Equatable {
     case valid(CoreML_Specification_ValidPadding)
     case same(CoreML_Specification_SamePadding)
     case includeLastPixel(CoreML_Specification_PoolingLayerParams.ValidCompletePadding)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_PoolingLayerParams.OneOf_PoolingPaddingType, rhs: CoreML_Specification_PoolingLayerParams.OneOf_PoolingPaddingType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_PoolingLayerParams.OneOf_PoolingPaddingType, rhs: CoreML_Specification_PoolingLayerParams.OneOf_PoolingPaddingType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -5029,18 +5029,18 @@ struct CoreML_Specification_PoolingLayerParams {
   #endif
   }
 
-  enum PoolingType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum PoolingType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case max // = 0
     case average // = 1
     case l2 // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .max
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .max
       case 1: self = .average
@@ -5049,7 +5049,7 @@ struct CoreML_Specification_PoolingLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .max: return 0
       case .average: return 1
@@ -5060,7 +5060,7 @@ struct CoreML_Specification_PoolingLayerParams {
 
   }
 
-  struct ValidCompletePadding {
+  public struct ValidCompletePadding {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5070,19 +5070,19 @@ struct CoreML_Specification_PoolingLayerParams {
     /// If not set, value ``[0, 0]`` is used.
     var paddingAmounts: [UInt64] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_PoolingLayerParams.PoolingType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_PoolingLayerParams.PoolingType] = [
+  public static var allCases: [CoreML_Specification_PoolingLayerParams.PoolingType] = [
     .max,
     .average,
     .l2,
@@ -5128,7 +5128,7 @@ extension CoreML_Specification_PoolingLayerParams.PoolingType: CaseIterable {
 /// +----+----+
 /// | 17 | 18 |
 /// +----+----+
-struct CoreML_Specification_Pooling3DLayerParams {
+public struct CoreML_Specification_Pooling3DLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5177,19 +5177,19 @@ struct CoreML_Specification_Pooling3DLayerParams {
   /// If true, exclude zeros from padding in Average pooling.  Meaningless in Max Pooling.
   var countExcludePadding: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum PoolingType3D: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum PoolingType3D: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case max // = 0
     case average // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .max
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .max
       case 1: self = .average
@@ -5197,7 +5197,7 @@ struct CoreML_Specification_Pooling3DLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .max: return 0
       case .average: return 1
@@ -5221,18 +5221,18 @@ struct CoreML_Specification_Pooling3DLayerParams {
   /// sides of each dimension unless the total padding to add is odd, in which case the extra padding
   /// is added to the back/bottom/right side of the respective dimension.  For example, if the the
   /// total horizontal padding is 3, then there will be 1 padding on the left, and 2 padding on the right.
-  enum Pooling3DPaddingType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Pooling3DPaddingType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case custom // = 0
     case valid // = 1
     case same // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .custom
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .custom
       case 1: self = .valid
@@ -5241,7 +5241,7 @@ struct CoreML_Specification_Pooling3DLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .custom: return 0
       case .valid: return 1
@@ -5252,14 +5252,14 @@ struct CoreML_Specification_Pooling3DLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_Pooling3DLayerParams.PoolingType3D: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_Pooling3DLayerParams.PoolingType3D] = [
+  public static var allCases: [CoreML_Specification_Pooling3DLayerParams.PoolingType3D] = [
     .max,
     .average,
   ]
@@ -5267,7 +5267,7 @@ extension CoreML_Specification_Pooling3DLayerParams.PoolingType3D: CaseIterable 
 
 extension CoreML_Specification_Pooling3DLayerParams.Pooling3DPaddingType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_Pooling3DLayerParams.Pooling3DPaddingType] = [
+  public static var allCases: [CoreML_Specification_Pooling3DLayerParams.Pooling3DPaddingType] = [
     .custom,
     .valid,
     .same,
@@ -5310,7 +5310,7 @@ extension CoreML_Specification_Pooling3DLayerParams.Pooling3DPaddingType: CaseIt
 /// +----+
 /// | 18 |
 /// +----+
-struct CoreML_Specification_GlobalPooling3DLayerParams {
+public struct CoreML_Specification_GlobalPooling3DLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5318,19 +5318,19 @@ struct CoreML_Specification_GlobalPooling3DLayerParams {
   /// Whether to use Max or Average
   var type: CoreML_Specification_GlobalPooling3DLayerParams.GlobalPoolingType3D = .max
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum GlobalPoolingType3D: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum GlobalPoolingType3D: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case max // = 0
     case average // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .max
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .max
       case 1: self = .average
@@ -5338,7 +5338,7 @@ struct CoreML_Specification_GlobalPooling3DLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .max: return 0
       case .average: return 1
@@ -5348,14 +5348,14 @@ struct CoreML_Specification_GlobalPooling3DLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_GlobalPooling3DLayerParams.GlobalPoolingType3D: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_GlobalPooling3DLayerParams.GlobalPoolingType3D] = [
+  public static var allCases: [CoreML_Specification_GlobalPooling3DLayerParams.GlobalPoolingType3D] = [
     .max,
     .average,
   ]
@@ -5438,7 +5438,7 @@ extension CoreML_Specification_GlobalPooling3DLayerParams.GlobalPoolingType3D: C
 ///                     1   1   1  2   3   4
 ///                     5   5   5  6   7   8
 ///                     9   9   9  10  11  12
-struct CoreML_Specification_PaddingLayerParams {
+public struct CoreML_Specification_PaddingLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5477,17 +5477,17 @@ struct CoreML_Specification_PaddingLayerParams {
   /// Returns true if `paddingAmounts` has been explicitly set.
   var hasPaddingAmounts: Bool {return self._paddingAmounts != nil}
   /// Clears the value of `paddingAmounts`. Subsequent reads from it will return its default value.
-  mutating func clearPaddingAmounts() {self._paddingAmounts = nil}
+  public mutating func clearPaddingAmounts() {self._paddingAmounts = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_PaddingType: Equatable {
+  public enum OneOf_PaddingType: Equatable {
     case constant(CoreML_Specification_PaddingLayerParams.PaddingConstant)
     case reflection(CoreML_Specification_PaddingLayerParams.PaddingReflection)
     case replication(CoreML_Specification_PaddingLayerParams.PaddingReplication)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_PaddingLayerParams.OneOf_PaddingType, rhs: CoreML_Specification_PaddingLayerParams.OneOf_PaddingType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_PaddingLayerParams.OneOf_PaddingType, rhs: CoreML_Specification_PaddingLayerParams.OneOf_PaddingType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -5512,43 +5512,43 @@ struct CoreML_Specification_PaddingLayerParams {
 
   ///*
   /// Fill a constant value in the padded region.
-  struct PaddingConstant {
+  public struct PaddingConstant {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var value: Float = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
   ///*
   /// Reflect the values at the border for padding.
-  struct PaddingReflection {
+  public struct PaddingReflection {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
   ///*
   /// Replicate the values at the border for padding.
-  struct PaddingReplication {
+  public struct PaddingReplication {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _paddingAmounts: CoreML_Specification_BorderAmounts? = nil
 }
@@ -5570,7 +5570,7 @@ struct CoreML_Specification_PaddingLayerParams {
 ///
 /// Output
 ///   Same rank as the input.
-struct CoreML_Specification_ConcatLayerParams {
+public struct CoreML_Specification_ConcatLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5579,9 +5579,9 @@ struct CoreML_Specification_ConcatLayerParams {
   /// If true, concatenate along the axis = -5 instead of axis = -3.
   var sequenceConcat: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -5607,7 +5607,7 @@ struct CoreML_Specification_ConcatLayerParams {
 ///
 /// where the summation is done over a ``(localSize, 1, 1)`` neighborhood ---
 /// that is, over a window "across" channels in 1x1 spatial neighborhoods.
-struct CoreML_Specification_LRNLayerParams {
+public struct CoreML_Specification_LRNLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5622,9 +5622,9 @@ struct CoreML_Specification_LRNLayerParams {
   //// Defaults to 1 if not set or 0. Must be strictly positive.
   var k: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -5650,14 +5650,14 @@ struct CoreML_Specification_LRNLayerParams {
 ///
 /// .. math::
 ///     x_i \leftarrow \dfrac{e^{x_i}}{\sum_i{e^{x_i}}}
-struct CoreML_Specification_SoftmaxLayerParams {
+public struct CoreML_Specification_SoftmaxLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -5676,7 +5676,7 @@ struct CoreML_Specification_SoftmaxLayerParams {
 /// Output
 ///     ``nOutputs`` blobs each with same rank as the input.
 ///     e.g.: For input that is of shape ``[C, H, W]``, output shapes will be ``[C/nOutputs, H, W]``
-struct CoreML_Specification_SplitLayerParams {
+public struct CoreML_Specification_SplitLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5684,9 +5684,9 @@ struct CoreML_Specification_SplitLayerParams {
   //// The number of outputs.
   var nOutputs: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -5710,7 +5710,7 @@ struct CoreML_Specification_SplitLayerParams {
 ///
 /// .. math::
 ///     y = x + \alpha
-struct CoreML_Specification_AddLayerParams {
+public struct CoreML_Specification_AddLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5720,9 +5720,9 @@ struct CoreML_Specification_AddLayerParams {
   /// Only used if there is a single input.
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -5746,7 +5746,7 @@ struct CoreML_Specification_AddLayerParams {
 ///
 /// .. math::
 ///     y = \alpha x
-struct CoreML_Specification_MultiplyLayerParams {
+public struct CoreML_Specification_MultiplyLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5756,9 +5756,9 @@ struct CoreML_Specification_MultiplyLayerParams {
   /// Only used if there is a single input.
   var alpha: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -5779,7 +5779,7 @@ struct CoreML_Specification_MultiplyLayerParams {
 ///
 /// .. math::
 ///     x \leftarrow \text{scale} \cdot x + \text{shift}
-struct CoreML_Specification_UnaryFunctionLayerParams {
+public struct CoreML_Specification_UnaryFunctionLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5808,7 +5808,7 @@ struct CoreML_Specification_UnaryFunctionLayerParams {
   /// Defaults to ``1.0`` if not set or set to ``0``.
   var scale: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// A unary operator.
@@ -5838,8 +5838,8 @@ struct CoreML_Specification_UnaryFunctionLayerParams {
   ///
   /// ``THRESHOLD``
   ///     .. math:: f(x) = \text{max}(\alpha, x)
-  enum Operation: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Operation: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case sqrt // = 0
     case rsqrt // = 1
     case inverse // = 2
@@ -5850,11 +5850,11 @@ struct CoreML_Specification_UnaryFunctionLayerParams {
     case threshold // = 7
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .sqrt
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .sqrt
       case 1: self = .rsqrt
@@ -5868,7 +5868,7 @@ struct CoreML_Specification_UnaryFunctionLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .sqrt: return 0
       case .rsqrt: return 1
@@ -5884,14 +5884,14 @@ struct CoreML_Specification_UnaryFunctionLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_UnaryFunctionLayerParams.Operation: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_UnaryFunctionLayerParams.Operation] = [
+  public static var allCases: [CoreML_Specification_UnaryFunctionLayerParams.Operation] = [
     .sqrt,
     .rsqrt,
     .inverse,
@@ -5923,7 +5923,7 @@ extension CoreML_Specification_UnaryFunctionLayerParams.Operation: CaseIterable 
 /// Output
 ///     Same rank as the input.
 ///     e.g.: blob with shape ``[C, scalingFactor[0] * H, scalingFactor[1] * W]``
-struct CoreML_Specification_UpsampleLayerParams {
+public struct CoreML_Specification_UpsampleLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5944,14 +5944,14 @@ struct CoreML_Specification_UpsampleLayerParams {
 
   var linearUpsampleMode: CoreML_Specification_UpsampleLayerParams.LinearUpsampleMode = .default
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///
   /// Overall mode for interpolating new elements when upsampling.
   /// NN - Nearest Neighbors - simply pick the nearest true value for interpolated values.
   /// BILINEAR - Use bilinear interpolation. See LinearUpsamplingMode for behavior.
-  enum InterpolationMode: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum InterpolationMode: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
 
     //// Nearest Neighbour
     case nn // = 0
@@ -5960,11 +5960,11 @@ struct CoreML_Specification_UpsampleLayerParams {
     case bilinear // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .nn
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .nn
       case 1: self = .bilinear
@@ -5972,7 +5972,7 @@ struct CoreML_Specification_UpsampleLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .nn: return 0
       case .bilinear: return 1
@@ -5995,18 +5995,18 @@ struct CoreML_Specification_UpsampleLayerParams {
   /// ALIGN_CORNERS_FALSE:
   ///   spacing = Xin / Xout
   ///   grid_point[i] = min(Xin-1, max(0, i * spacing + 0.5 * spacing - 0.5)), for i = 0,1,2,….,Xout-1
-  enum LinearUpsampleMode: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum LinearUpsampleMode: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case `default` // = 0
     case alignCornersTrue // = 1
     case alignCornersFalse // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .default
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .default
       case 1: self = .alignCornersTrue
@@ -6015,7 +6015,7 @@ struct CoreML_Specification_UpsampleLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .default: return 0
       case .alignCornersTrue: return 1
@@ -6026,14 +6026,14 @@ struct CoreML_Specification_UpsampleLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_UpsampleLayerParams.InterpolationMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_UpsampleLayerParams.InterpolationMode] = [
+  public static var allCases: [CoreML_Specification_UpsampleLayerParams.InterpolationMode] = [
     .nn,
     .bilinear,
   ]
@@ -6041,7 +6041,7 @@ extension CoreML_Specification_UpsampleLayerParams.InterpolationMode: CaseIterab
 
 extension CoreML_Specification_UpsampleLayerParams.LinearUpsampleMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_UpsampleLayerParams.LinearUpsampleMode] = [
+  public static var allCases: [CoreML_Specification_UpsampleLayerParams.LinearUpsampleMode] = [
     .default,
     .alignCornersTrue,
     .alignCornersFalse,
@@ -6067,7 +6067,7 @@ extension CoreML_Specification_UpsampleLayerParams.LinearUpsampleMode: CaseItera
 /// Output
 ///     Same rank as the input.
 ///     e.g.: blob with shape ``[C, H_out, W_out]``.
-struct CoreML_Specification_ResizeBilinearLayerParams {
+public struct CoreML_Specification_ResizeBilinearLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6088,11 +6088,11 @@ struct CoreML_Specification_ResizeBilinearLayerParams {
   /// Returns true if `mode` has been explicitly set.
   var hasMode: Bool {return self._mode != nil}
   /// Clears the value of `mode`. Subsequent reads from it will return its default value.
-  mutating func clearMode() {self._mode = nil}
+  public mutating func clearMode() {self._mode = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _mode: CoreML_Specification_SamplingMode? = nil
 }
@@ -6131,7 +6131,7 @@ struct CoreML_Specification_ResizeBilinearLayerParams {
 ///     A blob with rank 5.
 ///           - Shape is [N, Batch, C, H_out, W_out] if input RoI shape is [N, 1, 4, 1, 1]
 ///           - Shape is [N, 1, C, H_out, W_out] if input RoI shape is [N, 1, 5, 1, 1]
-struct CoreML_Specification_CropResizeLayerParams {
+public struct CoreML_Specification_CropResizeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6159,7 +6159,7 @@ struct CoreML_Specification_CropResizeLayerParams {
   /// Returns true if `mode` has been explicitly set.
   var hasMode: Bool {return self._mode != nil}
   /// Clears the value of `mode`. Subsequent reads from it will return its default value.
-  mutating func clearMode() {self._mode = nil}
+  public mutating func clearMode() {self._mode = nil}
 
   ///*
   /// Representation used to express the bounding box coordinates.
@@ -6171,7 +6171,7 @@ struct CoreML_Specification_CropResizeLayerParams {
   /// Returns true if `boxIndicesMode` has been explicitly set.
   var hasBoxIndicesMode: Bool {return self._boxIndicesMode != nil}
   /// Clears the value of `boxIndicesMode`. Subsequent reads from it will return its default value.
-  mutating func clearBoxIndicesMode() {self._boxIndicesMode = nil}
+  public mutating func clearBoxIndicesMode() {self._boxIndicesMode = nil}
 
   ///*
   /// Additional spatial scale that multiplies the bounding box coordinates.
@@ -6179,9 +6179,9 @@ struct CoreML_Specification_CropResizeLayerParams {
   /// which uses unnormalized RoI coordinates along with a spatial scale less than or equal to 1.
   var spatialScale: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _mode: CoreML_Specification_SamplingMode? = nil
   fileprivate var _boxIndicesMode: CoreML_Specification_BoxCoordinatesMode? = nil
@@ -6203,7 +6203,7 @@ struct CoreML_Specification_CropResizeLayerParams {
 ///     For ranks greater than 3, the leading dimensions, starting from 0 to -4 (inclusive), are all treated as batch.
 /// Output
 ///     A blob with the same shape as the input.
-struct CoreML_Specification_BiasLayerParams {
+public struct CoreML_Specification_BiasLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6224,11 +6224,11 @@ struct CoreML_Specification_BiasLayerParams {
   /// Returns true if `bias` has been explicitly set.
   var hasBias: Bool {return self._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {self._bias = nil}
+  public mutating func clearBias() {self._bias = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _bias: CoreML_Specification_WeightParams? = nil
 }
@@ -6250,7 +6250,7 @@ struct CoreML_Specification_BiasLayerParams {
 ///     For ranks greater than 3, the leading dimensions, starting from 0 to -4 (inclusive), are all treated as batch.
 /// Output
 ///     A blob with the same shape as the input.
-struct CoreML_Specification_ScaleLayerParams {
+public struct CoreML_Specification_ScaleLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6274,7 +6274,7 @@ struct CoreML_Specification_ScaleLayerParams {
   /// Returns true if `scale` has been explicitly set.
   var hasScale: Bool {return _storage._scale != nil}
   /// Clears the value of `scale`. Subsequent reads from it will return its default value.
-  mutating func clearScale() {_uniqueStorage()._scale = nil}
+  public mutating func clearScale() {_uniqueStorage()._scale = nil}
 
   //// If true, a bias is added after scaling.
   var hasBias_p: Bool {
@@ -6301,11 +6301,11 @@ struct CoreML_Specification_ScaleLayerParams {
   /// Returns true if `bias` has been explicitly set.
   var hasBias: Bool {return _storage._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {_uniqueStorage()._bias = nil}
+  public mutating func clearBias() {_uniqueStorage()._bias = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -6322,7 +6322,7 @@ struct CoreML_Specification_ScaleLayerParams {
 ///
 /// Output:
 ///     A blob with rank 5 and shape ``[1, 1, C, H, W]``
-struct CoreML_Specification_LoadConstantLayerParams {
+public struct CoreML_Specification_LoadConstantLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6342,11 +6342,11 @@ struct CoreML_Specification_LoadConstantLayerParams {
   /// Returns true if `data` has been explicitly set.
   var hasData: Bool {return self._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() {self._data = nil}
+  public mutating func clearData() {self._data = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _data: CoreML_Specification_WeightParams? = nil
 }
@@ -6371,7 +6371,7 @@ struct CoreML_Specification_LoadConstantLayerParams {
 ///
 /// .. math::
 ///     x_i \leftarrow \dfrac{x_i}{\sqrt{\sum{x_i^2} + \epsilon}}
-struct CoreML_Specification_L2NormalizeLayerParams {
+public struct CoreML_Specification_L2NormalizeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6381,9 +6381,9 @@ struct CoreML_Specification_L2NormalizeLayerParams {
   /// Defaults to ``1e-6`` if not set or set to ``0``.
   var epsilon: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -6407,26 +6407,26 @@ struct CoreML_Specification_L2NormalizeLayerParams {
 /// ``CHANNEL_FIRST`` does not require data to be rearranged,
 /// because row major ordering is used by internal storage.
 /// ``CHANNEL_LAST`` requires data to be rearranged.
-struct CoreML_Specification_FlattenLayerParams {
+public struct CoreML_Specification_FlattenLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var mode: CoreML_Specification_FlattenLayerParams.FlattenOrder = .channelFirst
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum FlattenOrder: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum FlattenOrder: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case channelFirst // = 0
     case channelLast // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .channelFirst
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .channelFirst
       case 1: self = .channelLast
@@ -6434,7 +6434,7 @@ struct CoreML_Specification_FlattenLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .channelFirst: return 0
       case .channelLast: return 1
@@ -6444,14 +6444,14 @@ struct CoreML_Specification_FlattenLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_FlattenLayerParams.FlattenOrder: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_FlattenLayerParams.FlattenOrder] = [
+  public static var allCases: [CoreML_Specification_FlattenLayerParams.FlattenOrder] = [
     .channelFirst,
     .channelLast,
   ]
@@ -6485,7 +6485,7 @@ extension CoreML_Specification_FlattenLayerParams.FlattenOrder: CaseIterable {
 /// reshaping it to ``[Seq_out, 1, H_out, W_out, C_out]`` (it is now in "H_out-major"" order),
 /// and then permuting it to ``[C_out, H_out, W_out]``;
 /// both the flattening and permuting requires the data to be rearranged.
-struct CoreML_Specification_ReshapeLayerParams {
+public struct CoreML_Specification_ReshapeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6502,19 +6502,19 @@ struct CoreML_Specification_ReshapeLayerParams {
 
   var mode: CoreML_Specification_ReshapeLayerParams.ReshapeOrder = .channelFirst
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum ReshapeOrder: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ReshapeOrder: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case channelFirst // = 0
     case channelLast // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .channelFirst
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .channelFirst
       case 1: self = .channelLast
@@ -6522,7 +6522,7 @@ struct CoreML_Specification_ReshapeLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .channelFirst: return 0
       case .channelLast: return 1
@@ -6532,14 +6532,14 @@ struct CoreML_Specification_ReshapeLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_ReshapeLayerParams.ReshapeOrder: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_ReshapeLayerParams.ReshapeOrder] = [
+  public static var allCases: [CoreML_Specification_ReshapeLayerParams.ReshapeOrder] = [
     .channelFirst,
     .channelLast,
   ]
@@ -6579,7 +6579,7 @@ extension CoreML_Specification_ReshapeLayerParams.ReshapeOrder: CaseIterable {
 ///
 /// - If ``axis`` is not set, or is set to ``[0, 1, 2, 3]``,
 ///   the output is the same as the input.
-struct CoreML_Specification_PermuteLayerParams {
+public struct CoreML_Specification_PermuteLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6589,9 +6589,9 @@ struct CoreML_Specification_PermuteLayerParams {
   /// Must have length 4 and a permutation of ``[0, 1, 2, 3]``.
   var axis: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -6666,7 +6666,7 @@ struct CoreML_Specification_PermuteLayerParams {
 ///
 ///     [[ 9 11 10 12]
 ///      [13 15 14 16]]]
-struct CoreML_Specification_ReorganizeDataLayerParams {
+public struct CoreML_Specification_ReorganizeDataLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6676,20 +6676,20 @@ struct CoreML_Specification_ReorganizeDataLayerParams {
   //// must be greater than 1
   var blockSize: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum ReorganizationType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ReorganizationType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case spaceToDepth // = 0
     case depthToSpace // = 1
     case pixelShuffle // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .spaceToDepth
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .spaceToDepth
       case 1: self = .depthToSpace
@@ -6698,7 +6698,7 @@ struct CoreML_Specification_ReorganizeDataLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .spaceToDepth: return 0
       case .depthToSpace: return 1
@@ -6709,14 +6709,14 @@ struct CoreML_Specification_ReorganizeDataLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_ReorganizeDataLayerParams.ReorganizationType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_ReorganizeDataLayerParams.ReorganizationType] = [
+  public static var allCases: [CoreML_Specification_ReorganizeDataLayerParams.ReorganizationType] = [
     .spaceToDepth,
     .depthToSpace,
     .pixelShuffle,
@@ -6746,7 +6746,7 @@ extension CoreML_Specification_ReorganizeDataLayerParams.ReorganizationType: Cas
 /// stride must be positive and represents the step size for slicing.
 /// Negative indexing is supported for startIndex and endIndex.
 /// -1 denotes N-1, -2 denotes N-2 and so on, where N is the length of the dimension to be sliced.
-struct CoreML_Specification_SliceLayerParams {
+public struct CoreML_Specification_SliceLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6766,20 +6766,20 @@ struct CoreML_Specification_SliceLayerParams {
   /// WIDTH_AXIS => axis = -1
   var axis: CoreML_Specification_SliceLayerParams.SliceAxis = .channelAxis
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum SliceAxis: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum SliceAxis: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case channelAxis // = 0
     case heightAxis // = 1
     case widthAxis // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .channelAxis
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .channelAxis
       case 1: self = .heightAxis
@@ -6788,7 +6788,7 @@ struct CoreML_Specification_SliceLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .channelAxis: return 0
       case .heightAxis: return 1
@@ -6799,14 +6799,14 @@ struct CoreML_Specification_SliceLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_SliceLayerParams.SliceAxis: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_SliceLayerParams.SliceAxis] = [
+  public static var allCases: [CoreML_Specification_SliceLayerParams.SliceAxis] = [
     .channelAxis,
     .heightAxis,
     .widthAxis,
@@ -6833,7 +6833,7 @@ extension CoreML_Specification_SliceLayerParams.SliceAxis: CaseIterable {
 ///     Values supported for axis are [-1], [-2], [-3], [-2,-1], [-3,-2,-1]
 ///     and the equivalent positive values (depending on the rank of the input)
 ///     For mode == 'ArgMax', axis must be [-1] or [-2] or [-3].
-struct CoreML_Specification_ReduceLayerParams {
+public struct CoreML_Specification_ReduceLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6854,7 +6854,7 @@ struct CoreML_Specification_ReduceLayerParams {
   /// W = axis [-1]
   var axis: CoreML_Specification_ReduceLayerParams.ReduceAxis = .chw
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///
   /// The following reduction operations are supported
@@ -6909,8 +6909,8 @@ struct CoreML_Specification_ReduceLayerParams {
   ///     Argument of the maximum of all elements
   ///
   ///     .. math:: \text{argmax}(x_i)
-  enum ReduceOperation: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ReduceOperation: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case sum // = 0
     case avg // = 1
     case prod // = 2
@@ -6925,11 +6925,11 @@ struct CoreML_Specification_ReduceLayerParams {
     case argmax // = 9
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .sum
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .sum
       case 1: self = .avg
@@ -6945,7 +6945,7 @@ struct CoreML_Specification_ReduceLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .sum: return 0
       case .avg: return 1
@@ -6963,8 +6963,8 @@ struct CoreML_Specification_ReduceLayerParams {
 
   }
 
-  enum ReduceAxis: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ReduceAxis: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case chw // = 0
     case hw // = 1
     case c // = 2
@@ -6972,11 +6972,11 @@ struct CoreML_Specification_ReduceLayerParams {
     case w // = 4
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .chw
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .chw
       case 1: self = .hw
@@ -6987,7 +6987,7 @@ struct CoreML_Specification_ReduceLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .chw: return 0
       case .hw: return 1
@@ -7000,14 +7000,14 @@ struct CoreML_Specification_ReduceLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_ReduceLayerParams.ReduceOperation: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_ReduceLayerParams.ReduceOperation] = [
+  public static var allCases: [CoreML_Specification_ReduceLayerParams.ReduceOperation] = [
     .sum,
     .avg,
     .prod,
@@ -7023,7 +7023,7 @@ extension CoreML_Specification_ReduceLayerParams.ReduceOperation: CaseIterable {
 
 extension CoreML_Specification_ReduceLayerParams.ReduceAxis: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_ReduceLayerParams.ReduceAxis] = [
+  public static var allCases: [CoreML_Specification_ReduceLayerParams.ReduceAxis] = [
     .chw,
     .hw,
     .c,
@@ -7075,7 +7075,7 @@ extension CoreML_Specification_ReduceLayerParams.ReduceAxis: CaseIterable {
 /// .. code::
 ///
 ///      y = x1[:, offset[0]:offset[0] + H_out, offset[1]:offset[1] + W_out]
-struct CoreML_Specification_CropLayerParams {
+public struct CoreML_Specification_CropLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7090,7 +7090,7 @@ struct CoreML_Specification_CropLayerParams {
   /// Returns true if `cropAmounts` has been explicitly set.
   var hasCropAmounts: Bool {return self._cropAmounts != nil}
   /// Clears the value of `cropAmounts`. Subsequent reads from it will return its default value.
-  mutating func clearCropAmounts() {self._cropAmounts = nil}
+  public mutating func clearCropAmounts() {self._cropAmounts = nil}
 
   ///*
   /// The offset amounts.
@@ -7098,9 +7098,9 @@ struct CoreML_Specification_CropLayerParams {
   /// Must be of length 2, in order ``[H, W]``.
   var offset: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _cropAmounts: CoreML_Specification_BorderAmounts? = nil
 }
@@ -7121,14 +7121,14 @@ struct CoreML_Specification_CropLayerParams {
 ///     [B, 1, 1, 1], [B, C, 1, 1], [B, 1, H, W], [B, C, H, W]
 /// Output
 ///     A blob with the same shape as each input.
-struct CoreML_Specification_AverageLayerParams {
+public struct CoreML_Specification_AverageLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -7146,14 +7146,14 @@ struct CoreML_Specification_AverageLayerParams {
 ///     [B, C, 1, 1], [B, C, H, W]
 /// Output
 ///     A blob with the same shape as each input.
-struct CoreML_Specification_MaxLayerParams {
+public struct CoreML_Specification_MaxLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -7171,14 +7171,14 @@ struct CoreML_Specification_MaxLayerParams {
 ///     [B, C, 1, 1], [B, C, H, W]
 /// Output
 ///     A blob with the same shape as each input.
-struct CoreML_Specification_MinLayerParams {
+public struct CoreML_Specification_MinLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -7198,7 +7198,7 @@ struct CoreML_Specification_MinLayerParams {
 /// Output
 ///     Same rank as the input.
 ///     e.g. for rank 4 inputs, output shape: [B, 1, 1, 1]
-struct CoreML_Specification_DotProductLayerParams {
+public struct CoreML_Specification_DotProductLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7208,9 +7208,9 @@ struct CoreML_Specification_DotProductLayerParams {
   /// thereby computing the cosine similarity.
   var cosineSimilarity: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -7237,7 +7237,7 @@ struct CoreML_Specification_DotProductLayerParams {
 /// If ``acrossChannels == false``
 /// normalization is performed within a channel,
 /// across spatial dimensions (i.e. last two dimensions).
-struct CoreML_Specification_MeanVarianceNormalizeLayerParams {
+public struct CoreML_Specification_MeanVarianceNormalizeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7255,9 +7255,9 @@ struct CoreML_Specification_MeanVarianceNormalizeLayerParams {
   /// Defaults to ``1e-6`` if not set or set to ``0``.
   var epsilon: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -7275,7 +7275,7 @@ struct CoreML_Specification_MeanVarianceNormalizeLayerParams {
 /// Output
 ///     A blob with the same rank as the input.
 ///     e.g.: for input shape ``[Seq, B, C, H, W]``, output shape is ``[nRepetitions * Seq, B, C, H, W]``.
-struct CoreML_Specification_SequenceRepeatLayerParams {
+public struct CoreML_Specification_SequenceRepeatLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7285,9 +7285,9 @@ struct CoreML_Specification_SequenceRepeatLayerParams {
   /// Defaults to ``1`` if not set or set to ``0``.
   var nRepetitions: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -7320,7 +7320,7 @@ struct CoreML_Specification_SequenceRepeatLayerParams {
 /// - ``b`` is a 1-dimensional bias vector (``[outputVectorSize]``)
 /// - ``f()`` is an activation
 /// - ``clip()`` is a function that constrains values between ``[-50.0, 50.0]``
-struct CoreML_Specification_SimpleRecurrentLayerParams {
+public struct CoreML_Specification_SimpleRecurrentLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7346,7 +7346,7 @@ struct CoreML_Specification_SimpleRecurrentLayerParams {
   /// Returns true if `activation` has been explicitly set.
   var hasActivation: Bool {return _storage._activation != nil}
   /// Clears the value of `activation`. Subsequent reads from it will return its default value.
-  mutating func clearActivation() {_uniqueStorage()._activation = nil}
+  public mutating func clearActivation() {_uniqueStorage()._activation = nil}
 
   ///*
   ///If false output is just the result after final state update.
@@ -7370,7 +7370,7 @@ struct CoreML_Specification_SimpleRecurrentLayerParams {
   /// Returns true if `weightMatrix` has been explicitly set.
   var hasWeightMatrix: Bool {return _storage._weightMatrix != nil}
   /// Clears the value of `weightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearWeightMatrix() {_uniqueStorage()._weightMatrix = nil}
+  public mutating func clearWeightMatrix() {_uniqueStorage()._weightMatrix = nil}
 
   //// Recursion Weight matrix R.
   var recursionMatrix: CoreML_Specification_WeightParams {
@@ -7380,7 +7380,7 @@ struct CoreML_Specification_SimpleRecurrentLayerParams {
   /// Returns true if `recursionMatrix` has been explicitly set.
   var hasRecursionMatrix: Bool {return _storage._recursionMatrix != nil}
   /// Clears the value of `recursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearRecursionMatrix() {_uniqueStorage()._recursionMatrix = nil}
+  public mutating func clearRecursionMatrix() {_uniqueStorage()._recursionMatrix = nil}
 
   //// Bias vector b.
   var biasVector: CoreML_Specification_WeightParams {
@@ -7390,7 +7390,7 @@ struct CoreML_Specification_SimpleRecurrentLayerParams {
   /// Returns true if `biasVector` has been explicitly set.
   var hasBiasVector: Bool {return _storage._biasVector != nil}
   /// Clears the value of `biasVector`. Subsequent reads from it will return its default value.
-  mutating func clearBiasVector() {_uniqueStorage()._biasVector = nil}
+  public mutating func clearBiasVector() {_uniqueStorage()._biasVector = nil}
 
   /// If true, then the node processes the input sequence from right to left
   var reverseInput: Bool {
@@ -7398,9 +7398,9 @@ struct CoreML_Specification_SimpleRecurrentLayerParams {
     set {_uniqueStorage()._reverseInput = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -7462,7 +7462,7 @@ struct CoreML_Specification_SimpleRecurrentLayerParams {
 /// - ``f()``, ``g()`` are activations
 /// - ``clip()`` is a function that constrains values between ``[-50.0, 50.0]``
 /// - ``⊙`` denotes the elementwise product of matrices
-struct CoreML_Specification_GRULayerParams {
+public struct CoreML_Specification_GRULayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7511,7 +7511,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `updateGateWeightMatrix` has been explicitly set.
   var hasUpdateGateWeightMatrix: Bool {return _storage._updateGateWeightMatrix != nil}
   /// Clears the value of `updateGateWeightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateGateWeightMatrix() {_uniqueStorage()._updateGateWeightMatrix = nil}
+  public mutating func clearUpdateGateWeightMatrix() {_uniqueStorage()._updateGateWeightMatrix = nil}
 
   //// Weight Matrix W_r.
   var resetGateWeightMatrix: CoreML_Specification_WeightParams {
@@ -7521,7 +7521,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `resetGateWeightMatrix` has been explicitly set.
   var hasResetGateWeightMatrix: Bool {return _storage._resetGateWeightMatrix != nil}
   /// Clears the value of `resetGateWeightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearResetGateWeightMatrix() {_uniqueStorage()._resetGateWeightMatrix = nil}
+  public mutating func clearResetGateWeightMatrix() {_uniqueStorage()._resetGateWeightMatrix = nil}
 
   //// Weight Matrix W_o.
   var outputGateWeightMatrix: CoreML_Specification_WeightParams {
@@ -7531,7 +7531,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `outputGateWeightMatrix` has been explicitly set.
   var hasOutputGateWeightMatrix: Bool {return _storage._outputGateWeightMatrix != nil}
   /// Clears the value of `outputGateWeightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearOutputGateWeightMatrix() {_uniqueStorage()._outputGateWeightMatrix = nil}
+  public mutating func clearOutputGateWeightMatrix() {_uniqueStorage()._outputGateWeightMatrix = nil}
 
   //// Recursion Weight Matrix R_z.
   var updateGateRecursionMatrix: CoreML_Specification_WeightParams {
@@ -7541,7 +7541,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `updateGateRecursionMatrix` has been explicitly set.
   var hasUpdateGateRecursionMatrix: Bool {return _storage._updateGateRecursionMatrix != nil}
   /// Clears the value of `updateGateRecursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateGateRecursionMatrix() {_uniqueStorage()._updateGateRecursionMatrix = nil}
+  public mutating func clearUpdateGateRecursionMatrix() {_uniqueStorage()._updateGateRecursionMatrix = nil}
 
   //// Recursion Weight Matrix R_r.
   var resetGateRecursionMatrix: CoreML_Specification_WeightParams {
@@ -7551,7 +7551,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `resetGateRecursionMatrix` has been explicitly set.
   var hasResetGateRecursionMatrix: Bool {return _storage._resetGateRecursionMatrix != nil}
   /// Clears the value of `resetGateRecursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearResetGateRecursionMatrix() {_uniqueStorage()._resetGateRecursionMatrix = nil}
+  public mutating func clearResetGateRecursionMatrix() {_uniqueStorage()._resetGateRecursionMatrix = nil}
 
   //// Recursion Weight Matrix R_o.
   var outputGateRecursionMatrix: CoreML_Specification_WeightParams {
@@ -7561,7 +7561,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `outputGateRecursionMatrix` has been explicitly set.
   var hasOutputGateRecursionMatrix: Bool {return _storage._outputGateRecursionMatrix != nil}
   /// Clears the value of `outputGateRecursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearOutputGateRecursionMatrix() {_uniqueStorage()._outputGateRecursionMatrix = nil}
+  public mutating func clearOutputGateRecursionMatrix() {_uniqueStorage()._outputGateRecursionMatrix = nil}
 
   //// Bias vector b_z.
   var updateGateBiasVector: CoreML_Specification_WeightParams {
@@ -7571,7 +7571,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `updateGateBiasVector` has been explicitly set.
   var hasUpdateGateBiasVector: Bool {return _storage._updateGateBiasVector != nil}
   /// Clears the value of `updateGateBiasVector`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateGateBiasVector() {_uniqueStorage()._updateGateBiasVector = nil}
+  public mutating func clearUpdateGateBiasVector() {_uniqueStorage()._updateGateBiasVector = nil}
 
   //// Bias vector b_r.
   var resetGateBiasVector: CoreML_Specification_WeightParams {
@@ -7581,7 +7581,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `resetGateBiasVector` has been explicitly set.
   var hasResetGateBiasVector: Bool {return _storage._resetGateBiasVector != nil}
   /// Clears the value of `resetGateBiasVector`. Subsequent reads from it will return its default value.
-  mutating func clearResetGateBiasVector() {_uniqueStorage()._resetGateBiasVector = nil}
+  public mutating func clearResetGateBiasVector() {_uniqueStorage()._resetGateBiasVector = nil}
 
   //// Bias vector b_o.
   var outputGateBiasVector: CoreML_Specification_WeightParams {
@@ -7591,7 +7591,7 @@ struct CoreML_Specification_GRULayerParams {
   /// Returns true if `outputGateBiasVector` has been explicitly set.
   var hasOutputGateBiasVector: Bool {return _storage._outputGateBiasVector != nil}
   /// Clears the value of `outputGateBiasVector`. Subsequent reads from it will return its default value.
-  mutating func clearOutputGateBiasVector() {_uniqueStorage()._outputGateBiasVector = nil}
+  public mutating func clearOutputGateBiasVector() {_uniqueStorage()._outputGateBiasVector = nil}
 
   //// If true, then the node processes the input sequence from right to left
   var reverseInput: Bool {
@@ -7599,9 +7599,9 @@ struct CoreML_Specification_GRULayerParams {
     set {_uniqueStorage()._reverseInput = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -7660,7 +7660,7 @@ struct CoreML_Specification_GRULayerParams {
 /// - ``f()``, ``g()``, ``h()`` are activations
 /// - ``clip()`` is a function that constrains values between ``[-50.0, 50.0]``
 /// - ``⊙`` denotes the elementwise product of matrices
-struct CoreML_Specification_LSTMParams {
+public struct CoreML_Specification_LSTMParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7699,14 +7699,14 @@ struct CoreML_Specification_LSTMParams {
   /// If 0, it is set to its default value = 50.0.
   var cellClipThreshold: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Weights for long short-term memory (LSTM) layers
-struct CoreML_Specification_LSTMWeightParams {
+public struct CoreML_Specification_LSTMWeightParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7719,7 +7719,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `inputGateWeightMatrix` has been explicitly set.
   var hasInputGateWeightMatrix: Bool {return _storage._inputGateWeightMatrix != nil}
   /// Clears the value of `inputGateWeightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearInputGateWeightMatrix() {_uniqueStorage()._inputGateWeightMatrix = nil}
+  public mutating func clearInputGateWeightMatrix() {_uniqueStorage()._inputGateWeightMatrix = nil}
 
   //// Weight Matrix W_f.
   var forgetGateWeightMatrix: CoreML_Specification_WeightParams {
@@ -7729,7 +7729,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `forgetGateWeightMatrix` has been explicitly set.
   var hasForgetGateWeightMatrix: Bool {return _storage._forgetGateWeightMatrix != nil}
   /// Clears the value of `forgetGateWeightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearForgetGateWeightMatrix() {_uniqueStorage()._forgetGateWeightMatrix = nil}
+  public mutating func clearForgetGateWeightMatrix() {_uniqueStorage()._forgetGateWeightMatrix = nil}
 
   //// Weight Matrix W_z.
   var blockInputWeightMatrix: CoreML_Specification_WeightParams {
@@ -7739,7 +7739,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `blockInputWeightMatrix` has been explicitly set.
   var hasBlockInputWeightMatrix: Bool {return _storage._blockInputWeightMatrix != nil}
   /// Clears the value of `blockInputWeightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearBlockInputWeightMatrix() {_uniqueStorage()._blockInputWeightMatrix = nil}
+  public mutating func clearBlockInputWeightMatrix() {_uniqueStorage()._blockInputWeightMatrix = nil}
 
   //// Weight Matrix W_o.
   var outputGateWeightMatrix: CoreML_Specification_WeightParams {
@@ -7749,7 +7749,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `outputGateWeightMatrix` has been explicitly set.
   var hasOutputGateWeightMatrix: Bool {return _storage._outputGateWeightMatrix != nil}
   /// Clears the value of `outputGateWeightMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearOutputGateWeightMatrix() {_uniqueStorage()._outputGateWeightMatrix = nil}
+  public mutating func clearOutputGateWeightMatrix() {_uniqueStorage()._outputGateWeightMatrix = nil}
 
   //// Recursion Weight Matrix R_i.
   var inputGateRecursionMatrix: CoreML_Specification_WeightParams {
@@ -7759,7 +7759,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `inputGateRecursionMatrix` has been explicitly set.
   var hasInputGateRecursionMatrix: Bool {return _storage._inputGateRecursionMatrix != nil}
   /// Clears the value of `inputGateRecursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearInputGateRecursionMatrix() {_uniqueStorage()._inputGateRecursionMatrix = nil}
+  public mutating func clearInputGateRecursionMatrix() {_uniqueStorage()._inputGateRecursionMatrix = nil}
 
   //// Recursion Weight Matrix R_f.
   var forgetGateRecursionMatrix: CoreML_Specification_WeightParams {
@@ -7769,7 +7769,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `forgetGateRecursionMatrix` has been explicitly set.
   var hasForgetGateRecursionMatrix: Bool {return _storage._forgetGateRecursionMatrix != nil}
   /// Clears the value of `forgetGateRecursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearForgetGateRecursionMatrix() {_uniqueStorage()._forgetGateRecursionMatrix = nil}
+  public mutating func clearForgetGateRecursionMatrix() {_uniqueStorage()._forgetGateRecursionMatrix = nil}
 
   //// Recursion Weight Matrix R_z.
   var blockInputRecursionMatrix: CoreML_Specification_WeightParams {
@@ -7779,7 +7779,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `blockInputRecursionMatrix` has been explicitly set.
   var hasBlockInputRecursionMatrix: Bool {return _storage._blockInputRecursionMatrix != nil}
   /// Clears the value of `blockInputRecursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearBlockInputRecursionMatrix() {_uniqueStorage()._blockInputRecursionMatrix = nil}
+  public mutating func clearBlockInputRecursionMatrix() {_uniqueStorage()._blockInputRecursionMatrix = nil}
 
   //// Recursion Weight Matrix R_o.
   var outputGateRecursionMatrix: CoreML_Specification_WeightParams {
@@ -7789,7 +7789,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `outputGateRecursionMatrix` has been explicitly set.
   var hasOutputGateRecursionMatrix: Bool {return _storage._outputGateRecursionMatrix != nil}
   /// Clears the value of `outputGateRecursionMatrix`. Subsequent reads from it will return its default value.
-  mutating func clearOutputGateRecursionMatrix() {_uniqueStorage()._outputGateRecursionMatrix = nil}
+  public mutating func clearOutputGateRecursionMatrix() {_uniqueStorage()._outputGateRecursionMatrix = nil}
 
   ///biases:
   var inputGateBiasVector: CoreML_Specification_WeightParams {
@@ -7799,7 +7799,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `inputGateBiasVector` has been explicitly set.
   var hasInputGateBiasVector: Bool {return _storage._inputGateBiasVector != nil}
   /// Clears the value of `inputGateBiasVector`. Subsequent reads from it will return its default value.
-  mutating func clearInputGateBiasVector() {_uniqueStorage()._inputGateBiasVector = nil}
+  public mutating func clearInputGateBiasVector() {_uniqueStorage()._inputGateBiasVector = nil}
 
   //// Bias vector b_f.
   var forgetGateBiasVector: CoreML_Specification_WeightParams {
@@ -7809,7 +7809,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `forgetGateBiasVector` has been explicitly set.
   var hasForgetGateBiasVector: Bool {return _storage._forgetGateBiasVector != nil}
   /// Clears the value of `forgetGateBiasVector`. Subsequent reads from it will return its default value.
-  mutating func clearForgetGateBiasVector() {_uniqueStorage()._forgetGateBiasVector = nil}
+  public mutating func clearForgetGateBiasVector() {_uniqueStorage()._forgetGateBiasVector = nil}
 
   //// Bias vector b_z.
   var blockInputBiasVector: CoreML_Specification_WeightParams {
@@ -7819,7 +7819,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `blockInputBiasVector` has been explicitly set.
   var hasBlockInputBiasVector: Bool {return _storage._blockInputBiasVector != nil}
   /// Clears the value of `blockInputBiasVector`. Subsequent reads from it will return its default value.
-  mutating func clearBlockInputBiasVector() {_uniqueStorage()._blockInputBiasVector = nil}
+  public mutating func clearBlockInputBiasVector() {_uniqueStorage()._blockInputBiasVector = nil}
 
   //// Bias vector b_o.
   var outputGateBiasVector: CoreML_Specification_WeightParams {
@@ -7829,7 +7829,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `outputGateBiasVector` has been explicitly set.
   var hasOutputGateBiasVector: Bool {return _storage._outputGateBiasVector != nil}
   /// Clears the value of `outputGateBiasVector`. Subsequent reads from it will return its default value.
-  mutating func clearOutputGateBiasVector() {_uniqueStorage()._outputGateBiasVector = nil}
+  public mutating func clearOutputGateBiasVector() {_uniqueStorage()._outputGateBiasVector = nil}
 
   ///peepholes:
   var inputGatePeepholeVector: CoreML_Specification_WeightParams {
@@ -7839,7 +7839,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `inputGatePeepholeVector` has been explicitly set.
   var hasInputGatePeepholeVector: Bool {return _storage._inputGatePeepholeVector != nil}
   /// Clears the value of `inputGatePeepholeVector`. Subsequent reads from it will return its default value.
-  mutating func clearInputGatePeepholeVector() {_uniqueStorage()._inputGatePeepholeVector = nil}
+  public mutating func clearInputGatePeepholeVector() {_uniqueStorage()._inputGatePeepholeVector = nil}
 
   //// Peephole vector p_f.
   var forgetGatePeepholeVector: CoreML_Specification_WeightParams {
@@ -7849,7 +7849,7 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `forgetGatePeepholeVector` has been explicitly set.
   var hasForgetGatePeepholeVector: Bool {return _storage._forgetGatePeepholeVector != nil}
   /// Clears the value of `forgetGatePeepholeVector`. Subsequent reads from it will return its default value.
-  mutating func clearForgetGatePeepholeVector() {_uniqueStorage()._forgetGatePeepholeVector = nil}
+  public mutating func clearForgetGatePeepholeVector() {_uniqueStorage()._forgetGatePeepholeVector = nil}
 
   //// Peephole vector p_o.
   var outputGatePeepholeVector: CoreML_Specification_WeightParams {
@@ -7859,11 +7859,11 @@ struct CoreML_Specification_LSTMWeightParams {
   /// Returns true if `outputGatePeepholeVector` has been explicitly set.
   var hasOutputGatePeepholeVector: Bool {return _storage._outputGatePeepholeVector != nil}
   /// Clears the value of `outputGatePeepholeVector`. Subsequent reads from it will return its default value.
-  mutating func clearOutputGatePeepholeVector() {_uniqueStorage()._outputGatePeepholeVector = nil}
+  public mutating func clearOutputGatePeepholeVector() {_uniqueStorage()._outputGatePeepholeVector = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -7884,7 +7884,7 @@ struct CoreML_Specification_LSTMWeightParams {
 ///
 /// - Output Shape: ``[1, Batch, outputVectorSize, 1, 1]`` , if ``sequenceOutput == false``
 /// - Output Shape: ``[Seq, Batch, outputVectorSize, 1, 1]`` , if ``sequenceOutput == true``
-struct CoreML_Specification_UniDirectionalLSTMLayerParams {
+public struct CoreML_Specification_UniDirectionalLSTMLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7908,7 +7908,7 @@ struct CoreML_Specification_UniDirectionalLSTMLayerParams {
   /// Returns true if `params` has been explicitly set.
   var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
   //// Weights, biases and peepholes.
   var weightParams: CoreML_Specification_LSTMWeightParams {
@@ -7918,14 +7918,14 @@ struct CoreML_Specification_UniDirectionalLSTMLayerParams {
   /// Returns true if `weightParams` has been explicitly set.
   var hasWeightParams: Bool {return self._weightParams != nil}
   /// Clears the value of `weightParams`. Subsequent reads from it will return its default value.
-  mutating func clearWeightParams() {self._weightParams = nil}
+  public mutating func clearWeightParams() {self._weightParams = nil}
 
   //// If true, then the node processes the input sequence from right to left
   var reverseInput: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: CoreML_Specification_LSTMParams? = nil
   fileprivate var _weightParams: CoreML_Specification_LSTMWeightParams? = nil
@@ -7975,7 +7975,7 @@ struct CoreML_Specification_UniDirectionalLSTMLayerParams {
 ///
 /// - if ``sequenceOutput = True`` : { ``[yf_1, yb_3]``,  ``[yf_2, yb_2]``,  ``[yf_3, yb_1]`` }
 /// - if ``sequenceOutput = False`` : { ``[yf_3, yb_3]`` }
-struct CoreML_Specification_BiDirectionalLSTMLayerParams {
+public struct CoreML_Specification_BiDirectionalLSTMLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8009,7 +8009,7 @@ struct CoreML_Specification_BiDirectionalLSTMLayerParams {
   /// Returns true if `params` has been explicitly set.
   var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
   ///*
   /// Weights and biases.
@@ -8017,14 +8017,14 @@ struct CoreML_Specification_BiDirectionalLSTMLayerParams {
   /// for the forward and backward LSTM respectively.
   var weightParams: [CoreML_Specification_LSTMWeightParams] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: CoreML_Specification_LSTMParams? = nil
 }
 
-struct CoreML_Specification_CustomLayerParams {
+public struct CoreML_Specification_CustomLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8041,9 +8041,9 @@ struct CoreML_Specification_CustomLayerParams {
   /// An (optional) description of the layer provided by the model creator. This information is displayed when viewing the model, but does not affect the model's execution on device.
   var description_p: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct CustomLayerParamValue {
+  public struct CustomLayerParamValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8090,9 +8090,9 @@ struct CoreML_Specification_CustomLayerParams {
       set {value = .boolValue(newValue)}
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum OneOf_Value: Equatable {
+    public enum OneOf_Value: Equatable {
       case doubleValue(Double)
       case stringValue(String)
       case intValue(Int32)
@@ -8100,7 +8100,7 @@ struct CoreML_Specification_CustomLayerParams {
       case boolValue(Bool)
 
     #if !swift(>=4.1)
-      static func ==(lhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue.OneOf_Value, rhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue.OneOf_Value) -> Bool {
+      public static func ==(lhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue.OneOf_Value, rhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue.OneOf_Value) -> Bool {
         // The use of inline closures is to circumvent an issue where the compiler
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -8131,13 +8131,13 @@ struct CoreML_Specification_CustomLayerParams {
     #endif
     }
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_TransposeLayerParams {
+public struct CoreML_Specification_TransposeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8147,9 +8147,9 @@ struct CoreML_Specification_TransposeLayerParams {
   /// "axes" should be a permutation of "[0,1,2,...,N-1]" where N is the rank.
   var axes: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8188,7 +8188,7 @@ struct CoreML_Specification_TransposeLayerParams {
 ///             - if "a" is rank 2 (B1, X1) --> no need to reshape. Output shape will be (B1, X2)
 ///             - if "a" is rank 3 (B1, B2, X1) --> (B1 * B2, X1). Output shape will be (B1, B2, X2)
 ///             - etc
-struct CoreML_Specification_BatchedMatMulLayerParams {
+public struct CoreML_Specification_BatchedMatMulLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8238,7 +8238,7 @@ struct CoreML_Specification_BatchedMatMulLayerParams {
   /// Returns true if `weights` has been explicitly set.
   var hasWeights: Bool {return _storage._weights != nil}
   /// Clears the value of `weights`. Subsequent reads from it will return its default value.
-  mutating func clearWeights() {_uniqueStorage()._weights = nil}
+  public mutating func clearWeights() {_uniqueStorage()._weights = nil}
 
   //// Bias vector [X2]. Supported only when there is one input.
   var bias: CoreML_Specification_WeightParams {
@@ -8248,7 +8248,7 @@ struct CoreML_Specification_BatchedMatMulLayerParams {
   /// Returns true if `bias` has been explicitly set.
   var hasBias: Bool {return _storage._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {_uniqueStorage()._bias = nil}
+  public mutating func clearBias() {_uniqueStorage()._bias = nil}
 
   ///*
   /// If set, this layer, at runtime, quantizes the floating point input blob to int8 before applying the
@@ -8266,9 +8266,9 @@ struct CoreML_Specification_BatchedMatMulLayerParams {
     set {_uniqueStorage()._int8DynamicQuantize = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -8306,7 +8306,7 @@ struct CoreML_Specification_BatchedMatMulLayerParams {
 /// output[0::2, :] = in1
 /// output[1::2, :] = in2
 /// value = [[1, 2], [7, 8], [3, 4], [9, 10], [5, 6], [11, 12]]
-struct CoreML_Specification_ConcatNDLayerParams {
+public struct CoreML_Specification_ConcatNDLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8321,9 +8321,9 @@ struct CoreML_Specification_ConcatNDLayerParams {
   /// This requires all inputs to have the exact same shape.
   var interleave: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8336,7 +8336,7 @@ struct CoreML_Specification_ConcatNDLayerParams {
 /// Requires 1 input and produces 1 output.
 ///
 /// Output shape is same as the input.
-struct CoreML_Specification_SoftmaxNDLayerParams {
+public struct CoreML_Specification_SoftmaxNDLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8345,9 +8345,9 @@ struct CoreML_Specification_SoftmaxNDLayerParams {
   /// Dimension on which the softmax would be performed. Supports negative values of the parameter 'axis'.
   var axis: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8356,7 +8356,7 @@ struct CoreML_Specification_SoftmaxNDLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_ReverseLayerParams {
+public struct CoreML_Specification_ReverseLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8366,9 +8366,9 @@ struct CoreML_Specification_ReverseLayerParams {
   /// Requires len(reverseDim) == rank(inputTensor)
   var reverseDim: [Bool] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8422,7 +8422,7 @@ struct CoreML_Specification_ReverseLayerParams {
 /// [6 7] (slice = 1)
 ///
 /// Output shape is same as the input.
-struct CoreML_Specification_ReverseSeqLayerParams {
+public struct CoreML_Specification_ReverseSeqLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8432,9 +8432,9 @@ struct CoreML_Specification_ReverseSeqLayerParams {
 
   var sequenceAxis: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8447,7 +8447,7 @@ struct CoreML_Specification_ReverseSeqLayerParams {
 /// Requires no input and produces 1 output.
 ///
 /// Output: A tensor with shape as provided in the parameter "shape"
-struct CoreML_Specification_LoadConstantNDLayerParams {
+public struct CoreML_Specification_LoadConstantNDLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8463,11 +8463,11 @@ struct CoreML_Specification_LoadConstantNDLayerParams {
   /// Returns true if `data` has been explicitly set.
   var hasData: Bool {return self._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() {self._data = nil}
+  public mutating func clearData() {self._data = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _data: CoreML_Specification_WeightParams? = nil
 }
@@ -8489,16 +8489,16 @@ struct CoreML_Specification_LoadConstantNDLayerParams {
 ///
 /// Output
 ///     A N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_FillLikeLayerParams {
+public struct CoreML_Specification_FillLikeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var value: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8513,7 +8513,7 @@ struct CoreML_Specification_FillLikeLayerParams {
 ///
 /// Output
 ///     A N-Dimensional tensor of shape "targetShape".
-struct CoreML_Specification_FillStaticLayerParams {
+public struct CoreML_Specification_FillStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8522,9 +8522,9 @@ struct CoreML_Specification_FillStaticLayerParams {
 
   var targetShape: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8542,16 +8542,16 @@ struct CoreML_Specification_FillStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_FillDynamicLayerParams {
+public struct CoreML_Specification_FillDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var value: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8570,14 +8570,14 @@ struct CoreML_Specification_FillDynamicLayerParams {
 /// (the shapes must be broadcastable)
 ///
 /// output.rank = max(input[0].rank, input[1].rank, input[2].rank)
-struct CoreML_Specification_WhereBroadcastableLayerParams {
+public struct CoreML_Specification_WhereBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8590,14 +8590,14 @@ struct CoreML_Specification_WhereBroadcastableLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_SinLayerParams {
+public struct CoreML_Specification_SinLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8610,14 +8610,14 @@ struct CoreML_Specification_SinLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_CosLayerParams {
+public struct CoreML_Specification_CosLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8630,14 +8630,14 @@ struct CoreML_Specification_CosLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_TanLayerParams {
+public struct CoreML_Specification_TanLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8650,14 +8650,14 @@ struct CoreML_Specification_TanLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AsinLayerParams {
+public struct CoreML_Specification_AsinLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8670,14 +8670,14 @@ struct CoreML_Specification_AsinLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AcosLayerParams {
+public struct CoreML_Specification_AcosLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8690,14 +8690,14 @@ struct CoreML_Specification_AcosLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AtanLayerParams {
+public struct CoreML_Specification_AtanLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8710,14 +8710,14 @@ struct CoreML_Specification_AtanLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_SinhLayerParams {
+public struct CoreML_Specification_SinhLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8730,14 +8730,14 @@ struct CoreML_Specification_SinhLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_CoshLayerParams {
+public struct CoreML_Specification_CoshLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8750,14 +8750,14 @@ struct CoreML_Specification_CoshLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_TanhLayerParams {
+public struct CoreML_Specification_TanhLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8770,14 +8770,14 @@ struct CoreML_Specification_TanhLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AsinhLayerParams {
+public struct CoreML_Specification_AsinhLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8790,14 +8790,14 @@ struct CoreML_Specification_AsinhLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AcoshLayerParams {
+public struct CoreML_Specification_AcoshLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8810,14 +8810,14 @@ struct CoreML_Specification_AcoshLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_AtanhLayerParams {
+public struct CoreML_Specification_AtanhLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8837,14 +8837,14 @@ struct CoreML_Specification_AtanhLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the broadcast shape.
-struct CoreML_Specification_PowBroadcastableLayerParams {
+public struct CoreML_Specification_PowBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8857,14 +8857,14 @@ struct CoreML_Specification_PowBroadcastableLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_Exp2LayerParams {
+public struct CoreML_Specification_Exp2LayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8898,14 +8898,14 @@ struct CoreML_Specification_Exp2LayerParams {
 /// [1. 2.]
 /// [2. 0.]
 /// [2. 1.]
-struct CoreML_Specification_WhereNonZeroLayerParams {
+public struct CoreML_Specification_WhereNonZeroLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8922,7 +8922,7 @@ struct CoreML_Specification_WhereNonZeroLayerParams {
 /// Output shape is same as the input shape.
 /// Rank of the input must be at least 2.
 /// For rank higher than 2, the last 2 dimensions are treated as the matrix, while the rest are treated as batch.
-struct CoreML_Specification_MatrixBandPartLayerParams {
+public struct CoreML_Specification_MatrixBandPartLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8931,9 +8931,9 @@ struct CoreML_Specification_MatrixBandPartLayerParams {
 
   var numUpper: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8944,7 +8944,7 @@ struct CoreML_Specification_MatrixBandPartLayerParams {
 /// Output shape is same as the input shape.
 /// Rank of the input must be at least 2.
 /// For rank higher than 2, the last 2 dimensions are treated as the matrix, while the rest are treated as batch.
-struct CoreML_Specification_UpperTriangularLayerParams {
+public struct CoreML_Specification_UpperTriangularLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8952,9 +8952,9 @@ struct CoreML_Specification_UpperTriangularLayerParams {
   /// Diagonal below which to zero elements. k = 0 (the default) is the main diagonal, k < 0 is below it and k > 0 is above
   var k: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8965,7 +8965,7 @@ struct CoreML_Specification_UpperTriangularLayerParams {
 /// Output shape is same as the input shape.
 /// Rank of the input must be at least 2.
 /// For rank higher than 2, the last 2 dimensions are treated as the matrix, while the rest are treated as batch.
-struct CoreML_Specification_LowerTriangularLayerParams {
+public struct CoreML_Specification_LowerTriangularLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -8973,9 +8973,9 @@ struct CoreML_Specification_LowerTriangularLayerParams {
   /// Diagonal above which to zero elements. k = 0 (the default) is the main diagonal, k < 0 is below it and k > 0 is above
   var k: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -8988,14 +8988,14 @@ struct CoreML_Specification_LowerTriangularLayerParams {
 /// used to determine the shape of the output. Values of second input are not used.
 ///
 /// Output is a tensor with the same shape as the second input.
-struct CoreML_Specification_BroadcastToLikeLayerParams {
+public struct CoreML_Specification_BroadcastToLikeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9006,16 +9006,16 @@ struct CoreML_Specification_BroadcastToLikeLayerParams {
 ///
 /// Output tensor is the broadcasted version of the input and has shape as specified in the
 /// parameter "targetShape".
-struct CoreML_Specification_BroadcastToStaticLayerParams {
+public struct CoreML_Specification_BroadcastToStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var targetShape: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9027,126 +9027,126 @@ struct CoreML_Specification_BroadcastToStaticLayerParams {
 /// First input is the one that is broadcasted to produce the output.
 /// Second input is a rank 1 tensor specifying the shape of the output.
 /// Output tensor has shape as specified by the values in the 2nd input tensor.
-struct CoreML_Specification_BroadcastToDynamicLayerParams {
+public struct CoreML_Specification_BroadcastToDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise addition operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_AddBroadcastableLayerParams {
+public struct CoreML_Specification_AddBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise maximum operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_MaxBroadcastableLayerParams {
+public struct CoreML_Specification_MaxBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise minimum operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_MinBroadcastableLayerParams {
+public struct CoreML_Specification_MinBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise modular operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_ModBroadcastableLayerParams {
+public struct CoreML_Specification_ModBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise floor division operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_FloorDivBroadcastableLayerParams {
+public struct CoreML_Specification_FloorDivBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise subtract operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_SubtractBroadcastableLayerParams {
+public struct CoreML_Specification_SubtractBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise multiply operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_MultiplyBroadcastableLayerParams {
+public struct CoreML_Specification_MultiplyBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A layer that performs element-wise division operation with broadcast support.
 ///
 /// Requires 2 inputs and produces 1 output.
-struct CoreML_Specification_DivideBroadcastableLayerParams {
+public struct CoreML_Specification_DivideBroadcastableLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9181,19 +9181,19 @@ struct CoreML_Specification_DivideBroadcastableLayerParams {
 /// indices shape = (6, 8)
 /// axis = 1
 /// output shape = (2,) + (6, 8) + (5,) =  (2, 6, 8, 5)
-struct CoreML_Specification_GatherLayerParams {
+public struct CoreML_Specification_GatherLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var axis: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_ScatterLayerParams {
+public struct CoreML_Specification_ScatterLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9203,9 +9203,9 @@ struct CoreML_Specification_ScatterLayerParams {
   //// mode of accumulation.
   var mode: CoreML_Specification_ScatterMode = .scatterUpdate
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9220,7 +9220,7 @@ struct CoreML_Specification_ScatterLayerParams {
 /// indices of (I_0 * I_1 * ... * I_(K-1)) points in the I_K dimensional space. For instance, the multi-index of the first point
 /// is indices[0,0,...,0,:].
 ///
-/// Here is how the output is constructed:
+/// Here is how the output is conpublic structed:
 ///
 /// for i = 0,1,...,(I_0-1)
 ///   ...
@@ -9244,14 +9244,14 @@ struct CoreML_Specification_ScatterLayerParams {
 /// input[0] shape = (5, 3, 2, 5)
 /// input[1] shape = (2, 7, 3, 2)
 /// output shape = (2, 7, 3) + (2, 5) = (2, 7, 3, 2, 5)
-struct CoreML_Specification_GatherNDLayerParams {
+public struct CoreML_Specification_GatherNDLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///
@@ -9286,7 +9286,7 @@ struct CoreML_Specification_GatherNDLayerParams {
 /// indices shape = (4, 7, 2, 5, 1)
 /// updates shape = (4, 7, 2, 5, 6)
 /// output shape = (7, 6)
-struct CoreML_Specification_ScatterNDLayerParams {
+public struct CoreML_Specification_ScatterNDLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9294,9 +9294,9 @@ struct CoreML_Specification_ScatterNDLayerParams {
   //// mode of accumulation.
   var mode: CoreML_Specification_ScatterMode = .scatterUpdate
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9325,16 +9325,16 @@ struct CoreML_Specification_ScatterNDLayerParams {
 /// indices shape = (4, 5, 7)
 /// axis = 1
 /// output shape = (4, 5, 7)
-struct CoreML_Specification_GatherAlongAxisLayerParams {
+public struct CoreML_Specification_GatherAlongAxisLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var axis: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9364,7 +9364,7 @@ struct CoreML_Specification_GatherAlongAxisLayerParams {
 /// updates shape = (2, 2, 6)
 /// axis = -2
 /// output shape = (2, 5, 6)
-struct CoreML_Specification_ScatterAlongAxisLayerParams {
+public struct CoreML_Specification_ScatterAlongAxisLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9374,9 +9374,9 @@ struct CoreML_Specification_ScatterAlongAxisLayerParams {
   //// mode of accumulation.
   var mode: CoreML_Specification_ScatterMode = .scatterUpdate
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9400,16 +9400,16 @@ struct CoreML_Specification_ScatterAlongAxisLayerParams {
 /// number of inputs = 5
 /// axis = -2
 /// output shape = (2, 4, 5, 2)
-struct CoreML_Specification_StackLayerParams {
+public struct CoreML_Specification_StackLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var axis: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9431,7 +9431,7 @@ struct CoreML_Specification_StackLayerParams {
 /// input shape = (10,3,5)
 /// targetShape = (25,0,-1)
 /// output shape = (25,3,2)
-struct CoreML_Specification_RankPreservingReshapeLayerParams {
+public struct CoreML_Specification_RankPreservingReshapeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9442,9 +9442,9 @@ struct CoreML_Specification_RankPreservingReshapeLayerParams {
   /// At most one element can be -1, in which case the output dimension is calculated from rest of the shape.
   var targetShape: [Int64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9482,7 +9482,7 @@ struct CoreML_Specification_RankPreservingReshapeLayerParams {
 /// input shape = (20,10,5)
 /// padAmounts = [0,0,17,0,0,14]
 /// output shape = (20,17,14)
-struct CoreML_Specification_ConstantPaddingLayerParams {
+public struct CoreML_Specification_ConstantPaddingLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9502,9 +9502,9 @@ struct CoreML_Specification_ConstantPaddingLayerParams {
   /// In that case only one of padAmounts[2*i] and padAmounts[2*i+1] can be non zero, for i=0,..,rank-1.
   var padToGivenOutputSizeMode: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9523,7 +9523,7 @@ struct CoreML_Specification_ConstantPaddingLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_RandomNormalLikeLayerParams {
+public struct CoreML_Specification_RandomNormalLikeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9534,9 +9534,9 @@ struct CoreML_Specification_RandomNormalLikeLayerParams {
 
   var stdDev: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9552,7 +9552,7 @@ struct CoreML_Specification_RandomNormalLikeLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor of shape "outputShape".
-struct CoreML_Specification_RandomNormalStaticLayerParams {
+public struct CoreML_Specification_RandomNormalStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9565,9 +9565,9 @@ struct CoreML_Specification_RandomNormalStaticLayerParams {
 
   var outputShape: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9585,7 +9585,7 @@ struct CoreML_Specification_RandomNormalStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_RandomNormalDynamicLayerParams {
+public struct CoreML_Specification_RandomNormalDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9596,9 +9596,9 @@ struct CoreML_Specification_RandomNormalDynamicLayerParams {
 
   var stdDev: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9617,7 +9617,7 @@ struct CoreML_Specification_RandomNormalDynamicLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_RandomUniformLikeLayerParams {
+public struct CoreML_Specification_RandomUniformLikeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9628,9 +9628,9 @@ struct CoreML_Specification_RandomUniformLikeLayerParams {
 
   var maxVal: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9646,7 +9646,7 @@ struct CoreML_Specification_RandomUniformLikeLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor of shape "outputShape".
-struct CoreML_Specification_RandomUniformStaticLayerParams {
+public struct CoreML_Specification_RandomUniformStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9659,9 +9659,9 @@ struct CoreML_Specification_RandomUniformStaticLayerParams {
 
   var outputShape: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9679,7 +9679,7 @@ struct CoreML_Specification_RandomUniformStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_RandomUniformDynamicLayerParams {
+public struct CoreML_Specification_RandomUniformDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9690,9 +9690,9 @@ struct CoreML_Specification_RandomUniformDynamicLayerParams {
 
   var maxVal: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9710,7 +9710,7 @@ struct CoreML_Specification_RandomUniformDynamicLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the same shape as the input tensor.
-struct CoreML_Specification_RandomBernoulliLikeLayerParams {
+public struct CoreML_Specification_RandomBernoulliLikeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9719,9 +9719,9 @@ struct CoreML_Specification_RandomBernoulliLikeLayerParams {
 
   var prob: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9736,7 +9736,7 @@ struct CoreML_Specification_RandomBernoulliLikeLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor of shape "outputShape".
-struct CoreML_Specification_RandomBernoulliStaticLayerParams {
+public struct CoreML_Specification_RandomBernoulliStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9747,9 +9747,9 @@ struct CoreML_Specification_RandomBernoulliStaticLayerParams {
 
   var outputShape: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9766,7 +9766,7 @@ struct CoreML_Specification_RandomBernoulliStaticLayerParams {
 ///
 /// Output
 ///     An N-Dimensional tensor with the shape specified by the values in the input tensor.
-struct CoreML_Specification_RandomBernoulliDynamicLayerParams {
+public struct CoreML_Specification_RandomBernoulliDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9775,9 +9775,9 @@ struct CoreML_Specification_RandomBernoulliDynamicLayerParams {
 
   var prob: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9794,7 +9794,7 @@ struct CoreML_Specification_RandomBernoulliDynamicLayerParams {
 ///
 /// Input tensor shape = [D_1, D_2, ... , D_(R-1), D_R] (Rank = R)
 /// Then the shape of the output is [D_1, D_2, ... , D_(R-1), numSamples] (Rank = R)
-struct CoreML_Specification_CategoricalDistributionLayerParams {
+public struct CoreML_Specification_CategoricalDistributionLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9809,9 +9809,9 @@ struct CoreML_Specification_CategoricalDistributionLayerParams {
 
   var temperature: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9824,7 +9824,7 @@ struct CoreML_Specification_CategoricalDistributionLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceL1LayerParams {
+public struct CoreML_Specification_ReduceL1LayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9835,9 +9835,9 @@ struct CoreML_Specification_ReduceL1LayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9850,7 +9850,7 @@ struct CoreML_Specification_ReduceL1LayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceL2LayerParams {
+public struct CoreML_Specification_ReduceL2LayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9861,9 +9861,9 @@ struct CoreML_Specification_ReduceL2LayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9876,7 +9876,7 @@ struct CoreML_Specification_ReduceL2LayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceMaxLayerParams {
+public struct CoreML_Specification_ReduceMaxLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9887,9 +9887,9 @@ struct CoreML_Specification_ReduceMaxLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9902,7 +9902,7 @@ struct CoreML_Specification_ReduceMaxLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceMinLayerParams {
+public struct CoreML_Specification_ReduceMinLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9913,9 +9913,9 @@ struct CoreML_Specification_ReduceMinLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9928,7 +9928,7 @@ struct CoreML_Specification_ReduceMinLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceSumLayerParams {
+public struct CoreML_Specification_ReduceSumLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9939,9 +9939,9 @@ struct CoreML_Specification_ReduceSumLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9954,7 +9954,7 @@ struct CoreML_Specification_ReduceSumLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceProdLayerParams {
+public struct CoreML_Specification_ReduceProdLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9965,9 +9965,9 @@ struct CoreML_Specification_ReduceProdLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -9980,7 +9980,7 @@ struct CoreML_Specification_ReduceProdLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceMeanLayerParams {
+public struct CoreML_Specification_ReduceMeanLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9991,9 +9991,9 @@ struct CoreML_Specification_ReduceMeanLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10006,7 +10006,7 @@ struct CoreML_Specification_ReduceMeanLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceLogSumLayerParams {
+public struct CoreML_Specification_ReduceLogSumLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10017,9 +10017,9 @@ struct CoreML_Specification_ReduceLogSumLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10032,7 +10032,7 @@ struct CoreML_Specification_ReduceLogSumLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceSumSquareLayerParams {
+public struct CoreML_Specification_ReduceSumSquareLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10043,9 +10043,9 @@ struct CoreML_Specification_ReduceSumSquareLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10058,7 +10058,7 @@ struct CoreML_Specification_ReduceSumSquareLayerParams {
 ///    axes: dimensions along which to perform reduction
 ///    keepDims: if True, keep the reduced dimensions (value will be 1), otherwise, reduced dimensions are squeezed
 ///    reduceAll: ignore the "axes" parameter, perform reduction along all axes
-struct CoreML_Specification_ReduceLogSumExpLayerParams {
+public struct CoreML_Specification_ReduceLogSumExpLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10069,9 +10069,9 @@ struct CoreML_Specification_ReduceLogSumExpLayerParams {
 
   var reduceAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10092,7 +10092,7 @@ struct CoreML_Specification_ReduceLogSumExpLayerParams {
 /// input shape = (10,5)
 /// axes = (-2,-1)
 /// output shape = (10,5,1,1)
-struct CoreML_Specification_ExpandDimsLayerParams {
+public struct CoreML_Specification_ExpandDimsLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10102,9 +10102,9 @@ struct CoreML_Specification_ExpandDimsLayerParams {
   /// Negative indexing is supported.
   var axes: [Int64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10140,16 +10140,16 @@ struct CoreML_Specification_ExpandDimsLayerParams {
 /// input shape:  (2, 3, 2)
 /// axis:  -1
 /// output shape:  (6, 2)
-struct CoreML_Specification_FlattenTo2DLayerParams {
+public struct CoreML_Specification_FlattenTo2DLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var axis: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10159,16 +10159,16 @@ struct CoreML_Specification_FlattenTo2DLayerParams {
 ///
 /// Output tensor is the reshaped version of the input and has shape as specified in the
 /// parameter "targetShape".
-struct CoreML_Specification_ReshapeStaticLayerParams {
+public struct CoreML_Specification_ReshapeStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var targetShape: [Int64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10180,14 +10180,14 @@ struct CoreML_Specification_ReshapeStaticLayerParams {
 /// used to determine the shape of the output. Values of the second input are not used.
 ///
 /// Output is a tensor with the same shape as the second input.
-struct CoreML_Specification_ReshapeLikeLayerParams {
+public struct CoreML_Specification_ReshapeLikeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10198,14 +10198,14 @@ struct CoreML_Specification_ReshapeLikeLayerParams {
 /// First input is the one that is reshaped to produce the output.
 /// Second input is a rank 1 tensor specifying the shape of the output.
 /// Output tensor has shape as specified by the values in the 2nd input tensor.
-struct CoreML_Specification_ReshapeDynamicLayerParams {
+public struct CoreML_Specification_ReshapeDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10233,7 +10233,7 @@ struct CoreML_Specification_ReshapeDynamicLayerParams {
 /// input shape = (1,)
 /// axes = (0)
 /// output shape = (1,)
-struct CoreML_Specification_SqueezeLayerParams {
+public struct CoreML_Specification_SqueezeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10246,9 +10246,9 @@ struct CoreML_Specification_SqueezeLayerParams {
   /// if true squeeze all dimensions that are 1.
   var squeezeAll: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10268,7 +10268,7 @@ struct CoreML_Specification_SqueezeLayerParams {
 /// first input's shape = (45, 34, 10, 5)
 /// axis = 1
 /// output shape, for both outputs = (45, K, 10, 5)
-struct CoreML_Specification_TopKLayerParams {
+public struct CoreML_Specification_TopKLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10282,9 +10282,9 @@ struct CoreML_Specification_TopKLayerParams {
   //// if true, bottom K (values, indices) are returned instead
   var useBottomK: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10305,7 +10305,7 @@ struct CoreML_Specification_TopKLayerParams {
 /// input shape = (5,)
 /// axis = 0
 /// output shape = (1,), if removeDim = False or True
-struct CoreML_Specification_ArgMaxLayerParams {
+public struct CoreML_Specification_ArgMaxLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10314,9 +10314,9 @@ struct CoreML_Specification_ArgMaxLayerParams {
 
   var removeDim: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10337,7 +10337,7 @@ struct CoreML_Specification_ArgMaxLayerParams {
 /// input shape = (5,)
 /// axis = 0
 /// output shape = (1,), if removeDim = False or True
-struct CoreML_Specification_ArgMinLayerParams {
+public struct CoreML_Specification_ArgMinLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10346,9 +10346,9 @@ struct CoreML_Specification_ArgMinLayerParams {
 
   var removeDim: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10371,7 +10371,7 @@ struct CoreML_Specification_ArgMinLayerParams {
 /// axis = -3, split_sizes = [3, 2]
 /// output shape:  (3, 3, 4)
 /// output shape:  (2, 3, 4)
-struct CoreML_Specification_SplitNDLayerParams {
+public struct CoreML_Specification_SplitNDLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10382,9 +10382,9 @@ struct CoreML_Specification_SplitNDLayerParams {
 
   var splitSizes: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10393,14 +10393,14 @@ struct CoreML_Specification_SplitNDLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_CeilLayerParams {
+public struct CoreML_Specification_CeilLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10409,14 +10409,14 @@ struct CoreML_Specification_CeilLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_RoundLayerParams {
+public struct CoreML_Specification_RoundLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10425,14 +10425,14 @@ struct CoreML_Specification_RoundLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_FloorLayerParams {
+public struct CoreML_Specification_FloorLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10441,14 +10441,14 @@ struct CoreML_Specification_FloorLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_SignLayerParams {
+public struct CoreML_Specification_SignLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10463,7 +10463,7 @@ struct CoreML_Specification_SignLayerParams {
 /// output =  min(max(input, minVal), maxVal)
 ///
 /// Output shape is same as the input.
-struct CoreML_Specification_ClipLayerParams {
+public struct CoreML_Specification_ClipLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10472,9 +10472,9 @@ struct CoreML_Specification_ClipLayerParams {
 
   var maxVal: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10519,7 +10519,7 @@ struct CoreML_Specification_ClipLayerParams {
 /// SqueezeMasks:  [False, True, False]
 /// output shape:  (2, 3)
 /// This is equivalent to input[:3:2, 2, ::2]
-struct CoreML_Specification_SliceStaticLayerParams {
+public struct CoreML_Specification_SliceStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10536,9 +10536,9 @@ struct CoreML_Specification_SliceStaticLayerParams {
 
   var squeezeMasks: [Bool] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10560,7 +10560,7 @@ struct CoreML_Specification_SliceStaticLayerParams {
 /// The 5th input, if present, corresponds to "beginMasks". In this case the value of the "beginMasks" parameter is ignored.
 /// The 6th input, if present, corresponds to "endMasks". In this case the value of the "endMasks" parameter is ignored.
 /// The 7th input, if present, corresponds to "squeezeMasks". In this case the value of the "squeezeMasks" parameter is ignored.
-struct CoreML_Specification_SliceDynamicLayerParams {
+public struct CoreML_Specification_SliceDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10575,13 +10575,13 @@ struct CoreML_Specification_SliceDynamicLayerParams {
 
   var squeezeMasks: [Bool] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
-/// A layer that constructs a tensor by repeating the input tensor multiple
+/// A layer that conpublic structs a tensor by repeating the input tensor multiple
 /// number of times.
 ///
 /// Requires 1 or 2 inputs and produces 1 output.
@@ -10610,16 +10610,16 @@ struct CoreML_Specification_SliceDynamicLayerParams {
 /// second input = [1, 2, 6] -> shape: (3,)
 /// reps = N/A [Ignored]
 /// output shape = (2, 8, 12)
-struct CoreML_Specification_TileLayerParams {
+public struct CoreML_Specification_TileLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var reps: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10630,14 +10630,14 @@ struct CoreML_Specification_TileLayerParams {
 /// Input: a tensor.
 /// Output: a vector of length R, where R is the rank of the input tensor
 /// Output is always a rank 1 tensor.
-struct CoreML_Specification_GetShapeLayerParams {
+public struct CoreML_Specification_GetShapeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10649,14 +10649,14 @@ struct CoreML_Specification_GetShapeLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_ErfLayerParams {
+public struct CoreML_Specification_ErfLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10677,7 +10677,7 @@ struct CoreML_Specification_ErfLayerParams {
 ///
 /// Requires 1 input and produces 1 output.
 /// Output shape is same as the input.
-struct CoreML_Specification_GeluLayerParams {
+public struct CoreML_Specification_GeluLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10685,20 +10685,20 @@ struct CoreML_Specification_GeluLayerParams {
   //// mode of GELU operation.
   var mode: CoreML_Specification_GeluLayerParams.GeluMode = .exact
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum GeluMode: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum GeluMode: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case exact // = 0
     case tanhApproximation // = 1
     case sigmoidApproximation // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .exact
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .exact
       case 1: self = .tanhApproximation
@@ -10707,7 +10707,7 @@ struct CoreML_Specification_GeluLayerParams {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .exact: return 0
       case .tanhApproximation: return 1
@@ -10718,14 +10718,14 @@ struct CoreML_Specification_GeluLayerParams {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_GeluLayerParams.GeluMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_GeluLayerParams.GeluMode] = [
+  public static var allCases: [CoreML_Specification_GeluLayerParams.GeluMode] = [
     .exact,
     .tanhApproximation,
     .sigmoidApproximation,
@@ -10740,7 +10740,7 @@ extension CoreML_Specification_GeluLayerParams.GeluMode: CaseIterable {
 ///
 /// Requires no input and produces 1 output.
 /// Output is a rank 1 tensor.
-struct CoreML_Specification_RangeStaticLayerParams {
+public struct CoreML_Specification_RangeStaticLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10751,9 +10751,9 @@ struct CoreML_Specification_RangeStaticLayerParams {
 
   var stepSizeValue: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10768,7 +10768,7 @@ struct CoreML_Specification_RangeStaticLayerParams {
 /// The first input represents the "endValue".
 /// The second input, if present, corresponds to "startValue". In this case the value of the "startValue" parameter is ignored.
 /// The third input, if present, corresponds to "stepSizeValue". In this case the value of the "stepSizeValue" parameter is ignored.
-struct CoreML_Specification_RangeDynamicLayerParams {
+public struct CoreML_Specification_RangeDynamicLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10777,9 +10777,9 @@ struct CoreML_Specification_RangeDynamicLayerParams {
 
   var stepSizeValue: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10807,7 +10807,7 @@ struct CoreML_Specification_RangeDynamicLayerParams {
 ///      - L, C, B refer to input length, feature dimension length & batch size respectively
 ///      - W is the window size.
 ///      - M is the number of windows/slices calculated as M = (L - W) / step + 1
-struct CoreML_Specification_SlidingWindowsLayerParams {
+public struct CoreML_Specification_SlidingWindowsLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10818,9 +10818,9 @@ struct CoreML_Specification_SlidingWindowsLayerParams {
 
   var step: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10844,7 +10844,7 @@ struct CoreML_Specification_SlidingWindowsLayerParams {
 ///
 /// input shape = (10,5,6,7)
 /// normalized shape = (7,) or (6,7) or (5,6,7) or (10,5,6,7)
-struct CoreML_Specification_LayerNormalizationLayerParams {
+public struct CoreML_Specification_LayerNormalizationLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10866,7 +10866,7 @@ struct CoreML_Specification_LayerNormalizationLayerParams {
   /// Returns true if `gamma` has been explicitly set.
   var hasGamma: Bool {return _storage._gamma != nil}
   /// Clears the value of `gamma`. Subsequent reads from it will return its default value.
-  mutating func clearGamma() {_uniqueStorage()._gamma = nil}
+  public mutating func clearGamma() {_uniqueStorage()._gamma = nil}
 
   var beta: CoreML_Specification_WeightParams {
     get {return _storage._beta ?? CoreML_Specification_WeightParams()}
@@ -10875,11 +10875,11 @@ struct CoreML_Specification_LayerNormalizationLayerParams {
   /// Returns true if `beta` has been explicitly set.
   var hasBeta: Bool {return _storage._beta != nil}
   /// Clears the value of `beta`. Subsequent reads from it will return its default value.
-  mutating func clearBeta() {_uniqueStorage()._beta = nil}
+  public mutating func clearBeta() {_uniqueStorage()._beta = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -10931,7 +10931,7 @@ struct CoreML_Specification_LayerNormalizationLayerParams {
 ///
 /// Note that the 4th output can be used to dynamically slice the first 3 outputs, in case
 /// the padded outputs are not required.
-struct CoreML_Specification_NonMaximumSuppressionLayerParams {
+public struct CoreML_Specification_NonMaximumSuppressionLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10953,9 +10953,9 @@ struct CoreML_Specification_NonMaximumSuppressionLayerParams {
   /// If true, suppression is performed independently within boxes of each class.
   var perClassSuppression: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -10974,7 +10974,7 @@ struct CoreML_Specification_NonMaximumSuppressionLayerParams {
 /// Output shape is same as the input.
 ///
 /// Available (iOS >= 14, macOS >= 11.0, watchOS >= 7)
-struct CoreML_Specification_ClampedReLULayerParams {
+public struct CoreML_Specification_ClampedReLULayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10983,9 +10983,9 @@ struct CoreML_Specification_ClampedReLULayerParams {
 
   var beta: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -11012,7 +11012,7 @@ struct CoreML_Specification_ClampedReLULayerParams {
 /// output shape = (2,3)
 /// output values = [[0, 1, 2], [0, 2, 1]], descending = False
 /// output values = [[2, 1, 0], [1, 2, 0]], descending = True
-struct CoreML_Specification_ArgSortLayerParams {
+public struct CoreML_Specification_ArgSortLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11022,9 +11022,9 @@ struct CoreML_Specification_ArgSortLayerParams {
 
   var descending: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -11044,7 +11044,7 @@ struct CoreML_Specification_ArgSortLayerParams {
 /// axis: 1
 ///
 /// Output: x[:, begin:begin+2, :]
-struct CoreML_Specification_SliceBySizeLayerParams {
+public struct CoreML_Specification_SliceBySizeLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11053,14 +11053,14 @@ struct CoreML_Specification_SliceBySizeLayerParams {
 
   var axis: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A neural network specialized as a classifier.
-struct CoreML_Specification_NeuralNetworkClassifier {
+public struct CoreML_Specification_NeuralNetworkClassifier {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11069,10 +11069,10 @@ struct CoreML_Specification_NeuralNetworkClassifier {
 
   var preprocessing: [CoreML_Specification_NeuralNetworkPreprocessing] = []
 
-  /// use this enum value to determine the input tensor shapes to the neural network, for multiarray inputs
+  /// use this public enum value to determine the input tensor shapes to the neural network, for multiarray inputs
   var arrayInputShapeMapping: CoreML_Specification_NeuralNetworkMultiArrayShapeMapping = .rank5ArrayMapping
 
-  /// use this enum value to determine the input tensor shapes to the neural network, for image inputs
+  /// use this public enum value to determine the input tensor shapes to the neural network, for image inputs
   var imageInputShapeMapping: CoreML_Specification_NeuralNetworkImageShapeMapping = .rank5ImageMapping
 
   var updateParams: CoreML_Specification_NetworkUpdateParameters {
@@ -11082,7 +11082,7 @@ struct CoreML_Specification_NeuralNetworkClassifier {
   /// Returns true if `updateParams` has been explicitly set.
   var hasUpdateParams: Bool {return self._updateParams != nil}
   /// Clears the value of `updateParams`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateParams() {self._updateParams = nil}
+  public mutating func clearUpdateParams() {self._updateParams = nil}
 
   /// The set of labels for every possible class.
   var classLabels: CoreML_Specification_NeuralNetworkClassifier.OneOf_ClassLabels? = nil
@@ -11108,15 +11108,15 @@ struct CoreML_Specification_NeuralNetworkClassifier {
   /// number and order of elements as ClassLabels.
   var labelProbabilityLayerName: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The set of labels for every possible class.
-  enum OneOf_ClassLabels: Equatable {
+  public enum OneOf_ClassLabels: Equatable {
     case stringClassLabels(CoreML_Specification_StringVector)
     case int64ClassLabels(CoreML_Specification_Int64Vector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_NeuralNetworkClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_NeuralNetworkClassifier.OneOf_ClassLabels) -> Bool {
+    public static func ==(lhs: CoreML_Specification_NeuralNetworkClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_NeuralNetworkClassifier.OneOf_ClassLabels) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -11135,12 +11135,12 @@ struct CoreML_Specification_NeuralNetworkClassifier {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _updateParams: CoreML_Specification_NetworkUpdateParameters? = nil
 }
 
-struct CoreML_Specification_OneHotLayerParams {
+public struct CoreML_Specification_OneHotLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11155,12 +11155,12 @@ struct CoreML_Specification_OneHotLayerParams {
 
   var offValue: Float = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_CumSumLayerParams {
+public struct CoreML_Specification_CumSumLayerParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11176,14 +11176,14 @@ struct CoreML_Specification_CumSumLayerParams {
   //// if true, cumsum is performed in the opposite direction
   var reverse: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A neural network specialized as a regressor.
-struct CoreML_Specification_NeuralNetworkRegressor {
+public struct CoreML_Specification_NeuralNetworkRegressor {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11192,10 +11192,10 @@ struct CoreML_Specification_NeuralNetworkRegressor {
 
   var preprocessing: [CoreML_Specification_NeuralNetworkPreprocessing] = []
 
-  /// use this enum value to determine the input tensor shapes to the neural network, for multiarray inputs
+  /// use this public enum value to determine the input tensor shapes to the neural network, for multiarray inputs
   var arrayInputShapeMapping: CoreML_Specification_NeuralNetworkMultiArrayShapeMapping = .rank5ArrayMapping
 
-  /// use this enum value to determine the input tensor shapes to the neural network, for image inputs
+  /// use this public enum value to determine the input tensor shapes to the neural network, for image inputs
   var imageInputShapeMapping: CoreML_Specification_NeuralNetworkImageShapeMapping = .rank5ImageMapping
 
   var updateParams: CoreML_Specification_NetworkUpdateParameters {
@@ -11205,18 +11205,18 @@ struct CoreML_Specification_NeuralNetworkRegressor {
   /// Returns true if `updateParams` has been explicitly set.
   var hasUpdateParams: Bool {return self._updateParams != nil}
   /// Clears the value of `updateParams`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateParams() {self._updateParams = nil}
+  public mutating func clearUpdateParams() {self._updateParams = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _updateParams: CoreML_Specification_NetworkUpdateParameters? = nil
 }
 
 ///*
 /// Details on how the network will be updated
-struct CoreML_Specification_NetworkUpdateParameters {
+public struct CoreML_Specification_NetworkUpdateParameters {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11233,7 +11233,7 @@ struct CoreML_Specification_NetworkUpdateParameters {
   /// Returns true if `optimizer` has been explicitly set.
   var hasOptimizer: Bool {return _storage._optimizer != nil}
   /// Clears the value of `optimizer`. Subsequent reads from it will return its default value.
-  mutating func clearOptimizer() {_uniqueStorage()._optimizer = nil}
+  public mutating func clearOptimizer() {_uniqueStorage()._optimizer = nil}
 
   var epochs: CoreML_Specification_Int64Parameter {
     get {return _storage._epochs ?? CoreML_Specification_Int64Parameter()}
@@ -11242,7 +11242,7 @@ struct CoreML_Specification_NetworkUpdateParameters {
   /// Returns true if `epochs` has been explicitly set.
   var hasEpochs: Bool {return _storage._epochs != nil}
   /// Clears the value of `epochs`. Subsequent reads from it will return its default value.
-  mutating func clearEpochs() {_uniqueStorage()._epochs = nil}
+  public mutating func clearEpochs() {_uniqueStorage()._epochs = nil}
 
   ///*
   /// Describes whether to shuffle the batch of data between epochs.
@@ -11253,7 +11253,7 @@ struct CoreML_Specification_NetworkUpdateParameters {
   /// Returns true if `shuffle` has been explicitly set.
   var hasShuffle: Bool {return _storage._shuffle != nil}
   /// Clears the value of `shuffle`. Subsequent reads from it will return its default value.
-  mutating func clearShuffle() {_uniqueStorage()._shuffle = nil}
+  public mutating func clearShuffle() {_uniqueStorage()._shuffle = nil}
 
   ///*
   /// The seed to be used in an associated random number generator.
@@ -11264,18 +11264,18 @@ struct CoreML_Specification_NetworkUpdateParameters {
   /// Returns true if `seed` has been explicitly set.
   var hasSeed: Bool {return _storage._seed != nil}
   /// Clears the value of `seed`. Subsequent reads from it will return its default value.
-  mutating func clearSeed() {_uniqueStorage()._seed = nil}
+  public mutating func clearSeed() {_uniqueStorage()._seed = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 ///*
 /// Loss layer - categorical cross entropy and mean squared error are the only supported loss functions currently
-struct CoreML_Specification_LossLayer {
+public struct CoreML_Specification_LossLayer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11300,14 +11300,14 @@ struct CoreML_Specification_LossLayer {
     set {lossLayerType = .meanSquaredErrorLossLayer(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_LossLayerType: Equatable {
+  public enum OneOf_LossLayerType: Equatable {
     case categoricalCrossEntropyLossLayer(CoreML_Specification_CategoricalCrossEntropyLossLayer)
     case meanSquaredErrorLossLayer(CoreML_Specification_MeanSquaredErrorLossLayer)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_LossLayer.OneOf_LossLayerType, rhs: CoreML_Specification_LossLayer.OneOf_LossLayerType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_LossLayer.OneOf_LossLayerType, rhs: CoreML_Specification_LossLayer.OneOf_LossLayerType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -11326,7 +11326,7 @@ struct CoreML_Specification_LossLayer {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -11339,7 +11339,7 @@ struct CoreML_Specification_LossLayer {
 ///
 /// math:
 /// Loss_{CCE}(input, target) = -\sum_{i=1}^{N} (target == i) log( input[i] ) = - log (input[target])
-struct CoreML_Specification_CategoricalCrossEntropyLossLayer {
+public struct CoreML_Specification_CategoricalCrossEntropyLossLayer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11348,15 +11348,15 @@ struct CoreML_Specification_CategoricalCrossEntropyLossLayer {
 
   var target: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Mean squared error loss layer,
 /// specifying input and target
-struct CoreML_Specification_MeanSquaredErrorLossLayer {
+public struct CoreML_Specification_MeanSquaredErrorLossLayer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11365,14 +11365,14 @@ struct CoreML_Specification_MeanSquaredErrorLossLayer {
 
   var target: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Optimizer - stochastic gradient descent and adam are the only supported optimizers currently
-struct CoreML_Specification_Optimizer {
+public struct CoreML_Specification_Optimizer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11395,14 +11395,14 @@ struct CoreML_Specification_Optimizer {
     set {optimizerType = .adamOptimizer(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OptimizerType: Equatable {
+  public enum OneOf_OptimizerType: Equatable {
     case sgdOptimizer(CoreML_Specification_SGDOptimizer)
     case adamOptimizer(CoreML_Specification_AdamOptimizer)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_Optimizer.OneOf_OptimizerType, rhs: CoreML_Specification_Optimizer.OneOf_OptimizerType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_Optimizer.OneOf_OptimizerType, rhs: CoreML_Specification_Optimizer.OneOf_OptimizerType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -11421,13 +11421,13 @@ struct CoreML_Specification_Optimizer {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Stochastic gradient descent optimizer,
 /// specifying configurable learning rate, mini batch size, and momentum
-struct CoreML_Specification_SGDOptimizer {
+public struct CoreML_Specification_SGDOptimizer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11439,7 +11439,7 @@ struct CoreML_Specification_SGDOptimizer {
   /// Returns true if `learningRate` has been explicitly set.
   var hasLearningRate: Bool {return self._learningRate != nil}
   /// Clears the value of `learningRate`. Subsequent reads from it will return its default value.
-  mutating func clearLearningRate() {self._learningRate = nil}
+  public mutating func clearLearningRate() {self._learningRate = nil}
 
   var miniBatchSize: CoreML_Specification_Int64Parameter {
     get {return _miniBatchSize ?? CoreML_Specification_Int64Parameter()}
@@ -11448,7 +11448,7 @@ struct CoreML_Specification_SGDOptimizer {
   /// Returns true if `miniBatchSize` has been explicitly set.
   var hasMiniBatchSize: Bool {return self._miniBatchSize != nil}
   /// Clears the value of `miniBatchSize`. Subsequent reads from it will return its default value.
-  mutating func clearMiniBatchSize() {self._miniBatchSize = nil}
+  public mutating func clearMiniBatchSize() {self._miniBatchSize = nil}
 
   var momentum: CoreML_Specification_DoubleParameter {
     get {return _momentum ?? CoreML_Specification_DoubleParameter()}
@@ -11457,11 +11457,11 @@ struct CoreML_Specification_SGDOptimizer {
   /// Returns true if `momentum` has been explicitly set.
   var hasMomentum: Bool {return self._momentum != nil}
   /// Clears the value of `momentum`. Subsequent reads from it will return its default value.
-  mutating func clearMomentum() {self._momentum = nil}
+  public mutating func clearMomentum() {self._momentum = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _learningRate: CoreML_Specification_DoubleParameter? = nil
   fileprivate var _miniBatchSize: CoreML_Specification_Int64Parameter? = nil
@@ -11471,7 +11471,7 @@ struct CoreML_Specification_SGDOptimizer {
 ///*
 /// Adam optimizer,
 /// specifying configurable learning rate, mini batch size, betas, and eps
-struct CoreML_Specification_AdamOptimizer {
+public struct CoreML_Specification_AdamOptimizer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -11483,7 +11483,7 @@ struct CoreML_Specification_AdamOptimizer {
   /// Returns true if `learningRate` has been explicitly set.
   var hasLearningRate: Bool {return self._learningRate != nil}
   /// Clears the value of `learningRate`. Subsequent reads from it will return its default value.
-  mutating func clearLearningRate() {self._learningRate = nil}
+  public mutating func clearLearningRate() {self._learningRate = nil}
 
   var miniBatchSize: CoreML_Specification_Int64Parameter {
     get {return _miniBatchSize ?? CoreML_Specification_Int64Parameter()}
@@ -11492,7 +11492,7 @@ struct CoreML_Specification_AdamOptimizer {
   /// Returns true if `miniBatchSize` has been explicitly set.
   var hasMiniBatchSize: Bool {return self._miniBatchSize != nil}
   /// Clears the value of `miniBatchSize`. Subsequent reads from it will return its default value.
-  mutating func clearMiniBatchSize() {self._miniBatchSize = nil}
+  public mutating func clearMiniBatchSize() {self._miniBatchSize = nil}
 
   var beta1: CoreML_Specification_DoubleParameter {
     get {return _beta1 ?? CoreML_Specification_DoubleParameter()}
@@ -11501,7 +11501,7 @@ struct CoreML_Specification_AdamOptimizer {
   /// Returns true if `beta1` has been explicitly set.
   var hasBeta1: Bool {return self._beta1 != nil}
   /// Clears the value of `beta1`. Subsequent reads from it will return its default value.
-  mutating func clearBeta1() {self._beta1 = nil}
+  public mutating func clearBeta1() {self._beta1 = nil}
 
   var beta2: CoreML_Specification_DoubleParameter {
     get {return _beta2 ?? CoreML_Specification_DoubleParameter()}
@@ -11510,7 +11510,7 @@ struct CoreML_Specification_AdamOptimizer {
   /// Returns true if `beta2` has been explicitly set.
   var hasBeta2: Bool {return self._beta2 != nil}
   /// Clears the value of `beta2`. Subsequent reads from it will return its default value.
-  mutating func clearBeta2() {self._beta2 = nil}
+  public mutating func clearBeta2() {self._beta2 = nil}
 
   var eps: CoreML_Specification_DoubleParameter {
     get {return _eps ?? CoreML_Specification_DoubleParameter()}
@@ -11519,11 +11519,11 @@ struct CoreML_Specification_AdamOptimizer {
   /// Returns true if `eps` has been explicitly set.
   var hasEps: Bool {return self._eps != nil}
   /// Clears the value of `eps`. Subsequent reads from it will return its default value.
-  mutating func clearEps() {self._eps = nil}
+  public mutating func clearEps() {self._eps = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _learningRate: CoreML_Specification_DoubleParameter? = nil
   fileprivate var _miniBatchSize: CoreML_Specification_Int64Parameter? = nil
@@ -11537,21 +11537,21 @@ struct CoreML_Specification_AdamOptimizer {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_NeuralNetworkMultiArrayShapeMapping: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "RANK5_ARRAY_MAPPING"),
     1: .same(proto: "EXACT_ARRAY_MAPPING"),
   ]
 }
 
 extension CoreML_Specification_NeuralNetworkImageShapeMapping: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "RANK5_IMAGE_MAPPING"),
     1: .same(proto: "RANK4_IMAGE_MAPPING"),
   ]
 }
 
 extension CoreML_Specification_ScatterMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SCATTER_UPDATE"),
     1: .same(proto: "SCATTER_ADD"),
     2: .same(proto: "SCATTER_SUB"),
@@ -11563,8 +11563,8 @@ extension CoreML_Specification_ScatterMode: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension CoreML_Specification_NeuralNetwork: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NeuralNetwork"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NeuralNetwork"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "layers"),
     2: .same(proto: "preprocessing"),
     5: .same(proto: "arrayInputShapeMapping"),
@@ -11572,7 +11572,7 @@ extension CoreML_Specification_NeuralNetwork: SwiftProtobuf.Message, SwiftProtob
     10: .same(proto: "updateParams"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11588,7 +11588,7 @@ extension CoreML_Specification_NeuralNetwork: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -11611,7 +11611,7 @@ extension CoreML_Specification_NeuralNetwork: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NeuralNetwork, rhs: CoreML_Specification_NeuralNetwork) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NeuralNetwork, rhs: CoreML_Specification_NeuralNetwork) -> Bool {
     if lhs.layers != rhs.layers {return false}
     if lhs.preprocessing != rhs.preprocessing {return false}
     if lhs.arrayInputShapeMapping != rhs.arrayInputShapeMapping {return false}
@@ -11623,8 +11623,8 @@ extension CoreML_Specification_NeuralNetwork: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension CoreML_Specification_NeuralNetworkImageScaler: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NeuralNetworkImageScaler"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NeuralNetworkImageScaler"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "channelScale"),
     20: .same(proto: "blueBias"),
     21: .same(proto: "greenBias"),
@@ -11632,7 +11632,7 @@ extension CoreML_Specification_NeuralNetworkImageScaler: SwiftProtobuf.Message, 
     30: .same(proto: "grayBias"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11648,7 +11648,7 @@ extension CoreML_Specification_NeuralNetworkImageScaler: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.channelScale != 0 {
       try visitor.visitSingularFloatField(value: self.channelScale, fieldNumber: 10)
     }
@@ -11667,7 +11667,7 @@ extension CoreML_Specification_NeuralNetworkImageScaler: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NeuralNetworkImageScaler, rhs: CoreML_Specification_NeuralNetworkImageScaler) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NeuralNetworkImageScaler, rhs: CoreML_Specification_NeuralNetworkImageScaler) -> Bool {
     if lhs.channelScale != rhs.channelScale {return false}
     if lhs.blueBias != rhs.blueBias {return false}
     if lhs.greenBias != rhs.greenBias {return false}
@@ -11679,12 +11679,12 @@ extension CoreML_Specification_NeuralNetworkImageScaler: SwiftProtobuf.Message, 
 }
 
 extension CoreML_Specification_NeuralNetworkMeanImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NeuralNetworkMeanImage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NeuralNetworkMeanImage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "meanImage"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11696,14 +11696,14 @@ extension CoreML_Specification_NeuralNetworkMeanImage: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.meanImage.isEmpty {
       try visitor.visitPackedFloatField(value: self.meanImage, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NeuralNetworkMeanImage, rhs: CoreML_Specification_NeuralNetworkMeanImage) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NeuralNetworkMeanImage, rhs: CoreML_Specification_NeuralNetworkMeanImage) -> Bool {
     if lhs.meanImage != rhs.meanImage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -11711,14 +11711,14 @@ extension CoreML_Specification_NeuralNetworkMeanImage: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_NeuralNetworkPreprocessing: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NeuralNetworkPreprocessing"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NeuralNetworkPreprocessing"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "featureName"),
     10: .same(proto: "scaler"),
     11: .same(proto: "meanImage"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11756,7 +11756,7 @@ extension CoreML_Specification_NeuralNetworkPreprocessing: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -11778,7 +11778,7 @@ extension CoreML_Specification_NeuralNetworkPreprocessing: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NeuralNetworkPreprocessing, rhs: CoreML_Specification_NeuralNetworkPreprocessing) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NeuralNetworkPreprocessing, rhs: CoreML_Specification_NeuralNetworkPreprocessing) -> Bool {
     if lhs.featureName != rhs.featureName {return false}
     if lhs.preprocessor != rhs.preprocessor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -11787,31 +11787,31 @@ extension CoreML_Specification_NeuralNetworkPreprocessing: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_ActivationReLU: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationReLU"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ActivationReLU"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationReLU, rhs: CoreML_Specification_ActivationReLU) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationReLU, rhs: CoreML_Specification_ActivationReLU) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ActivationLeakyReLU: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationLeakyReLU"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationLeakyReLU"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11823,14 +11823,14 @@ extension CoreML_Specification_ActivationLeakyReLU: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationLeakyReLU, rhs: CoreML_Specification_ActivationLeakyReLU) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationLeakyReLU, rhs: CoreML_Specification_ActivationLeakyReLU) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -11838,32 +11838,32 @@ extension CoreML_Specification_ActivationLeakyReLU: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_ActivationTanh: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationTanh"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ActivationTanh"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationTanh, rhs: CoreML_Specification_ActivationTanh) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationTanh, rhs: CoreML_Specification_ActivationTanh) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ActivationScaledTanh: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationScaledTanh"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationScaledTanh"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
     2: .same(proto: "beta"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11876,7 +11876,7 @@ extension CoreML_Specification_ActivationScaledTanh: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
@@ -11886,7 +11886,7 @@ extension CoreML_Specification_ActivationScaledTanh: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationScaledTanh, rhs: CoreML_Specification_ActivationScaledTanh) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationScaledTanh, rhs: CoreML_Specification_ActivationScaledTanh) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.beta != rhs.beta {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -11895,32 +11895,32 @@ extension CoreML_Specification_ActivationScaledTanh: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_ActivationSigmoid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationSigmoid"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ActivationSigmoid"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationSigmoid, rhs: CoreML_Specification_ActivationSigmoid) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationSigmoid, rhs: CoreML_Specification_ActivationSigmoid) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ActivationLinear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationLinear"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationLinear"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
     2: .same(proto: "beta"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11933,7 +11933,7 @@ extension CoreML_Specification_ActivationLinear: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
@@ -11943,7 +11943,7 @@ extension CoreML_Specification_ActivationLinear: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationLinear, rhs: CoreML_Specification_ActivationLinear) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationLinear, rhs: CoreML_Specification_ActivationLinear) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.beta != rhs.beta {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -11952,13 +11952,13 @@ extension CoreML_Specification_ActivationLinear: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_ActivationSigmoidHard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationSigmoidHard"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationSigmoidHard"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
     2: .same(proto: "beta"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -11971,7 +11971,7 @@ extension CoreML_Specification_ActivationSigmoidHard: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
@@ -11981,7 +11981,7 @@ extension CoreML_Specification_ActivationSigmoidHard: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationSigmoidHard, rhs: CoreML_Specification_ActivationSigmoidHard) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationSigmoidHard, rhs: CoreML_Specification_ActivationSigmoidHard) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.beta != rhs.beta {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -11990,12 +11990,12 @@ extension CoreML_Specification_ActivationSigmoidHard: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_ActivationPReLU: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationPReLU"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationPReLU"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -12007,7 +12007,7 @@ extension CoreML_Specification_ActivationPReLU: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -12018,7 +12018,7 @@ extension CoreML_Specification_ActivationPReLU: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationPReLU, rhs: CoreML_Specification_ActivationPReLU) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationPReLU, rhs: CoreML_Specification_ActivationPReLU) -> Bool {
     if lhs._alpha != rhs._alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -12026,12 +12026,12 @@ extension CoreML_Specification_ActivationPReLU: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_ActivationELU: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationELU"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationELU"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -12043,14 +12043,14 @@ extension CoreML_Specification_ActivationELU: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationELU, rhs: CoreML_Specification_ActivationELU) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationELU, rhs: CoreML_Specification_ActivationELU) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -12058,12 +12058,12 @@ extension CoreML_Specification_ActivationELU: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension CoreML_Specification_ActivationThresholdedReLU: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationThresholdedReLU"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationThresholdedReLU"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -12075,14 +12075,14 @@ extension CoreML_Specification_ActivationThresholdedReLU: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationThresholdedReLU, rhs: CoreML_Specification_ActivationThresholdedReLU) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationThresholdedReLU, rhs: CoreML_Specification_ActivationThresholdedReLU) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -12090,51 +12090,51 @@ extension CoreML_Specification_ActivationThresholdedReLU: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_ActivationSoftsign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationSoftsign"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ActivationSoftsign"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationSoftsign, rhs: CoreML_Specification_ActivationSoftsign) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationSoftsign, rhs: CoreML_Specification_ActivationSoftsign) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ActivationSoftplus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationSoftplus"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ActivationSoftplus"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationSoftplus, rhs: CoreML_Specification_ActivationSoftplus) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationSoftplus, rhs: CoreML_Specification_ActivationSoftplus) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ActivationParametricSoftplus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationParametricSoftplus"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationParametricSoftplus"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
     2: .same(proto: "beta"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -12147,7 +12147,7 @@ extension CoreML_Specification_ActivationParametricSoftplus: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -12161,7 +12161,7 @@ extension CoreML_Specification_ActivationParametricSoftplus: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationParametricSoftplus, rhs: CoreML_Specification_ActivationParametricSoftplus) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationParametricSoftplus, rhs: CoreML_Specification_ActivationParametricSoftplus) -> Bool {
     if lhs._alpha != rhs._alpha {return false}
     if lhs._beta != rhs._beta {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12170,8 +12170,8 @@ extension CoreML_Specification_ActivationParametricSoftplus: SwiftProtobuf.Messa
 }
 
 extension CoreML_Specification_ActivationParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ActivationParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ActivationParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     5: .same(proto: "linear"),
     10: .same(proto: "ReLU"),
     15: .same(proto: "leakyReLU"),
@@ -12187,7 +12187,7 @@ extension CoreML_Specification_ActivationParams: SwiftProtobuf.Message, SwiftPro
     71: .same(proto: "parametricSoftplus"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -12367,7 +12367,7 @@ extension CoreML_Specification_ActivationParams: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -12430,7 +12430,7 @@ extension CoreML_Specification_ActivationParams: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ActivationParams, rhs: CoreML_Specification_ActivationParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ActivationParams, rhs: CoreML_Specification_ActivationParams) -> Bool {
     if lhs.nonlinearityType != rhs.nonlinearityType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -12438,13 +12438,13 @@ extension CoreML_Specification_ActivationParams: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_Tensor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Tensor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Tensor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "rank"),
     2: .same(proto: "dimValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -12457,7 +12457,7 @@ extension CoreML_Specification_Tensor: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.rank != 0 {
       try visitor.visitSingularUInt32Field(value: self.rank, fieldNumber: 1)
     }
@@ -12467,7 +12467,7 @@ extension CoreML_Specification_Tensor: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Tensor, rhs: CoreML_Specification_Tensor) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Tensor, rhs: CoreML_Specification_Tensor) -> Bool {
     if lhs.rank != rhs.rank {return false}
     if lhs.dimValue != rhs.dimValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12476,8 +12476,8 @@ extension CoreML_Specification_Tensor: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension CoreML_Specification_NeuralNetworkLayer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NeuralNetworkLayer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NeuralNetworkLayer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "input"),
     3: .same(proto: "output"),
@@ -12653,11 +12653,11 @@ extension CoreML_Specification_NeuralNetworkLayer: SwiftProtobuf.Message, SwiftP
     var _isUpdatable: Bool = false
     var _layer: CoreML_Specification_NeuralNetworkLayer.OneOf_Layer?
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _name = source._name
       _input = source._input
       _output = source._output
@@ -12675,7 +12675,7 @@ extension CoreML_Specification_NeuralNetworkLayer: SwiftProtobuf.Message, SwiftP
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14749,7 +14749,7 @@ extension CoreML_Specification_NeuralNetworkLayer: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -15412,7 +15412,7 @@ extension CoreML_Specification_NeuralNetworkLayer: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NeuralNetworkLayer, rhs: CoreML_Specification_NeuralNetworkLayer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NeuralNetworkLayer, rhs: CoreML_Specification_NeuralNetworkLayer) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -15434,13 +15434,13 @@ extension CoreML_Specification_NeuralNetworkLayer: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_BranchLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BranchLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BranchLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ifBranch"),
     2: .same(proto: "elseBranch"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15453,7 +15453,7 @@ extension CoreML_Specification_BranchLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -15467,7 +15467,7 @@ extension CoreML_Specification_BranchLayerParams: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BranchLayerParams, rhs: CoreML_Specification_BranchLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BranchLayerParams, rhs: CoreML_Specification_BranchLayerParams) -> Bool {
     if lhs._ifBranch != rhs._ifBranch {return false}
     if lhs._elseBranch != rhs._elseBranch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15476,15 +15476,15 @@ extension CoreML_Specification_BranchLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_LoopLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LoopLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LoopLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "maxLoopIterations"),
     2: .same(proto: "conditionVar"),
     3: .same(proto: "conditionNetwork"),
     4: .same(proto: "bodyNetwork"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15499,7 +15499,7 @@ extension CoreML_Specification_LoopLayerParams: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -15519,7 +15519,7 @@ extension CoreML_Specification_LoopLayerParams: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LoopLayerParams, rhs: CoreML_Specification_LoopLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LoopLayerParams, rhs: CoreML_Specification_LoopLayerParams) -> Bool {
     if lhs.maxLoopIterations != rhs.maxLoopIterations {return false}
     if lhs.conditionVar != rhs.conditionVar {return false}
     if lhs._conditionNetwork != rhs._conditionNetwork {return false}
@@ -15530,69 +15530,69 @@ extension CoreML_Specification_LoopLayerParams: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_LoopBreakLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LoopBreakLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".LoopBreakLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LoopBreakLayerParams, rhs: CoreML_Specification_LoopBreakLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LoopBreakLayerParams, rhs: CoreML_Specification_LoopBreakLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_LoopContinueLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LoopContinueLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".LoopContinueLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LoopContinueLayerParams, rhs: CoreML_Specification_LoopContinueLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LoopContinueLayerParams, rhs: CoreML_Specification_LoopContinueLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_CopyLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CopyLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".CopyLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CopyLayerParams, rhs: CoreML_Specification_CopyLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CopyLayerParams, rhs: CoreML_Specification_CopyLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_GreaterThanLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GreaterThanLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GreaterThanLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15604,14 +15604,14 @@ extension CoreML_Specification_GreaterThanLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GreaterThanLayerParams, rhs: CoreML_Specification_GreaterThanLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GreaterThanLayerParams, rhs: CoreML_Specification_GreaterThanLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15619,12 +15619,12 @@ extension CoreML_Specification_GreaterThanLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_GreaterEqualLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GreaterEqualLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GreaterEqualLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15636,14 +15636,14 @@ extension CoreML_Specification_GreaterEqualLayerParams: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GreaterEqualLayerParams, rhs: CoreML_Specification_GreaterEqualLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GreaterEqualLayerParams, rhs: CoreML_Specification_GreaterEqualLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15651,12 +15651,12 @@ extension CoreML_Specification_GreaterEqualLayerParams: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_LessThanLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LessThanLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LessThanLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15668,14 +15668,14 @@ extension CoreML_Specification_LessThanLayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LessThanLayerParams, rhs: CoreML_Specification_LessThanLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LessThanLayerParams, rhs: CoreML_Specification_LessThanLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15683,12 +15683,12 @@ extension CoreML_Specification_LessThanLayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_LessEqualLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LessEqualLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LessEqualLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15700,14 +15700,14 @@ extension CoreML_Specification_LessEqualLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LessEqualLayerParams, rhs: CoreML_Specification_LessEqualLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LessEqualLayerParams, rhs: CoreML_Specification_LessEqualLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15715,12 +15715,12 @@ extension CoreML_Specification_LessEqualLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_EqualLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EqualLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EqualLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15732,14 +15732,14 @@ extension CoreML_Specification_EqualLayerParams: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_EqualLayerParams, rhs: CoreML_Specification_EqualLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_EqualLayerParams, rhs: CoreML_Specification_EqualLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15747,12 +15747,12 @@ extension CoreML_Specification_EqualLayerParams: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_NotEqualLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NotEqualLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NotEqualLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15764,14 +15764,14 @@ extension CoreML_Specification_NotEqualLayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NotEqualLayerParams, rhs: CoreML_Specification_NotEqualLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NotEqualLayerParams, rhs: CoreML_Specification_NotEqualLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15779,88 +15779,88 @@ extension CoreML_Specification_NotEqualLayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_LogicalAndLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LogicalAndLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".LogicalAndLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LogicalAndLayerParams, rhs: CoreML_Specification_LogicalAndLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LogicalAndLayerParams, rhs: CoreML_Specification_LogicalAndLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_LogicalOrLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LogicalOrLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".LogicalOrLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LogicalOrLayerParams, rhs: CoreML_Specification_LogicalOrLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LogicalOrLayerParams, rhs: CoreML_Specification_LogicalOrLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_LogicalXorLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LogicalXorLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".LogicalXorLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LogicalXorLayerParams, rhs: CoreML_Specification_LogicalXorLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LogicalXorLayerParams, rhs: CoreML_Specification_LogicalXorLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_LogicalNotLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LogicalNotLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".LogicalNotLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LogicalNotLayerParams, rhs: CoreML_Specification_LogicalNotLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LogicalNotLayerParams, rhs: CoreML_Specification_LogicalNotLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_BorderAmounts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BorderAmounts"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BorderAmounts"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "borderAmounts"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15872,14 +15872,14 @@ extension CoreML_Specification_BorderAmounts: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.borderAmounts.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.borderAmounts, fieldNumber: 10)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BorderAmounts, rhs: CoreML_Specification_BorderAmounts) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BorderAmounts, rhs: CoreML_Specification_BorderAmounts) -> Bool {
     if lhs.borderAmounts != rhs.borderAmounts {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15887,13 +15887,13 @@ extension CoreML_Specification_BorderAmounts: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension CoreML_Specification_BorderAmounts.EdgeSizes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_BorderAmounts.protoMessageName + ".EdgeSizes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_BorderAmounts.protoMessageName + ".EdgeSizes"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "startEdgeSize"),
     2: .same(proto: "endEdgeSize"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15906,7 +15906,7 @@ extension CoreML_Specification_BorderAmounts.EdgeSizes: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.startEdgeSize != 0 {
       try visitor.visitSingularUInt64Field(value: self.startEdgeSize, fieldNumber: 1)
     }
@@ -15916,7 +15916,7 @@ extension CoreML_Specification_BorderAmounts.EdgeSizes: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BorderAmounts.EdgeSizes, rhs: CoreML_Specification_BorderAmounts.EdgeSizes) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BorderAmounts.EdgeSizes, rhs: CoreML_Specification_BorderAmounts.EdgeSizes) -> Bool {
     if lhs.startEdgeSize != rhs.startEdgeSize {return false}
     if lhs.endEdgeSize != rhs.endEdgeSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15925,12 +15925,12 @@ extension CoreML_Specification_BorderAmounts.EdgeSizes: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_ValidPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ValidPadding"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ValidPadding"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "paddingAmounts"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15942,7 +15942,7 @@ extension CoreML_Specification_ValidPadding: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -15953,7 +15953,7 @@ extension CoreML_Specification_ValidPadding: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ValidPadding, rhs: CoreML_Specification_ValidPadding) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ValidPadding, rhs: CoreML_Specification_ValidPadding) -> Bool {
     if lhs._paddingAmounts != rhs._paddingAmounts {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15961,12 +15961,12 @@ extension CoreML_Specification_ValidPadding: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension CoreML_Specification_SamePadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SamePadding"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SamePadding"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "asymmetryMode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -15978,14 +15978,14 @@ extension CoreML_Specification_SamePadding: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.asymmetryMode != .bottomRightHeavy {
       try visitor.visitSingularEnumField(value: self.asymmetryMode, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SamePadding, rhs: CoreML_Specification_SamePadding) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SamePadding, rhs: CoreML_Specification_SamePadding) -> Bool {
     if lhs.asymmetryMode != rhs.asymmetryMode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -15993,19 +15993,19 @@ extension CoreML_Specification_SamePadding: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension CoreML_Specification_SamePadding.SamePaddingMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "BOTTOM_RIGHT_HEAVY"),
     1: .same(proto: "TOP_LEFT_HEAVY"),
   ]
 }
 
 extension CoreML_Specification_SamplingMode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SamplingMode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SamplingMode"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "samplingMethod"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -16017,14 +16017,14 @@ extension CoreML_Specification_SamplingMode: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.samplingMethod != .strictAlignEndpointsMode {
       try visitor.visitSingularEnumField(value: self.samplingMethod, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SamplingMode, rhs: CoreML_Specification_SamplingMode) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SamplingMode, rhs: CoreML_Specification_SamplingMode) -> Bool {
     if lhs.samplingMethod != rhs.samplingMethod {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -16032,7 +16032,7 @@ extension CoreML_Specification_SamplingMode: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension CoreML_Specification_SamplingMode.Method: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "STRICT_ALIGN_ENDPOINTS_MODE"),
     1: .same(proto: "ALIGN_ENDPOINTS_MODE"),
     2: .same(proto: "UPSAMPLE_MODE"),
@@ -16041,12 +16041,12 @@ extension CoreML_Specification_SamplingMode.Method: SwiftProtobuf._ProtoNameProv
 }
 
 extension CoreML_Specification_BoxCoordinatesMode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BoxCoordinatesMode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BoxCoordinatesMode"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "boxMode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -16058,14 +16058,14 @@ extension CoreML_Specification_BoxCoordinatesMode: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.boxMode != .cornersHeightFirst {
       try visitor.visitSingularEnumField(value: self.boxMode, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BoxCoordinatesMode, rhs: CoreML_Specification_BoxCoordinatesMode) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BoxCoordinatesMode, rhs: CoreML_Specification_BoxCoordinatesMode) -> Bool {
     if lhs.boxMode != rhs.boxMode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -16073,7 +16073,7 @@ extension CoreML_Specification_BoxCoordinatesMode: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_BoxCoordinatesMode.Coordinates: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CORNERS_HEIGHT_FIRST"),
     1: .same(proto: "CORNERS_WIDTH_FIRST"),
     2: .same(proto: "CENTER_SIZE_HEIGHT_FIRST"),
@@ -16082,8 +16082,8 @@ extension CoreML_Specification_BoxCoordinatesMode.Coordinates: SwiftProtobuf._Pr
 }
 
 extension CoreML_Specification_WeightParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WeightParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WeightParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "floatValue"),
     2: .same(proto: "float16Value"),
     30: .same(proto: "rawValue"),
@@ -16092,7 +16092,7 @@ extension CoreML_Specification_WeightParams: SwiftProtobuf.Message, SwiftProtobu
     50: .same(proto: "isUpdatable"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -16109,7 +16109,7 @@ extension CoreML_Specification_WeightParams: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -16135,7 +16135,7 @@ extension CoreML_Specification_WeightParams: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_WeightParams, rhs: CoreML_Specification_WeightParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_WeightParams, rhs: CoreML_Specification_WeightParams) -> Bool {
     if lhs.floatValue != rhs.floatValue {return false}
     if lhs.float16Value != rhs.float16Value {return false}
     if lhs.rawValue != rhs.rawValue {return false}
@@ -16148,14 +16148,14 @@ extension CoreML_Specification_WeightParams: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension CoreML_Specification_QuantizationParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuantizationParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuantizationParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "numberOfBits"),
     101: .same(proto: "linearQuantization"),
     102: .same(proto: "lookupTableQuantization"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -16193,7 +16193,7 @@ extension CoreML_Specification_QuantizationParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -16215,7 +16215,7 @@ extension CoreML_Specification_QuantizationParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_QuantizationParams, rhs: CoreML_Specification_QuantizationParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_QuantizationParams, rhs: CoreML_Specification_QuantizationParams) -> Bool {
     if lhs.numberOfBits != rhs.numberOfBits {return false}
     if lhs.quantizationType != rhs.quantizationType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16224,13 +16224,13 @@ extension CoreML_Specification_QuantizationParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_LinearQuantizationParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LinearQuantizationParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LinearQuantizationParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scale"),
     2: .same(proto: "bias"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -16243,7 +16243,7 @@ extension CoreML_Specification_LinearQuantizationParams: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scale.isEmpty {
       try visitor.visitPackedFloatField(value: self.scale, fieldNumber: 1)
     }
@@ -16253,7 +16253,7 @@ extension CoreML_Specification_LinearQuantizationParams: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LinearQuantizationParams, rhs: CoreML_Specification_LinearQuantizationParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LinearQuantizationParams, rhs: CoreML_Specification_LinearQuantizationParams) -> Bool {
     if lhs.scale != rhs.scale {return false}
     if lhs.bias != rhs.bias {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16262,12 +16262,12 @@ extension CoreML_Specification_LinearQuantizationParams: SwiftProtobuf.Message, 
 }
 
 extension CoreML_Specification_LookUpTableQuantizationParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LookUpTableQuantizationParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LookUpTableQuantizationParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "floatValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -16279,14 +16279,14 @@ extension CoreML_Specification_LookUpTableQuantizationParams: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.floatValue.isEmpty {
       try visitor.visitPackedFloatField(value: self.floatValue, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LookUpTableQuantizationParams, rhs: CoreML_Specification_LookUpTableQuantizationParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LookUpTableQuantizationParams, rhs: CoreML_Specification_LookUpTableQuantizationParams) -> Bool {
     if lhs.floatValue != rhs.floatValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -16294,8 +16294,8 @@ extension CoreML_Specification_LookUpTableQuantizationParams: SwiftProtobuf.Mess
 }
 
 extension CoreML_Specification_ConvolutionLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConvolutionLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConvolutionLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "outputChannels"),
     2: .same(proto: "kernelChannels"),
     10: .same(proto: "nGroups"),
@@ -16325,11 +16325,11 @@ extension CoreML_Specification_ConvolutionLayerParams: SwiftProtobuf.Message, Sw
     var _bias: CoreML_Specification_WeightParams? = nil
     var _outputShape: [UInt64] = []
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _outputChannels = source._outputChannels
       _kernelChannels = source._kernelChannels
       _nGroups = source._nGroups
@@ -16352,7 +16352,7 @@ extension CoreML_Specification_ConvolutionLayerParams: SwiftProtobuf.Message, Sw
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16403,7 +16403,7 @@ extension CoreML_Specification_ConvolutionLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -16457,7 +16457,7 @@ extension CoreML_Specification_ConvolutionLayerParams: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ConvolutionLayerParams, rhs: CoreML_Specification_ConvolutionLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ConvolutionLayerParams, rhs: CoreML_Specification_ConvolutionLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -16484,8 +16484,8 @@ extension CoreML_Specification_ConvolutionLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_Convolution3DLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Convolution3DLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Convolution3DLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "outputChannels"),
     2: .same(proto: "inputChannels"),
     10: .same(proto: "nGroups"),
@@ -16538,11 +16538,11 @@ extension CoreML_Specification_Convolution3DLayerParams: SwiftProtobuf.Message, 
     var _isDeconvolution: Bool = false
     var _outputShape: [UInt64] = []
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _outputChannels = source._outputChannels
       _inputChannels = source._inputChannels
       _nGroups = source._nGroups
@@ -16577,7 +16577,7 @@ extension CoreML_Specification_Convolution3DLayerParams: SwiftProtobuf.Message, 
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16615,7 +16615,7 @@ extension CoreML_Specification_Convolution3DLayerParams: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -16697,7 +16697,7 @@ extension CoreML_Specification_Convolution3DLayerParams: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Convolution3DLayerParams, rhs: CoreML_Specification_Convolution3DLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Convolution3DLayerParams, rhs: CoreML_Specification_Convolution3DLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -16736,7 +16736,7 @@ extension CoreML_Specification_Convolution3DLayerParams: SwiftProtobuf.Message, 
 }
 
 extension CoreML_Specification_Convolution3DLayerParams.PaddingType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CUSTOM"),
     1: .same(proto: "VALID"),
     2: .same(proto: "SAME"),
@@ -16744,8 +16744,8 @@ extension CoreML_Specification_Convolution3DLayerParams.PaddingType: SwiftProtob
 }
 
 extension CoreML_Specification_InnerProductLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InnerProductLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".InnerProductLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputChannels"),
     2: .same(proto: "outputChannels"),
     10: .same(proto: "hasBias"),
@@ -16762,11 +16762,11 @@ extension CoreML_Specification_InnerProductLayerParams: SwiftProtobuf.Message, S
     var _bias: CoreML_Specification_WeightParams? = nil
     var _int8DynamicQuantize: Bool = false
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _inputChannels = source._inputChannels
       _outputChannels = source._outputChannels
       _hasBias_p = source._hasBias_p
@@ -16783,7 +16783,7 @@ extension CoreML_Specification_InnerProductLayerParams: SwiftProtobuf.Message, S
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16803,7 +16803,7 @@ extension CoreML_Specification_InnerProductLayerParams: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -16831,7 +16831,7 @@ extension CoreML_Specification_InnerProductLayerParams: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_InnerProductLayerParams, rhs: CoreML_Specification_InnerProductLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_InnerProductLayerParams, rhs: CoreML_Specification_InnerProductLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -16852,8 +16852,8 @@ extension CoreML_Specification_InnerProductLayerParams: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_EmbeddingLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EmbeddingLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EmbeddingLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputDim"),
     2: .same(proto: "outputChannels"),
     10: .same(proto: "hasBias"),
@@ -16868,11 +16868,11 @@ extension CoreML_Specification_EmbeddingLayerParams: SwiftProtobuf.Message, Swif
     var _weights: CoreML_Specification_WeightParams? = nil
     var _bias: CoreML_Specification_WeightParams? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _inputDim = source._inputDim
       _outputChannels = source._outputChannels
       _hasBias_p = source._hasBias_p
@@ -16888,7 +16888,7 @@ extension CoreML_Specification_EmbeddingLayerParams: SwiftProtobuf.Message, Swif
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16907,7 +16907,7 @@ extension CoreML_Specification_EmbeddingLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -16932,7 +16932,7 @@ extension CoreML_Specification_EmbeddingLayerParams: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_EmbeddingLayerParams, rhs: CoreML_Specification_EmbeddingLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_EmbeddingLayerParams, rhs: CoreML_Specification_EmbeddingLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -16952,8 +16952,8 @@ extension CoreML_Specification_EmbeddingLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_EmbeddingNDLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EmbeddingNDLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EmbeddingNDLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "vocabSize"),
     2: .same(proto: "embeddingSize"),
     3: .same(proto: "hasBias"),
@@ -16968,11 +16968,11 @@ extension CoreML_Specification_EmbeddingNDLayerParams: SwiftProtobuf.Message, Sw
     var _weights: CoreML_Specification_WeightParams? = nil
     var _bias: CoreML_Specification_WeightParams? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _vocabSize = source._vocabSize
       _embeddingSize = source._embeddingSize
       _hasBias_p = source._hasBias_p
@@ -16988,7 +16988,7 @@ extension CoreML_Specification_EmbeddingNDLayerParams: SwiftProtobuf.Message, Sw
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17007,7 +17007,7 @@ extension CoreML_Specification_EmbeddingNDLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -17032,7 +17032,7 @@ extension CoreML_Specification_EmbeddingNDLayerParams: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_EmbeddingNDLayerParams, rhs: CoreML_Specification_EmbeddingNDLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_EmbeddingNDLayerParams, rhs: CoreML_Specification_EmbeddingNDLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -17052,8 +17052,8 @@ extension CoreML_Specification_EmbeddingNDLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_BatchnormLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BatchnormLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BatchnormLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "channels"),
     5: .same(proto: "computeMeanVar"),
     6: .same(proto: "instanceNormalization"),
@@ -17074,11 +17074,11 @@ extension CoreML_Specification_BatchnormLayerParams: SwiftProtobuf.Message, Swif
     var _mean: CoreML_Specification_WeightParams? = nil
     var _variance: CoreML_Specification_WeightParams? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _channels = source._channels
       _computeMeanVar = source._computeMeanVar
       _instanceNormalization = source._instanceNormalization
@@ -17097,7 +17097,7 @@ extension CoreML_Specification_BatchnormLayerParams: SwiftProtobuf.Message, Swif
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17119,7 +17119,7 @@ extension CoreML_Specification_BatchnormLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -17153,7 +17153,7 @@ extension CoreML_Specification_BatchnormLayerParams: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BatchnormLayerParams, rhs: CoreML_Specification_BatchnormLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BatchnormLayerParams, rhs: CoreML_Specification_BatchnormLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -17176,8 +17176,8 @@ extension CoreML_Specification_BatchnormLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_PoolingLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PoolingLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PoolingLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     10: .same(proto: "kernelSize"),
     20: .same(proto: "stride"),
@@ -17188,7 +17188,7 @@ extension CoreML_Specification_PoolingLayerParams: SwiftProtobuf.Message, SwiftP
     60: .same(proto: "globalPooling"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17243,7 +17243,7 @@ extension CoreML_Specification_PoolingLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -17281,7 +17281,7 @@ extension CoreML_Specification_PoolingLayerParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PoolingLayerParams, rhs: CoreML_Specification_PoolingLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PoolingLayerParams, rhs: CoreML_Specification_PoolingLayerParams) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.kernelSize != rhs.kernelSize {return false}
     if lhs.stride != rhs.stride {return false}
@@ -17294,7 +17294,7 @@ extension CoreML_Specification_PoolingLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_PoolingLayerParams.PoolingType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MAX"),
     1: .same(proto: "AVERAGE"),
     2: .same(proto: "L2"),
@@ -17302,12 +17302,12 @@ extension CoreML_Specification_PoolingLayerParams.PoolingType: SwiftProtobuf._Pr
 }
 
 extension CoreML_Specification_PoolingLayerParams.ValidCompletePadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_PoolingLayerParams.protoMessageName + ".ValidCompletePadding"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_PoolingLayerParams.protoMessageName + ".ValidCompletePadding"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "paddingAmounts"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17319,14 +17319,14 @@ extension CoreML_Specification_PoolingLayerParams.ValidCompletePadding: SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.paddingAmounts.isEmpty {
       try visitor.visitPackedUInt64Field(value: self.paddingAmounts, fieldNumber: 10)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PoolingLayerParams.ValidCompletePadding, rhs: CoreML_Specification_PoolingLayerParams.ValidCompletePadding) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PoolingLayerParams.ValidCompletePadding, rhs: CoreML_Specification_PoolingLayerParams.ValidCompletePadding) -> Bool {
     if lhs.paddingAmounts != rhs.paddingAmounts {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -17334,8 +17334,8 @@ extension CoreML_Specification_PoolingLayerParams.ValidCompletePadding: SwiftPro
 }
 
 extension CoreML_Specification_Pooling3DLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Pooling3DLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Pooling3DLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "kernelDepth"),
     3: .same(proto: "kernelHeight"),
@@ -17353,7 +17353,7 @@ extension CoreML_Specification_Pooling3DLayerParams: SwiftProtobuf.Message, Swif
     14: .same(proto: "countExcludePadding"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17379,7 +17379,7 @@ extension CoreML_Specification_Pooling3DLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.type != .max {
       try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
     }
@@ -17428,7 +17428,7 @@ extension CoreML_Specification_Pooling3DLayerParams: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Pooling3DLayerParams, rhs: CoreML_Specification_Pooling3DLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Pooling3DLayerParams, rhs: CoreML_Specification_Pooling3DLayerParams) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.kernelDepth != rhs.kernelDepth {return false}
     if lhs.kernelHeight != rhs.kernelHeight {return false}
@@ -17450,14 +17450,14 @@ extension CoreML_Specification_Pooling3DLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_Pooling3DLayerParams.PoolingType3D: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MAX"),
     1: .same(proto: "AVERAGE"),
   ]
 }
 
 extension CoreML_Specification_Pooling3DLayerParams.Pooling3DPaddingType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CUSTOM"),
     1: .same(proto: "VALID"),
     2: .same(proto: "SAME"),
@@ -17465,12 +17465,12 @@ extension CoreML_Specification_Pooling3DLayerParams.Pooling3DPaddingType: SwiftP
 }
 
 extension CoreML_Specification_GlobalPooling3DLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GlobalPooling3DLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GlobalPooling3DLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17482,14 +17482,14 @@ extension CoreML_Specification_GlobalPooling3DLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.type != .max {
       try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GlobalPooling3DLayerParams, rhs: CoreML_Specification_GlobalPooling3DLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GlobalPooling3DLayerParams, rhs: CoreML_Specification_GlobalPooling3DLayerParams) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -17497,22 +17497,22 @@ extension CoreML_Specification_GlobalPooling3DLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_GlobalPooling3DLayerParams.GlobalPoolingType3D: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MAX"),
     1: .same(proto: "AVERAGE"),
   ]
 }
 
 extension CoreML_Specification_PaddingLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PaddingLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PaddingLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "constant"),
     2: .same(proto: "reflection"),
     3: .same(proto: "replication"),
     10: .same(proto: "paddingAmounts"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17563,7 +17563,7 @@ extension CoreML_Specification_PaddingLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -17589,7 +17589,7 @@ extension CoreML_Specification_PaddingLayerParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PaddingLayerParams, rhs: CoreML_Specification_PaddingLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PaddingLayerParams, rhs: CoreML_Specification_PaddingLayerParams) -> Bool {
     if lhs.paddingType != rhs.paddingType {return false}
     if lhs._paddingAmounts != rhs._paddingAmounts {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17598,12 +17598,12 @@ extension CoreML_Specification_PaddingLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_PaddingLayerParams.PaddingConstant: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_PaddingLayerParams.protoMessageName + ".PaddingConstant"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_PaddingLayerParams.protoMessageName + ".PaddingConstant"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17615,14 +17615,14 @@ extension CoreML_Specification_PaddingLayerParams.PaddingConstant: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PaddingLayerParams.PaddingConstant, rhs: CoreML_Specification_PaddingLayerParams.PaddingConstant) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PaddingLayerParams.PaddingConstant, rhs: CoreML_Specification_PaddingLayerParams.PaddingConstant) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -17630,50 +17630,50 @@ extension CoreML_Specification_PaddingLayerParams.PaddingConstant: SwiftProtobuf
 }
 
 extension CoreML_Specification_PaddingLayerParams.PaddingReflection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_PaddingLayerParams.protoMessageName + ".PaddingReflection"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = CoreML_Specification_PaddingLayerParams.protoMessageName + ".PaddingReflection"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PaddingLayerParams.PaddingReflection, rhs: CoreML_Specification_PaddingLayerParams.PaddingReflection) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PaddingLayerParams.PaddingReflection, rhs: CoreML_Specification_PaddingLayerParams.PaddingReflection) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_PaddingLayerParams.PaddingReplication: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_PaddingLayerParams.protoMessageName + ".PaddingReplication"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = CoreML_Specification_PaddingLayerParams.protoMessageName + ".PaddingReplication"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PaddingLayerParams.PaddingReplication, rhs: CoreML_Specification_PaddingLayerParams.PaddingReplication) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PaddingLayerParams.PaddingReplication, rhs: CoreML_Specification_PaddingLayerParams.PaddingReplication) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ConcatLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConcatLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConcatLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     100: .same(proto: "sequenceConcat"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17685,14 +17685,14 @@ extension CoreML_Specification_ConcatLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.sequenceConcat != false {
       try visitor.visitSingularBoolField(value: self.sequenceConcat, fieldNumber: 100)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ConcatLayerParams, rhs: CoreML_Specification_ConcatLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ConcatLayerParams, rhs: CoreML_Specification_ConcatLayerParams) -> Bool {
     if lhs.sequenceConcat != rhs.sequenceConcat {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -17700,15 +17700,15 @@ extension CoreML_Specification_ConcatLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_LRNLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LRNLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LRNLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
     2: .same(proto: "beta"),
     3: .same(proto: "localSize"),
     4: .same(proto: "k"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17723,7 +17723,7 @@ extension CoreML_Specification_LRNLayerParams: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
@@ -17739,7 +17739,7 @@ extension CoreML_Specification_LRNLayerParams: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LRNLayerParams, rhs: CoreML_Specification_LRNLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LRNLayerParams, rhs: CoreML_Specification_LRNLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.beta != rhs.beta {return false}
     if lhs.localSize != rhs.localSize {return false}
@@ -17750,31 +17750,31 @@ extension CoreML_Specification_LRNLayerParams: SwiftProtobuf.Message, SwiftProto
 }
 
 extension CoreML_Specification_SoftmaxLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SoftmaxLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".SoftmaxLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SoftmaxLayerParams, rhs: CoreML_Specification_SoftmaxLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SoftmaxLayerParams, rhs: CoreML_Specification_SoftmaxLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SplitLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SplitLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SplitLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nOutputs"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17786,14 +17786,14 @@ extension CoreML_Specification_SplitLayerParams: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.nOutputs != 0 {
       try visitor.visitSingularUInt64Field(value: self.nOutputs, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SplitLayerParams, rhs: CoreML_Specification_SplitLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SplitLayerParams, rhs: CoreML_Specification_SplitLayerParams) -> Bool {
     if lhs.nOutputs != rhs.nOutputs {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -17801,12 +17801,12 @@ extension CoreML_Specification_SplitLayerParams: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_AddLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AddLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AddLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17818,14 +17818,14 @@ extension CoreML_Specification_AddLayerParams: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AddLayerParams, rhs: CoreML_Specification_AddLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AddLayerParams, rhs: CoreML_Specification_AddLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -17833,12 +17833,12 @@ extension CoreML_Specification_AddLayerParams: SwiftProtobuf.Message, SwiftProto
 }
 
 extension CoreML_Specification_MultiplyLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MultiplyLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MultiplyLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17850,14 +17850,14 @@ extension CoreML_Specification_MultiplyLayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MultiplyLayerParams, rhs: CoreML_Specification_MultiplyLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MultiplyLayerParams, rhs: CoreML_Specification_MultiplyLayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -17865,8 +17865,8 @@ extension CoreML_Specification_MultiplyLayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_UnaryFunctionLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UnaryFunctionLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UnaryFunctionLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "alpha"),
     3: .same(proto: "epsilon"),
@@ -17874,7 +17874,7 @@ extension CoreML_Specification_UnaryFunctionLayerParams: SwiftProtobuf.Message, 
     5: .same(proto: "scale"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17890,7 +17890,7 @@ extension CoreML_Specification_UnaryFunctionLayerParams: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.type != .sqrt {
       try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
     }
@@ -17909,7 +17909,7 @@ extension CoreML_Specification_UnaryFunctionLayerParams: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_UnaryFunctionLayerParams, rhs: CoreML_Specification_UnaryFunctionLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_UnaryFunctionLayerParams, rhs: CoreML_Specification_UnaryFunctionLayerParams) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.alpha != rhs.alpha {return false}
     if lhs.epsilon != rhs.epsilon {return false}
@@ -17921,7 +17921,7 @@ extension CoreML_Specification_UnaryFunctionLayerParams: SwiftProtobuf.Message, 
 }
 
 extension CoreML_Specification_UnaryFunctionLayerParams.Operation: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SQRT"),
     1: .same(proto: "RSQRT"),
     2: .same(proto: "INVERSE"),
@@ -17934,15 +17934,15 @@ extension CoreML_Specification_UnaryFunctionLayerParams.Operation: SwiftProtobuf
 }
 
 extension CoreML_Specification_UpsampleLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpsampleLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UpsampleLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scalingFactor"),
     7: .same(proto: "fractionalScalingFactor"),
     5: .same(proto: "mode"),
     6: .same(proto: "linearUpsampleMode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -17957,7 +17957,7 @@ extension CoreML_Specification_UpsampleLayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scalingFactor.isEmpty {
       try visitor.visitPackedUInt64Field(value: self.scalingFactor, fieldNumber: 1)
     }
@@ -17973,7 +17973,7 @@ extension CoreML_Specification_UpsampleLayerParams: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_UpsampleLayerParams, rhs: CoreML_Specification_UpsampleLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_UpsampleLayerParams, rhs: CoreML_Specification_UpsampleLayerParams) -> Bool {
     if lhs.scalingFactor != rhs.scalingFactor {return false}
     if lhs.fractionalScalingFactor != rhs.fractionalScalingFactor {return false}
     if lhs.mode != rhs.mode {return false}
@@ -17984,14 +17984,14 @@ extension CoreML_Specification_UpsampleLayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_UpsampleLayerParams.InterpolationMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NN"),
     1: .same(proto: "BILINEAR"),
   ]
 }
 
 extension CoreML_Specification_UpsampleLayerParams.LinearUpsampleMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DEFAULT"),
     1: .same(proto: "ALIGN_CORNERS_TRUE"),
     2: .same(proto: "ALIGN_CORNERS_FALSE"),
@@ -17999,13 +17999,13 @@ extension CoreML_Specification_UpsampleLayerParams.LinearUpsampleMode: SwiftProt
 }
 
 extension CoreML_Specification_ResizeBilinearLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ResizeBilinearLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ResizeBilinearLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "targetSize"),
     2: .same(proto: "mode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18018,7 +18018,7 @@ extension CoreML_Specification_ResizeBilinearLayerParams: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -18032,7 +18032,7 @@ extension CoreML_Specification_ResizeBilinearLayerParams: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ResizeBilinearLayerParams, rhs: CoreML_Specification_ResizeBilinearLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ResizeBilinearLayerParams, rhs: CoreML_Specification_ResizeBilinearLayerParams) -> Bool {
     if lhs.targetSize != rhs.targetSize {return false}
     if lhs._mode != rhs._mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18041,8 +18041,8 @@ extension CoreML_Specification_ResizeBilinearLayerParams: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_CropResizeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CropResizeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CropResizeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "targetSize"),
     2: .same(proto: "normalizedCoordinates"),
     3: .same(proto: "mode"),
@@ -18050,7 +18050,7 @@ extension CoreML_Specification_CropResizeLayerParams: SwiftProtobuf.Message, Swi
     5: .same(proto: "spatialScale"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18066,7 +18066,7 @@ extension CoreML_Specification_CropResizeLayerParams: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -18089,7 +18089,7 @@ extension CoreML_Specification_CropResizeLayerParams: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CropResizeLayerParams, rhs: CoreML_Specification_CropResizeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CropResizeLayerParams, rhs: CoreML_Specification_CropResizeLayerParams) -> Bool {
     if lhs.targetSize != rhs.targetSize {return false}
     if lhs.normalizedCoordinates != rhs.normalizedCoordinates {return false}
     if lhs._mode != rhs._mode {return false}
@@ -18101,13 +18101,13 @@ extension CoreML_Specification_CropResizeLayerParams: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_BiasLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BiasLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BiasLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shape"),
     2: .same(proto: "bias"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18120,7 +18120,7 @@ extension CoreML_Specification_BiasLayerParams: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -18134,7 +18134,7 @@ extension CoreML_Specification_BiasLayerParams: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BiasLayerParams, rhs: CoreML_Specification_BiasLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BiasLayerParams, rhs: CoreML_Specification_BiasLayerParams) -> Bool {
     if lhs.shape != rhs.shape {return false}
     if lhs._bias != rhs._bias {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18143,8 +18143,8 @@ extension CoreML_Specification_BiasLayerParams: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_ScaleLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScaleLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScaleLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shapeScale"),
     2: .same(proto: "scale"),
     3: .same(proto: "hasBias"),
@@ -18159,11 +18159,11 @@ extension CoreML_Specification_ScaleLayerParams: SwiftProtobuf.Message, SwiftPro
     var _shapeBias: [UInt64] = []
     var _bias: CoreML_Specification_WeightParams? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _shapeScale = source._shapeScale
       _scale = source._scale
       _hasBias_p = source._hasBias_p
@@ -18179,7 +18179,7 @@ extension CoreML_Specification_ScaleLayerParams: SwiftProtobuf.Message, SwiftPro
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18198,7 +18198,7 @@ extension CoreML_Specification_ScaleLayerParams: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -18223,7 +18223,7 @@ extension CoreML_Specification_ScaleLayerParams: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ScaleLayerParams, rhs: CoreML_Specification_ScaleLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ScaleLayerParams, rhs: CoreML_Specification_ScaleLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -18243,13 +18243,13 @@ extension CoreML_Specification_ScaleLayerParams: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_LoadConstantLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LoadConstantLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LoadConstantLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shape"),
     2: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18262,7 +18262,7 @@ extension CoreML_Specification_LoadConstantLayerParams: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -18276,7 +18276,7 @@ extension CoreML_Specification_LoadConstantLayerParams: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LoadConstantLayerParams, rhs: CoreML_Specification_LoadConstantLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LoadConstantLayerParams, rhs: CoreML_Specification_LoadConstantLayerParams) -> Bool {
     if lhs.shape != rhs.shape {return false}
     if lhs._data != rhs._data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18285,12 +18285,12 @@ extension CoreML_Specification_LoadConstantLayerParams: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_L2NormalizeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".L2NormalizeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".L2NormalizeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "epsilon"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18302,14 +18302,14 @@ extension CoreML_Specification_L2NormalizeLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.epsilon != 0 {
       try visitor.visitSingularFloatField(value: self.epsilon, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_L2NormalizeLayerParams, rhs: CoreML_Specification_L2NormalizeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_L2NormalizeLayerParams, rhs: CoreML_Specification_L2NormalizeLayerParams) -> Bool {
     if lhs.epsilon != rhs.epsilon {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -18317,12 +18317,12 @@ extension CoreML_Specification_L2NormalizeLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_FlattenLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FlattenLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FlattenLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18334,14 +18334,14 @@ extension CoreML_Specification_FlattenLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mode != .channelFirst {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FlattenLayerParams, rhs: CoreML_Specification_FlattenLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FlattenLayerParams, rhs: CoreML_Specification_FlattenLayerParams) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -18349,20 +18349,20 @@ extension CoreML_Specification_FlattenLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_FlattenLayerParams.FlattenOrder: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CHANNEL_FIRST"),
     1: .same(proto: "CHANNEL_LAST"),
   ]
 }
 
 extension CoreML_Specification_ReshapeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReshapeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReshapeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "targetShape"),
     2: .same(proto: "mode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18375,7 +18375,7 @@ extension CoreML_Specification_ReshapeLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.targetShape.isEmpty {
       try visitor.visitPackedInt64Field(value: self.targetShape, fieldNumber: 1)
     }
@@ -18385,7 +18385,7 @@ extension CoreML_Specification_ReshapeLayerParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReshapeLayerParams, rhs: CoreML_Specification_ReshapeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReshapeLayerParams, rhs: CoreML_Specification_ReshapeLayerParams) -> Bool {
     if lhs.targetShape != rhs.targetShape {return false}
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18394,19 +18394,19 @@ extension CoreML_Specification_ReshapeLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_ReshapeLayerParams.ReshapeOrder: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CHANNEL_FIRST"),
     1: .same(proto: "CHANNEL_LAST"),
   ]
 }
 
 extension CoreML_Specification_PermuteLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PermuteLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PermuteLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18418,14 +18418,14 @@ extension CoreML_Specification_PermuteLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axis.isEmpty {
       try visitor.visitPackedUInt64Field(value: self.axis, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PermuteLayerParams, rhs: CoreML_Specification_PermuteLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PermuteLayerParams, rhs: CoreML_Specification_PermuteLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -18433,13 +18433,13 @@ extension CoreML_Specification_PermuteLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_ReorganizeDataLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReorganizeDataLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReorganizeDataLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mode"),
     2: .same(proto: "blockSize"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18452,7 +18452,7 @@ extension CoreML_Specification_ReorganizeDataLayerParams: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mode != .spaceToDepth {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 1)
     }
@@ -18462,7 +18462,7 @@ extension CoreML_Specification_ReorganizeDataLayerParams: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReorganizeDataLayerParams, rhs: CoreML_Specification_ReorganizeDataLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReorganizeDataLayerParams, rhs: CoreML_Specification_ReorganizeDataLayerParams) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.blockSize != rhs.blockSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18471,7 +18471,7 @@ extension CoreML_Specification_ReorganizeDataLayerParams: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_ReorganizeDataLayerParams.ReorganizationType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SPACE_TO_DEPTH"),
     1: .same(proto: "DEPTH_TO_SPACE"),
     2: .same(proto: "PIXEL_SHUFFLE"),
@@ -18479,15 +18479,15 @@ extension CoreML_Specification_ReorganizeDataLayerParams.ReorganizationType: Swi
 }
 
 extension CoreML_Specification_SliceLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SliceLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SliceLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "startIndex"),
     2: .same(proto: "endIndex"),
     3: .same(proto: "stride"),
     4: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18502,7 +18502,7 @@ extension CoreML_Specification_SliceLayerParams: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.startIndex != 0 {
       try visitor.visitSingularInt64Field(value: self.startIndex, fieldNumber: 1)
     }
@@ -18518,7 +18518,7 @@ extension CoreML_Specification_SliceLayerParams: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SliceLayerParams, rhs: CoreML_Specification_SliceLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SliceLayerParams, rhs: CoreML_Specification_SliceLayerParams) -> Bool {
     if lhs.startIndex != rhs.startIndex {return false}
     if lhs.endIndex != rhs.endIndex {return false}
     if lhs.stride != rhs.stride {return false}
@@ -18529,7 +18529,7 @@ extension CoreML_Specification_SliceLayerParams: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_SliceLayerParams.SliceAxis: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CHANNEL_AXIS"),
     1: .same(proto: "HEIGHT_AXIS"),
     2: .same(proto: "WIDTH_AXIS"),
@@ -18537,14 +18537,14 @@ extension CoreML_Specification_SliceLayerParams.SliceAxis: SwiftProtobuf._ProtoN
 }
 
 extension CoreML_Specification_ReduceLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mode"),
     2: .same(proto: "epsilon"),
     3: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18558,7 +18558,7 @@ extension CoreML_Specification_ReduceLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mode != .sum {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 1)
     }
@@ -18571,7 +18571,7 @@ extension CoreML_Specification_ReduceLayerParams: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceLayerParams, rhs: CoreML_Specification_ReduceLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceLayerParams, rhs: CoreML_Specification_ReduceLayerParams) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.epsilon != rhs.epsilon {return false}
     if lhs.axis != rhs.axis {return false}
@@ -18581,7 +18581,7 @@ extension CoreML_Specification_ReduceLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_ReduceLayerParams.ReduceOperation: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SUM"),
     1: .same(proto: "AVG"),
     2: .same(proto: "PROD"),
@@ -18596,7 +18596,7 @@ extension CoreML_Specification_ReduceLayerParams.ReduceOperation: SwiftProtobuf.
 }
 
 extension CoreML_Specification_ReduceLayerParams.ReduceAxis: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CHW"),
     1: .same(proto: "HW"),
     2: .same(proto: "C"),
@@ -18606,13 +18606,13 @@ extension CoreML_Specification_ReduceLayerParams.ReduceAxis: SwiftProtobuf._Prot
 }
 
 extension CoreML_Specification_CropLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CropLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CropLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "cropAmounts"),
     5: .same(proto: "offset"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18625,7 +18625,7 @@ extension CoreML_Specification_CropLayerParams: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -18639,7 +18639,7 @@ extension CoreML_Specification_CropLayerParams: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CropLayerParams, rhs: CoreML_Specification_CropLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CropLayerParams, rhs: CoreML_Specification_CropLayerParams) -> Bool {
     if lhs._cropAmounts != rhs._cropAmounts {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18648,69 +18648,69 @@ extension CoreML_Specification_CropLayerParams: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_AverageLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AverageLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AverageLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AverageLayerParams, rhs: CoreML_Specification_AverageLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AverageLayerParams, rhs: CoreML_Specification_AverageLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_MaxLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MaxLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MaxLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MaxLayerParams, rhs: CoreML_Specification_MaxLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MaxLayerParams, rhs: CoreML_Specification_MaxLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_MinLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MinLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MinLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MinLayerParams, rhs: CoreML_Specification_MinLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MinLayerParams, rhs: CoreML_Specification_MinLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_DotProductLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DotProductLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DotProductLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "cosineSimilarity"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18722,14 +18722,14 @@ extension CoreML_Specification_DotProductLayerParams: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.cosineSimilarity != false {
       try visitor.visitSingularBoolField(value: self.cosineSimilarity, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_DotProductLayerParams, rhs: CoreML_Specification_DotProductLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_DotProductLayerParams, rhs: CoreML_Specification_DotProductLayerParams) -> Bool {
     if lhs.cosineSimilarity != rhs.cosineSimilarity {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -18737,14 +18737,14 @@ extension CoreML_Specification_DotProductLayerParams: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_MeanVarianceNormalizeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MeanVarianceNormalizeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MeanVarianceNormalizeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "acrossChannels"),
     2: .same(proto: "normalizeVariance"),
     3: .same(proto: "epsilon"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18758,7 +18758,7 @@ extension CoreML_Specification_MeanVarianceNormalizeLayerParams: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.acrossChannels != false {
       try visitor.visitSingularBoolField(value: self.acrossChannels, fieldNumber: 1)
     }
@@ -18771,7 +18771,7 @@ extension CoreML_Specification_MeanVarianceNormalizeLayerParams: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MeanVarianceNormalizeLayerParams, rhs: CoreML_Specification_MeanVarianceNormalizeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MeanVarianceNormalizeLayerParams, rhs: CoreML_Specification_MeanVarianceNormalizeLayerParams) -> Bool {
     if lhs.acrossChannels != rhs.acrossChannels {return false}
     if lhs.normalizeVariance != rhs.normalizeVariance {return false}
     if lhs.epsilon != rhs.epsilon {return false}
@@ -18781,12 +18781,12 @@ extension CoreML_Specification_MeanVarianceNormalizeLayerParams: SwiftProtobuf.M
 }
 
 extension CoreML_Specification_SequenceRepeatLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SequenceRepeatLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SequenceRepeatLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nRepetitions"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -18798,14 +18798,14 @@ extension CoreML_Specification_SequenceRepeatLayerParams: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.nRepetitions != 0 {
       try visitor.visitSingularUInt64Field(value: self.nRepetitions, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SequenceRepeatLayerParams, rhs: CoreML_Specification_SequenceRepeatLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SequenceRepeatLayerParams, rhs: CoreML_Specification_SequenceRepeatLayerParams) -> Bool {
     if lhs.nRepetitions != rhs.nRepetitions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -18813,8 +18813,8 @@ extension CoreML_Specification_SequenceRepeatLayerParams: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_SimpleRecurrentLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SimpleRecurrentLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SimpleRecurrentLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputVectorSize"),
     2: .same(proto: "outputVectorSize"),
     10: .same(proto: "activation"),
@@ -18837,11 +18837,11 @@ extension CoreML_Specification_SimpleRecurrentLayerParams: SwiftProtobuf.Message
     var _biasVector: CoreML_Specification_WeightParams? = nil
     var _reverseInput: Bool = false
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _inputVectorSize = source._inputVectorSize
       _outputVectorSize = source._outputVectorSize
       _activation = source._activation
@@ -18861,7 +18861,7 @@ extension CoreML_Specification_SimpleRecurrentLayerParams: SwiftProtobuf.Message
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18884,7 +18884,7 @@ extension CoreML_Specification_SimpleRecurrentLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -18921,7 +18921,7 @@ extension CoreML_Specification_SimpleRecurrentLayerParams: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SimpleRecurrentLayerParams, rhs: CoreML_Specification_SimpleRecurrentLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SimpleRecurrentLayerParams, rhs: CoreML_Specification_SimpleRecurrentLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -18945,8 +18945,8 @@ extension CoreML_Specification_SimpleRecurrentLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_GRULayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GRULayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GRULayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputVectorSize"),
     2: .same(proto: "outputVectorSize"),
     10: .same(proto: "activations"),
@@ -18981,11 +18981,11 @@ extension CoreML_Specification_GRULayerParams: SwiftProtobuf.Message, SwiftProto
     var _outputGateBiasVector: CoreML_Specification_WeightParams? = nil
     var _reverseInput: Bool = false
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _inputVectorSize = source._inputVectorSize
       _outputVectorSize = source._outputVectorSize
       _activations = source._activations
@@ -19011,7 +19011,7 @@ extension CoreML_Specification_GRULayerParams: SwiftProtobuf.Message, SwiftProto
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19040,7 +19040,7 @@ extension CoreML_Specification_GRULayerParams: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -19095,7 +19095,7 @@ extension CoreML_Specification_GRULayerParams: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GRULayerParams, rhs: CoreML_Specification_GRULayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GRULayerParams, rhs: CoreML_Specification_GRULayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -19125,8 +19125,8 @@ extension CoreML_Specification_GRULayerParams: SwiftProtobuf.Message, SwiftProto
 }
 
 extension CoreML_Specification_LSTMParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LSTMParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LSTMParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "sequenceOutput"),
     20: .same(proto: "hasBiasVectors"),
     30: .same(proto: "forgetBias"),
@@ -19135,7 +19135,7 @@ extension CoreML_Specification_LSTMParams: SwiftProtobuf.Message, SwiftProtobuf.
     60: .same(proto: "cellClipThreshold"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19152,7 +19152,7 @@ extension CoreML_Specification_LSTMParams: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.sequenceOutput != false {
       try visitor.visitSingularBoolField(value: self.sequenceOutput, fieldNumber: 10)
     }
@@ -19174,7 +19174,7 @@ extension CoreML_Specification_LSTMParams: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LSTMParams, rhs: CoreML_Specification_LSTMParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LSTMParams, rhs: CoreML_Specification_LSTMParams) -> Bool {
     if lhs.sequenceOutput != rhs.sequenceOutput {return false}
     if lhs.hasBiasVectors_p != rhs.hasBiasVectors_p {return false}
     if lhs.forgetBias != rhs.forgetBias {return false}
@@ -19187,8 +19187,8 @@ extension CoreML_Specification_LSTMParams: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension CoreML_Specification_LSTMWeightParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LSTMWeightParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LSTMWeightParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputGateWeightMatrix"),
     2: .same(proto: "forgetGateWeightMatrix"),
     3: .same(proto: "blockInputWeightMatrix"),
@@ -19223,11 +19223,11 @@ extension CoreML_Specification_LSTMWeightParams: SwiftProtobuf.Message, SwiftPro
     var _forgetGatePeepholeVector: CoreML_Specification_WeightParams? = nil
     var _outputGatePeepholeVector: CoreML_Specification_WeightParams? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _inputGateWeightMatrix = source._inputGateWeightMatrix
       _forgetGateWeightMatrix = source._forgetGateWeightMatrix
       _blockInputWeightMatrix = source._blockInputWeightMatrix
@@ -19253,7 +19253,7 @@ extension CoreML_Specification_LSTMWeightParams: SwiftProtobuf.Message, SwiftPro
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19282,7 +19282,7 @@ extension CoreML_Specification_LSTMWeightParams: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -19337,7 +19337,7 @@ extension CoreML_Specification_LSTMWeightParams: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LSTMWeightParams, rhs: CoreML_Specification_LSTMWeightParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LSTMWeightParams, rhs: CoreML_Specification_LSTMWeightParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -19367,8 +19367,8 @@ extension CoreML_Specification_LSTMWeightParams: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_UniDirectionalLSTMLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UniDirectionalLSTMLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UniDirectionalLSTMLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputVectorSize"),
     2: .same(proto: "outputVectorSize"),
     10: .same(proto: "activations"),
@@ -19377,7 +19377,7 @@ extension CoreML_Specification_UniDirectionalLSTMLayerParams: SwiftProtobuf.Mess
     100: .same(proto: "reverseInput"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19394,7 +19394,7 @@ extension CoreML_Specification_UniDirectionalLSTMLayerParams: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -19420,7 +19420,7 @@ extension CoreML_Specification_UniDirectionalLSTMLayerParams: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_UniDirectionalLSTMLayerParams, rhs: CoreML_Specification_UniDirectionalLSTMLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_UniDirectionalLSTMLayerParams, rhs: CoreML_Specification_UniDirectionalLSTMLayerParams) -> Bool {
     if lhs.inputVectorSize != rhs.inputVectorSize {return false}
     if lhs.outputVectorSize != rhs.outputVectorSize {return false}
     if lhs.activations != rhs.activations {return false}
@@ -19433,8 +19433,8 @@ extension CoreML_Specification_UniDirectionalLSTMLayerParams: SwiftProtobuf.Mess
 }
 
 extension CoreML_Specification_BiDirectionalLSTMLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BiDirectionalLSTMLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BiDirectionalLSTMLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputVectorSize"),
     2: .same(proto: "outputVectorSize"),
     10: .same(proto: "activationsForwardLSTM"),
@@ -19443,7 +19443,7 @@ extension CoreML_Specification_BiDirectionalLSTMLayerParams: SwiftProtobuf.Messa
     20: .same(proto: "weightParams"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19460,7 +19460,7 @@ extension CoreML_Specification_BiDirectionalLSTMLayerParams: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -19486,7 +19486,7 @@ extension CoreML_Specification_BiDirectionalLSTMLayerParams: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BiDirectionalLSTMLayerParams, rhs: CoreML_Specification_BiDirectionalLSTMLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BiDirectionalLSTMLayerParams, rhs: CoreML_Specification_BiDirectionalLSTMLayerParams) -> Bool {
     if lhs.inputVectorSize != rhs.inputVectorSize {return false}
     if lhs.outputVectorSize != rhs.outputVectorSize {return false}
     if lhs.activationsForwardLstm != rhs.activationsForwardLstm {return false}
@@ -19499,15 +19499,15 @@ extension CoreML_Specification_BiDirectionalLSTMLayerParams: SwiftProtobuf.Messa
 }
 
 extension CoreML_Specification_CustomLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CustomLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CustomLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "className"),
     20: .same(proto: "weights"),
     30: .same(proto: "parameters"),
     40: .same(proto: "description"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19522,7 +19522,7 @@ extension CoreML_Specification_CustomLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.className.isEmpty {
       try visitor.visitSingularStringField(value: self.className, fieldNumber: 10)
     }
@@ -19538,7 +19538,7 @@ extension CoreML_Specification_CustomLayerParams: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CustomLayerParams, rhs: CoreML_Specification_CustomLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CustomLayerParams, rhs: CoreML_Specification_CustomLayerParams) -> Bool {
     if lhs.className != rhs.className {return false}
     if lhs.weights != rhs.weights {return false}
     if lhs.parameters != rhs.parameters {return false}
@@ -19549,8 +19549,8 @@ extension CoreML_Specification_CustomLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_CustomLayerParams.CustomLayerParamValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_CustomLayerParams.protoMessageName + ".CustomLayerParamValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_CustomLayerParams.protoMessageName + ".CustomLayerParamValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "doubleValue"),
     20: .same(proto: "stringValue"),
     30: .same(proto: "intValue"),
@@ -19558,7 +19558,7 @@ extension CoreML_Specification_CustomLayerParams.CustomLayerParamValue: SwiftPro
     50: .same(proto: "boolValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19609,7 +19609,7 @@ extension CoreML_Specification_CustomLayerParams.CustomLayerParamValue: SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -19640,7 +19640,7 @@ extension CoreML_Specification_CustomLayerParams.CustomLayerParamValue: SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue, rhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue, rhs: CoreML_Specification_CustomLayerParams.CustomLayerParamValue) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -19648,12 +19648,12 @@ extension CoreML_Specification_CustomLayerParams.CustomLayerParamValue: SwiftPro
 }
 
 extension CoreML_Specification_TransposeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TransposeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TransposeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19665,14 +19665,14 @@ extension CoreML_Specification_TransposeLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedUInt64Field(value: self.axes, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TransposeLayerParams, rhs: CoreML_Specification_TransposeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TransposeLayerParams, rhs: CoreML_Specification_TransposeLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -19680,8 +19680,8 @@ extension CoreML_Specification_TransposeLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_BatchedMatMulLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BatchedMatMulLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BatchedMatMulLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "transposeA"),
     2: .same(proto: "transposeB"),
     5: .same(proto: "weightMatrixFirstDimension"),
@@ -19702,11 +19702,11 @@ extension CoreML_Specification_BatchedMatMulLayerParams: SwiftProtobuf.Message, 
     var _bias: CoreML_Specification_WeightParams? = nil
     var _int8DynamicQuantize: Bool = false
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _transposeA = source._transposeA
       _transposeB = source._transposeB
       _weightMatrixFirstDimension = source._weightMatrixFirstDimension
@@ -19725,7 +19725,7 @@ extension CoreML_Specification_BatchedMatMulLayerParams: SwiftProtobuf.Message, 
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19747,7 +19747,7 @@ extension CoreML_Specification_BatchedMatMulLayerParams: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -19781,7 +19781,7 @@ extension CoreML_Specification_BatchedMatMulLayerParams: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BatchedMatMulLayerParams, rhs: CoreML_Specification_BatchedMatMulLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BatchedMatMulLayerParams, rhs: CoreML_Specification_BatchedMatMulLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -19804,13 +19804,13 @@ extension CoreML_Specification_BatchedMatMulLayerParams: SwiftProtobuf.Message, 
 }
 
 extension CoreML_Specification_ConcatNDLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConcatNDLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConcatNDLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "interleave"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19823,7 +19823,7 @@ extension CoreML_Specification_ConcatNDLayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -19833,7 +19833,7 @@ extension CoreML_Specification_ConcatNDLayerParams: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ConcatNDLayerParams, rhs: CoreML_Specification_ConcatNDLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ConcatNDLayerParams, rhs: CoreML_Specification_ConcatNDLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.interleave != rhs.interleave {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -19842,12 +19842,12 @@ extension CoreML_Specification_ConcatNDLayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_SoftmaxNDLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SoftmaxNDLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SoftmaxNDLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19859,14 +19859,14 @@ extension CoreML_Specification_SoftmaxNDLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SoftmaxNDLayerParams, rhs: CoreML_Specification_SoftmaxNDLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SoftmaxNDLayerParams, rhs: CoreML_Specification_SoftmaxNDLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -19874,12 +19874,12 @@ extension CoreML_Specification_SoftmaxNDLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_ReverseLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReverseLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReverseLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "reverseDim"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19891,14 +19891,14 @@ extension CoreML_Specification_ReverseLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.reverseDim.isEmpty {
       try visitor.visitPackedBoolField(value: self.reverseDim, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReverseLayerParams, rhs: CoreML_Specification_ReverseLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReverseLayerParams, rhs: CoreML_Specification_ReverseLayerParams) -> Bool {
     if lhs.reverseDim != rhs.reverseDim {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -19906,13 +19906,13 @@ extension CoreML_Specification_ReverseLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_ReverseSeqLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReverseSeqLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReverseSeqLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "batchAxis"),
     2: .same(proto: "sequenceAxis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19925,7 +19925,7 @@ extension CoreML_Specification_ReverseSeqLayerParams: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.batchAxis != 0 {
       try visitor.visitSingularInt64Field(value: self.batchAxis, fieldNumber: 1)
     }
@@ -19935,7 +19935,7 @@ extension CoreML_Specification_ReverseSeqLayerParams: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReverseSeqLayerParams, rhs: CoreML_Specification_ReverseSeqLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReverseSeqLayerParams, rhs: CoreML_Specification_ReverseSeqLayerParams) -> Bool {
     if lhs.batchAxis != rhs.batchAxis {return false}
     if lhs.sequenceAxis != rhs.sequenceAxis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -19944,13 +19944,13 @@ extension CoreML_Specification_ReverseSeqLayerParams: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_LoadConstantNDLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LoadConstantNDLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LoadConstantNDLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shape"),
     2: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -19963,7 +19963,7 @@ extension CoreML_Specification_LoadConstantNDLayerParams: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -19977,7 +19977,7 @@ extension CoreML_Specification_LoadConstantNDLayerParams: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LoadConstantNDLayerParams, rhs: CoreML_Specification_LoadConstantNDLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LoadConstantNDLayerParams, rhs: CoreML_Specification_LoadConstantNDLayerParams) -> Bool {
     if lhs.shape != rhs.shape {return false}
     if lhs._data != rhs._data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -19986,12 +19986,12 @@ extension CoreML_Specification_LoadConstantNDLayerParams: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_FillLikeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FillLikeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FillLikeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20003,14 +20003,14 @@ extension CoreML_Specification_FillLikeLayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FillLikeLayerParams, rhs: CoreML_Specification_FillLikeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FillLikeLayerParams, rhs: CoreML_Specification_FillLikeLayerParams) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20018,13 +20018,13 @@ extension CoreML_Specification_FillLikeLayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_FillStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FillStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FillStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
     2: .same(proto: "targetShape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20037,7 +20037,7 @@ extension CoreML_Specification_FillStaticLayerParams: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
@@ -20047,7 +20047,7 @@ extension CoreML_Specification_FillStaticLayerParams: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FillStaticLayerParams, rhs: CoreML_Specification_FillStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FillStaticLayerParams, rhs: CoreML_Specification_FillStaticLayerParams) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.targetShape != rhs.targetShape {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -20056,12 +20056,12 @@ extension CoreML_Specification_FillStaticLayerParams: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_FillDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FillDynamicLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FillDynamicLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20073,14 +20073,14 @@ extension CoreML_Specification_FillDynamicLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FillDynamicLayerParams, rhs: CoreML_Specification_FillDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FillDynamicLayerParams, rhs: CoreML_Specification_FillDynamicLayerParams) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20088,317 +20088,317 @@ extension CoreML_Specification_FillDynamicLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_WhereBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WhereBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".WhereBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_WhereBroadcastableLayerParams, rhs: CoreML_Specification_WhereBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_WhereBroadcastableLayerParams, rhs: CoreML_Specification_WhereBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SinLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SinLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".SinLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SinLayerParams, rhs: CoreML_Specification_SinLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SinLayerParams, rhs: CoreML_Specification_SinLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_CosLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CosLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".CosLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CosLayerParams, rhs: CoreML_Specification_CosLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CosLayerParams, rhs: CoreML_Specification_CosLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_TanLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TanLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".TanLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TanLayerParams, rhs: CoreML_Specification_TanLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TanLayerParams, rhs: CoreML_Specification_TanLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_AsinLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AsinLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AsinLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AsinLayerParams, rhs: CoreML_Specification_AsinLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AsinLayerParams, rhs: CoreML_Specification_AsinLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_AcosLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AcosLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AcosLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AcosLayerParams, rhs: CoreML_Specification_AcosLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AcosLayerParams, rhs: CoreML_Specification_AcosLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_AtanLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AtanLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AtanLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AtanLayerParams, rhs: CoreML_Specification_AtanLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AtanLayerParams, rhs: CoreML_Specification_AtanLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SinhLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SinhLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".SinhLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SinhLayerParams, rhs: CoreML_Specification_SinhLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SinhLayerParams, rhs: CoreML_Specification_SinhLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_CoshLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CoshLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".CoshLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CoshLayerParams, rhs: CoreML_Specification_CoshLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CoshLayerParams, rhs: CoreML_Specification_CoshLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_TanhLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TanhLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".TanhLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TanhLayerParams, rhs: CoreML_Specification_TanhLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TanhLayerParams, rhs: CoreML_Specification_TanhLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_AsinhLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AsinhLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AsinhLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AsinhLayerParams, rhs: CoreML_Specification_AsinhLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AsinhLayerParams, rhs: CoreML_Specification_AsinhLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_AcoshLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AcoshLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AcoshLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AcoshLayerParams, rhs: CoreML_Specification_AcoshLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AcoshLayerParams, rhs: CoreML_Specification_AcoshLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_AtanhLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AtanhLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AtanhLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AtanhLayerParams, rhs: CoreML_Specification_AtanhLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AtanhLayerParams, rhs: CoreML_Specification_AtanhLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_PowBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PowBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".PowBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PowBroadcastableLayerParams, rhs: CoreML_Specification_PowBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PowBroadcastableLayerParams, rhs: CoreML_Specification_PowBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_Exp2LayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Exp2LayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".Exp2LayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Exp2LayerParams, rhs: CoreML_Specification_Exp2LayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Exp2LayerParams, rhs: CoreML_Specification_Exp2LayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_WhereNonZeroLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WhereNonZeroLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".WhereNonZeroLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_WhereNonZeroLayerParams, rhs: CoreML_Specification_WhereNonZeroLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_WhereNonZeroLayerParams, rhs: CoreML_Specification_WhereNonZeroLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_MatrixBandPartLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MatrixBandPartLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MatrixBandPartLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "numLower"),
     2: .same(proto: "numUpper"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20411,7 +20411,7 @@ extension CoreML_Specification_MatrixBandPartLayerParams: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.numLower != 0 {
       try visitor.visitSingularInt64Field(value: self.numLower, fieldNumber: 1)
     }
@@ -20421,7 +20421,7 @@ extension CoreML_Specification_MatrixBandPartLayerParams: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MatrixBandPartLayerParams, rhs: CoreML_Specification_MatrixBandPartLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MatrixBandPartLayerParams, rhs: CoreML_Specification_MatrixBandPartLayerParams) -> Bool {
     if lhs.numLower != rhs.numLower {return false}
     if lhs.numUpper != rhs.numUpper {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -20430,12 +20430,12 @@ extension CoreML_Specification_MatrixBandPartLayerParams: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_UpperTriangularLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpperTriangularLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UpperTriangularLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "k"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20447,14 +20447,14 @@ extension CoreML_Specification_UpperTriangularLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.k != 0 {
       try visitor.visitSingularInt64Field(value: self.k, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_UpperTriangularLayerParams, rhs: CoreML_Specification_UpperTriangularLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_UpperTriangularLayerParams, rhs: CoreML_Specification_UpperTriangularLayerParams) -> Bool {
     if lhs.k != rhs.k {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20462,12 +20462,12 @@ extension CoreML_Specification_UpperTriangularLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_LowerTriangularLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LowerTriangularLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LowerTriangularLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "k"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20479,14 +20479,14 @@ extension CoreML_Specification_LowerTriangularLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.k != 0 {
       try visitor.visitSingularInt64Field(value: self.k, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LowerTriangularLayerParams, rhs: CoreML_Specification_LowerTriangularLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LowerTriangularLayerParams, rhs: CoreML_Specification_LowerTriangularLayerParams) -> Bool {
     if lhs.k != rhs.k {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20494,31 +20494,31 @@ extension CoreML_Specification_LowerTriangularLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_BroadcastToLikeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BroadcastToLikeLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".BroadcastToLikeLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BroadcastToLikeLayerParams, rhs: CoreML_Specification_BroadcastToLikeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BroadcastToLikeLayerParams, rhs: CoreML_Specification_BroadcastToLikeLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_BroadcastToStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BroadcastToStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BroadcastToStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "targetShape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20530,14 +20530,14 @@ extension CoreML_Specification_BroadcastToStaticLayerParams: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.targetShape.isEmpty {
       try visitor.visitPackedUInt64Field(value: self.targetShape, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BroadcastToStaticLayerParams, rhs: CoreML_Specification_BroadcastToStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BroadcastToStaticLayerParams, rhs: CoreML_Specification_BroadcastToStaticLayerParams) -> Bool {
     if lhs.targetShape != rhs.targetShape {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20545,183 +20545,183 @@ extension CoreML_Specification_BroadcastToStaticLayerParams: SwiftProtobuf.Messa
 }
 
 extension CoreML_Specification_BroadcastToDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BroadcastToDynamicLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".BroadcastToDynamicLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BroadcastToDynamicLayerParams, rhs: CoreML_Specification_BroadcastToDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BroadcastToDynamicLayerParams, rhs: CoreML_Specification_BroadcastToDynamicLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_AddBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AddBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".AddBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AddBroadcastableLayerParams, rhs: CoreML_Specification_AddBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AddBroadcastableLayerParams, rhs: CoreML_Specification_AddBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_MaxBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MaxBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MaxBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MaxBroadcastableLayerParams, rhs: CoreML_Specification_MaxBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MaxBroadcastableLayerParams, rhs: CoreML_Specification_MaxBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_MinBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MinBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MinBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MinBroadcastableLayerParams, rhs: CoreML_Specification_MinBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MinBroadcastableLayerParams, rhs: CoreML_Specification_MinBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ModBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ModBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ModBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ModBroadcastableLayerParams, rhs: CoreML_Specification_ModBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ModBroadcastableLayerParams, rhs: CoreML_Specification_ModBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_FloorDivBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FloorDivBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".FloorDivBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FloorDivBroadcastableLayerParams, rhs: CoreML_Specification_FloorDivBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FloorDivBroadcastableLayerParams, rhs: CoreML_Specification_FloorDivBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SubtractBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SubtractBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".SubtractBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SubtractBroadcastableLayerParams, rhs: CoreML_Specification_SubtractBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SubtractBroadcastableLayerParams, rhs: CoreML_Specification_SubtractBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_MultiplyBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MultiplyBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MultiplyBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MultiplyBroadcastableLayerParams, rhs: CoreML_Specification_MultiplyBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MultiplyBroadcastableLayerParams, rhs: CoreML_Specification_MultiplyBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_DivideBroadcastableLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DivideBroadcastableLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".DivideBroadcastableLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_DivideBroadcastableLayerParams, rhs: CoreML_Specification_DivideBroadcastableLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_DivideBroadcastableLayerParams, rhs: CoreML_Specification_DivideBroadcastableLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_GatherLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GatherLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GatherLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20733,14 +20733,14 @@ extension CoreML_Specification_GatherLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GatherLayerParams, rhs: CoreML_Specification_GatherLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GatherLayerParams, rhs: CoreML_Specification_GatherLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20748,13 +20748,13 @@ extension CoreML_Specification_GatherLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_ScatterLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScatterLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScatterLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "mode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20767,7 +20767,7 @@ extension CoreML_Specification_ScatterLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -20777,7 +20777,7 @@ extension CoreML_Specification_ScatterLayerParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ScatterLayerParams, rhs: CoreML_Specification_ScatterLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ScatterLayerParams, rhs: CoreML_Specification_ScatterLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -20786,31 +20786,31 @@ extension CoreML_Specification_ScatterLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_GatherNDLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GatherNDLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".GatherNDLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GatherNDLayerParams, rhs: CoreML_Specification_GatherNDLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GatherNDLayerParams, rhs: CoreML_Specification_GatherNDLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ScatterNDLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScatterNDLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScatterNDLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20822,14 +20822,14 @@ extension CoreML_Specification_ScatterNDLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mode != .scatterUpdate {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ScatterNDLayerParams, rhs: CoreML_Specification_ScatterNDLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ScatterNDLayerParams, rhs: CoreML_Specification_ScatterNDLayerParams) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20837,12 +20837,12 @@ extension CoreML_Specification_ScatterNDLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_GatherAlongAxisLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GatherAlongAxisLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GatherAlongAxisLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20854,14 +20854,14 @@ extension CoreML_Specification_GatherAlongAxisLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GatherAlongAxisLayerParams, rhs: CoreML_Specification_GatherAlongAxisLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GatherAlongAxisLayerParams, rhs: CoreML_Specification_GatherAlongAxisLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20869,13 +20869,13 @@ extension CoreML_Specification_GatherAlongAxisLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_ScatterAlongAxisLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScatterAlongAxisLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScatterAlongAxisLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "mode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20888,7 +20888,7 @@ extension CoreML_Specification_ScatterAlongAxisLayerParams: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -20898,7 +20898,7 @@ extension CoreML_Specification_ScatterAlongAxisLayerParams: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ScatterAlongAxisLayerParams, rhs: CoreML_Specification_ScatterAlongAxisLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ScatterAlongAxisLayerParams, rhs: CoreML_Specification_ScatterAlongAxisLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -20907,12 +20907,12 @@ extension CoreML_Specification_ScatterAlongAxisLayerParams: SwiftProtobuf.Messag
 }
 
 extension CoreML_Specification_StackLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".StackLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".StackLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20924,14 +20924,14 @@ extension CoreML_Specification_StackLayerParams: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_StackLayerParams, rhs: CoreML_Specification_StackLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_StackLayerParams, rhs: CoreML_Specification_StackLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20939,12 +20939,12 @@ extension CoreML_Specification_StackLayerParams: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_RankPreservingReshapeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RankPreservingReshapeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RankPreservingReshapeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "targetShape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20956,14 +20956,14 @@ extension CoreML_Specification_RankPreservingReshapeLayerParams: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.targetShape.isEmpty {
       try visitor.visitPackedInt64Field(value: self.targetShape, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RankPreservingReshapeLayerParams, rhs: CoreML_Specification_RankPreservingReshapeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RankPreservingReshapeLayerParams, rhs: CoreML_Specification_RankPreservingReshapeLayerParams) -> Bool {
     if lhs.targetShape != rhs.targetShape {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -20971,14 +20971,14 @@ extension CoreML_Specification_RankPreservingReshapeLayerParams: SwiftProtobuf.M
 }
 
 extension CoreML_Specification_ConstantPaddingLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConstantPaddingLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConstantPaddingLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
     2: .same(proto: "padAmounts"),
     3: .same(proto: "padToGivenOutputSizeMode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -20992,7 +20992,7 @@ extension CoreML_Specification_ConstantPaddingLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
@@ -21005,7 +21005,7 @@ extension CoreML_Specification_ConstantPaddingLayerParams: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ConstantPaddingLayerParams, rhs: CoreML_Specification_ConstantPaddingLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ConstantPaddingLayerParams, rhs: CoreML_Specification_ConstantPaddingLayerParams) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.padAmounts != rhs.padAmounts {return false}
     if lhs.padToGivenOutputSizeMode != rhs.padToGivenOutputSizeMode {return false}
@@ -21015,14 +21015,14 @@ extension CoreML_Specification_ConstantPaddingLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_RandomNormalLikeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomNormalLikeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomNormalLikeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "mean"),
     3: .same(proto: "stdDev"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21036,7 +21036,7 @@ extension CoreML_Specification_RandomNormalLikeLayerParams: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21049,7 +21049,7 @@ extension CoreML_Specification_RandomNormalLikeLayerParams: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomNormalLikeLayerParams, rhs: CoreML_Specification_RandomNormalLikeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomNormalLikeLayerParams, rhs: CoreML_Specification_RandomNormalLikeLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.mean != rhs.mean {return false}
     if lhs.stdDev != rhs.stdDev {return false}
@@ -21059,15 +21059,15 @@ extension CoreML_Specification_RandomNormalLikeLayerParams: SwiftProtobuf.Messag
 }
 
 extension CoreML_Specification_RandomNormalStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomNormalStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomNormalStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "mean"),
     3: .same(proto: "stdDev"),
     4: .same(proto: "outputShape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21082,7 +21082,7 @@ extension CoreML_Specification_RandomNormalStaticLayerParams: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21098,7 +21098,7 @@ extension CoreML_Specification_RandomNormalStaticLayerParams: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomNormalStaticLayerParams, rhs: CoreML_Specification_RandomNormalStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomNormalStaticLayerParams, rhs: CoreML_Specification_RandomNormalStaticLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.mean != rhs.mean {return false}
     if lhs.stdDev != rhs.stdDev {return false}
@@ -21109,14 +21109,14 @@ extension CoreML_Specification_RandomNormalStaticLayerParams: SwiftProtobuf.Mess
 }
 
 extension CoreML_Specification_RandomNormalDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomNormalDynamicLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomNormalDynamicLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "mean"),
     3: .same(proto: "stdDev"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21130,7 +21130,7 @@ extension CoreML_Specification_RandomNormalDynamicLayerParams: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21143,7 +21143,7 @@ extension CoreML_Specification_RandomNormalDynamicLayerParams: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomNormalDynamicLayerParams, rhs: CoreML_Specification_RandomNormalDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomNormalDynamicLayerParams, rhs: CoreML_Specification_RandomNormalDynamicLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.mean != rhs.mean {return false}
     if lhs.stdDev != rhs.stdDev {return false}
@@ -21153,14 +21153,14 @@ extension CoreML_Specification_RandomNormalDynamicLayerParams: SwiftProtobuf.Mes
 }
 
 extension CoreML_Specification_RandomUniformLikeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomUniformLikeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomUniformLikeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "minVal"),
     3: .same(proto: "maxVal"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21174,7 +21174,7 @@ extension CoreML_Specification_RandomUniformLikeLayerParams: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21187,7 +21187,7 @@ extension CoreML_Specification_RandomUniformLikeLayerParams: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomUniformLikeLayerParams, rhs: CoreML_Specification_RandomUniformLikeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomUniformLikeLayerParams, rhs: CoreML_Specification_RandomUniformLikeLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.minVal != rhs.minVal {return false}
     if lhs.maxVal != rhs.maxVal {return false}
@@ -21197,15 +21197,15 @@ extension CoreML_Specification_RandomUniformLikeLayerParams: SwiftProtobuf.Messa
 }
 
 extension CoreML_Specification_RandomUniformStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomUniformStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomUniformStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "minVal"),
     3: .same(proto: "maxVal"),
     4: .same(proto: "outputShape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21220,7 +21220,7 @@ extension CoreML_Specification_RandomUniformStaticLayerParams: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21236,7 +21236,7 @@ extension CoreML_Specification_RandomUniformStaticLayerParams: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomUniformStaticLayerParams, rhs: CoreML_Specification_RandomUniformStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomUniformStaticLayerParams, rhs: CoreML_Specification_RandomUniformStaticLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.minVal != rhs.minVal {return false}
     if lhs.maxVal != rhs.maxVal {return false}
@@ -21247,14 +21247,14 @@ extension CoreML_Specification_RandomUniformStaticLayerParams: SwiftProtobuf.Mes
 }
 
 extension CoreML_Specification_RandomUniformDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomUniformDynamicLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomUniformDynamicLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "minVal"),
     3: .same(proto: "maxVal"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21268,7 +21268,7 @@ extension CoreML_Specification_RandomUniformDynamicLayerParams: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21281,7 +21281,7 @@ extension CoreML_Specification_RandomUniformDynamicLayerParams: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomUniformDynamicLayerParams, rhs: CoreML_Specification_RandomUniformDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomUniformDynamicLayerParams, rhs: CoreML_Specification_RandomUniformDynamicLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.minVal != rhs.minVal {return false}
     if lhs.maxVal != rhs.maxVal {return false}
@@ -21291,13 +21291,13 @@ extension CoreML_Specification_RandomUniformDynamicLayerParams: SwiftProtobuf.Me
 }
 
 extension CoreML_Specification_RandomBernoulliLikeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomBernoulliLikeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomBernoulliLikeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "prob"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21310,7 +21310,7 @@ extension CoreML_Specification_RandomBernoulliLikeLayerParams: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21320,7 +21320,7 @@ extension CoreML_Specification_RandomBernoulliLikeLayerParams: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomBernoulliLikeLayerParams, rhs: CoreML_Specification_RandomBernoulliLikeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomBernoulliLikeLayerParams, rhs: CoreML_Specification_RandomBernoulliLikeLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.prob != rhs.prob {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -21329,14 +21329,14 @@ extension CoreML_Specification_RandomBernoulliLikeLayerParams: SwiftProtobuf.Mes
 }
 
 extension CoreML_Specification_RandomBernoulliStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomBernoulliStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomBernoulliStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "prob"),
     3: .same(proto: "outputShape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21350,7 +21350,7 @@ extension CoreML_Specification_RandomBernoulliStaticLayerParams: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21363,7 +21363,7 @@ extension CoreML_Specification_RandomBernoulliStaticLayerParams: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomBernoulliStaticLayerParams, rhs: CoreML_Specification_RandomBernoulliStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomBernoulliStaticLayerParams, rhs: CoreML_Specification_RandomBernoulliStaticLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.prob != rhs.prob {return false}
     if lhs.outputShape != rhs.outputShape {return false}
@@ -21373,13 +21373,13 @@ extension CoreML_Specification_RandomBernoulliStaticLayerParams: SwiftProtobuf.M
 }
 
 extension CoreML_Specification_RandomBernoulliDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RandomBernoulliDynamicLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RandomBernoulliDynamicLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "prob"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21392,7 +21392,7 @@ extension CoreML_Specification_RandomBernoulliDynamicLayerParams: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21402,7 +21402,7 @@ extension CoreML_Specification_RandomBernoulliDynamicLayerParams: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RandomBernoulliDynamicLayerParams, rhs: CoreML_Specification_RandomBernoulliDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RandomBernoulliDynamicLayerParams, rhs: CoreML_Specification_RandomBernoulliDynamicLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.prob != rhs.prob {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -21411,8 +21411,8 @@ extension CoreML_Specification_RandomBernoulliDynamicLayerParams: SwiftProtobuf.
 }
 
 extension CoreML_Specification_CategoricalDistributionLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CategoricalDistributionLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CategoricalDistributionLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seed"),
     2: .same(proto: "numSamples"),
     3: .same(proto: "isLogits"),
@@ -21420,7 +21420,7 @@ extension CoreML_Specification_CategoricalDistributionLayerParams: SwiftProtobuf
     5: .same(proto: "temperature"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21436,7 +21436,7 @@ extension CoreML_Specification_CategoricalDistributionLayerParams: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seed != 0 {
       try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 1)
     }
@@ -21455,7 +21455,7 @@ extension CoreML_Specification_CategoricalDistributionLayerParams: SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CategoricalDistributionLayerParams, rhs: CoreML_Specification_CategoricalDistributionLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CategoricalDistributionLayerParams, rhs: CoreML_Specification_CategoricalDistributionLayerParams) -> Bool {
     if lhs.seed != rhs.seed {return false}
     if lhs.numSamples != rhs.numSamples {return false}
     if lhs.isLogits != rhs.isLogits {return false}
@@ -21467,14 +21467,14 @@ extension CoreML_Specification_CategoricalDistributionLayerParams: SwiftProtobuf
 }
 
 extension CoreML_Specification_ReduceL1LayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceL1LayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceL1LayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21488,7 +21488,7 @@ extension CoreML_Specification_ReduceL1LayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21501,7 +21501,7 @@ extension CoreML_Specification_ReduceL1LayerParams: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceL1LayerParams, rhs: CoreML_Specification_ReduceL1LayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceL1LayerParams, rhs: CoreML_Specification_ReduceL1LayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21511,14 +21511,14 @@ extension CoreML_Specification_ReduceL1LayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_ReduceL2LayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceL2LayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceL2LayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21532,7 +21532,7 @@ extension CoreML_Specification_ReduceL2LayerParams: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21545,7 +21545,7 @@ extension CoreML_Specification_ReduceL2LayerParams: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceL2LayerParams, rhs: CoreML_Specification_ReduceL2LayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceL2LayerParams, rhs: CoreML_Specification_ReduceL2LayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21555,14 +21555,14 @@ extension CoreML_Specification_ReduceL2LayerParams: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_ReduceMaxLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceMaxLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceMaxLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21576,7 +21576,7 @@ extension CoreML_Specification_ReduceMaxLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21589,7 +21589,7 @@ extension CoreML_Specification_ReduceMaxLayerParams: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceMaxLayerParams, rhs: CoreML_Specification_ReduceMaxLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceMaxLayerParams, rhs: CoreML_Specification_ReduceMaxLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21599,14 +21599,14 @@ extension CoreML_Specification_ReduceMaxLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_ReduceMinLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceMinLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceMinLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21620,7 +21620,7 @@ extension CoreML_Specification_ReduceMinLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21633,7 +21633,7 @@ extension CoreML_Specification_ReduceMinLayerParams: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceMinLayerParams, rhs: CoreML_Specification_ReduceMinLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceMinLayerParams, rhs: CoreML_Specification_ReduceMinLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21643,14 +21643,14 @@ extension CoreML_Specification_ReduceMinLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_ReduceSumLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceSumLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceSumLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21664,7 +21664,7 @@ extension CoreML_Specification_ReduceSumLayerParams: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21677,7 +21677,7 @@ extension CoreML_Specification_ReduceSumLayerParams: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceSumLayerParams, rhs: CoreML_Specification_ReduceSumLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceSumLayerParams, rhs: CoreML_Specification_ReduceSumLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21687,14 +21687,14 @@ extension CoreML_Specification_ReduceSumLayerParams: SwiftProtobuf.Message, Swif
 }
 
 extension CoreML_Specification_ReduceProdLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceProdLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceProdLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21708,7 +21708,7 @@ extension CoreML_Specification_ReduceProdLayerParams: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21721,7 +21721,7 @@ extension CoreML_Specification_ReduceProdLayerParams: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceProdLayerParams, rhs: CoreML_Specification_ReduceProdLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceProdLayerParams, rhs: CoreML_Specification_ReduceProdLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21731,14 +21731,14 @@ extension CoreML_Specification_ReduceProdLayerParams: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_ReduceMeanLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceMeanLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceMeanLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21752,7 +21752,7 @@ extension CoreML_Specification_ReduceMeanLayerParams: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21765,7 +21765,7 @@ extension CoreML_Specification_ReduceMeanLayerParams: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceMeanLayerParams, rhs: CoreML_Specification_ReduceMeanLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceMeanLayerParams, rhs: CoreML_Specification_ReduceMeanLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21775,14 +21775,14 @@ extension CoreML_Specification_ReduceMeanLayerParams: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_ReduceLogSumLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceLogSumLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceLogSumLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21796,7 +21796,7 @@ extension CoreML_Specification_ReduceLogSumLayerParams: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21809,7 +21809,7 @@ extension CoreML_Specification_ReduceLogSumLayerParams: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceLogSumLayerParams, rhs: CoreML_Specification_ReduceLogSumLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceLogSumLayerParams, rhs: CoreML_Specification_ReduceLogSumLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21819,14 +21819,14 @@ extension CoreML_Specification_ReduceLogSumLayerParams: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_ReduceSumSquareLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceSumSquareLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceSumSquareLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21840,7 +21840,7 @@ extension CoreML_Specification_ReduceSumSquareLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21853,7 +21853,7 @@ extension CoreML_Specification_ReduceSumSquareLayerParams: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceSumSquareLayerParams, rhs: CoreML_Specification_ReduceSumSquareLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceSumSquareLayerParams, rhs: CoreML_Specification_ReduceSumSquareLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21863,14 +21863,14 @@ extension CoreML_Specification_ReduceSumSquareLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_ReduceLogSumExpLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReduceLogSumExpLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReduceLogSumExpLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "keepDims"),
     3: .same(proto: "reduceAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21884,7 +21884,7 @@ extension CoreML_Specification_ReduceLogSumExpLayerParams: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -21897,7 +21897,7 @@ extension CoreML_Specification_ReduceLogSumExpLayerParams: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReduceLogSumExpLayerParams, rhs: CoreML_Specification_ReduceLogSumExpLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReduceLogSumExpLayerParams, rhs: CoreML_Specification_ReduceLogSumExpLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.keepDims != rhs.keepDims {return false}
     if lhs.reduceAll != rhs.reduceAll {return false}
@@ -21907,12 +21907,12 @@ extension CoreML_Specification_ReduceLogSumExpLayerParams: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_ExpandDimsLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExpandDimsLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ExpandDimsLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21924,14 +21924,14 @@ extension CoreML_Specification_ExpandDimsLayerParams: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ExpandDimsLayerParams, rhs: CoreML_Specification_ExpandDimsLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ExpandDimsLayerParams, rhs: CoreML_Specification_ExpandDimsLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -21939,12 +21939,12 @@ extension CoreML_Specification_ExpandDimsLayerParams: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_FlattenTo2DLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FlattenTo2DLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FlattenTo2DLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21956,14 +21956,14 @@ extension CoreML_Specification_FlattenTo2DLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FlattenTo2DLayerParams, rhs: CoreML_Specification_FlattenTo2DLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FlattenTo2DLayerParams, rhs: CoreML_Specification_FlattenTo2DLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -21971,12 +21971,12 @@ extension CoreML_Specification_FlattenTo2DLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_ReshapeStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReshapeStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ReshapeStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "targetShape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -21988,14 +21988,14 @@ extension CoreML_Specification_ReshapeStaticLayerParams: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.targetShape.isEmpty {
       try visitor.visitPackedInt64Field(value: self.targetShape, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReshapeStaticLayerParams, rhs: CoreML_Specification_ReshapeStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReshapeStaticLayerParams, rhs: CoreML_Specification_ReshapeStaticLayerParams) -> Bool {
     if lhs.targetShape != rhs.targetShape {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -22003,51 +22003,51 @@ extension CoreML_Specification_ReshapeStaticLayerParams: SwiftProtobuf.Message, 
 }
 
 extension CoreML_Specification_ReshapeLikeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReshapeLikeLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ReshapeLikeLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReshapeLikeLayerParams, rhs: CoreML_Specification_ReshapeLikeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReshapeLikeLayerParams, rhs: CoreML_Specification_ReshapeLikeLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ReshapeDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReshapeDynamicLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ReshapeDynamicLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ReshapeDynamicLayerParams, rhs: CoreML_Specification_ReshapeDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ReshapeDynamicLayerParams, rhs: CoreML_Specification_ReshapeDynamicLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SqueezeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SqueezeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SqueezeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axes"),
     2: .same(proto: "squeezeAll"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22060,7 +22060,7 @@ extension CoreML_Specification_SqueezeLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.axes.isEmpty {
       try visitor.visitPackedInt64Field(value: self.axes, fieldNumber: 1)
     }
@@ -22070,7 +22070,7 @@ extension CoreML_Specification_SqueezeLayerParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SqueezeLayerParams, rhs: CoreML_Specification_SqueezeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SqueezeLayerParams, rhs: CoreML_Specification_SqueezeLayerParams) -> Bool {
     if lhs.axes != rhs.axes {return false}
     if lhs.squeezeAll != rhs.squeezeAll {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22079,14 +22079,14 @@ extension CoreML_Specification_SqueezeLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_TopKLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TopKLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TopKLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "K"),
     3: .same(proto: "useBottomK"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22100,7 +22100,7 @@ extension CoreML_Specification_TopKLayerParams: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -22113,7 +22113,7 @@ extension CoreML_Specification_TopKLayerParams: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TopKLayerParams, rhs: CoreML_Specification_TopKLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TopKLayerParams, rhs: CoreML_Specification_TopKLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.k != rhs.k {return false}
     if lhs.useBottomK != rhs.useBottomK {return false}
@@ -22123,13 +22123,13 @@ extension CoreML_Specification_TopKLayerParams: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_ArgMaxLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ArgMaxLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ArgMaxLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "removeDim"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22142,7 +22142,7 @@ extension CoreML_Specification_ArgMaxLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -22152,7 +22152,7 @@ extension CoreML_Specification_ArgMaxLayerParams: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArgMaxLayerParams, rhs: CoreML_Specification_ArgMaxLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArgMaxLayerParams, rhs: CoreML_Specification_ArgMaxLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.removeDim != rhs.removeDim {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22161,13 +22161,13 @@ extension CoreML_Specification_ArgMaxLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_ArgMinLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ArgMinLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ArgMinLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "removeDim"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22180,7 +22180,7 @@ extension CoreML_Specification_ArgMinLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -22190,7 +22190,7 @@ extension CoreML_Specification_ArgMinLayerParams: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArgMinLayerParams, rhs: CoreML_Specification_ArgMinLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArgMinLayerParams, rhs: CoreML_Specification_ArgMinLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.removeDim != rhs.removeDim {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22199,14 +22199,14 @@ extension CoreML_Specification_ArgMinLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_SplitNDLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SplitNDLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SplitNDLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "numSplits"),
     3: .same(proto: "splitSizes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22220,7 +22220,7 @@ extension CoreML_Specification_SplitNDLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -22233,7 +22233,7 @@ extension CoreML_Specification_SplitNDLayerParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SplitNDLayerParams, rhs: CoreML_Specification_SplitNDLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SplitNDLayerParams, rhs: CoreML_Specification_SplitNDLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.numSplits != rhs.numSplits {return false}
     if lhs.splitSizes != rhs.splitSizes {return false}
@@ -22243,89 +22243,89 @@ extension CoreML_Specification_SplitNDLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_CeilLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CeilLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".CeilLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CeilLayerParams, rhs: CoreML_Specification_CeilLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CeilLayerParams, rhs: CoreML_Specification_CeilLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_RoundLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RoundLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".RoundLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RoundLayerParams, rhs: CoreML_Specification_RoundLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RoundLayerParams, rhs: CoreML_Specification_RoundLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_FloorLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FloorLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".FloorLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FloorLayerParams, rhs: CoreML_Specification_FloorLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FloorLayerParams, rhs: CoreML_Specification_FloorLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SignLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SignLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".SignLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SignLayerParams, rhs: CoreML_Specification_SignLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SignLayerParams, rhs: CoreML_Specification_SignLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ClipLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClipLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClipLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "minVal"),
     2: .same(proto: "maxVal"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22338,7 +22338,7 @@ extension CoreML_Specification_ClipLayerParams: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.minVal != 0 {
       try visitor.visitSingularFloatField(value: self.minVal, fieldNumber: 1)
     }
@@ -22348,7 +22348,7 @@ extension CoreML_Specification_ClipLayerParams: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ClipLayerParams, rhs: CoreML_Specification_ClipLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ClipLayerParams, rhs: CoreML_Specification_ClipLayerParams) -> Bool {
     if lhs.minVal != rhs.minVal {return false}
     if lhs.maxVal != rhs.maxVal {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22357,8 +22357,8 @@ extension CoreML_Specification_ClipLayerParams: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_SliceStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SliceStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SliceStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "beginIds"),
     2: .same(proto: "beginMasks"),
     3: .same(proto: "endIds"),
@@ -22367,7 +22367,7 @@ extension CoreML_Specification_SliceStaticLayerParams: SwiftProtobuf.Message, Sw
     6: .same(proto: "squeezeMasks"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22384,7 +22384,7 @@ extension CoreML_Specification_SliceStaticLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.beginIds.isEmpty {
       try visitor.visitPackedInt64Field(value: self.beginIds, fieldNumber: 1)
     }
@@ -22406,7 +22406,7 @@ extension CoreML_Specification_SliceStaticLayerParams: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SliceStaticLayerParams, rhs: CoreML_Specification_SliceStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SliceStaticLayerParams, rhs: CoreML_Specification_SliceStaticLayerParams) -> Bool {
     if lhs.beginIds != rhs.beginIds {return false}
     if lhs.beginMasks != rhs.beginMasks {return false}
     if lhs.endIds != rhs.endIds {return false}
@@ -22419,8 +22419,8 @@ extension CoreML_Specification_SliceStaticLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_SliceDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SliceDynamicLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SliceDynamicLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "beginMasks"),
     3: .same(proto: "endIds"),
     4: .same(proto: "endMasks"),
@@ -22428,7 +22428,7 @@ extension CoreML_Specification_SliceDynamicLayerParams: SwiftProtobuf.Message, S
     6: .same(proto: "squeezeMasks"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22444,7 +22444,7 @@ extension CoreML_Specification_SliceDynamicLayerParams: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.beginMasks.isEmpty {
       try visitor.visitPackedBoolField(value: self.beginMasks, fieldNumber: 2)
     }
@@ -22463,7 +22463,7 @@ extension CoreML_Specification_SliceDynamicLayerParams: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SliceDynamicLayerParams, rhs: CoreML_Specification_SliceDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SliceDynamicLayerParams, rhs: CoreML_Specification_SliceDynamicLayerParams) -> Bool {
     if lhs.beginMasks != rhs.beginMasks {return false}
     if lhs.endIds != rhs.endIds {return false}
     if lhs.endMasks != rhs.endMasks {return false}
@@ -22475,12 +22475,12 @@ extension CoreML_Specification_SliceDynamicLayerParams: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_TileLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TileLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TileLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "reps"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22492,14 +22492,14 @@ extension CoreML_Specification_TileLayerParams: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.reps.isEmpty {
       try visitor.visitPackedUInt64Field(value: self.reps, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TileLayerParams, rhs: CoreML_Specification_TileLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TileLayerParams, rhs: CoreML_Specification_TileLayerParams) -> Bool {
     if lhs.reps != rhs.reps {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -22507,50 +22507,50 @@ extension CoreML_Specification_TileLayerParams: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_GetShapeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetShapeLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".GetShapeLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GetShapeLayerParams, rhs: CoreML_Specification_GetShapeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GetShapeLayerParams, rhs: CoreML_Specification_GetShapeLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_ErfLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ErfLayerParams"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".ErfLayerParams"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ErfLayerParams, rhs: CoreML_Specification_ErfLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ErfLayerParams, rhs: CoreML_Specification_ErfLayerParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_GeluLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GeluLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GeluLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mode"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22562,14 +22562,14 @@ extension CoreML_Specification_GeluLayerParams: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mode != .exact {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GeluLayerParams, rhs: CoreML_Specification_GeluLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GeluLayerParams, rhs: CoreML_Specification_GeluLayerParams) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -22577,7 +22577,7 @@ extension CoreML_Specification_GeluLayerParams: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_GeluLayerParams.GeluMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "EXACT"),
     1: .same(proto: "TANH_APPROXIMATION"),
     2: .same(proto: "SIGMOID_APPROXIMATION"),
@@ -22585,14 +22585,14 @@ extension CoreML_Specification_GeluLayerParams.GeluMode: SwiftProtobuf._ProtoNam
 }
 
 extension CoreML_Specification_RangeStaticLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RangeStaticLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RangeStaticLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "endValue"),
     2: .same(proto: "startValue"),
     3: .same(proto: "stepSizeValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22606,7 +22606,7 @@ extension CoreML_Specification_RangeStaticLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.endValue != 0 {
       try visitor.visitSingularFloatField(value: self.endValue, fieldNumber: 1)
     }
@@ -22619,7 +22619,7 @@ extension CoreML_Specification_RangeStaticLayerParams: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RangeStaticLayerParams, rhs: CoreML_Specification_RangeStaticLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RangeStaticLayerParams, rhs: CoreML_Specification_RangeStaticLayerParams) -> Bool {
     if lhs.endValue != rhs.endValue {return false}
     if lhs.startValue != rhs.startValue {return false}
     if lhs.stepSizeValue != rhs.stepSizeValue {return false}
@@ -22629,13 +22629,13 @@ extension CoreML_Specification_RangeStaticLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_RangeDynamicLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RangeDynamicLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RangeDynamicLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "startValue"),
     3: .same(proto: "stepSizeValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22648,7 +22648,7 @@ extension CoreML_Specification_RangeDynamicLayerParams: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.startValue != 0 {
       try visitor.visitSingularFloatField(value: self.startValue, fieldNumber: 2)
     }
@@ -22658,7 +22658,7 @@ extension CoreML_Specification_RangeDynamicLayerParams: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_RangeDynamicLayerParams, rhs: CoreML_Specification_RangeDynamicLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_RangeDynamicLayerParams, rhs: CoreML_Specification_RangeDynamicLayerParams) -> Bool {
     if lhs.startValue != rhs.startValue {return false}
     if lhs.stepSizeValue != rhs.stepSizeValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22667,14 +22667,14 @@ extension CoreML_Specification_RangeDynamicLayerParams: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_SlidingWindowsLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SlidingWindowsLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SlidingWindowsLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "windowSize"),
     3: .same(proto: "step"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22688,7 +22688,7 @@ extension CoreML_Specification_SlidingWindowsLayerParams: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -22701,7 +22701,7 @@ extension CoreML_Specification_SlidingWindowsLayerParams: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SlidingWindowsLayerParams, rhs: CoreML_Specification_SlidingWindowsLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SlidingWindowsLayerParams, rhs: CoreML_Specification_SlidingWindowsLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.windowSize != rhs.windowSize {return false}
     if lhs.step != rhs.step {return false}
@@ -22711,8 +22711,8 @@ extension CoreML_Specification_SlidingWindowsLayerParams: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_LayerNormalizationLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LayerNormalizationLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LayerNormalizationLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "normalizedShape"),
     2: .same(proto: "eps"),
     3: .same(proto: "gamma"),
@@ -22725,11 +22725,11 @@ extension CoreML_Specification_LayerNormalizationLayerParams: SwiftProtobuf.Mess
     var _gamma: CoreML_Specification_WeightParams? = nil
     var _beta: CoreML_Specification_WeightParams? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _normalizedShape = source._normalizedShape
       _eps = source._eps
       _gamma = source._gamma
@@ -22744,7 +22744,7 @@ extension CoreML_Specification_LayerNormalizationLayerParams: SwiftProtobuf.Mess
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22762,7 +22762,7 @@ extension CoreML_Specification_LayerNormalizationLayerParams: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -22784,7 +22784,7 @@ extension CoreML_Specification_LayerNormalizationLayerParams: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LayerNormalizationLayerParams, rhs: CoreML_Specification_LayerNormalizationLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LayerNormalizationLayerParams, rhs: CoreML_Specification_LayerNormalizationLayerParams) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -22803,15 +22803,15 @@ extension CoreML_Specification_LayerNormalizationLayerParams: SwiftProtobuf.Mess
 }
 
 extension CoreML_Specification_NonMaximumSuppressionLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NonMaximumSuppressionLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NonMaximumSuppressionLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "iouThreshold"),
     2: .same(proto: "scoreThreshold"),
     3: .same(proto: "maxBoxes"),
     4: .same(proto: "perClassSuppression"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22826,7 +22826,7 @@ extension CoreML_Specification_NonMaximumSuppressionLayerParams: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.iouThreshold != 0 {
       try visitor.visitSingularFloatField(value: self.iouThreshold, fieldNumber: 1)
     }
@@ -22842,7 +22842,7 @@ extension CoreML_Specification_NonMaximumSuppressionLayerParams: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NonMaximumSuppressionLayerParams, rhs: CoreML_Specification_NonMaximumSuppressionLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NonMaximumSuppressionLayerParams, rhs: CoreML_Specification_NonMaximumSuppressionLayerParams) -> Bool {
     if lhs.iouThreshold != rhs.iouThreshold {return false}
     if lhs.scoreThreshold != rhs.scoreThreshold {return false}
     if lhs.maxBoxes != rhs.maxBoxes {return false}
@@ -22853,13 +22853,13 @@ extension CoreML_Specification_NonMaximumSuppressionLayerParams: SwiftProtobuf.M
 }
 
 extension CoreML_Specification_ClampedReLULayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClampedReLULayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClampedReLULayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alpha"),
     2: .same(proto: "beta"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22872,7 +22872,7 @@ extension CoreML_Specification_ClampedReLULayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.alpha != 0 {
       try visitor.visitSingularFloatField(value: self.alpha, fieldNumber: 1)
     }
@@ -22882,7 +22882,7 @@ extension CoreML_Specification_ClampedReLULayerParams: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ClampedReLULayerParams, rhs: CoreML_Specification_ClampedReLULayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ClampedReLULayerParams, rhs: CoreML_Specification_ClampedReLULayerParams) -> Bool {
     if lhs.alpha != rhs.alpha {return false}
     if lhs.beta != rhs.beta {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22891,13 +22891,13 @@ extension CoreML_Specification_ClampedReLULayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_ArgSortLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ArgSortLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ArgSortLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "descending"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22910,7 +22910,7 @@ extension CoreML_Specification_ArgSortLayerParams: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -22920,7 +22920,7 @@ extension CoreML_Specification_ArgSortLayerParams: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArgSortLayerParams, rhs: CoreML_Specification_ArgSortLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArgSortLayerParams, rhs: CoreML_Specification_ArgSortLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.descending != rhs.descending {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22929,13 +22929,13 @@ extension CoreML_Specification_ArgSortLayerParams: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_SliceBySizeLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SliceBySizeLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SliceBySizeLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "size"),
     3: .same(proto: "axis"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -22948,7 +22948,7 @@ extension CoreML_Specification_SliceBySizeLayerParams: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.size != 0 {
       try visitor.visitSingularInt64Field(value: self.size, fieldNumber: 2)
     }
@@ -22958,7 +22958,7 @@ extension CoreML_Specification_SliceBySizeLayerParams: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SliceBySizeLayerParams, rhs: CoreML_Specification_SliceBySizeLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SliceBySizeLayerParams, rhs: CoreML_Specification_SliceBySizeLayerParams) -> Bool {
     if lhs.size != rhs.size {return false}
     if lhs.axis != rhs.axis {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -22967,8 +22967,8 @@ extension CoreML_Specification_SliceBySizeLayerParams: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_NeuralNetworkClassifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NeuralNetworkClassifier"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NeuralNetworkClassifier"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "layers"),
     2: .same(proto: "preprocessing"),
     5: .same(proto: "arrayInputShapeMapping"),
@@ -22979,7 +22979,7 @@ extension CoreML_Specification_NeuralNetworkClassifier: SwiftProtobuf.Message, S
     200: .same(proto: "labelProbabilityLayerName"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23022,7 +23022,7 @@ extension CoreML_Specification_NeuralNetworkClassifier: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -23059,7 +23059,7 @@ extension CoreML_Specification_NeuralNetworkClassifier: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NeuralNetworkClassifier, rhs: CoreML_Specification_NeuralNetworkClassifier) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NeuralNetworkClassifier, rhs: CoreML_Specification_NeuralNetworkClassifier) -> Bool {
     if lhs.layers != rhs.layers {return false}
     if lhs.preprocessing != rhs.preprocessing {return false}
     if lhs.arrayInputShapeMapping != rhs.arrayInputShapeMapping {return false}
@@ -23073,15 +23073,15 @@ extension CoreML_Specification_NeuralNetworkClassifier: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_OneHotLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OneHotLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OneHotLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "oneHotVectorSize"),
     2: .same(proto: "axis"),
     3: .same(proto: "onValue"),
     4: .same(proto: "offValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23096,7 +23096,7 @@ extension CoreML_Specification_OneHotLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.oneHotVectorSize != 0 {
       try visitor.visitSingularUInt64Field(value: self.oneHotVectorSize, fieldNumber: 1)
     }
@@ -23112,7 +23112,7 @@ extension CoreML_Specification_OneHotLayerParams: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_OneHotLayerParams, rhs: CoreML_Specification_OneHotLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_OneHotLayerParams, rhs: CoreML_Specification_OneHotLayerParams) -> Bool {
     if lhs.oneHotVectorSize != rhs.oneHotVectorSize {return false}
     if lhs.axis != rhs.axis {return false}
     if lhs.onValue != rhs.onValue {return false}
@@ -23123,14 +23123,14 @@ extension CoreML_Specification_OneHotLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_CumSumLayerParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CumSumLayerParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CumSumLayerParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "axis"),
     2: .same(proto: "excludeFinalSum"),
     3: .same(proto: "reverse"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23144,7 +23144,7 @@ extension CoreML_Specification_CumSumLayerParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.axis != 0 {
       try visitor.visitSingularInt64Field(value: self.axis, fieldNumber: 1)
     }
@@ -23157,7 +23157,7 @@ extension CoreML_Specification_CumSumLayerParams: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CumSumLayerParams, rhs: CoreML_Specification_CumSumLayerParams) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CumSumLayerParams, rhs: CoreML_Specification_CumSumLayerParams) -> Bool {
     if lhs.axis != rhs.axis {return false}
     if lhs.excludeFinalSum != rhs.excludeFinalSum {return false}
     if lhs.reverse != rhs.reverse {return false}
@@ -23167,8 +23167,8 @@ extension CoreML_Specification_CumSumLayerParams: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_NeuralNetworkRegressor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NeuralNetworkRegressor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NeuralNetworkRegressor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "layers"),
     2: .same(proto: "preprocessing"),
     5: .same(proto: "arrayInputShapeMapping"),
@@ -23176,7 +23176,7 @@ extension CoreML_Specification_NeuralNetworkRegressor: SwiftProtobuf.Message, Sw
     10: .same(proto: "updateParams"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23192,7 +23192,7 @@ extension CoreML_Specification_NeuralNetworkRegressor: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -23215,7 +23215,7 @@ extension CoreML_Specification_NeuralNetworkRegressor: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NeuralNetworkRegressor, rhs: CoreML_Specification_NeuralNetworkRegressor) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NeuralNetworkRegressor, rhs: CoreML_Specification_NeuralNetworkRegressor) -> Bool {
     if lhs.layers != rhs.layers {return false}
     if lhs.preprocessing != rhs.preprocessing {return false}
     if lhs.arrayInputShapeMapping != rhs.arrayInputShapeMapping {return false}
@@ -23227,8 +23227,8 @@ extension CoreML_Specification_NeuralNetworkRegressor: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_NetworkUpdateParameters: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NetworkUpdateParameters"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NetworkUpdateParameters"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "lossLayers"),
     2: .same(proto: "optimizer"),
     3: .same(proto: "epochs"),
@@ -23243,11 +23243,11 @@ extension CoreML_Specification_NetworkUpdateParameters: SwiftProtobuf.Message, S
     var _shuffle: CoreML_Specification_BoolParameter? = nil
     var _seed: CoreML_Specification_Int64Parameter? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _lossLayers = source._lossLayers
       _optimizer = source._optimizer
       _epochs = source._epochs
@@ -23263,7 +23263,7 @@ extension CoreML_Specification_NetworkUpdateParameters: SwiftProtobuf.Message, S
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23282,7 +23282,7 @@ extension CoreML_Specification_NetworkUpdateParameters: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -23307,7 +23307,7 @@ extension CoreML_Specification_NetworkUpdateParameters: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NetworkUpdateParameters, rhs: CoreML_Specification_NetworkUpdateParameters) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NetworkUpdateParameters, rhs: CoreML_Specification_NetworkUpdateParameters) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -23327,14 +23327,14 @@ extension CoreML_Specification_NetworkUpdateParameters: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_LossLayer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LossLayer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LossLayer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     10: .same(proto: "categoricalCrossEntropyLossLayer"),
     11: .same(proto: "meanSquaredErrorLossLayer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23372,7 +23372,7 @@ extension CoreML_Specification_LossLayer: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -23394,7 +23394,7 @@ extension CoreML_Specification_LossLayer: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LossLayer, rhs: CoreML_Specification_LossLayer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LossLayer, rhs: CoreML_Specification_LossLayer) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.lossLayerType != rhs.lossLayerType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -23403,13 +23403,13 @@ extension CoreML_Specification_LossLayer: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension CoreML_Specification_CategoricalCrossEntropyLossLayer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CategoricalCrossEntropyLossLayer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CategoricalCrossEntropyLossLayer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "input"),
     2: .same(proto: "target"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23422,7 +23422,7 @@ extension CoreML_Specification_CategoricalCrossEntropyLossLayer: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.input.isEmpty {
       try visitor.visitSingularStringField(value: self.input, fieldNumber: 1)
     }
@@ -23432,7 +23432,7 @@ extension CoreML_Specification_CategoricalCrossEntropyLossLayer: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CategoricalCrossEntropyLossLayer, rhs: CoreML_Specification_CategoricalCrossEntropyLossLayer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CategoricalCrossEntropyLossLayer, rhs: CoreML_Specification_CategoricalCrossEntropyLossLayer) -> Bool {
     if lhs.input != rhs.input {return false}
     if lhs.target != rhs.target {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -23441,13 +23441,13 @@ extension CoreML_Specification_CategoricalCrossEntropyLossLayer: SwiftProtobuf.M
 }
 
 extension CoreML_Specification_MeanSquaredErrorLossLayer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MeanSquaredErrorLossLayer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MeanSquaredErrorLossLayer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "input"),
     2: .same(proto: "target"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23460,7 +23460,7 @@ extension CoreML_Specification_MeanSquaredErrorLossLayer: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.input.isEmpty {
       try visitor.visitSingularStringField(value: self.input, fieldNumber: 1)
     }
@@ -23470,7 +23470,7 @@ extension CoreML_Specification_MeanSquaredErrorLossLayer: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MeanSquaredErrorLossLayer, rhs: CoreML_Specification_MeanSquaredErrorLossLayer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MeanSquaredErrorLossLayer, rhs: CoreML_Specification_MeanSquaredErrorLossLayer) -> Bool {
     if lhs.input != rhs.input {return false}
     if lhs.target != rhs.target {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -23479,13 +23479,13 @@ extension CoreML_Specification_MeanSquaredErrorLossLayer: SwiftProtobuf.Message,
 }
 
 extension CoreML_Specification_Optimizer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Optimizer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Optimizer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "sgdOptimizer"),
     11: .same(proto: "adamOptimizer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23522,7 +23522,7 @@ extension CoreML_Specification_Optimizer: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -23541,7 +23541,7 @@ extension CoreML_Specification_Optimizer: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Optimizer, rhs: CoreML_Specification_Optimizer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Optimizer, rhs: CoreML_Specification_Optimizer) -> Bool {
     if lhs.optimizerType != rhs.optimizerType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -23549,14 +23549,14 @@ extension CoreML_Specification_Optimizer: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension CoreML_Specification_SGDOptimizer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SGDOptimizer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SGDOptimizer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "learningRate"),
     2: .same(proto: "miniBatchSize"),
     3: .same(proto: "momentum"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23570,7 +23570,7 @@ extension CoreML_Specification_SGDOptimizer: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -23587,7 +23587,7 @@ extension CoreML_Specification_SGDOptimizer: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SGDOptimizer, rhs: CoreML_Specification_SGDOptimizer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SGDOptimizer, rhs: CoreML_Specification_SGDOptimizer) -> Bool {
     if lhs._learningRate != rhs._learningRate {return false}
     if lhs._miniBatchSize != rhs._miniBatchSize {return false}
     if lhs._momentum != rhs._momentum {return false}
@@ -23597,8 +23597,8 @@ extension CoreML_Specification_SGDOptimizer: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension CoreML_Specification_AdamOptimizer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AdamOptimizer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AdamOptimizer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "learningRate"),
     2: .same(proto: "miniBatchSize"),
     3: .same(proto: "beta1"),
@@ -23606,7 +23606,7 @@ extension CoreML_Specification_AdamOptimizer: SwiftProtobuf.Message, SwiftProtob
     5: .same(proto: "eps"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -23622,7 +23622,7 @@ extension CoreML_Specification_AdamOptimizer: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -23645,7 +23645,7 @@ extension CoreML_Specification_AdamOptimizer: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_AdamOptimizer, rhs: CoreML_Specification_AdamOptimizer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_AdamOptimizer, rhs: CoreML_Specification_AdamOptimizer) -> Bool {
     if lhs._learningRate != rhs._learningRate {return false}
     if lhs._miniBatchSize != rhs._miniBatchSize {return false}
     if lhs._beta1 != rhs._beta1 {return false}

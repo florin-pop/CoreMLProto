@@ -21,8 +21,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
@@ -30,16 +30,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// Given an index, extracts the value at that index from its array input.
 /// Indexes are zero-based.
-struct CoreML_Specification_ArrayFeatureExtractor {
+public struct CoreML_Specification_ArrayFeatureExtractor {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var extractIndex: [UInt64] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -47,12 +47,12 @@ struct CoreML_Specification_ArrayFeatureExtractor {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_ArrayFeatureExtractor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ArrayFeatureExtractor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ArrayFeatureExtractor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extractIndex"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -64,14 +64,14 @@ extension CoreML_Specification_ArrayFeatureExtractor: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.extractIndex.isEmpty {
       try visitor.visitPackedUInt64Field(value: self.extractIndex, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArrayFeatureExtractor, rhs: CoreML_Specification_ArrayFeatureExtractor) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArrayFeatureExtractor, rhs: CoreML_Specification_ArrayFeatureExtractor) -> Bool {
     if lhs.extractIndex != rhs.extractIndex {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

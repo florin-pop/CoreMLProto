@@ -21,13 +21,13 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A model which maps a set of strings into a finite-dimensional real vector space.
-struct CoreML_Specification_CoreMLModels_WordEmbedding {
+public struct CoreML_Specification_CoreMLModels_WordEmbedding {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -46,9 +46,9 @@ struct CoreML_Specification_CoreMLModels_WordEmbedding {
   /// Stores efficient representation of emebedding as encoded by the Natural Language Framework
   var modelParameterData: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -56,14 +56,14 @@ struct CoreML_Specification_CoreMLModels_WordEmbedding {
 fileprivate let _protobuf_package = "CoreML.Specification.CoreMLModels"
 
 extension CoreML_Specification_CoreMLModels_WordEmbedding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WordEmbedding"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WordEmbedding"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "revision"),
     10: .same(proto: "language"),
     100: .same(proto: "modelParameterData"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -77,7 +77,7 @@ extension CoreML_Specification_CoreMLModels_WordEmbedding: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.revision != 0 {
       try visitor.visitSingularUInt32Field(value: self.revision, fieldNumber: 1)
     }
@@ -90,7 +90,7 @@ extension CoreML_Specification_CoreMLModels_WordEmbedding: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CoreMLModels_WordEmbedding, rhs: CoreML_Specification_CoreMLModels_WordEmbedding) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CoreMLModels_WordEmbedding, rhs: CoreML_Specification_CoreMLModels_WordEmbedding) -> Bool {
     if lhs.revision != rhs.revision {return false}
     if lhs.language != rhs.language {return false}
     if lhs.modelParameterData != rhs.modelParameterData {return false}

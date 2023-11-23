@@ -21,15 +21,15 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A categorical mapping.
 ///
 /// This allows conversion from integers to strings, or from strings to integers.
-struct CoreML_Specification_CategoricalMapping {
+public struct CoreML_Specification_CategoricalMapping {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -77,16 +77,16 @@ struct CoreML_Specification_CategoricalMapping {
     set {valueOnUnknown = .int64Value(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_MappingType: Equatable {
+  public enum OneOf_MappingType: Equatable {
     /// Conversion from strings to integers
     case stringToInt64Map(CoreML_Specification_StringToInt64Map)
     /// Conversion from integer to string
     case int64ToStringMap(CoreML_Specification_Int64ToStringMap)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_CategoricalMapping.OneOf_MappingType, rhs: CoreML_Specification_CategoricalMapping.OneOf_MappingType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_CategoricalMapping.OneOf_MappingType, rhs: CoreML_Specification_CategoricalMapping.OneOf_MappingType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -108,14 +108,14 @@ struct CoreML_Specification_CategoricalMapping {
   ///*
   /// The value returned if an input is not contained in the map above.
   /// If one of these is not set, then an error is raised on an unknown input.
-  enum OneOf_ValueOnUnknown: Equatable {
+  public enum OneOf_ValueOnUnknown: Equatable {
     /// Default output when converting from an integer to a string.
     case strValue(String)
     /// Default output when converting from a string to an integer.
     case int64Value(Int64)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_CategoricalMapping.OneOf_ValueOnUnknown, rhs: CoreML_Specification_CategoricalMapping.OneOf_ValueOnUnknown) -> Bool {
+    public static func ==(lhs: CoreML_Specification_CategoricalMapping.OneOf_ValueOnUnknown, rhs: CoreML_Specification_CategoricalMapping.OneOf_ValueOnUnknown) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -134,7 +134,7 @@ struct CoreML_Specification_CategoricalMapping {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -142,15 +142,15 @@ struct CoreML_Specification_CategoricalMapping {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_CategoricalMapping: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CategoricalMapping"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CategoricalMapping"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "stringToInt64Map"),
     2: .same(proto: "int64ToStringMap"),
     101: .same(proto: "strValue"),
     102: .same(proto: "int64Value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -203,7 +203,7 @@ extension CoreML_Specification_CategoricalMapping: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -233,7 +233,7 @@ extension CoreML_Specification_CategoricalMapping: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CategoricalMapping, rhs: CoreML_Specification_CategoricalMapping) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CategoricalMapping, rhs: CoreML_Specification_CategoricalMapping) -> Bool {
     if lhs.mappingType != rhs.mappingType {return false}
     if lhs.valueOnUnknown != rhs.valueOnUnknown {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

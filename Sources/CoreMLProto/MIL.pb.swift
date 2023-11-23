@@ -41,13 +41,13 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 /// Supported data types
-enum CoreML_Specification_MILSpec_DataType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CoreML_Specification_MILSpec_DataType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 0-10 reserved for special types
   case unusedType // = 0
@@ -74,11 +74,11 @@ enum CoreML_Specification_MILSpec_DataType: SwiftProtobuf.Enum {
   case uint64 // = 34
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unusedType
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unusedType
     case 1: self = .bool
@@ -98,7 +98,7 @@ enum CoreML_Specification_MILSpec_DataType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unusedType: return 0
     case .bool: return 1
@@ -124,7 +124,7 @@ enum CoreML_Specification_MILSpec_DataType: SwiftProtobuf.Enum {
 
 extension CoreML_Specification_MILSpec_DataType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_MILSpec_DataType] = [
+  public static var allCases: [CoreML_Specification_MILSpec_DataType] = [
     .unusedType,
     .bool,
     .string,
@@ -145,7 +145,7 @@ extension CoreML_Specification_MILSpec_DataType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// The top level container.
-struct CoreML_Specification_MILSpec_Program {
+public struct CoreML_Specification_MILSpec_Program {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -162,13 +162,13 @@ struct CoreML_Specification_MILSpec_Program {
   /// Keys must be valid identifiers as described above.
   var attributes: Dictionary<String,CoreML_Specification_MILSpec_Value> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// A program-level function.
-struct CoreML_Specification_MILSpec_Function {
+public struct CoreML_Specification_MILSpec_Function {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -198,13 +198,13 @@ struct CoreML_Specification_MILSpec_Function {
   /// Keys must be valid identifiers as described above.
   var attributes: Dictionary<String,CoreML_Specification_MILSpec_Value> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// A basic block with a single entry and exit in SSA form.
-struct CoreML_Specification_MILSpec_Block {
+public struct CoreML_Specification_MILSpec_Block {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -230,22 +230,22 @@ struct CoreML_Specification_MILSpec_Block {
   /// Keys must be valid identifiers as described above.
   var attributes: Dictionary<String,CoreML_Specification_MILSpec_Value> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Argument is list of Binding to either name or value
-struct CoreML_Specification_MILSpec_Argument {
+public struct CoreML_Specification_MILSpec_Argument {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var arguments: [CoreML_Specification_MILSpec_Argument.Binding] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Binding {
+  public struct Binding {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -270,16 +270,16 @@ struct CoreML_Specification_MILSpec_Argument {
       set {binding = .value(newValue)}
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum OneOf_Binding: Equatable {
+    public enum OneOf_Binding: Equatable {
       /// The name of a previously defined value.
       case name(String)
       /// A compile time constant.
       case value(CoreML_Specification_MILSpec_Value)
 
     #if !swift(>=4.1)
-      static func ==(lhs: CoreML_Specification_MILSpec_Argument.Binding.OneOf_Binding, rhs: CoreML_Specification_MILSpec_Argument.Binding.OneOf_Binding) -> Bool {
+      public static func ==(lhs: CoreML_Specification_MILSpec_Argument.Binding.OneOf_Binding, rhs: CoreML_Specification_MILSpec_Argument.Binding.OneOf_Binding) -> Bool {
         // The use of inline closures is to circumvent an issue where the compiler
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -298,14 +298,14 @@ struct CoreML_Specification_MILSpec_Argument {
     #endif
     }
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 /// A single operation/node/layer.
-struct CoreML_Specification_MILSpec_Operation {
+public struct CoreML_Specification_MILSpec_Operation {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -341,14 +341,14 @@ struct CoreML_Specification_MILSpec_Operation {
   /// Keys must be valid identifiers as described above.
   var attributes: Dictionary<String,CoreML_Specification_MILSpec_Value> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Named Value parameters
 /// (name, type) pair
-struct CoreML_Specification_MILSpec_NamedValueType {
+public struct CoreML_Specification_MILSpec_NamedValueType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -364,17 +364,17 @@ struct CoreML_Specification_MILSpec_NamedValueType {
   /// Returns true if `type` has been explicitly set.
   var hasType: Bool {return self._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {self._type = nil}
+  public mutating func clearType() {self._type = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _type: CoreML_Specification_MILSpec_ValueType? = nil
 }
 
 /// A type of any kind
-struct CoreML_Specification_MILSpec_ValueType {
+public struct CoreML_Specification_MILSpec_ValueType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -416,16 +416,16 @@ struct CoreML_Specification_MILSpec_ValueType {
     set {_uniqueStorage()._type = .dictionaryType(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Type: Equatable {
+  public enum OneOf_Type: Equatable {
     case tensorType(CoreML_Specification_MILSpec_TensorType)
     case listType(CoreML_Specification_MILSpec_ListType)
     case tupleType(CoreML_Specification_MILSpec_TupleType)
     case dictionaryType(CoreML_Specification_MILSpec_DictionaryType)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_MILSpec_ValueType.OneOf_Type, rhs: CoreML_Specification_MILSpec_ValueType.OneOf_Type) -> Bool {
+    public static func ==(lhs: CoreML_Specification_MILSpec_ValueType.OneOf_Type, rhs: CoreML_Specification_MILSpec_ValueType.OneOf_Type) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -452,12 +452,12 @@ struct CoreML_Specification_MILSpec_ValueType {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct CoreML_Specification_MILSpec_TensorType {
+public struct CoreML_Specification_MILSpec_TensorType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -476,12 +476,12 @@ struct CoreML_Specification_MILSpec_TensorType {
   /// Keys must be valid identifiers in MIL text syntax.
   var attributes: Dictionary<String,CoreML_Specification_MILSpec_Value> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_MILSpec_TupleType {
+public struct CoreML_Specification_MILSpec_TupleType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -489,12 +489,12 @@ struct CoreML_Specification_MILSpec_TupleType {
   /// Recursively define TupleType from ValueType.
   var types: [CoreML_Specification_MILSpec_ValueType] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_MILSpec_ListType {
+public struct CoreML_Specification_MILSpec_ListType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -507,7 +507,7 @@ struct CoreML_Specification_MILSpec_ListType {
   /// Returns true if `type` has been explicitly set.
   var hasType: Bool {return _storage._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {_uniqueStorage()._type = nil}
+  public mutating func clearType() {_uniqueStorage()._type = nil}
 
   /// The number of elements in a list of this type. May be unknown (variable length)
   var length: CoreML_Specification_MILSpec_Dimension {
@@ -517,17 +517,17 @@ struct CoreML_Specification_MILSpec_ListType {
   /// Returns true if `length` has been explicitly set.
   var hasLength: Bool {return _storage._length != nil}
   /// Clears the value of `length`. Subsequent reads from it will return its default value.
-  mutating func clearLength() {_uniqueStorage()._length = nil}
+  public mutating func clearLength() {_uniqueStorage()._length = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// An unordered key-value mapping
-struct CoreML_Specification_MILSpec_DictionaryType {
+public struct CoreML_Specification_MILSpec_DictionaryType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -539,7 +539,7 @@ struct CoreML_Specification_MILSpec_DictionaryType {
   /// Returns true if `keyType` has been explicitly set.
   var hasKeyType: Bool {return _storage._keyType != nil}
   /// Clears the value of `keyType`. Subsequent reads from it will return its default value.
-  mutating func clearKeyType() {_uniqueStorage()._keyType = nil}
+  public mutating func clearKeyType() {_uniqueStorage()._keyType = nil}
 
   var valueType: CoreML_Specification_MILSpec_ValueType {
     get {return _storage._valueType ?? CoreML_Specification_MILSpec_ValueType()}
@@ -548,16 +548,16 @@ struct CoreML_Specification_MILSpec_DictionaryType {
   /// Returns true if `valueType` has been explicitly set.
   var hasValueType: Bool {return _storage._valueType != nil}
   /// Clears the value of `valueType`. Subsequent reads from it will return its default value.
-  mutating func clearValueType() {_uniqueStorage()._valueType = nil}
+  public mutating func clearValueType() {_uniqueStorage()._valueType = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct CoreML_Specification_MILSpec_Dimension {
+public struct CoreML_Specification_MILSpec_Dimension {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -580,14 +580,14 @@ struct CoreML_Specification_MILSpec_Dimension {
     set {dimension = .unknown(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Dimension: Equatable {
+  public enum OneOf_Dimension: Equatable {
     case constant(CoreML_Specification_MILSpec_Dimension.ConstantDimension)
     case unknown(CoreML_Specification_MILSpec_Dimension.UnknownDimension)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_MILSpec_Dimension.OneOf_Dimension, rhs: CoreML_Specification_MILSpec_Dimension.OneOf_Dimension) -> Bool {
+    public static func ==(lhs: CoreML_Specification_MILSpec_Dimension.OneOf_Dimension, rhs: CoreML_Specification_MILSpec_Dimension.OneOf_Dimension) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -606,35 +606,35 @@ struct CoreML_Specification_MILSpec_Dimension {
   #endif
   }
 
-  struct ConstantDimension {
+  public struct ConstantDimension {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var size: UInt64 = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct UnknownDimension {
+  public struct UnknownDimension {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var variadic: Bool = false
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 /// See Variable vs Value primer above.
-struct CoreML_Specification_MILSpec_Value {
+public struct CoreML_Specification_MILSpec_Value {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -649,7 +649,7 @@ struct CoreML_Specification_MILSpec_Value {
   /// Returns true if `type` has been explicitly set.
   var hasType: Bool {return self._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {self._type = nil}
+  public mutating func clearType() {self._type = nil}
 
   var value: CoreML_Specification_MILSpec_Value.OneOf_Value? = nil
 
@@ -669,14 +669,14 @@ struct CoreML_Specification_MILSpec_Value {
     set {value = .blobFileValue(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Value: Equatable {
+  public enum OneOf_Value: Equatable {
     case immediateValue(CoreML_Specification_MILSpec_Value.ImmediateValue)
     case blobFileValue(CoreML_Specification_MILSpec_Value.BlobFileValue)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_MILSpec_Value.OneOf_Value, rhs: CoreML_Specification_MILSpec_Value.OneOf_Value) -> Bool {
+    public static func ==(lhs: CoreML_Specification_MILSpec_Value.OneOf_Value, rhs: CoreML_Specification_MILSpec_Value.OneOf_Value) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -696,7 +696,7 @@ struct CoreML_Specification_MILSpec_Value {
   }
 
   /// An immediate value stored within the proto
-  struct ImmediateValue {
+  public struct ImmediateValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -735,16 +735,16 @@ struct CoreML_Specification_MILSpec_Value {
       set {value = .dictionary(newValue)}
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum OneOf_Value: Equatable {
+    public enum OneOf_Value: Equatable {
       case tensor(CoreML_Specification_MILSpec_TensorValue)
       case tuple(CoreML_Specification_MILSpec_TupleValue)
       case list(CoreML_Specification_MILSpec_ListValue)
       case dictionary(CoreML_Specification_MILSpec_DictionaryValue)
 
     #if !swift(>=4.1)
-      static func ==(lhs: CoreML_Specification_MILSpec_Value.ImmediateValue.OneOf_Value, rhs: CoreML_Specification_MILSpec_Value.ImmediateValue.OneOf_Value) -> Bool {
+      public static func ==(lhs: CoreML_Specification_MILSpec_Value.ImmediateValue.OneOf_Value, rhs: CoreML_Specification_MILSpec_Value.ImmediateValue.OneOf_Value) -> Bool {
         // The use of inline closures is to circumvent an issue where the compiler
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -771,11 +771,11 @@ struct CoreML_Specification_MILSpec_Value {
     #endif
     }
 
-    init() {}
+    public init() {}
   }
 
   /// Reference to a "blob v2" storage file
-  struct BlobFileValue {
+  public struct BlobFileValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -786,17 +786,17 @@ struct CoreML_Specification_MILSpec_Value {
     /// byte offset to metadata
     var offset: UInt64 = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _type: CoreML_Specification_MILSpec_ValueType? = nil
 }
 
-struct CoreML_Specification_MILSpec_TensorValue {
+public struct CoreML_Specification_MILSpec_TensorValue {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -859,9 +859,9 @@ struct CoreML_Specification_MILSpec_TensorValue {
     set {value = .bytes(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Value: Equatable {
+  public enum OneOf_Value: Equatable {
     case floats(CoreML_Specification_MILSpec_TensorValue.RepeatedFloats)
     case ints(CoreML_Specification_MILSpec_TensorValue.RepeatedInts)
     case bools(CoreML_Specification_MILSpec_TensorValue.RepeatedBools)
@@ -871,7 +871,7 @@ struct CoreML_Specification_MILSpec_TensorValue {
     case bytes(CoreML_Specification_MILSpec_TensorValue.RepeatedBytes)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.OneOf_Value, rhs: CoreML_Specification_MILSpec_TensorValue.OneOf_Value) -> Bool {
+    public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.OneOf_Value, rhs: CoreML_Specification_MILSpec_TensorValue.OneOf_Value) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -910,94 +910,94 @@ struct CoreML_Specification_MILSpec_TensorValue {
   #endif
   }
 
-  struct RepeatedFloats {
+  public struct RepeatedFloats {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var values: [Float] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct RepeatedDoubles {
+  public struct RepeatedDoubles {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var values: [Double] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct RepeatedInts {
+  public struct RepeatedInts {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var values: [Int32] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct RepeatedLongInts {
+  public struct RepeatedLongInts {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var values: [Int64] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct RepeatedBools {
+  public struct RepeatedBools {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var values: [Bool] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct RepeatedStrings {
+  public struct RepeatedStrings {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var values: [String] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct RepeatedBytes {
+  public struct RepeatedBytes {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var values: Data = Data()
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_MILSpec_TupleValue {
+public struct CoreML_Specification_MILSpec_TupleValue {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1005,33 +1005,33 @@ struct CoreML_Specification_MILSpec_TupleValue {
   /// Comment: TupleValue is recursively defined from Value.
   var values: [CoreML_Specification_MILSpec_Value] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_MILSpec_ListValue {
+public struct CoreML_Specification_MILSpec_ListValue {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var values: [CoreML_Specification_MILSpec_Value] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_MILSpec_DictionaryValue {
+public struct CoreML_Specification_MILSpec_DictionaryValue {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var values: [CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct KeyValuePair {
+  public struct KeyValuePair {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1043,7 +1043,7 @@ struct CoreML_Specification_MILSpec_DictionaryValue {
     /// Returns true if `key` has been explicitly set.
     var hasKey: Bool {return self._key != nil}
     /// Clears the value of `key`. Subsequent reads from it will return its default value.
-    mutating func clearKey() {self._key = nil}
+    public mutating func clearKey() {self._key = nil}
 
     var value: CoreML_Specification_MILSpec_Value {
       get {return _value ?? CoreML_Specification_MILSpec_Value()}
@@ -1052,17 +1052,17 @@ struct CoreML_Specification_MILSpec_DictionaryValue {
     /// Returns true if `value` has been explicitly set.
     var hasValue: Bool {return self._value != nil}
     /// Clears the value of `value`. Subsequent reads from it will return its default value.
-    mutating func clearValue() {self._value = nil}
+    public mutating func clearValue() {self._value = nil}
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
 
     fileprivate var _key: CoreML_Specification_MILSpec_Value? = nil
     fileprivate var _value: CoreML_Specification_MILSpec_Value? = nil
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1070,7 +1070,7 @@ struct CoreML_Specification_MILSpec_DictionaryValue {
 fileprivate let _protobuf_package = "CoreML.Specification.MILSpec"
 
 extension CoreML_Specification_MILSpec_DataType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "UNUSED_TYPE"),
     1: .same(proto: "BOOL"),
     2: .same(proto: "STRING"),
@@ -1089,15 +1089,15 @@ extension CoreML_Specification_MILSpec_DataType: SwiftProtobuf._ProtoNameProvidi
 }
 
 extension CoreML_Specification_MILSpec_Program: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Program"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Program"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "version"),
     2: .same(proto: "functions"),
     3: .same(proto: "docString"),
     4: .same(proto: "attributes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1112,7 +1112,7 @@ extension CoreML_Specification_MILSpec_Program: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.version != 0 {
       try visitor.visitSingularInt64Field(value: self.version, fieldNumber: 1)
     }
@@ -1128,7 +1128,7 @@ extension CoreML_Specification_MILSpec_Program: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Program, rhs: CoreML_Specification_MILSpec_Program) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Program, rhs: CoreML_Specification_MILSpec_Program) -> Bool {
     if lhs.version != rhs.version {return false}
     if lhs.functions != rhs.functions {return false}
     if lhs.docString != rhs.docString {return false}
@@ -1139,15 +1139,15 @@ extension CoreML_Specification_MILSpec_Program: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_MILSpec_Function: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Function"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Function"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputs"),
     2: .same(proto: "opset"),
     3: .standard(proto: "block_specializations"),
     4: .same(proto: "attributes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1162,7 +1162,7 @@ extension CoreML_Specification_MILSpec_Function: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.inputs.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.inputs, fieldNumber: 1)
     }
@@ -1178,7 +1178,7 @@ extension CoreML_Specification_MILSpec_Function: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Function, rhs: CoreML_Specification_MILSpec_Function) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Function, rhs: CoreML_Specification_MILSpec_Function) -> Bool {
     if lhs.inputs != rhs.inputs {return false}
     if lhs.opset != rhs.opset {return false}
     if lhs.blockSpecializations != rhs.blockSpecializations {return false}
@@ -1189,15 +1189,15 @@ extension CoreML_Specification_MILSpec_Function: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_MILSpec_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Block"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Block"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputs"),
     2: .same(proto: "outputs"),
     3: .same(proto: "operations"),
     4: .same(proto: "attributes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1212,7 +1212,7 @@ extension CoreML_Specification_MILSpec_Block: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.inputs.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.inputs, fieldNumber: 1)
     }
@@ -1228,7 +1228,7 @@ extension CoreML_Specification_MILSpec_Block: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Block, rhs: CoreML_Specification_MILSpec_Block) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Block, rhs: CoreML_Specification_MILSpec_Block) -> Bool {
     if lhs.inputs != rhs.inputs {return false}
     if lhs.outputs != rhs.outputs {return false}
     if lhs.operations != rhs.operations {return false}
@@ -1239,12 +1239,12 @@ extension CoreML_Specification_MILSpec_Block: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension CoreML_Specification_MILSpec_Argument: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Argument"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Argument"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "arguments"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1256,14 +1256,14 @@ extension CoreML_Specification_MILSpec_Argument: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.arguments.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.arguments, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Argument, rhs: CoreML_Specification_MILSpec_Argument) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Argument, rhs: CoreML_Specification_MILSpec_Argument) -> Bool {
     if lhs.arguments != rhs.arguments {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1271,13 +1271,13 @@ extension CoreML_Specification_MILSpec_Argument: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_MILSpec_Argument.Binding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_Argument.protoMessageName + ".Binding"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_Argument.protoMessageName + ".Binding"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1309,7 +1309,7 @@ extension CoreML_Specification_MILSpec_Argument.Binding: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1328,7 +1328,7 @@ extension CoreML_Specification_MILSpec_Argument.Binding: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Argument.Binding, rhs: CoreML_Specification_MILSpec_Argument.Binding) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Argument.Binding, rhs: CoreML_Specification_MILSpec_Argument.Binding) -> Bool {
     if lhs.binding != rhs.binding {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1336,8 +1336,8 @@ extension CoreML_Specification_MILSpec_Argument.Binding: SwiftProtobuf.Message, 
 }
 
 extension CoreML_Specification_MILSpec_Operation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Operation"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Operation"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "inputs"),
     3: .same(proto: "outputs"),
@@ -1345,7 +1345,7 @@ extension CoreML_Specification_MILSpec_Operation: SwiftProtobuf.Message, SwiftPr
     5: .same(proto: "attributes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1361,7 +1361,7 @@ extension CoreML_Specification_MILSpec_Operation: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.type.isEmpty {
       try visitor.visitSingularStringField(value: self.type, fieldNumber: 1)
     }
@@ -1380,7 +1380,7 @@ extension CoreML_Specification_MILSpec_Operation: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Operation, rhs: CoreML_Specification_MILSpec_Operation) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Operation, rhs: CoreML_Specification_MILSpec_Operation) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.inputs != rhs.inputs {return false}
     if lhs.outputs != rhs.outputs {return false}
@@ -1392,13 +1392,13 @@ extension CoreML_Specification_MILSpec_Operation: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_MILSpec_NamedValueType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NamedValueType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NamedValueType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1411,7 +1411,7 @@ extension CoreML_Specification_MILSpec_NamedValueType: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1425,7 +1425,7 @@ extension CoreML_Specification_MILSpec_NamedValueType: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_NamedValueType, rhs: CoreML_Specification_MILSpec_NamedValueType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_NamedValueType, rhs: CoreML_Specification_MILSpec_NamedValueType) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs._type != rhs._type {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1434,8 +1434,8 @@ extension CoreML_Specification_MILSpec_NamedValueType: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_MILSpec_ValueType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ValueType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ValueType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "tensorType"),
     2: .same(proto: "listType"),
     3: .same(proto: "tupleType"),
@@ -1445,11 +1445,11 @@ extension CoreML_Specification_MILSpec_ValueType: SwiftProtobuf.Message, SwiftPr
   fileprivate class _StorageClass {
     var _type: CoreML_Specification_MILSpec_ValueType.OneOf_Type?
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _type = source._type
     }
   }
@@ -1461,7 +1461,7 @@ extension CoreML_Specification_MILSpec_ValueType: SwiftProtobuf.Message, SwiftPr
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1527,7 +1527,7 @@ extension CoreML_Specification_MILSpec_ValueType: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1556,7 +1556,7 @@ extension CoreML_Specification_MILSpec_ValueType: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_ValueType, rhs: CoreML_Specification_MILSpec_ValueType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_ValueType, rhs: CoreML_Specification_MILSpec_ValueType) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1572,15 +1572,15 @@ extension CoreML_Specification_MILSpec_ValueType: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_MILSpec_TensorType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TensorType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TensorType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dataType"),
     2: .same(proto: "rank"),
     3: .same(proto: "dimensions"),
     4: .same(proto: "attributes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1595,7 +1595,7 @@ extension CoreML_Specification_MILSpec_TensorType: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.dataType != .unusedType {
       try visitor.visitSingularEnumField(value: self.dataType, fieldNumber: 1)
     }
@@ -1611,7 +1611,7 @@ extension CoreML_Specification_MILSpec_TensorType: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorType, rhs: CoreML_Specification_MILSpec_TensorType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorType, rhs: CoreML_Specification_MILSpec_TensorType) -> Bool {
     if lhs.dataType != rhs.dataType {return false}
     if lhs.rank != rhs.rank {return false}
     if lhs.dimensions != rhs.dimensions {return false}
@@ -1622,12 +1622,12 @@ extension CoreML_Specification_MILSpec_TensorType: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_MILSpec_TupleType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TupleType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TupleType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "types"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1639,14 +1639,14 @@ extension CoreML_Specification_MILSpec_TupleType: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.types.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.types, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TupleType, rhs: CoreML_Specification_MILSpec_TupleType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TupleType, rhs: CoreML_Specification_MILSpec_TupleType) -> Bool {
     if lhs.types != rhs.types {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1654,8 +1654,8 @@ extension CoreML_Specification_MILSpec_TupleType: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_MILSpec_ListType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "length"),
   ]
@@ -1664,11 +1664,11 @@ extension CoreML_Specification_MILSpec_ListType: SwiftProtobuf.Message, SwiftPro
     var _type: CoreML_Specification_MILSpec_ValueType? = nil
     var _length: CoreML_Specification_MILSpec_Dimension? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _type = source._type
       _length = source._length
     }
@@ -1681,7 +1681,7 @@ extension CoreML_Specification_MILSpec_ListType: SwiftProtobuf.Message, SwiftPro
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1697,7 +1697,7 @@ extension CoreML_Specification_MILSpec_ListType: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1713,7 +1713,7 @@ extension CoreML_Specification_MILSpec_ListType: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_ListType, rhs: CoreML_Specification_MILSpec_ListType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_ListType, rhs: CoreML_Specification_MILSpec_ListType) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1730,8 +1730,8 @@ extension CoreML_Specification_MILSpec_ListType: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_MILSpec_DictionaryType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DictionaryType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DictionaryType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "keyType"),
     2: .same(proto: "valueType"),
   ]
@@ -1740,11 +1740,11 @@ extension CoreML_Specification_MILSpec_DictionaryType: SwiftProtobuf.Message, Sw
     var _keyType: CoreML_Specification_MILSpec_ValueType? = nil
     var _valueType: CoreML_Specification_MILSpec_ValueType? = nil
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _keyType = source._keyType
       _valueType = source._valueType
     }
@@ -1757,7 +1757,7 @@ extension CoreML_Specification_MILSpec_DictionaryType: SwiftProtobuf.Message, Sw
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1773,7 +1773,7 @@ extension CoreML_Specification_MILSpec_DictionaryType: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1789,7 +1789,7 @@ extension CoreML_Specification_MILSpec_DictionaryType: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_DictionaryType, rhs: CoreML_Specification_MILSpec_DictionaryType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_DictionaryType, rhs: CoreML_Specification_MILSpec_DictionaryType) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1806,13 +1806,13 @@ extension CoreML_Specification_MILSpec_DictionaryType: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_MILSpec_Dimension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Dimension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Dimension"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "constant"),
     2: .same(proto: "unknown"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1849,7 +1849,7 @@ extension CoreML_Specification_MILSpec_Dimension: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1868,7 +1868,7 @@ extension CoreML_Specification_MILSpec_Dimension: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Dimension, rhs: CoreML_Specification_MILSpec_Dimension) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Dimension, rhs: CoreML_Specification_MILSpec_Dimension) -> Bool {
     if lhs.dimension != rhs.dimension {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1876,12 +1876,12 @@ extension CoreML_Specification_MILSpec_Dimension: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_MILSpec_Dimension.ConstantDimension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_Dimension.protoMessageName + ".ConstantDimension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_Dimension.protoMessageName + ".ConstantDimension"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "size"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1893,14 +1893,14 @@ extension CoreML_Specification_MILSpec_Dimension.ConstantDimension: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.size != 0 {
       try visitor.visitSingularUInt64Field(value: self.size, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Dimension.ConstantDimension, rhs: CoreML_Specification_MILSpec_Dimension.ConstantDimension) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Dimension.ConstantDimension, rhs: CoreML_Specification_MILSpec_Dimension.ConstantDimension) -> Bool {
     if lhs.size != rhs.size {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1908,12 +1908,12 @@ extension CoreML_Specification_MILSpec_Dimension.ConstantDimension: SwiftProtobu
 }
 
 extension CoreML_Specification_MILSpec_Dimension.UnknownDimension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_Dimension.protoMessageName + ".UnknownDimension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_Dimension.protoMessageName + ".UnknownDimension"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "variadic"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1925,14 +1925,14 @@ extension CoreML_Specification_MILSpec_Dimension.UnknownDimension: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.variadic != false {
       try visitor.visitSingularBoolField(value: self.variadic, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Dimension.UnknownDimension, rhs: CoreML_Specification_MILSpec_Dimension.UnknownDimension) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Dimension.UnknownDimension, rhs: CoreML_Specification_MILSpec_Dimension.UnknownDimension) -> Bool {
     if lhs.variadic != rhs.variadic {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1940,15 +1940,15 @@ extension CoreML_Specification_MILSpec_Dimension.UnknownDimension: SwiftProtobuf
 }
 
 extension CoreML_Specification_MILSpec_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Value"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Value"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "docString"),
     2: .same(proto: "type"),
     3: .same(proto: "immediateValue"),
     5: .same(proto: "blobFileValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1987,7 +1987,7 @@ extension CoreML_Specification_MILSpec_Value: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2012,7 +2012,7 @@ extension CoreML_Specification_MILSpec_Value: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Value, rhs: CoreML_Specification_MILSpec_Value) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Value, rhs: CoreML_Specification_MILSpec_Value) -> Bool {
     if lhs.docString != rhs.docString {return false}
     if lhs._type != rhs._type {return false}
     if lhs.value != rhs.value {return false}
@@ -2022,15 +2022,15 @@ extension CoreML_Specification_MILSpec_Value: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension CoreML_Specification_MILSpec_Value.ImmediateValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_Value.protoMessageName + ".ImmediateValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_Value.protoMessageName + ".ImmediateValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "tensor"),
     2: .same(proto: "tuple"),
     3: .same(proto: "list"),
     4: .same(proto: "dictionary"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2093,7 +2093,7 @@ extension CoreML_Specification_MILSpec_Value.ImmediateValue: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2120,7 +2120,7 @@ extension CoreML_Specification_MILSpec_Value.ImmediateValue: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Value.ImmediateValue, rhs: CoreML_Specification_MILSpec_Value.ImmediateValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Value.ImmediateValue, rhs: CoreML_Specification_MILSpec_Value.ImmediateValue) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2128,13 +2128,13 @@ extension CoreML_Specification_MILSpec_Value.ImmediateValue: SwiftProtobuf.Messa
 }
 
 extension CoreML_Specification_MILSpec_Value.BlobFileValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_Value.protoMessageName + ".BlobFileValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_Value.protoMessageName + ".BlobFileValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fileName"),
     2: .same(proto: "offset"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2147,7 +2147,7 @@ extension CoreML_Specification_MILSpec_Value.BlobFileValue: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.fileName.isEmpty {
       try visitor.visitSingularStringField(value: self.fileName, fieldNumber: 1)
     }
@@ -2157,7 +2157,7 @@ extension CoreML_Specification_MILSpec_Value.BlobFileValue: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_Value.BlobFileValue, rhs: CoreML_Specification_MILSpec_Value.BlobFileValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_Value.BlobFileValue, rhs: CoreML_Specification_MILSpec_Value.BlobFileValue) -> Bool {
     if lhs.fileName != rhs.fileName {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2166,8 +2166,8 @@ extension CoreML_Specification_MILSpec_Value.BlobFileValue: SwiftProtobuf.Messag
 }
 
 extension CoreML_Specification_MILSpec_TensorValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TensorValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TensorValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "floats"),
     2: .same(proto: "ints"),
     3: .same(proto: "bools"),
@@ -2177,7 +2177,7 @@ extension CoreML_Specification_MILSpec_TensorValue: SwiftProtobuf.Message, Swift
     7: .same(proto: "bytes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2279,7 +2279,7 @@ extension CoreML_Specification_MILSpec_TensorValue: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2318,7 +2318,7 @@ extension CoreML_Specification_MILSpec_TensorValue: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue, rhs: CoreML_Specification_MILSpec_TensorValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue, rhs: CoreML_Specification_MILSpec_TensorValue) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2326,12 +2326,12 @@ extension CoreML_Specification_MILSpec_TensorValue: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_MILSpec_TensorValue.RepeatedFloats: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedFloats"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedFloats"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2343,14 +2343,14 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedFloats: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitPackedFloatField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedFloats, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedFloats) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedFloats, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedFloats) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2358,12 +2358,12 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedFloats: SwiftProtobuf
 }
 
 extension CoreML_Specification_MILSpec_TensorValue.RepeatedDoubles: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedDoubles"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedDoubles"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2375,14 +2375,14 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedDoubles: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitPackedDoubleField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedDoubles, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedDoubles) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedDoubles, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedDoubles) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2390,12 +2390,12 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedDoubles: SwiftProtobu
 }
 
 extension CoreML_Specification_MILSpec_TensorValue.RepeatedInts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedInts"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedInts"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2407,14 +2407,14 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedInts: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitPackedInt32Field(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedInts, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedInts) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedInts, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedInts) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2422,12 +2422,12 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedInts: SwiftProtobuf.M
 }
 
 extension CoreML_Specification_MILSpec_TensorValue.RepeatedLongInts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedLongInts"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedLongInts"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2439,14 +2439,14 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedLongInts: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitPackedInt64Field(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedLongInts, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedLongInts) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedLongInts, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedLongInts) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2454,12 +2454,12 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedLongInts: SwiftProtob
 }
 
 extension CoreML_Specification_MILSpec_TensorValue.RepeatedBools: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedBools"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedBools"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2471,14 +2471,14 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedBools: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitPackedBoolField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBools, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBools) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBools, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBools) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2486,12 +2486,12 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedBools: SwiftProtobuf.
 }
 
 extension CoreML_Specification_MILSpec_TensorValue.RepeatedStrings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedStrings"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedStrings"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2503,14 +2503,14 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedStrings: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitRepeatedStringField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedStrings, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedStrings) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedStrings, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedStrings) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2518,12 +2518,12 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedStrings: SwiftProtobu
 }
 
 extension CoreML_Specification_MILSpec_TensorValue.RepeatedBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedBytes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_TensorValue.protoMessageName + ".RepeatedBytes"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2535,14 +2535,14 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedBytes: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitSingularBytesField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBytes, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBytes) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBytes, rhs: CoreML_Specification_MILSpec_TensorValue.RepeatedBytes) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2550,12 +2550,12 @@ extension CoreML_Specification_MILSpec_TensorValue.RepeatedBytes: SwiftProtobuf.
 }
 
 extension CoreML_Specification_MILSpec_TupleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TupleValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TupleValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2567,14 +2567,14 @@ extension CoreML_Specification_MILSpec_TupleValue: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_TupleValue, rhs: CoreML_Specification_MILSpec_TupleValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_TupleValue, rhs: CoreML_Specification_MILSpec_TupleValue) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2582,12 +2582,12 @@ extension CoreML_Specification_MILSpec_TupleValue: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_MILSpec_ListValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ListValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2599,14 +2599,14 @@ extension CoreML_Specification_MILSpec_ListValue: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_ListValue, rhs: CoreML_Specification_MILSpec_ListValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_ListValue, rhs: CoreML_Specification_MILSpec_ListValue) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2614,12 +2614,12 @@ extension CoreML_Specification_MILSpec_ListValue: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_MILSpec_DictionaryValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DictionaryValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DictionaryValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2631,14 +2631,14 @@ extension CoreML_Specification_MILSpec_DictionaryValue: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_DictionaryValue, rhs: CoreML_Specification_MILSpec_DictionaryValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_DictionaryValue, rhs: CoreML_Specification_MILSpec_DictionaryValue) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2646,13 +2646,13 @@ extension CoreML_Specification_MILSpec_DictionaryValue: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_MILSpec_DictionaryValue.protoMessageName + ".KeyValuePair"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_MILSpec_DictionaryValue.protoMessageName + ".KeyValuePair"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2665,7 +2665,7 @@ extension CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2679,7 +2679,7 @@ extension CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair, rhs: CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair) -> Bool {
+  public static func ==(lhs: CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair, rhs: CoreML_Specification_MILSpec_DictionaryValue.KeyValuePair) -> Bool {
     if lhs._key != rhs._key {return false}
     if lhs._value != rhs._value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

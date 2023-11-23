@@ -21,8 +21,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
@@ -32,16 +32,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// ``inputList``.
 ///
 /// ``inputDimensions`` is a zero based index.
-struct CoreML_Specification_FeatureVectorizer {
+public struct CoreML_Specification_FeatureVectorizer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var inputList: [CoreML_Specification_FeatureVectorizer.InputColumn] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct InputColumn {
+  public struct InputColumn {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -50,12 +50,12 @@ struct CoreML_Specification_FeatureVectorizer {
 
     var inputDimensions: UInt64 = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -63,12 +63,12 @@ struct CoreML_Specification_FeatureVectorizer {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_FeatureVectorizer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FeatureVectorizer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FeatureVectorizer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputList"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -80,14 +80,14 @@ extension CoreML_Specification_FeatureVectorizer: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.inputList.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.inputList, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FeatureVectorizer, rhs: CoreML_Specification_FeatureVectorizer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FeatureVectorizer, rhs: CoreML_Specification_FeatureVectorizer) -> Bool {
     if lhs.inputList != rhs.inputList {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -95,13 +95,13 @@ extension CoreML_Specification_FeatureVectorizer: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_FeatureVectorizer.InputColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_FeatureVectorizer.protoMessageName + ".InputColumn"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_FeatureVectorizer.protoMessageName + ".InputColumn"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inputColumn"),
     2: .same(proto: "inputDimensions"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -114,7 +114,7 @@ extension CoreML_Specification_FeatureVectorizer.InputColumn: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.inputColumn.isEmpty {
       try visitor.visitSingularStringField(value: self.inputColumn, fieldNumber: 1)
     }
@@ -124,7 +124,7 @@ extension CoreML_Specification_FeatureVectorizer.InputColumn: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FeatureVectorizer.InputColumn, rhs: CoreML_Specification_FeatureVectorizer.InputColumn) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FeatureVectorizer.InputColumn, rhs: CoreML_Specification_FeatureVectorizer.InputColumn) -> Bool {
     if lhs.inputColumn != rhs.inputColumn {return false}
     if lhs.inputDimensions != rhs.inputDimensions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

@@ -21,8 +21,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///
@@ -60,7 +60,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// Before the algorithm, boxes that fall below the confidence threshold are
 /// discarded.
-struct CoreML_Specification_NonMaximumSuppression {
+public struct CoreML_Specification_NonMaximumSuppression {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -200,15 +200,15 @@ struct CoreML_Specification_NonMaximumSuppression {
   /// have to be consistent along dimension 0.
   var coordinatesOutputFeatureName: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///
   /// Choose which underlying suppression method to use
-  enum OneOf_SuppressionMethod: Equatable {
+  public enum OneOf_SuppressionMethod: Equatable {
     case pickTop(CoreML_Specification_NonMaximumSuppression.PickTop)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_NonMaximumSuppression.OneOf_SuppressionMethod, rhs: CoreML_Specification_NonMaximumSuppression.OneOf_SuppressionMethod) -> Bool {
+    public static func ==(lhs: CoreML_Specification_NonMaximumSuppression.OneOf_SuppressionMethod, rhs: CoreML_Specification_NonMaximumSuppression.OneOf_SuppressionMethod) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -224,12 +224,12 @@ struct CoreML_Specification_NonMaximumSuppression {
 
   ///
   /// Optional class label mapping.
-  enum OneOf_ClassLabels: Equatable {
+  public enum OneOf_ClassLabels: Equatable {
     case stringClassLabels(CoreML_Specification_StringVector)
     case int64ClassLabels(CoreML_Specification_Int64Vector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_NonMaximumSuppression.OneOf_ClassLabels, rhs: CoreML_Specification_NonMaximumSuppression.OneOf_ClassLabels) -> Bool {
+    public static func ==(lhs: CoreML_Specification_NonMaximumSuppression.OneOf_ClassLabels, rhs: CoreML_Specification_NonMaximumSuppression.OneOf_ClassLabels) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -250,7 +250,7 @@ struct CoreML_Specification_NonMaximumSuppression {
 
   ///
   /// Pick the bounding box of the top confidence, suppress all within a radius.
-  struct PickTop {
+  public struct PickTop {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -260,12 +260,12 @@ struct CoreML_Specification_NonMaximumSuppression {
     /// (argmax of the confidence).
     var perClass: Bool = false
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -273,8 +273,8 @@ struct CoreML_Specification_NonMaximumSuppression {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_NonMaximumSuppression: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NonMaximumSuppression"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NonMaximumSuppression"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "pickTop"),
     100: .same(proto: "stringClassLabels"),
     101: .same(proto: "int64ClassLabels"),
@@ -288,7 +288,7 @@ extension CoreML_Specification_NonMaximumSuppression: SwiftProtobuf.Message, Swi
     211: .same(proto: "coordinatesOutputFeatureName"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -346,7 +346,7 @@ extension CoreML_Specification_NonMaximumSuppression: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -392,7 +392,7 @@ extension CoreML_Specification_NonMaximumSuppression: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NonMaximumSuppression, rhs: CoreML_Specification_NonMaximumSuppression) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NonMaximumSuppression, rhs: CoreML_Specification_NonMaximumSuppression) -> Bool {
     if lhs.suppressionMethod != rhs.suppressionMethod {return false}
     if lhs.classLabels != rhs.classLabels {return false}
     if lhs.iouThreshold != rhs.iouThreshold {return false}
@@ -409,12 +409,12 @@ extension CoreML_Specification_NonMaximumSuppression: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_NonMaximumSuppression.PickTop: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_NonMaximumSuppression.protoMessageName + ".PickTop"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_NonMaximumSuppression.protoMessageName + ".PickTop"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "perClass"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -426,14 +426,14 @@ extension CoreML_Specification_NonMaximumSuppression.PickTop: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.perClass != false {
       try visitor.visitSingularBoolField(value: self.perClass, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NonMaximumSuppression.PickTop, rhs: CoreML_Specification_NonMaximumSuppression.PickTop) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NonMaximumSuppression.PickTop, rhs: CoreML_Specification_NonMaximumSuppression.PickTop) -> Bool {
     if lhs.perClass != rhs.perClass {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

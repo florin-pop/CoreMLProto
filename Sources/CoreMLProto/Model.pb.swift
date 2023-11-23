@@ -73,13 +73,13 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A pipeline consisting of one or more models.
-struct CoreML_Specification_Pipeline {
+public struct CoreML_Specification_Pipeline {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -91,14 +91,14 @@ struct CoreML_Specification_Pipeline {
   /// These names can be used to disambiguate the scope / domain of a parameter
   var names: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// A classifier pipeline.
-struct CoreML_Specification_PipelineClassifier {
+public struct CoreML_Specification_PipelineClassifier {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -110,18 +110,18 @@ struct CoreML_Specification_PipelineClassifier {
   /// Returns true if `pipeline` has been explicitly set.
   var hasPipeline: Bool {return self._pipeline != nil}
   /// Clears the value of `pipeline`. Subsequent reads from it will return its default value.
-  mutating func clearPipeline() {self._pipeline = nil}
+  public mutating func clearPipeline() {self._pipeline = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pipeline: CoreML_Specification_Pipeline? = nil
 }
 
 ///*
 /// A regressor pipeline.
-struct CoreML_Specification_PipelineRegressor {
+public struct CoreML_Specification_PipelineRegressor {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,11 +133,11 @@ struct CoreML_Specification_PipelineRegressor {
   /// Returns true if `pipeline` has been explicitly set.
   var hasPipeline: Bool {return self._pipeline != nil}
   /// Clears the value of `pipeline`. Subsequent reads from it will return its default value.
-  mutating func clearPipeline() {self._pipeline = nil}
+  public mutating func clearPipeline() {self._pipeline = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pipeline: CoreML_Specification_Pipeline? = nil
 }
@@ -145,7 +145,7 @@ struct CoreML_Specification_PipelineRegressor {
 ///*
 /// A feature description,
 /// consisting of a name, short description, and type.
-struct CoreML_Specification_FeatureDescription {
+public struct CoreML_Specification_FeatureDescription {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -161,11 +161,11 @@ struct CoreML_Specification_FeatureDescription {
   /// Returns true if `type` has been explicitly set.
   var hasType: Bool {return self._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {self._type = nil}
+  public mutating func clearType() {self._type = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _type: CoreML_Specification_FeatureType? = nil
 }
@@ -175,7 +175,7 @@ struct CoreML_Specification_FeatureDescription {
 /// consisting of a short description, a version string,
 /// an author, a license, and any other user defined
 /// key/value meta data.
-struct CoreML_Specification_Metadata {
+public struct CoreML_Specification_Metadata {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -190,9 +190,9 @@ struct CoreML_Specification_Metadata {
 
   var userDefined: Dictionary<String,String> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -203,7 +203,7 @@ struct CoreML_Specification_Metadata {
 /// Classifier models can specify the output feature containing
 /// probabilities for the predicted classes
 /// (``predictedProbabilitiesName``).
-struct CoreML_Specification_ModelDescription {
+public struct CoreML_Specification_ModelDescription {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -231,16 +231,16 @@ struct CoreML_Specification_ModelDescription {
   /// Returns true if `metadata` has been explicitly set.
   var hasMetadata: Bool {return self._metadata != nil}
   /// Clears the value of `metadata`. Subsequent reads from it will return its default value.
-  mutating func clearMetadata() {self._metadata = nil}
+  public mutating func clearMetadata() {self._metadata = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _metadata: CoreML_Specification_Metadata? = nil
 }
 
-struct CoreML_Specification_SerializedModel {
+public struct CoreML_Specification_SerializedModel {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -251,9 +251,9 @@ struct CoreML_Specification_SerializedModel {
   /// Must be a valid serialized protocol buffer of the above specified type.
   var model: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -328,24 +328,24 @@ struct CoreML_Specification_SerializedModel {
 /// 6 : iOS 15, macOS 12, tvOS 15, watchOS 8 (Core ML 5)
 /// - Core ML Audio Feature Print
 /// - new type of model: mlprogram (MILSpec.Program)
-struct CoreML_Specification_Model {
+public struct CoreML_Specification_Model {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var specificationVersion: Int32 {
+  public var specificationVersion: Int32 {
     get {return _storage._specificationVersion}
     set {_uniqueStorage()._specificationVersion = newValue}
   }
 
-  var description_p: CoreML_Specification_ModelDescription {
+  public var description_p: CoreML_Specification_ModelDescription {
     get {return _storage._description_p ?? CoreML_Specification_ModelDescription()}
     set {_uniqueStorage()._description_p = newValue}
   }
   /// Returns true if `description_p` has been explicitly set.
-  var hasDescription_p: Bool {return _storage._description_p != nil}
+  public var hasDescription_p: Bool {return _storage._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
-  mutating func clearDescription_p() {_uniqueStorage()._description_p = nil}
+  public mutating func clearDescription_p() {_uniqueStorage()._description_p = nil}
 
   ///
   /// Following model types support on-device update:
@@ -354,20 +354,20 @@ struct CoreML_Specification_Model {
   /// - NeuralNetworkRegressor
   /// - NeuralNetwork
   /// - KNearestNeighborsClassifier
-  var isUpdatable: Bool {
+  public var isUpdatable: Bool {
     get {return _storage._isUpdatable}
     set {_uniqueStorage()._isUpdatable = newValue}
   }
 
   /// start at 200 here
   /// model specific parameters:
-  var type: OneOf_Type? {
+  public var type: OneOf_Type? {
     get {return _storage._type}
     set {_uniqueStorage()._type = newValue}
   }
 
   /// pipeline starts at 200
-  var pipelineClassifier: CoreML_Specification_PipelineClassifier {
+  public var pipelineClassifier: CoreML_Specification_PipelineClassifier {
     get {
       if case .pipelineClassifier(let v)? = _storage._type {return v}
       return CoreML_Specification_PipelineClassifier()
@@ -375,7 +375,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .pipelineClassifier(newValue)}
   }
 
-  var pipelineRegressor: CoreML_Specification_PipelineRegressor {
+  public var pipelineRegressor: CoreML_Specification_PipelineRegressor {
     get {
       if case .pipelineRegressor(let v)? = _storage._type {return v}
       return CoreML_Specification_PipelineRegressor()
@@ -383,7 +383,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .pipelineRegressor(newValue)}
   }
 
-  var pipeline: CoreML_Specification_Pipeline {
+  public var pipeline: CoreML_Specification_Pipeline {
     get {
       if case .pipeline(let v)? = _storage._type {return v}
       return CoreML_Specification_Pipeline()
@@ -392,7 +392,7 @@ struct CoreML_Specification_Model {
   }
 
   /// regressors start at 300
-  var glmRegressor: CoreML_Specification_GLMRegressor {
+  public var glmRegressor: CoreML_Specification_GLMRegressor {
     get {
       if case .glmRegressor(let v)? = _storage._type {return v}
       return CoreML_Specification_GLMRegressor()
@@ -400,7 +400,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .glmRegressor(newValue)}
   }
 
-  var supportVectorRegressor: CoreML_Specification_SupportVectorRegressor {
+  public var supportVectorRegressor: CoreML_Specification_SupportVectorRegressor {
     get {
       if case .supportVectorRegressor(let v)? = _storage._type {return v}
       return CoreML_Specification_SupportVectorRegressor()
@@ -408,7 +408,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .supportVectorRegressor(newValue)}
   }
 
-  var treeEnsembleRegressor: CoreML_Specification_TreeEnsembleRegressor {
+  public var treeEnsembleRegressor: CoreML_Specification_TreeEnsembleRegressor {
     get {
       if case .treeEnsembleRegressor(let v)? = _storage._type {return v}
       return CoreML_Specification_TreeEnsembleRegressor()
@@ -416,7 +416,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .treeEnsembleRegressor(newValue)}
   }
 
-  var neuralNetworkRegressor: CoreML_Specification_NeuralNetworkRegressor {
+  public var neuralNetworkRegressor: CoreML_Specification_NeuralNetworkRegressor {
     get {
       if case .neuralNetworkRegressor(let v)? = _storage._type {return v}
       return CoreML_Specification_NeuralNetworkRegressor()
@@ -424,7 +424,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .neuralNetworkRegressor(newValue)}
   }
 
-  var bayesianProbitRegressor: CoreML_Specification_BayesianProbitRegressor {
+  public var bayesianProbitRegressor: CoreML_Specification_BayesianProbitRegressor {
     get {
       if case .bayesianProbitRegressor(let v)? = _storage._type {return v}
       return CoreML_Specification_BayesianProbitRegressor()
@@ -433,7 +433,7 @@ struct CoreML_Specification_Model {
   }
 
   /// classifiers start at 400
-  var glmClassifier: CoreML_Specification_GLMClassifier {
+  public var glmClassifier: CoreML_Specification_GLMClassifier {
     get {
       if case .glmClassifier(let v)? = _storage._type {return v}
       return CoreML_Specification_GLMClassifier()
@@ -441,7 +441,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .glmClassifier(newValue)}
   }
 
-  var supportVectorClassifier: CoreML_Specification_SupportVectorClassifier {
+  public var supportVectorClassifier: CoreML_Specification_SupportVectorClassifier {
     get {
       if case .supportVectorClassifier(let v)? = _storage._type {return v}
       return CoreML_Specification_SupportVectorClassifier()
@@ -449,7 +449,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .supportVectorClassifier(newValue)}
   }
 
-  var treeEnsembleClassifier: CoreML_Specification_TreeEnsembleClassifier {
+  public var treeEnsembleClassifier: CoreML_Specification_TreeEnsembleClassifier {
     get {
       if case .treeEnsembleClassifier(let v)? = _storage._type {return v}
       return CoreML_Specification_TreeEnsembleClassifier()
@@ -457,7 +457,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .treeEnsembleClassifier(newValue)}
   }
 
-  var neuralNetworkClassifier: CoreML_Specification_NeuralNetworkClassifier {
+  public var neuralNetworkClassifier: CoreML_Specification_NeuralNetworkClassifier {
     get {
       if case .neuralNetworkClassifier(let v)? = _storage._type {return v}
       return CoreML_Specification_NeuralNetworkClassifier()
@@ -465,7 +465,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .neuralNetworkClassifier(newValue)}
   }
 
-  var kNearestNeighborsClassifier: CoreML_Specification_KNearestNeighborsClassifier {
+  public var kNearestNeighborsClassifier: CoreML_Specification_KNearestNeighborsClassifier {
     get {
       if case .kNearestNeighborsClassifier(let v)? = _storage._type {return v}
       return CoreML_Specification_KNearestNeighborsClassifier()
@@ -474,7 +474,7 @@ struct CoreML_Specification_Model {
   }
 
   /// generic models start at 500
-  var neuralNetwork: CoreML_Specification_NeuralNetwork {
+  public var neuralNetwork: CoreML_Specification_NeuralNetwork {
     get {
       if case .neuralNetwork(let v)? = _storage._type {return v}
       return CoreML_Specification_NeuralNetwork()
@@ -482,7 +482,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .neuralNetwork(newValue)}
   }
 
-  var itemSimilarityRecommender: CoreML_Specification_ItemSimilarityRecommender {
+  public var itemSimilarityRecommender: CoreML_Specification_ItemSimilarityRecommender {
     get {
       if case .itemSimilarityRecommender(let v)? = _storage._type {return v}
       return CoreML_Specification_ItemSimilarityRecommender()
@@ -490,7 +490,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .itemSimilarityRecommender(newValue)}
   }
 
-  var mlProgram: CoreML_Specification_MILSpec_Program {
+  public var mlProgram: CoreML_Specification_MILSpec_Program {
     get {
       if case .mlProgram(let v)? = _storage._type {return v}
       return CoreML_Specification_MILSpec_Program()
@@ -499,7 +499,7 @@ struct CoreML_Specification_Model {
   }
 
   /// Custom and linked models
-  var customModel: CoreML_Specification_CustomModel {
+  public var customModel: CoreML_Specification_CustomModel {
     get {
       if case .customModel(let v)? = _storage._type {return v}
       return CoreML_Specification_CustomModel()
@@ -507,7 +507,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .customModel(newValue)}
   }
 
-  var linkedModel: CoreML_Specification_LinkedModel {
+  public var linkedModel: CoreML_Specification_LinkedModel {
     get {
       if case .linkedModel(let v)? = _storage._type {return v}
       return CoreML_Specification_LinkedModel()
@@ -516,7 +516,7 @@ struct CoreML_Specification_Model {
   }
 
   /// feature engineering starts at 600
-  var oneHotEncoder: CoreML_Specification_OneHotEncoder {
+  public var oneHotEncoder: CoreML_Specification_OneHotEncoder {
     get {
       if case .oneHotEncoder(let v)? = _storage._type {return v}
       return CoreML_Specification_OneHotEncoder()
@@ -524,7 +524,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .oneHotEncoder(newValue)}
   }
 
-  var imputer: CoreML_Specification_Imputer {
+  public var imputer: CoreML_Specification_Imputer {
     get {
       if case .imputer(let v)? = _storage._type {return v}
       return CoreML_Specification_Imputer()
@@ -532,7 +532,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .imputer(newValue)}
   }
 
-  var featureVectorizer: CoreML_Specification_FeatureVectorizer {
+  public var featureVectorizer: CoreML_Specification_FeatureVectorizer {
     get {
       if case .featureVectorizer(let v)? = _storage._type {return v}
       return CoreML_Specification_FeatureVectorizer()
@@ -540,7 +540,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .featureVectorizer(newValue)}
   }
 
-  var dictVectorizer: CoreML_Specification_DictVectorizer {
+  public var dictVectorizer: CoreML_Specification_DictVectorizer {
     get {
       if case .dictVectorizer(let v)? = _storage._type {return v}
       return CoreML_Specification_DictVectorizer()
@@ -548,7 +548,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .dictVectorizer(newValue)}
   }
 
-  var scaler: CoreML_Specification_Scaler {
+  public var scaler: CoreML_Specification_Scaler {
     get {
       if case .scaler(let v)? = _storage._type {return v}
       return CoreML_Specification_Scaler()
@@ -556,7 +556,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .scaler(newValue)}
   }
 
-  var categoricalMapping: CoreML_Specification_CategoricalMapping {
+  public var categoricalMapping: CoreML_Specification_CategoricalMapping {
     get {
       if case .categoricalMapping(let v)? = _storage._type {return v}
       return CoreML_Specification_CategoricalMapping()
@@ -564,7 +564,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .categoricalMapping(newValue)}
   }
 
-  var normalizer: CoreML_Specification_Normalizer {
+  public var normalizer: CoreML_Specification_Normalizer {
     get {
       if case .normalizer(let v)? = _storage._type {return v}
       return CoreML_Specification_Normalizer()
@@ -572,7 +572,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .normalizer(newValue)}
   }
 
-  var arrayFeatureExtractor: CoreML_Specification_ArrayFeatureExtractor {
+  public var arrayFeatureExtractor: CoreML_Specification_ArrayFeatureExtractor {
     get {
       if case .arrayFeatureExtractor(let v)? = _storage._type {return v}
       return CoreML_Specification_ArrayFeatureExtractor()
@@ -580,7 +580,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .arrayFeatureExtractor(newValue)}
   }
 
-  var nonMaximumSuppression: CoreML_Specification_NonMaximumSuppression {
+  public var nonMaximumSuppression: CoreML_Specification_NonMaximumSuppression {
     get {
       if case .nonMaximumSuppression(let v)? = _storage._type {return v}
       return CoreML_Specification_NonMaximumSuppression()
@@ -589,7 +589,7 @@ struct CoreML_Specification_Model {
   }
 
   /// simple mathematical functions used for testing start at 900
-  var identity: CoreML_Specification_Identity {
+  public var identity: CoreML_Specification_Identity {
     get {
       if case .identity(let v)? = _storage._type {return v}
       return CoreML_Specification_Identity()
@@ -598,7 +598,7 @@ struct CoreML_Specification_Model {
   }
 
   /// CoreML provided models
-  var textClassifier: CoreML_Specification_CoreMLModels_TextClassifier {
+  public var textClassifier: CoreML_Specification_CoreMLModels_TextClassifier {
     get {
       if case .textClassifier(let v)? = _storage._type {return v}
       return CoreML_Specification_CoreMLModels_TextClassifier()
@@ -606,7 +606,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .textClassifier(newValue)}
   }
 
-  var wordTagger: CoreML_Specification_CoreMLModels_WordTagger {
+  public var wordTagger: CoreML_Specification_CoreMLModels_WordTagger {
     get {
       if case .wordTagger(let v)? = _storage._type {return v}
       return CoreML_Specification_CoreMLModels_WordTagger()
@@ -614,7 +614,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .wordTagger(newValue)}
   }
 
-  var visionFeaturePrint: CoreML_Specification_CoreMLModels_VisionFeaturePrint {
+  public var visionFeaturePrint: CoreML_Specification_CoreMLModels_VisionFeaturePrint {
     get {
       if case .visionFeaturePrint(let v)? = _storage._type {return v}
       return CoreML_Specification_CoreMLModels_VisionFeaturePrint()
@@ -622,7 +622,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .visionFeaturePrint(newValue)}
   }
 
-  var soundAnalysisPreprocessing: CoreML_Specification_CoreMLModels_SoundAnalysisPreprocessing {
+  public var soundAnalysisPreprocessing: CoreML_Specification_CoreMLModels_SoundAnalysisPreprocessing {
     get {
       if case .soundAnalysisPreprocessing(let v)? = _storage._type {return v}
       return CoreML_Specification_CoreMLModels_SoundAnalysisPreprocessing()
@@ -630,7 +630,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .soundAnalysisPreprocessing(newValue)}
   }
 
-  var gazetteer: CoreML_Specification_CoreMLModels_Gazetteer {
+  public var gazetteer: CoreML_Specification_CoreMLModels_Gazetteer {
     get {
       if case .gazetteer(let v)? = _storage._type {return v}
       return CoreML_Specification_CoreMLModels_Gazetteer()
@@ -638,7 +638,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .gazetteer(newValue)}
   }
 
-  var wordEmbedding: CoreML_Specification_CoreMLModels_WordEmbedding {
+  public var wordEmbedding: CoreML_Specification_CoreMLModels_WordEmbedding {
     get {
       if case .wordEmbedding(let v)? = _storage._type {return v}
       return CoreML_Specification_CoreMLModels_WordEmbedding()
@@ -646,7 +646,7 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .wordEmbedding(newValue)}
   }
 
-  var audioFeaturePrint: CoreML_Specification_CoreMLModels_AudioFeaturePrint {
+  public var audioFeaturePrint: CoreML_Specification_CoreMLModels_AudioFeaturePrint {
     get {
       if case .audioFeaturePrint(let v)? = _storage._type {return v}
       return CoreML_Specification_CoreMLModels_AudioFeaturePrint()
@@ -656,7 +656,7 @@ struct CoreML_Specification_Model {
 
   /// Reserved private messages start at 3000
   /// These messages are subject to change with no notice or support.
-  var serializedModel: CoreML_Specification_SerializedModel {
+  public var serializedModel: CoreML_Specification_SerializedModel {
     get {
       if case .serializedModel(let v)? = _storage._type {return v}
       return CoreML_Specification_SerializedModel()
@@ -664,11 +664,11 @@ struct CoreML_Specification_Model {
     set {_uniqueStorage()._type = .serializedModel(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// start at 200 here
   /// model specific parameters:
-  enum OneOf_Type: Equatable {
+  public enum OneOf_Type: Equatable {
     /// pipeline starts at 200
     case pipelineClassifier(CoreML_Specification_PipelineClassifier)
     case pipelineRegressor(CoreML_Specification_PipelineRegressor)
@@ -717,7 +717,7 @@ struct CoreML_Specification_Model {
     case serializedModel(CoreML_Specification_SerializedModel)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_Model.OneOf_Type, rhs: CoreML_Specification_Model.OneOf_Type) -> Bool {
+    public static func ==(lhs: CoreML_Specification_Model.OneOf_Type, rhs: CoreML_Specification_Model.OneOf_Type) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -872,7 +872,7 @@ struct CoreML_Specification_Model {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -882,13 +882,13 @@ struct CoreML_Specification_Model {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_Pipeline: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Pipeline"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Pipeline"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "models"),
     2: .same(proto: "names"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -901,7 +901,7 @@ extension CoreML_Specification_Pipeline: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.models.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.models, fieldNumber: 1)
     }
@@ -911,7 +911,7 @@ extension CoreML_Specification_Pipeline: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Pipeline, rhs: CoreML_Specification_Pipeline) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Pipeline, rhs: CoreML_Specification_Pipeline) -> Bool {
     if lhs.models != rhs.models {return false}
     if lhs.names != rhs.names {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -920,12 +920,12 @@ extension CoreML_Specification_Pipeline: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension CoreML_Specification_PipelineClassifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PipelineClassifier"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PipelineClassifier"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "pipeline"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -937,7 +937,7 @@ extension CoreML_Specification_PipelineClassifier: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -948,7 +948,7 @@ extension CoreML_Specification_PipelineClassifier: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PipelineClassifier, rhs: CoreML_Specification_PipelineClassifier) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PipelineClassifier, rhs: CoreML_Specification_PipelineClassifier) -> Bool {
     if lhs._pipeline != rhs._pipeline {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -956,12 +956,12 @@ extension CoreML_Specification_PipelineClassifier: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_PipelineRegressor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PipelineRegressor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PipelineRegressor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "pipeline"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -973,7 +973,7 @@ extension CoreML_Specification_PipelineRegressor: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -984,7 +984,7 @@ extension CoreML_Specification_PipelineRegressor: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_PipelineRegressor, rhs: CoreML_Specification_PipelineRegressor) -> Bool {
+  public static func ==(lhs: CoreML_Specification_PipelineRegressor, rhs: CoreML_Specification_PipelineRegressor) -> Bool {
     if lhs._pipeline != rhs._pipeline {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -992,14 +992,14 @@ extension CoreML_Specification_PipelineRegressor: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_FeatureDescription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FeatureDescription"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FeatureDescription"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "shortDescription"),
     3: .same(proto: "type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1013,7 +1013,7 @@ extension CoreML_Specification_FeatureDescription: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1030,7 +1030,7 @@ extension CoreML_Specification_FeatureDescription: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FeatureDescription, rhs: CoreML_Specification_FeatureDescription) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FeatureDescription, rhs: CoreML_Specification_FeatureDescription) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.shortDescription != rhs.shortDescription {return false}
     if lhs._type != rhs._type {return false}
@@ -1040,8 +1040,8 @@ extension CoreML_Specification_FeatureDescription: SwiftProtobuf.Message, SwiftP
 }
 
 extension CoreML_Specification_Metadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Metadata"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Metadata"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shortDescription"),
     2: .same(proto: "versionString"),
     3: .same(proto: "author"),
@@ -1049,7 +1049,7 @@ extension CoreML_Specification_Metadata: SwiftProtobuf.Message, SwiftProtobuf._M
     100: .same(proto: "userDefined"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1065,7 +1065,7 @@ extension CoreML_Specification_Metadata: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.shortDescription.isEmpty {
       try visitor.visitSingularStringField(value: self.shortDescription, fieldNumber: 1)
     }
@@ -1084,7 +1084,7 @@ extension CoreML_Specification_Metadata: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Metadata, rhs: CoreML_Specification_Metadata) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Metadata, rhs: CoreML_Specification_Metadata) -> Bool {
     if lhs.shortDescription != rhs.shortDescription {return false}
     if lhs.versionString != rhs.versionString {return false}
     if lhs.author != rhs.author {return false}
@@ -1096,8 +1096,8 @@ extension CoreML_Specification_Metadata: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension CoreML_Specification_ModelDescription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ModelDescription"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ModelDescription"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "input"),
     10: .same(proto: "output"),
     11: .same(proto: "predictedFeatureName"),
@@ -1106,7 +1106,7 @@ extension CoreML_Specification_ModelDescription: SwiftProtobuf.Message, SwiftPro
     100: .same(proto: "metadata"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1123,7 +1123,7 @@ extension CoreML_Specification_ModelDescription: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1149,7 +1149,7 @@ extension CoreML_Specification_ModelDescription: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ModelDescription, rhs: CoreML_Specification_ModelDescription) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ModelDescription, rhs: CoreML_Specification_ModelDescription) -> Bool {
     if lhs.input != rhs.input {return false}
     if lhs.output != rhs.output {return false}
     if lhs.predictedFeatureName != rhs.predictedFeatureName {return false}
@@ -1162,13 +1162,13 @@ extension CoreML_Specification_ModelDescription: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_SerializedModel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SerializedModel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SerializedModel"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "identifier"),
     2: .same(proto: "model"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1181,7 +1181,7 @@ extension CoreML_Specification_SerializedModel: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.identifier.isEmpty {
       try visitor.visitSingularStringField(value: self.identifier, fieldNumber: 1)
     }
@@ -1191,7 +1191,7 @@ extension CoreML_Specification_SerializedModel: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SerializedModel, rhs: CoreML_Specification_SerializedModel) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SerializedModel, rhs: CoreML_Specification_SerializedModel) -> Bool {
     if lhs.identifier != rhs.identifier {return false}
     if lhs.model != rhs.model {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1200,8 +1200,8 @@ extension CoreML_Specification_SerializedModel: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_Model: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Model"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Model"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "specificationVersion"),
     2: .same(proto: "description"),
     10: .same(proto: "isUpdatable"),
@@ -1249,11 +1249,11 @@ extension CoreML_Specification_Model: SwiftProtobuf.Message, SwiftProtobuf._Mess
     var _isUpdatable: Bool = false
     var _type: CoreML_Specification_Model.OneOf_Type?
 
-    static let defaultInstance = _StorageClass()
+    public static let defaultInstance = _StorageClass()
 
     private init() {}
 
-    init(copying source: _StorageClass) {
+    public init(copying source: _StorageClass) {
       _specificationVersion = source._specificationVersion
       _description_p = source._description_p
       _isUpdatable = source._isUpdatable
@@ -1268,7 +1268,7 @@ extension CoreML_Specification_Model: SwiftProtobuf.Message, SwiftProtobuf._Mess
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1753,7 +1753,7 @@ extension CoreML_Specification_Model: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1919,7 +1919,7 @@ extension CoreML_Specification_Model: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Model, rhs: CoreML_Specification_Model) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Model, rhs: CoreML_Specification_Model) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

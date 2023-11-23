@@ -21,11 +21,11 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
-struct CoreML_Specification_BayesianProbitRegressor {
+public struct CoreML_Specification_BayesianProbitRegressor {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,7 +40,7 @@ struct CoreML_Specification_BayesianProbitRegressor {
   /// Returns true if `bias` has been explicitly set.
   var hasBias: Bool {return self._bias != nil}
   /// Clears the value of `bias`. Subsequent reads from it will return its default value.
-  mutating func clearBias() {self._bias = nil}
+  public mutating func clearBias() {self._bias = nil}
 
   ///
   /// Set of features with associated weights
@@ -82,11 +82,11 @@ struct CoreML_Specification_BayesianProbitRegressor {
   /// name of 'sampled' output feature: samples from the scaled posterior probability distribuiton
   var sampledProbabilityOutputFeatureName: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///
   /// Parameterization of a Gaussian distribution
-  struct Gaussian {
+  public struct Gaussian {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -96,9 +96,9 @@ struct CoreML_Specification_BayesianProbitRegressor {
     /// inverse of the variance
     var precision: Double = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
   ///
@@ -106,7 +106,7 @@ struct CoreML_Specification_BayesianProbitRegressor {
   /// The weight is represented as a Gaussian distribution
   /// with a mean and precision (1/variance) to capture
   /// uncertainty in the weight
-  struct FeatureValueWeight {
+  public struct FeatureValueWeight {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -120,11 +120,11 @@ struct CoreML_Specification_BayesianProbitRegressor {
     /// Returns true if `featureWeight` has been explicitly set.
     var hasFeatureWeight: Bool {return self._featureWeight != nil}
     /// Clears the value of `featureWeight`. Subsequent reads from it will return its default value.
-    mutating func clearFeatureWeight() {self._featureWeight = nil}
+    public mutating func clearFeatureWeight() {self._featureWeight = nil}
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
 
     fileprivate var _featureWeight: CoreML_Specification_BayesianProbitRegressor.Gaussian? = nil
   }
@@ -133,7 +133,7 @@ struct CoreML_Specification_BayesianProbitRegressor {
   /// Feature with associated weights (for different values)
   /// Each feature has a set of weights for the (discrete) values
   /// it can take
-  struct FeatureWeight {
+  public struct FeatureWeight {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -142,12 +142,12 @@ struct CoreML_Specification_BayesianProbitRegressor {
 
     var weights: [CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _bias: CoreML_Specification_BayesianProbitRegressor.Gaussian? = nil
 }
@@ -157,8 +157,8 @@ struct CoreML_Specification_BayesianProbitRegressor {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_BayesianProbitRegressor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BayesianProbitRegressor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BayesianProbitRegressor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "numberOfFeatures"),
     2: .same(proto: "bias"),
     3: .same(proto: "features"),
@@ -172,7 +172,7 @@ extension CoreML_Specification_BayesianProbitRegressor: SwiftProtobuf.Message, S
     23: .same(proto: "sampledProbabilityOutputFeatureName"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -194,7 +194,7 @@ extension CoreML_Specification_BayesianProbitRegressor: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -235,7 +235,7 @@ extension CoreML_Specification_BayesianProbitRegressor: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BayesianProbitRegressor, rhs: CoreML_Specification_BayesianProbitRegressor) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BayesianProbitRegressor, rhs: CoreML_Specification_BayesianProbitRegressor) -> Bool {
     if lhs.numberOfFeatures != rhs.numberOfFeatures {return false}
     if lhs._bias != rhs._bias {return false}
     if lhs.features != rhs.features {return false}
@@ -253,13 +253,13 @@ extension CoreML_Specification_BayesianProbitRegressor: SwiftProtobuf.Message, S
 }
 
 extension CoreML_Specification_BayesianProbitRegressor.Gaussian: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_BayesianProbitRegressor.protoMessageName + ".Gaussian"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_BayesianProbitRegressor.protoMessageName + ".Gaussian"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mean"),
     2: .same(proto: "precision"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -272,7 +272,7 @@ extension CoreML_Specification_BayesianProbitRegressor.Gaussian: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mean != 0 {
       try visitor.visitSingularDoubleField(value: self.mean, fieldNumber: 1)
     }
@@ -282,7 +282,7 @@ extension CoreML_Specification_BayesianProbitRegressor.Gaussian: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BayesianProbitRegressor.Gaussian, rhs: CoreML_Specification_BayesianProbitRegressor.Gaussian) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BayesianProbitRegressor.Gaussian, rhs: CoreML_Specification_BayesianProbitRegressor.Gaussian) -> Bool {
     if lhs.mean != rhs.mean {return false}
     if lhs.precision != rhs.precision {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -291,13 +291,13 @@ extension CoreML_Specification_BayesianProbitRegressor.Gaussian: SwiftProtobuf.M
 }
 
 extension CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_BayesianProbitRegressor.protoMessageName + ".FeatureValueWeight"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_BayesianProbitRegressor.protoMessageName + ".FeatureValueWeight"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "featureValue"),
     2: .same(proto: "featureWeight"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -310,7 +310,7 @@ extension CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight: Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -324,7 +324,7 @@ extension CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight: Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight, rhs: CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight, rhs: CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight) -> Bool {
     if lhs.featureValue != rhs.featureValue {return false}
     if lhs._featureWeight != rhs._featureWeight {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -333,13 +333,13 @@ extension CoreML_Specification_BayesianProbitRegressor.FeatureValueWeight: Swift
 }
 
 extension CoreML_Specification_BayesianProbitRegressor.FeatureWeight: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_BayesianProbitRegressor.protoMessageName + ".FeatureWeight"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_BayesianProbitRegressor.protoMessageName + ".FeatureWeight"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "featureId"),
     2: .same(proto: "weights"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -352,7 +352,7 @@ extension CoreML_Specification_BayesianProbitRegressor.FeatureWeight: SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.featureID != 0 {
       try visitor.visitSingularUInt32Field(value: self.featureID, fieldNumber: 1)
     }
@@ -362,7 +362,7 @@ extension CoreML_Specification_BayesianProbitRegressor.FeatureWeight: SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BayesianProbitRegressor.FeatureWeight, rhs: CoreML_Specification_BayesianProbitRegressor.FeatureWeight) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BayesianProbitRegressor.FeatureWeight, rhs: CoreML_Specification_BayesianProbitRegressor.FeatureWeight) -> Bool {
     if lhs.featureID != rhs.featureID {return false}
     if lhs.weights != rhs.weights {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

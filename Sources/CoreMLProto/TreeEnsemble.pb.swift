@@ -39,25 +39,25 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A tree ensemble post-evaluation transform.
-enum CoreML_Specification_TreeEnsemblePostEvaluationTransform: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum CoreML_Specification_TreeEnsemblePostEvaluationTransform: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case noTransform // = 0
   case classificationSoftMax // = 1
   case regressionLogistic // = 2
   case classificationSoftMaxWithZeroClassReference // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .noTransform
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .noTransform
     case 1: self = .classificationSoftMax
@@ -67,7 +67,7 @@ enum CoreML_Specification_TreeEnsemblePostEvaluationTransform: SwiftProtobuf.Enu
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .noTransform: return 0
     case .classificationSoftMax: return 1
@@ -83,7 +83,7 @@ enum CoreML_Specification_TreeEnsemblePostEvaluationTransform: SwiftProtobuf.Enu
 
 extension CoreML_Specification_TreeEnsemblePostEvaluationTransform: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_TreeEnsemblePostEvaluationTransform] = [
+  public static var allCases: [CoreML_Specification_TreeEnsemblePostEvaluationTransform] = [
     .noTransform,
     .classificationSoftMax,
     .regressionLogistic,
@@ -95,7 +95,7 @@ extension CoreML_Specification_TreeEnsemblePostEvaluationTransform: CaseIterable
 
 ///*
 /// Tree ensemble parameters.
-struct CoreML_Specification_TreeEnsembleParameters {
+public struct CoreML_Specification_TreeEnsembleParameters {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -123,9 +123,9 @@ struct CoreML_Specification_TreeEnsembleParameters {
   /// the default values of the tree model.
   var basePredictionValue: [Double] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct TreeNode {
+  public struct TreeNode {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -170,10 +170,10 @@ struct CoreML_Specification_TreeEnsembleParameters {
     /// or some similar metric to derive this value.
     var relativeHitRate: Double = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum TreeNodeBehavior: SwiftProtobuf.Enum {
-      typealias RawValue = Int
+    public enum TreeNodeBehavior: SwiftProtobuf.Enum {
+      public typealias RawValue = Int
       case branchOnValueLessThanEqual // = 0
       case branchOnValueLessThan // = 1
       case branchOnValueGreaterThanEqual // = 2
@@ -183,11 +183,11 @@ struct CoreML_Specification_TreeEnsembleParameters {
       case leafNode // = 6
       case UNRECOGNIZED(Int)
 
-      init() {
+      public init() {
         self = .branchOnValueLessThanEqual
       }
 
-      init?(rawValue: Int) {
+      public init?(rawValue: Int) {
         switch rawValue {
         case 0: self = .branchOnValueLessThanEqual
         case 1: self = .branchOnValueLessThan
@@ -200,7 +200,7 @@ struct CoreML_Specification_TreeEnsembleParameters {
         }
       }
 
-      var rawValue: Int {
+      public var rawValue: Int {
         switch self {
         case .branchOnValueLessThanEqual: return 0
         case .branchOnValueLessThan: return 1
@@ -228,7 +228,7 @@ struct CoreML_Specification_TreeEnsembleParameters {
     /// that evaluation value is added to.
     /// In the single class case,
     /// it is expected that evaluationIndex is exactly 0.
-    struct EvaluationInfo {
+    public struct EvaluationInfo {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -237,22 +237,22 @@ struct CoreML_Specification_TreeEnsembleParameters {
 
       var evaluationValue: Double = 0
 
-      var unknownFields = SwiftProtobuf.UnknownStorage()
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-      init() {}
+      public init() {}
     }
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_TreeEnsembleParameters.TreeNode.TreeNodeBehavior: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_TreeEnsembleParameters.TreeNode.TreeNodeBehavior] = [
+  public static var allCases: [CoreML_Specification_TreeEnsembleParameters.TreeNode.TreeNodeBehavior] = [
     .branchOnValueLessThanEqual,
     .branchOnValueLessThan,
     .branchOnValueGreaterThanEqual,
@@ -267,7 +267,7 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode.TreeNodeBehavior:
 
 ///*
 /// A tree ensemble classifier.
-struct CoreML_Specification_TreeEnsembleClassifier {
+public struct CoreML_Specification_TreeEnsembleClassifier {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -279,7 +279,7 @@ struct CoreML_Specification_TreeEnsembleClassifier {
   /// Returns true if `treeEnsemble` has been explicitly set.
   var hasTreeEnsemble: Bool {return self._treeEnsemble != nil}
   /// Clears the value of `treeEnsemble`. Subsequent reads from it will return its default value.
-  mutating func clearTreeEnsemble() {self._treeEnsemble = nil}
+  public mutating func clearTreeEnsemble() {self._treeEnsemble = nil}
 
   var postEvaluationTransform: CoreML_Specification_TreeEnsemblePostEvaluationTransform = .noTransform
 
@@ -302,15 +302,15 @@ struct CoreML_Specification_TreeEnsembleClassifier {
     set {classLabels = .int64ClassLabels(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Required class label mapping
-  enum OneOf_ClassLabels: Equatable {
+  public enum OneOf_ClassLabels: Equatable {
     case stringClassLabels(CoreML_Specification_StringVector)
     case int64ClassLabels(CoreML_Specification_Int64Vector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_TreeEnsembleClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_TreeEnsembleClassifier.OneOf_ClassLabels) -> Bool {
+    public static func ==(lhs: CoreML_Specification_TreeEnsembleClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_TreeEnsembleClassifier.OneOf_ClassLabels) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -329,14 +329,14 @@ struct CoreML_Specification_TreeEnsembleClassifier {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _treeEnsemble: CoreML_Specification_TreeEnsembleParameters? = nil
 }
 
 ///*
 /// A tree ensemble regressor.
-struct CoreML_Specification_TreeEnsembleRegressor {
+public struct CoreML_Specification_TreeEnsembleRegressor {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -348,13 +348,13 @@ struct CoreML_Specification_TreeEnsembleRegressor {
   /// Returns true if `treeEnsemble` has been explicitly set.
   var hasTreeEnsemble: Bool {return self._treeEnsemble != nil}
   /// Clears the value of `treeEnsemble`. Subsequent reads from it will return its default value.
-  mutating func clearTreeEnsemble() {self._treeEnsemble = nil}
+  public mutating func clearTreeEnsemble() {self._treeEnsemble = nil}
 
   var postEvaluationTransform: CoreML_Specification_TreeEnsemblePostEvaluationTransform = .noTransform
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _treeEnsemble: CoreML_Specification_TreeEnsembleParameters? = nil
 }
@@ -364,7 +364,7 @@ struct CoreML_Specification_TreeEnsembleRegressor {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_TreeEnsemblePostEvaluationTransform: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NoTransform"),
     1: .same(proto: "Classification_SoftMax"),
     2: .same(proto: "Regression_Logistic"),
@@ -373,14 +373,14 @@ extension CoreML_Specification_TreeEnsemblePostEvaluationTransform: SwiftProtobu
 }
 
 extension CoreML_Specification_TreeEnsembleParameters: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TreeEnsembleParameters"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TreeEnsembleParameters"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nodes"),
     2: .same(proto: "numPredictionDimensions"),
     3: .same(proto: "basePredictionValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -394,7 +394,7 @@ extension CoreML_Specification_TreeEnsembleParameters: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.nodes.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.nodes, fieldNumber: 1)
     }
@@ -407,7 +407,7 @@ extension CoreML_Specification_TreeEnsembleParameters: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TreeEnsembleParameters, rhs: CoreML_Specification_TreeEnsembleParameters) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TreeEnsembleParameters, rhs: CoreML_Specification_TreeEnsembleParameters) -> Bool {
     if lhs.nodes != rhs.nodes {return false}
     if lhs.numPredictionDimensions != rhs.numPredictionDimensions {return false}
     if lhs.basePredictionValue != rhs.basePredictionValue {return false}
@@ -417,8 +417,8 @@ extension CoreML_Specification_TreeEnsembleParameters: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_TreeEnsembleParameters.TreeNode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_TreeEnsembleParameters.protoMessageName + ".TreeNode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_TreeEnsembleParameters.protoMessageName + ".TreeNode"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "treeId"),
     2: .same(proto: "nodeId"),
     3: .same(proto: "nodeBehavior"),
@@ -431,7 +431,7 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode: SwiftProtobuf.Me
     30: .same(proto: "relativeHitRate"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -452,7 +452,7 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.treeID != 0 {
       try visitor.visitSingularUInt64Field(value: self.treeID, fieldNumber: 1)
     }
@@ -486,7 +486,7 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TreeEnsembleParameters.TreeNode, rhs: CoreML_Specification_TreeEnsembleParameters.TreeNode) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TreeEnsembleParameters.TreeNode, rhs: CoreML_Specification_TreeEnsembleParameters.TreeNode) -> Bool {
     if lhs.treeID != rhs.treeID {return false}
     if lhs.nodeID != rhs.nodeID {return false}
     if lhs.nodeBehavior != rhs.nodeBehavior {return false}
@@ -503,7 +503,7 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode: SwiftProtobuf.Me
 }
 
 extension CoreML_Specification_TreeEnsembleParameters.TreeNode.TreeNodeBehavior: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "BranchOnValueLessThanEqual"),
     1: .same(proto: "BranchOnValueLessThan"),
     2: .same(proto: "BranchOnValueGreaterThanEqual"),
@@ -515,13 +515,13 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode.TreeNodeBehavior:
 }
 
 extension CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_TreeEnsembleParameters.TreeNode.protoMessageName + ".EvaluationInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_TreeEnsembleParameters.TreeNode.protoMessageName + ".EvaluationInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "evaluationIndex"),
     2: .same(proto: "evaluationValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -534,7 +534,7 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo: S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.evaluationIndex != 0 {
       try visitor.visitSingularUInt64Field(value: self.evaluationIndex, fieldNumber: 1)
     }
@@ -544,7 +544,7 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo: S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo, rhs: CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo, rhs: CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo) -> Bool {
     if lhs.evaluationIndex != rhs.evaluationIndex {return false}
     if lhs.evaluationValue != rhs.evaluationValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -553,15 +553,15 @@ extension CoreML_Specification_TreeEnsembleParameters.TreeNode.EvaluationInfo: S
 }
 
 extension CoreML_Specification_TreeEnsembleClassifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TreeEnsembleClassifier"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TreeEnsembleClassifier"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "treeEnsemble"),
     2: .same(proto: "postEvaluationTransform"),
     100: .same(proto: "stringClassLabels"),
     101: .same(proto: "int64ClassLabels"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -600,7 +600,7 @@ extension CoreML_Specification_TreeEnsembleClassifier: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -625,7 +625,7 @@ extension CoreML_Specification_TreeEnsembleClassifier: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TreeEnsembleClassifier, rhs: CoreML_Specification_TreeEnsembleClassifier) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TreeEnsembleClassifier, rhs: CoreML_Specification_TreeEnsembleClassifier) -> Bool {
     if lhs._treeEnsemble != rhs._treeEnsemble {return false}
     if lhs.postEvaluationTransform != rhs.postEvaluationTransform {return false}
     if lhs.classLabels != rhs.classLabels {return false}
@@ -635,13 +635,13 @@ extension CoreML_Specification_TreeEnsembleClassifier: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_TreeEnsembleRegressor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TreeEnsembleRegressor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TreeEnsembleRegressor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "treeEnsemble"),
     2: .same(proto: "postEvaluationTransform"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -654,7 +654,7 @@ extension CoreML_Specification_TreeEnsembleRegressor: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -668,7 +668,7 @@ extension CoreML_Specification_TreeEnsembleRegressor: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_TreeEnsembleRegressor, rhs: CoreML_Specification_TreeEnsembleRegressor) -> Bool {
+  public static func ==(lhs: CoreML_Specification_TreeEnsembleRegressor, rhs: CoreML_Specification_TreeEnsembleRegressor) -> Bool {
     if lhs._treeEnsemble != rhs._treeEnsemble {return false}
     if lhs.postEvaluationTransform != rhs.postEvaluationTransform {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

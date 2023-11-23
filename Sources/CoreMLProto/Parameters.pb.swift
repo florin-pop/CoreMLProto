@@ -21,15 +21,15 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// Int64 parameter,
 /// consisting of a default int64 value, and allowed range or set of values
 /// value is unbounded if AllowedValues is not set.
-struct CoreML_Specification_Int64Parameter {
+public struct CoreML_Specification_Int64Parameter {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -54,14 +54,14 @@ struct CoreML_Specification_Int64Parameter {
     set {allowedValues = .set(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_AllowedValues: Equatable {
+  public enum OneOf_AllowedValues: Equatable {
     case range(CoreML_Specification_Int64Range)
     case set(CoreML_Specification_Int64Set)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_Int64Parameter.OneOf_AllowedValues, rhs: CoreML_Specification_Int64Parameter.OneOf_AllowedValues) -> Bool {
+    public static func ==(lhs: CoreML_Specification_Int64Parameter.OneOf_AllowedValues, rhs: CoreML_Specification_Int64Parameter.OneOf_AllowedValues) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -80,14 +80,14 @@ struct CoreML_Specification_Int64Parameter {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Double parameter,
 /// consisting of a default double value, and allowed range of values
 /// value is unbounded if AllowedValues is not set.
-struct CoreML_Specification_DoubleParameter {
+public struct CoreML_Specification_DoubleParameter {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -104,13 +104,13 @@ struct CoreML_Specification_DoubleParameter {
     set {allowedValues = .range(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_AllowedValues: Equatable {
+  public enum OneOf_AllowedValues: Equatable {
     case range(CoreML_Specification_DoubleRange)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_DoubleParameter.OneOf_AllowedValues, rhs: CoreML_Specification_DoubleParameter.OneOf_AllowedValues) -> Bool {
+    public static func ==(lhs: CoreML_Specification_DoubleParameter.OneOf_AllowedValues, rhs: CoreML_Specification_DoubleParameter.OneOf_AllowedValues) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -124,37 +124,37 @@ struct CoreML_Specification_DoubleParameter {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// String parameter,
 /// A default string value must be provided
-struct CoreML_Specification_StringParameter {
+public struct CoreML_Specification_StringParameter {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var defaultValue: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// String parameter,
 /// A default bool value must be provided
-struct CoreML_Specification_BoolParameter {
+public struct CoreML_Specification_BoolParameter {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var defaultValue: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -162,14 +162,14 @@ struct CoreML_Specification_BoolParameter {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_Int64Parameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Int64Parameter"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Int64Parameter"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "defaultValue"),
     10: .same(proto: "range"),
     11: .same(proto: "set"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -207,7 +207,7 @@ extension CoreML_Specification_Int64Parameter: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -229,7 +229,7 @@ extension CoreML_Specification_Int64Parameter: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Int64Parameter, rhs: CoreML_Specification_Int64Parameter) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Int64Parameter, rhs: CoreML_Specification_Int64Parameter) -> Bool {
     if lhs.defaultValue != rhs.defaultValue {return false}
     if lhs.allowedValues != rhs.allowedValues {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -238,13 +238,13 @@ extension CoreML_Specification_Int64Parameter: SwiftProtobuf.Message, SwiftProto
 }
 
 extension CoreML_Specification_DoubleParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DoubleParameter"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DoubleParameter"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "defaultValue"),
     10: .same(proto: "range"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -269,7 +269,7 @@ extension CoreML_Specification_DoubleParameter: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -283,7 +283,7 @@ extension CoreML_Specification_DoubleParameter: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_DoubleParameter, rhs: CoreML_Specification_DoubleParameter) -> Bool {
+  public static func ==(lhs: CoreML_Specification_DoubleParameter, rhs: CoreML_Specification_DoubleParameter) -> Bool {
     if lhs.defaultValue != rhs.defaultValue {return false}
     if lhs.allowedValues != rhs.allowedValues {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -292,12 +292,12 @@ extension CoreML_Specification_DoubleParameter: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_StringParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".StringParameter"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".StringParameter"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "defaultValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -309,14 +309,14 @@ extension CoreML_Specification_StringParameter: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.defaultValue.isEmpty {
       try visitor.visitSingularStringField(value: self.defaultValue, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_StringParameter, rhs: CoreML_Specification_StringParameter) -> Bool {
+  public static func ==(lhs: CoreML_Specification_StringParameter, rhs: CoreML_Specification_StringParameter) -> Bool {
     if lhs.defaultValue != rhs.defaultValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -324,12 +324,12 @@ extension CoreML_Specification_StringParameter: SwiftProtobuf.Message, SwiftProt
 }
 
 extension CoreML_Specification_BoolParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BoolParameter"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BoolParameter"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "defaultValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -341,14 +341,14 @@ extension CoreML_Specification_BoolParameter: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.defaultValue != false {
       try visitor.visitSingularBoolField(value: self.defaultValue, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_BoolParameter, rhs: CoreML_Specification_BoolParameter) -> Bool {
+  public static func ==(lhs: CoreML_Specification_BoolParameter, rhs: CoreML_Specification_BoolParameter) -> Bool {
     if lhs.defaultValue != rhs.defaultValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

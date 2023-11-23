@@ -21,8 +21,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
@@ -32,7 +32,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Each categorical value will map to an index, this mapping is given by
 /// either the ``stringCategories`` parameter or the ``int64Categories``
 /// parameter.
-struct CoreML_Specification_OneHotEncoder {
+public struct CoreML_Specification_OneHotEncoder {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -64,18 +64,18 @@ struct CoreML_Specification_OneHotEncoder {
 
   var handleUnknown: CoreML_Specification_OneHotEncoder.HandleUnknown = .errorOnUnknown
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// Mapping to be used for the encoding. The position of the category in
   /// the below vector determines where the single one entry will be in the
   /// output.
-  enum OneOf_CategoryType: Equatable {
+  public enum OneOf_CategoryType: Equatable {
     case stringCategories(CoreML_Specification_StringVector)
     case int64Categories(CoreML_Specification_Int64Vector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_OneHotEncoder.OneOf_CategoryType, rhs: CoreML_Specification_OneHotEncoder.OneOf_CategoryType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_OneHotEncoder.OneOf_CategoryType, rhs: CoreML_Specification_OneHotEncoder.OneOf_CategoryType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -94,19 +94,19 @@ struct CoreML_Specification_OneHotEncoder {
   #endif
   }
 
-  enum HandleUnknown: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum HandleUnknown: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case errorOnUnknown // = 0
 
     /// Output will be all zeros for unknown values.
     case ignoreUnknown // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .errorOnUnknown
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .errorOnUnknown
       case 1: self = .ignoreUnknown
@@ -114,7 +114,7 @@ struct CoreML_Specification_OneHotEncoder {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .errorOnUnknown: return 0
       case .ignoreUnknown: return 1
@@ -124,14 +124,14 @@ struct CoreML_Specification_OneHotEncoder {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_OneHotEncoder.HandleUnknown: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_OneHotEncoder.HandleUnknown] = [
+  public static var allCases: [CoreML_Specification_OneHotEncoder.HandleUnknown] = [
     .errorOnUnknown,
     .ignoreUnknown,
   ]
@@ -144,15 +144,15 @@ extension CoreML_Specification_OneHotEncoder.HandleUnknown: CaseIterable {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_OneHotEncoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OneHotEncoder"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OneHotEncoder"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "stringCategories"),
     2: .same(proto: "int64Categories"),
     10: .same(proto: "outputSparse"),
     11: .same(proto: "handleUnknown"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -191,7 +191,7 @@ extension CoreML_Specification_OneHotEncoder: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -216,7 +216,7 @@ extension CoreML_Specification_OneHotEncoder: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_OneHotEncoder, rhs: CoreML_Specification_OneHotEncoder) -> Bool {
+  public static func ==(lhs: CoreML_Specification_OneHotEncoder, rhs: CoreML_Specification_OneHotEncoder) -> Bool {
     if lhs.categoryType != rhs.categoryType {return false}
     if lhs.outputSparse != rhs.outputSparse {return false}
     if lhs.handleUnknown != rhs.handleUnknown {return false}
@@ -226,7 +226,7 @@ extension CoreML_Specification_OneHotEncoder: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension CoreML_Specification_OneHotEncoder.HandleUnknown: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ErrorOnUnknown"),
     1: .same(proto: "IgnoreUnknown"),
   ]

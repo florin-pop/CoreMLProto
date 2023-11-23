@@ -21,8 +21,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
@@ -44,7 +44,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// perform the scaling operation. If the output type is an integer,
 /// then it is cast to an integer. If that cast is lossy, then an
 /// error is generated.
-struct CoreML_Specification_Scaler {
+public struct CoreML_Specification_Scaler {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -53,9 +53,9 @@ struct CoreML_Specification_Scaler {
 
   var scaleValue: [Double] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -63,13 +63,13 @@ struct CoreML_Specification_Scaler {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_Scaler: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Scaler"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Scaler"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shiftValue"),
     2: .same(proto: "scaleValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -82,7 +82,7 @@ extension CoreML_Specification_Scaler: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.shiftValue.isEmpty {
       try visitor.visitPackedDoubleField(value: self.shiftValue, fieldNumber: 1)
     }
@@ -92,7 +92,7 @@ extension CoreML_Specification_Scaler: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Scaler, rhs: CoreML_Specification_Scaler) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Scaler, rhs: CoreML_Specification_Scaler) -> Bool {
     if lhs.shiftValue != rhs.shiftValue {return false}
     if lhs.scaleValue != rhs.scaleValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

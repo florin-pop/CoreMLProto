@@ -21,13 +21,13 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A generalized linear model classifier.
-struct CoreML_Specification_GLMClassifier {
+public struct CoreML_Specification_GLMClassifier {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -60,16 +60,16 @@ struct CoreML_Specification_GLMClassifier {
     set {classLabels = .int64ClassLabels(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// Required class label mapping.
-  enum OneOf_ClassLabels: Equatable {
+  public enum OneOf_ClassLabels: Equatable {
     case stringClassLabels(CoreML_Specification_StringVector)
     case int64ClassLabels(CoreML_Specification_Int64Vector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_GLMClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_GLMClassifier.OneOf_ClassLabels) -> Bool {
+    public static func ==(lhs: CoreML_Specification_GLMClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_GLMClassifier.OneOf_ClassLabels) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -88,19 +88,19 @@ struct CoreML_Specification_GLMClassifier {
   #endif
   }
 
-  enum PostEvaluationTransform: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum PostEvaluationTransform: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case logit // = 0
 
     //// Only binary classification is supported for probit
     case probit // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .logit
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .logit
       case 1: self = .probit
@@ -108,7 +108,7 @@ struct CoreML_Specification_GLMClassifier {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .logit: return 0
       case .probit: return 1
@@ -118,8 +118,8 @@ struct CoreML_Specification_GLMClassifier {
 
   }
 
-  enum ClassEncoding: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ClassEncoding: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
 
     //// First class is the reference class
     case referenceClass // = 0
@@ -128,11 +128,11 @@ struct CoreML_Specification_GLMClassifier {
     case oneVsRest // = 1
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .referenceClass
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .referenceClass
       case 1: self = .oneVsRest
@@ -140,7 +140,7 @@ struct CoreML_Specification_GLMClassifier {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .referenceClass: return 0
       case .oneVsRest: return 1
@@ -150,26 +150,26 @@ struct CoreML_Specification_GLMClassifier {
 
   }
 
-  struct DoubleArray {
+  public struct DoubleArray {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var value: [Double] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_GLMClassifier.PostEvaluationTransform: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_GLMClassifier.PostEvaluationTransform] = [
+  public static var allCases: [CoreML_Specification_GLMClassifier.PostEvaluationTransform] = [
     .logit,
     .probit,
   ]
@@ -177,7 +177,7 @@ extension CoreML_Specification_GLMClassifier.PostEvaluationTransform: CaseIterab
 
 extension CoreML_Specification_GLMClassifier.ClassEncoding: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_GLMClassifier.ClassEncoding] = [
+  public static var allCases: [CoreML_Specification_GLMClassifier.ClassEncoding] = [
     .referenceClass,
     .oneVsRest,
   ]
@@ -190,8 +190,8 @@ extension CoreML_Specification_GLMClassifier.ClassEncoding: CaseIterable {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_GLMClassifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GLMClassifier"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GLMClassifier"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "weights"),
     2: .same(proto: "offset"),
     3: .same(proto: "postEvaluationTransform"),
@@ -200,7 +200,7 @@ extension CoreML_Specification_GLMClassifier: SwiftProtobuf.Message, SwiftProtob
     101: .same(proto: "int64ClassLabels"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -241,7 +241,7 @@ extension CoreML_Specification_GLMClassifier: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -272,7 +272,7 @@ extension CoreML_Specification_GLMClassifier: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GLMClassifier, rhs: CoreML_Specification_GLMClassifier) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GLMClassifier, rhs: CoreML_Specification_GLMClassifier) -> Bool {
     if lhs.weights != rhs.weights {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.postEvaluationTransform != rhs.postEvaluationTransform {return false}
@@ -284,26 +284,26 @@ extension CoreML_Specification_GLMClassifier: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension CoreML_Specification_GLMClassifier.PostEvaluationTransform: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "Logit"),
     1: .same(proto: "Probit"),
   ]
 }
 
 extension CoreML_Specification_GLMClassifier.ClassEncoding: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ReferenceClass"),
     1: .same(proto: "OneVsRest"),
   ]
 }
 
 extension CoreML_Specification_GLMClassifier.DoubleArray: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_GLMClassifier.protoMessageName + ".DoubleArray"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_GLMClassifier.protoMessageName + ".DoubleArray"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -315,14 +315,14 @@ extension CoreML_Specification_GLMClassifier.DoubleArray: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitPackedDoubleField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_GLMClassifier.DoubleArray, rhs: CoreML_Specification_GLMClassifier.DoubleArray) -> Bool {
+  public static func ==(lhs: CoreML_Specification_GLMClassifier.DoubleArray, rhs: CoreML_Specification_GLMClassifier.DoubleArray) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

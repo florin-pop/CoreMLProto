@@ -21,14 +21,14 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A model which takes an input audio and outputs array(s) of features
 /// according to the specified feature types
-struct CoreML_Specification_CoreMLModels_AudioFeaturePrint {
+public struct CoreML_Specification_CoreMLModels_AudioFeaturePrint {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -44,14 +44,14 @@ struct CoreML_Specification_CoreMLModels_AudioFeaturePrint {
     set {audioFeaturePrintType = .sound(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Audio feature print type
-  enum OneOf_AudioFeaturePrintType: Equatable {
+  public enum OneOf_AudioFeaturePrintType: Equatable {
     case sound(CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.OneOf_AudioFeaturePrintType, rhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.OneOf_AudioFeaturePrintType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.OneOf_AudioFeaturePrintType, rhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.OneOf_AudioFeaturePrintType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -67,17 +67,17 @@ struct CoreML_Specification_CoreMLModels_AudioFeaturePrint {
 
   /// Sound extracts features useful for identifying the predominant
   /// sound in audio signal
-  struct Sound {
+  public struct Sound {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var version: CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound.SoundVersion = .invalid
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum SoundVersion: SwiftProtobuf.Enum {
-      typealias RawValue = Int
+    public enum SoundVersion: SwiftProtobuf.Enum {
+      public typealias RawValue = Int
       case invalid // = 0
 
       /// VERSION_1 is available on iOS,tvOS 15.0+, macOS 12.0+
@@ -85,11 +85,11 @@ struct CoreML_Specification_CoreMLModels_AudioFeaturePrint {
       case soundVersion1 // = 1
       case UNRECOGNIZED(Int)
 
-      init() {
+      public init() {
         self = .invalid
       }
 
-      init?(rawValue: Int) {
+      public init?(rawValue: Int) {
         switch rawValue {
         case 0: self = .invalid
         case 1: self = .soundVersion1
@@ -97,7 +97,7 @@ struct CoreML_Specification_CoreMLModels_AudioFeaturePrint {
         }
       }
 
-      var rawValue: Int {
+      public var rawValue: Int {
         switch self {
         case .invalid: return 0
         case .soundVersion1: return 1
@@ -107,17 +107,17 @@ struct CoreML_Specification_CoreMLModels_AudioFeaturePrint {
 
     }
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound.SoundVersion: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound.SoundVersion] = [
+  public static var allCases: [CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound.SoundVersion] = [
     .invalid,
     .soundVersion1,
   ]
@@ -130,12 +130,12 @@ extension CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound.SoundVersion
 fileprivate let _protobuf_package = "CoreML.Specification.CoreMLModels"
 
 extension CoreML_Specification_CoreMLModels_AudioFeaturePrint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AudioFeaturePrint"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AudioFeaturePrint"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     20: .same(proto: "sound"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -159,7 +159,7 @@ extension CoreML_Specification_CoreMLModels_AudioFeaturePrint: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -170,7 +170,7 @@ extension CoreML_Specification_CoreMLModels_AudioFeaturePrint: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint, rhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint, rhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint) -> Bool {
     if lhs.audioFeaturePrintType != rhs.audioFeaturePrintType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -178,12 +178,12 @@ extension CoreML_Specification_CoreMLModels_AudioFeaturePrint: SwiftProtobuf.Mes
 }
 
 extension CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_CoreMLModels_AudioFeaturePrint.protoMessageName + ".Sound"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_CoreMLModels_AudioFeaturePrint.protoMessageName + ".Sound"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "version"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -195,14 +195,14 @@ extension CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.version != .invalid {
       try visitor.visitSingularEnumField(value: self.version, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound, rhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound, rhs: CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound) -> Bool {
     if lhs.version != rhs.version {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -210,7 +210,7 @@ extension CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound: SwiftProtob
 }
 
 extension CoreML_Specification_CoreMLModels_AudioFeaturePrint.Sound.SoundVersion: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SOUND_VERSION_INVALID"),
     1: .same(proto: "SOUND_VERSION_1"),
   ]

@@ -21,13 +21,13 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A parameterized model whose function is defined in code
-struct CoreML_Specification_CustomModel {
+public struct CoreML_Specification_CustomModel {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,9 +40,9 @@ struct CoreML_Specification_CustomModel {
   /// An (optional) description provided by the model creator. This information is displayed when viewing the model, but does not affect the model's execution on device.
   var description_p: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct CustomModelParamValue {
+  public struct CustomModelParamValue {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -97,9 +97,9 @@ struct CoreML_Specification_CustomModel {
       set {value = .bytesValue(newValue)}
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum OneOf_Value: Equatable {
+    public enum OneOf_Value: Equatable {
       case doubleValue(Double)
       case stringValue(String)
       case intValue(Int32)
@@ -108,7 +108,7 @@ struct CoreML_Specification_CustomModel {
       case bytesValue(Data)
 
     #if !swift(>=4.1)
-      static func ==(lhs: CoreML_Specification_CustomModel.CustomModelParamValue.OneOf_Value, rhs: CoreML_Specification_CustomModel.CustomModelParamValue.OneOf_Value) -> Bool {
+      public static func ==(lhs: CoreML_Specification_CustomModel.CustomModelParamValue.OneOf_Value, rhs: CoreML_Specification_CustomModel.CustomModelParamValue.OneOf_Value) -> Bool {
         // The use of inline closures is to circumvent an issue where the compiler
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -143,10 +143,10 @@ struct CoreML_Specification_CustomModel {
     #endif
     }
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -154,14 +154,14 @@ struct CoreML_Specification_CustomModel {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_CustomModel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CustomModel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CustomModel"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "className"),
     30: .same(proto: "parameters"),
     40: .same(proto: "description"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -175,7 +175,7 @@ extension CoreML_Specification_CustomModel: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.className.isEmpty {
       try visitor.visitSingularStringField(value: self.className, fieldNumber: 10)
     }
@@ -188,7 +188,7 @@ extension CoreML_Specification_CustomModel: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CustomModel, rhs: CoreML_Specification_CustomModel) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CustomModel, rhs: CoreML_Specification_CustomModel) -> Bool {
     if lhs.className != rhs.className {return false}
     if lhs.parameters != rhs.parameters {return false}
     if lhs.description_p != rhs.description_p {return false}
@@ -198,8 +198,8 @@ extension CoreML_Specification_CustomModel: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension CoreML_Specification_CustomModel.CustomModelParamValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_CustomModel.protoMessageName + ".CustomModelParamValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_CustomModel.protoMessageName + ".CustomModelParamValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .same(proto: "doubleValue"),
     20: .same(proto: "stringValue"),
     30: .same(proto: "intValue"),
@@ -208,7 +208,7 @@ extension CoreML_Specification_CustomModel.CustomModelParamValue: SwiftProtobuf.
     60: .same(proto: "bytesValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -267,7 +267,7 @@ extension CoreML_Specification_CustomModel.CustomModelParamValue: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -302,7 +302,7 @@ extension CoreML_Specification_CustomModel.CustomModelParamValue: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_CustomModel.CustomModelParamValue, rhs: CoreML_Specification_CustomModel.CustomModelParamValue) -> Bool {
+  public static func ==(lhs: CoreML_Specification_CustomModel.CustomModelParamValue, rhs: CoreML_Specification_CustomModel.CustomModelParamValue) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

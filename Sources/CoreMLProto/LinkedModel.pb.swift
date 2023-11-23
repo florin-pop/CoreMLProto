@@ -21,13 +21,13 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A model which wraps another (compiled) model external to this one
-struct CoreML_Specification_LinkedModel {
+public struct CoreML_Specification_LinkedModel {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -43,14 +43,14 @@ struct CoreML_Specification_LinkedModel {
     set {linkType = .linkedModelFile(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_LinkType: Equatable {
+  public enum OneOf_LinkType: Equatable {
     /// A model located via a file system path
     case linkedModelFile(CoreML_Specification_LinkedModelFile)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_LinkedModel.OneOf_LinkType, rhs: CoreML_Specification_LinkedModel.OneOf_LinkType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_LinkedModel.OneOf_LinkType, rhs: CoreML_Specification_LinkedModel.OneOf_LinkType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -64,11 +64,11 @@ struct CoreML_Specification_LinkedModel {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 /// Model is referenced by a model file name and search path
-struct CoreML_Specification_LinkedModelFile {
+public struct CoreML_Specification_LinkedModelFile {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -81,7 +81,7 @@ struct CoreML_Specification_LinkedModelFile {
   /// Returns true if `linkedModelFileName` has been explicitly set.
   var hasLinkedModelFileName: Bool {return self._linkedModelFileName != nil}
   /// Clears the value of `linkedModelFileName`. Subsequent reads from it will return its default value.
-  mutating func clearLinkedModelFileName() {self._linkedModelFileName = nil}
+  public mutating func clearLinkedModelFileName() {self._linkedModelFileName = nil}
 
   /// Search path to find the linked model file
   /// Multiple paths can be searched using the unix-style path separator ":"
@@ -100,11 +100,11 @@ struct CoreML_Specification_LinkedModelFile {
   /// Returns true if `linkedModelSearchPath` has been explicitly set.
   var hasLinkedModelSearchPath: Bool {return self._linkedModelSearchPath != nil}
   /// Clears the value of `linkedModelSearchPath`. Subsequent reads from it will return its default value.
-  mutating func clearLinkedModelSearchPath() {self._linkedModelSearchPath = nil}
+  public mutating func clearLinkedModelSearchPath() {self._linkedModelSearchPath = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _linkedModelFileName: CoreML_Specification_StringParameter? = nil
   fileprivate var _linkedModelSearchPath: CoreML_Specification_StringParameter? = nil
@@ -115,12 +115,12 @@ struct CoreML_Specification_LinkedModelFile {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_LinkedModel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LinkedModel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LinkedModel"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "linkedModelFile"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -144,7 +144,7 @@ extension CoreML_Specification_LinkedModel: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -155,7 +155,7 @@ extension CoreML_Specification_LinkedModel: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LinkedModel, rhs: CoreML_Specification_LinkedModel) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LinkedModel, rhs: CoreML_Specification_LinkedModel) -> Bool {
     if lhs.linkType != rhs.linkType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -163,13 +163,13 @@ extension CoreML_Specification_LinkedModel: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension CoreML_Specification_LinkedModelFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LinkedModelFile"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LinkedModelFile"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "linkedModelFileName"),
     2: .same(proto: "linkedModelSearchPath"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -182,7 +182,7 @@ extension CoreML_Specification_LinkedModelFile: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -196,7 +196,7 @@ extension CoreML_Specification_LinkedModelFile: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LinkedModelFile, rhs: CoreML_Specification_LinkedModelFile) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LinkedModelFile, rhs: CoreML_Specification_LinkedModelFile) -> Bool {
     if lhs._linkedModelFileName != rhs._linkedModelFileName {return false}
     if lhs._linkedModelSearchPath != rhs._linkedModelSearchPath {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

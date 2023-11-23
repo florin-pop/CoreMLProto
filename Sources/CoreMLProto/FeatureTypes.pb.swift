@@ -21,47 +21,47 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// The 64-bit integer feature type.
-struct CoreML_Specification_Int64FeatureType {
+public struct CoreML_Specification_Int64FeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// The double-precision floating point number feature type.
-struct CoreML_Specification_DoubleFeatureType {
+public struct CoreML_Specification_DoubleFeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// The string feature type.
-struct CoreML_Specification_StringFeatureType {
+public struct CoreML_Specification_StringFeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct CoreML_Specification_SizeRange {
+public struct CoreML_Specification_SizeRange {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -71,14 +71,14 @@ struct CoreML_Specification_SizeRange {
   /// negative value means unbound otherwise upperbound is included in range
   var upperBound: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// The image feature type.
-struct CoreML_Specification_ImageFeatureType {
+public struct CoreML_Specification_ImageFeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -107,14 +107,14 @@ struct CoreML_Specification_ImageFeatureType {
 
   var colorSpace: CoreML_Specification_ImageFeatureType.ColorSpace = .invalidColorSpace
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_SizeFlexibility: Equatable {
+  public enum OneOf_SizeFlexibility: Equatable {
     case enumeratedSizes(CoreML_Specification_ImageFeatureType.EnumeratedImageSizes)
     case imageSizeRange(CoreML_Specification_ImageFeatureType.ImageSizeRange)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_ImageFeatureType.OneOf_SizeFlexibility, rhs: CoreML_Specification_ImageFeatureType.OneOf_SizeFlexibility) -> Bool {
+    public static func ==(lhs: CoreML_Specification_ImageFeatureType.OneOf_SizeFlexibility, rhs: CoreML_Specification_ImageFeatureType.OneOf_SizeFlexibility) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -134,8 +134,8 @@ struct CoreML_Specification_ImageFeatureType {
   }
 
   /// Assumes raw (decompressed) format
-  enum ColorSpace: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ColorSpace: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case invalidColorSpace // = 0
 
     ///  8 bits per pixel
@@ -148,11 +148,11 @@ struct CoreML_Specification_ImageFeatureType {
     case bgr // = 30
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .invalidColorSpace
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .invalidColorSpace
       case 10: self = .grayscale
@@ -162,7 +162,7 @@ struct CoreML_Specification_ImageFeatureType {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .invalidColorSpace: return 0
       case .grayscale: return 10
@@ -174,7 +174,7 @@ struct CoreML_Specification_ImageFeatureType {
 
   }
 
-  struct ImageSize {
+  public struct ImageSize {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -183,24 +183,24 @@ struct CoreML_Specification_ImageFeatureType {
 
     var height: UInt64 = 0
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct EnumeratedImageSizes {
+  public struct EnumeratedImageSizes {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var sizes: [CoreML_Specification_ImageFeatureType.ImageSize] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct ImageSizeRange {
+  public struct ImageSizeRange {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -212,7 +212,7 @@ struct CoreML_Specification_ImageFeatureType {
     /// Returns true if `widthRange` has been explicitly set.
     var hasWidthRange: Bool {return self._widthRange != nil}
     /// Clears the value of `widthRange`. Subsequent reads from it will return its default value.
-    mutating func clearWidthRange() {self._widthRange = nil}
+    public mutating func clearWidthRange() {self._widthRange = nil}
 
     var heightRange: CoreML_Specification_SizeRange {
       get {return _heightRange ?? CoreML_Specification_SizeRange()}
@@ -221,24 +221,24 @@ struct CoreML_Specification_ImageFeatureType {
     /// Returns true if `heightRange` has been explicitly set.
     var hasHeightRange: Bool {return self._heightRange != nil}
     /// Clears the value of `heightRange`. Subsequent reads from it will return its default value.
-    mutating func clearHeightRange() {self._heightRange = nil}
+    public mutating func clearHeightRange() {self._heightRange = nil}
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
 
     fileprivate var _widthRange: CoreML_Specification_SizeRange? = nil
     fileprivate var _heightRange: CoreML_Specification_SizeRange? = nil
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_ImageFeatureType.ColorSpace: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_ImageFeatureType.ColorSpace] = [
+  public static var allCases: [CoreML_Specification_ImageFeatureType.ColorSpace] = [
     .invalidColorSpace,
     .grayscale,
     .rgb,
@@ -250,7 +250,7 @@ extension CoreML_Specification_ImageFeatureType.ColorSpace: CaseIterable {
 
 ///*
 /// The array feature type.
-struct CoreML_Specification_ArrayFeatureType {
+public struct CoreML_Specification_ArrayFeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -303,14 +303,14 @@ struct CoreML_Specification_ArrayFeatureType {
     set {defaultOptionalValue = .doubleDefaultValue(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_ShapeFlexibility: Equatable {
+  public enum OneOf_ShapeFlexibility: Equatable {
     case enumeratedShapes(CoreML_Specification_ArrayFeatureType.EnumeratedShapes)
     case shapeRange(CoreML_Specification_ArrayFeatureType.ShapeRange)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_ArrayFeatureType.OneOf_ShapeFlexibility, rhs: CoreML_Specification_ArrayFeatureType.OneOf_ShapeFlexibility) -> Bool {
+    public static func ==(lhs: CoreML_Specification_ArrayFeatureType.OneOf_ShapeFlexibility, rhs: CoreML_Specification_ArrayFeatureType.OneOf_ShapeFlexibility) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -329,13 +329,13 @@ struct CoreML_Specification_ArrayFeatureType {
   #endif
   }
 
-  enum OneOf_DefaultOptionalValue: Equatable {
+  public enum OneOf_DefaultOptionalValue: Equatable {
     case intDefaultValue(Int32)
     case floatDefaultValue(Float)
     case doubleDefaultValue(Double)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_ArrayFeatureType.OneOf_DefaultOptionalValue, rhs: CoreML_Specification_ArrayFeatureType.OneOf_DefaultOptionalValue) -> Bool {
+    public static func ==(lhs: CoreML_Specification_ArrayFeatureType.OneOf_DefaultOptionalValue, rhs: CoreML_Specification_ArrayFeatureType.OneOf_DefaultOptionalValue) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -358,8 +358,8 @@ struct CoreML_Specification_ArrayFeatureType {
   #endif
   }
 
-  enum ArrayDataType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ArrayDataType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case invalidArrayDataType // = 0
 
     /// 0x10000 | 32
@@ -372,11 +372,11 @@ struct CoreML_Specification_ArrayFeatureType {
     case int32 // = 131104
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .invalidArrayDataType
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .invalidArrayDataType
       case 65568: self = .float32
@@ -386,7 +386,7 @@ struct CoreML_Specification_ArrayFeatureType {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .invalidArrayDataType: return 0
       case .float32: return 65568
@@ -398,31 +398,31 @@ struct CoreML_Specification_ArrayFeatureType {
 
   }
 
-  struct Shape {
+  public struct Shape {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var shape: [Int64] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct EnumeratedShapes {
+  public struct EnumeratedShapes {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var shapes: [CoreML_Specification_ArrayFeatureType.Shape] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  struct ShapeRange {
+  public struct ShapeRange {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -431,19 +431,19 @@ struct CoreML_Specification_ArrayFeatureType {
     /// sizeRanges[d] specifies the allowed range for dimension d
     var sizeRanges: [CoreML_Specification_SizeRange] = []
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_ArrayFeatureType.ArrayDataType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_ArrayFeatureType.ArrayDataType] = [
+  public static var allCases: [CoreML_Specification_ArrayFeatureType.ArrayDataType] = [
     .invalidArrayDataType,
     .float32,
     .double,
@@ -455,7 +455,7 @@ extension CoreML_Specification_ArrayFeatureType.ArrayDataType: CaseIterable {
 
 ///*
 /// The dictionary feature type.
-struct CoreML_Specification_DictionaryFeatureType {
+public struct CoreML_Specification_DictionaryFeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -482,18 +482,18 @@ struct CoreML_Specification_DictionaryFeatureType {
     set {keyType = .stringKeyType(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   ///  Key/value type tags, with the following restrictions:
   ///  - ``keyType`` must be a hashable type
   ///  - ``valueType`` is assumed to be a ``double``
-  enum OneOf_KeyType: Equatable {
+  public enum OneOf_KeyType: Equatable {
     case int64KeyType(CoreML_Specification_Int64FeatureType)
     case stringKeyType(CoreML_Specification_StringFeatureType)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_DictionaryFeatureType.OneOf_KeyType, rhs: CoreML_Specification_DictionaryFeatureType.OneOf_KeyType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_DictionaryFeatureType.OneOf_KeyType, rhs: CoreML_Specification_DictionaryFeatureType.OneOf_KeyType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -512,12 +512,12 @@ struct CoreML_Specification_DictionaryFeatureType {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// The Sequence feature type.
-struct CoreML_Specification_SequenceFeatureType {
+public struct CoreML_Specification_SequenceFeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -550,18 +550,18 @@ struct CoreML_Specification_SequenceFeatureType {
   /// Returns true if `sizeRange` has been explicitly set.
   var hasSizeRange: Bool {return self._sizeRange != nil}
   /// Clears the value of `sizeRange`. Subsequent reads from it will return its default value.
-  mutating func clearSizeRange() {self._sizeRange = nil}
+  public mutating func clearSizeRange() {self._sizeRange = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// Currently only categorical int64 and String sequences are supported
-  enum OneOf_Type: Equatable {
+  public enum OneOf_Type: Equatable {
     case int64Type(CoreML_Specification_Int64FeatureType)
     case stringType(CoreML_Specification_StringFeatureType)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_SequenceFeatureType.OneOf_Type, rhs: CoreML_Specification_SequenceFeatureType.OneOf_Type) -> Bool {
+    public static func ==(lhs: CoreML_Specification_SequenceFeatureType.OneOf_Type, rhs: CoreML_Specification_SequenceFeatureType.OneOf_Type) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -580,14 +580,14 @@ struct CoreML_Specification_SequenceFeatureType {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _sizeRange: CoreML_Specification_SizeRange? = nil
 }
 
 ///*
 /// A feature, which may be optional.
-struct CoreML_Specification_FeatureType {
+public struct CoreML_Specification_FeatureType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -652,9 +652,9 @@ struct CoreML_Specification_FeatureType {
 
   var isOptional: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Type: Equatable {
+  public enum OneOf_Type: Equatable {
     case int64Type(CoreML_Specification_Int64FeatureType)
     case doubleType(CoreML_Specification_DoubleFeatureType)
     case stringType(CoreML_Specification_StringFeatureType)
@@ -664,7 +664,7 @@ struct CoreML_Specification_FeatureType {
     case sequenceType(CoreML_Specification_SequenceFeatureType)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_FeatureType.OneOf_Type, rhs: CoreML_Specification_FeatureType.OneOf_Type) -> Bool {
+    public static func ==(lhs: CoreML_Specification_FeatureType.OneOf_Type, rhs: CoreML_Specification_FeatureType.OneOf_Type) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -703,7 +703,7 @@ struct CoreML_Specification_FeatureType {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -711,70 +711,70 @@ struct CoreML_Specification_FeatureType {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_Int64FeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Int64FeatureType"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".Int64FeatureType"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Int64FeatureType, rhs: CoreML_Specification_Int64FeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Int64FeatureType, rhs: CoreML_Specification_Int64FeatureType) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_DoubleFeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DoubleFeatureType"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".DoubleFeatureType"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_DoubleFeatureType, rhs: CoreML_Specification_DoubleFeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_DoubleFeatureType, rhs: CoreML_Specification_DoubleFeatureType) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_StringFeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".StringFeatureType"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".StringFeatureType"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_StringFeatureType, rhs: CoreML_Specification_StringFeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_StringFeatureType, rhs: CoreML_Specification_StringFeatureType) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SizeRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SizeRange"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SizeRange"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "lowerBound"),
     2: .same(proto: "upperBound"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -787,7 +787,7 @@ extension CoreML_Specification_SizeRange: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.lowerBound != 0 {
       try visitor.visitSingularUInt64Field(value: self.lowerBound, fieldNumber: 1)
     }
@@ -797,7 +797,7 @@ extension CoreML_Specification_SizeRange: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SizeRange, rhs: CoreML_Specification_SizeRange) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SizeRange, rhs: CoreML_Specification_SizeRange) -> Bool {
     if lhs.lowerBound != rhs.lowerBound {return false}
     if lhs.upperBound != rhs.upperBound {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -806,8 +806,8 @@ extension CoreML_Specification_SizeRange: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension CoreML_Specification_ImageFeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ImageFeatureType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ImageFeatureType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "width"),
     2: .same(proto: "height"),
     21: .same(proto: "enumeratedSizes"),
@@ -815,7 +815,7 @@ extension CoreML_Specification_ImageFeatureType: SwiftProtobuf.Message, SwiftPro
     3: .same(proto: "colorSpace"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -855,7 +855,7 @@ extension CoreML_Specification_ImageFeatureType: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -883,7 +883,7 @@ extension CoreML_Specification_ImageFeatureType: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ImageFeatureType, rhs: CoreML_Specification_ImageFeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ImageFeatureType, rhs: CoreML_Specification_ImageFeatureType) -> Bool {
     if lhs.width != rhs.width {return false}
     if lhs.height != rhs.height {return false}
     if lhs.sizeFlexibility != rhs.sizeFlexibility {return false}
@@ -894,7 +894,7 @@ extension CoreML_Specification_ImageFeatureType: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_ImageFeatureType.ColorSpace: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "INVALID_COLOR_SPACE"),
     10: .same(proto: "GRAYSCALE"),
     20: .same(proto: "RGB"),
@@ -903,13 +903,13 @@ extension CoreML_Specification_ImageFeatureType.ColorSpace: SwiftProtobuf._Proto
 }
 
 extension CoreML_Specification_ImageFeatureType.ImageSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_ImageFeatureType.protoMessageName + ".ImageSize"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_ImageFeatureType.protoMessageName + ".ImageSize"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "width"),
     2: .same(proto: "height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -922,7 +922,7 @@ extension CoreML_Specification_ImageFeatureType.ImageSize: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.width != 0 {
       try visitor.visitSingularUInt64Field(value: self.width, fieldNumber: 1)
     }
@@ -932,7 +932,7 @@ extension CoreML_Specification_ImageFeatureType.ImageSize: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ImageFeatureType.ImageSize, rhs: CoreML_Specification_ImageFeatureType.ImageSize) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ImageFeatureType.ImageSize, rhs: CoreML_Specification_ImageFeatureType.ImageSize) -> Bool {
     if lhs.width != rhs.width {return false}
     if lhs.height != rhs.height {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -941,12 +941,12 @@ extension CoreML_Specification_ImageFeatureType.ImageSize: SwiftProtobuf.Message
 }
 
 extension CoreML_Specification_ImageFeatureType.EnumeratedImageSizes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_ImageFeatureType.protoMessageName + ".EnumeratedImageSizes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_ImageFeatureType.protoMessageName + ".EnumeratedImageSizes"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sizes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -958,14 +958,14 @@ extension CoreML_Specification_ImageFeatureType.EnumeratedImageSizes: SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sizes.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.sizes, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ImageFeatureType.EnumeratedImageSizes, rhs: CoreML_Specification_ImageFeatureType.EnumeratedImageSizes) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ImageFeatureType.EnumeratedImageSizes, rhs: CoreML_Specification_ImageFeatureType.EnumeratedImageSizes) -> Bool {
     if lhs.sizes != rhs.sizes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -973,13 +973,13 @@ extension CoreML_Specification_ImageFeatureType.EnumeratedImageSizes: SwiftProto
 }
 
 extension CoreML_Specification_ImageFeatureType.ImageSizeRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_ImageFeatureType.protoMessageName + ".ImageSizeRange"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_ImageFeatureType.protoMessageName + ".ImageSizeRange"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "widthRange"),
     2: .same(proto: "heightRange"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -992,7 +992,7 @@ extension CoreML_Specification_ImageFeatureType.ImageSizeRange: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1006,7 +1006,7 @@ extension CoreML_Specification_ImageFeatureType.ImageSizeRange: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ImageFeatureType.ImageSizeRange, rhs: CoreML_Specification_ImageFeatureType.ImageSizeRange) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ImageFeatureType.ImageSizeRange, rhs: CoreML_Specification_ImageFeatureType.ImageSizeRange) -> Bool {
     if lhs._widthRange != rhs._widthRange {return false}
     if lhs._heightRange != rhs._heightRange {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1015,8 +1015,8 @@ extension CoreML_Specification_ImageFeatureType.ImageSizeRange: SwiftProtobuf.Me
 }
 
 extension CoreML_Specification_ArrayFeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ArrayFeatureType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ArrayFeatureType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shape"),
     2: .same(proto: "dataType"),
     21: .same(proto: "enumeratedShapes"),
@@ -1026,7 +1026,7 @@ extension CoreML_Specification_ArrayFeatureType: SwiftProtobuf.Message, SwiftPro
     61: .same(proto: "doubleDefaultValue"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1089,7 +1089,7 @@ extension CoreML_Specification_ArrayFeatureType: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1129,7 +1129,7 @@ extension CoreML_Specification_ArrayFeatureType: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArrayFeatureType, rhs: CoreML_Specification_ArrayFeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArrayFeatureType, rhs: CoreML_Specification_ArrayFeatureType) -> Bool {
     if lhs.shape != rhs.shape {return false}
     if lhs.dataType != rhs.dataType {return false}
     if lhs.shapeFlexibility != rhs.shapeFlexibility {return false}
@@ -1140,7 +1140,7 @@ extension CoreML_Specification_ArrayFeatureType: SwiftProtobuf.Message, SwiftPro
 }
 
 extension CoreML_Specification_ArrayFeatureType.ArrayDataType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "INVALID_ARRAY_DATA_TYPE"),
     65568: .same(proto: "FLOAT32"),
     65600: .same(proto: "DOUBLE"),
@@ -1149,12 +1149,12 @@ extension CoreML_Specification_ArrayFeatureType.ArrayDataType: SwiftProtobuf._Pr
 }
 
 extension CoreML_Specification_ArrayFeatureType.Shape: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_ArrayFeatureType.protoMessageName + ".Shape"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_ArrayFeatureType.protoMessageName + ".Shape"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shape"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1166,14 +1166,14 @@ extension CoreML_Specification_ArrayFeatureType.Shape: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.shape.isEmpty {
       try visitor.visitPackedInt64Field(value: self.shape, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArrayFeatureType.Shape, rhs: CoreML_Specification_ArrayFeatureType.Shape) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArrayFeatureType.Shape, rhs: CoreML_Specification_ArrayFeatureType.Shape) -> Bool {
     if lhs.shape != rhs.shape {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1181,12 +1181,12 @@ extension CoreML_Specification_ArrayFeatureType.Shape: SwiftProtobuf.Message, Sw
 }
 
 extension CoreML_Specification_ArrayFeatureType.EnumeratedShapes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_ArrayFeatureType.protoMessageName + ".EnumeratedShapes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_ArrayFeatureType.protoMessageName + ".EnumeratedShapes"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "shapes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1198,14 +1198,14 @@ extension CoreML_Specification_ArrayFeatureType.EnumeratedShapes: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.shapes.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.shapes, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArrayFeatureType.EnumeratedShapes, rhs: CoreML_Specification_ArrayFeatureType.EnumeratedShapes) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArrayFeatureType.EnumeratedShapes, rhs: CoreML_Specification_ArrayFeatureType.EnumeratedShapes) -> Bool {
     if lhs.shapes != rhs.shapes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1213,12 +1213,12 @@ extension CoreML_Specification_ArrayFeatureType.EnumeratedShapes: SwiftProtobuf.
 }
 
 extension CoreML_Specification_ArrayFeatureType.ShapeRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = CoreML_Specification_ArrayFeatureType.protoMessageName + ".ShapeRange"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = CoreML_Specification_ArrayFeatureType.protoMessageName + ".ShapeRange"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sizeRanges"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1230,14 +1230,14 @@ extension CoreML_Specification_ArrayFeatureType.ShapeRange: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sizeRanges.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.sizeRanges, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_ArrayFeatureType.ShapeRange, rhs: CoreML_Specification_ArrayFeatureType.ShapeRange) -> Bool {
+  public static func ==(lhs: CoreML_Specification_ArrayFeatureType.ShapeRange, rhs: CoreML_Specification_ArrayFeatureType.ShapeRange) -> Bool {
     if lhs.sizeRanges != rhs.sizeRanges {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1245,13 +1245,13 @@ extension CoreML_Specification_ArrayFeatureType.ShapeRange: SwiftProtobuf.Messag
 }
 
 extension CoreML_Specification_DictionaryFeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DictionaryFeatureType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DictionaryFeatureType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "int64KeyType"),
     2: .same(proto: "stringKeyType"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1288,7 +1288,7 @@ extension CoreML_Specification_DictionaryFeatureType: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1307,7 +1307,7 @@ extension CoreML_Specification_DictionaryFeatureType: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_DictionaryFeatureType, rhs: CoreML_Specification_DictionaryFeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_DictionaryFeatureType, rhs: CoreML_Specification_DictionaryFeatureType) -> Bool {
     if lhs.keyType != rhs.keyType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1315,14 +1315,14 @@ extension CoreML_Specification_DictionaryFeatureType: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_SequenceFeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SequenceFeatureType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SequenceFeatureType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "int64Type"),
     3: .same(proto: "stringType"),
     101: .same(proto: "sizeRange"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1360,7 +1360,7 @@ extension CoreML_Specification_SequenceFeatureType: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1382,7 +1382,7 @@ extension CoreML_Specification_SequenceFeatureType: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SequenceFeatureType, rhs: CoreML_Specification_SequenceFeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SequenceFeatureType, rhs: CoreML_Specification_SequenceFeatureType) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs._sizeRange != rhs._sizeRange {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1391,8 +1391,8 @@ extension CoreML_Specification_SequenceFeatureType: SwiftProtobuf.Message, Swift
 }
 
 extension CoreML_Specification_FeatureType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FeatureType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".FeatureType"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "int64Type"),
     2: .same(proto: "doubleType"),
     3: .same(proto: "stringType"),
@@ -1403,7 +1403,7 @@ extension CoreML_Specification_FeatureType: SwiftProtobuf.Message, SwiftProtobuf
     1000: .same(proto: "isOptional"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1506,7 +1506,7 @@ extension CoreML_Specification_FeatureType: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1548,7 +1548,7 @@ extension CoreML_Specification_FeatureType: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_FeatureType, rhs: CoreML_Specification_FeatureType) -> Bool {
+  public static func ==(lhs: CoreML_Specification_FeatureType, rhs: CoreML_Specification_FeatureType) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.isOptional != rhs.isOptional {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

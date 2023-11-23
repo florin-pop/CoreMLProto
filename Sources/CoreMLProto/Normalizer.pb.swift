@@ -21,20 +21,20 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A normalization preprocessor.
-struct CoreML_Specification_Normalizer {
+public struct CoreML_Specification_Normalizer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var normType: CoreML_Specification_Normalizer.NormType = .lmax
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// There are three normalization modes,
@@ -51,18 +51,18 @@ struct CoreML_Specification_Normalizer {
   /// L2
   ///     .. math::
   ///         z = ||x||_2 = \sqrt{\sum_{i=1}^{n} x_i^2}
-  enum NormType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum NormType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case lmax // = 0
     case l1 // = 1
     case l2 // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .lmax
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .lmax
       case 1: self = .l1
@@ -71,7 +71,7 @@ struct CoreML_Specification_Normalizer {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .lmax: return 0
       case .l1: return 1
@@ -82,14 +82,14 @@ struct CoreML_Specification_Normalizer {
 
   }
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=4.2)
 
 extension CoreML_Specification_Normalizer.NormType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [CoreML_Specification_Normalizer.NormType] = [
+  public static var allCases: [CoreML_Specification_Normalizer.NormType] = [
     .lmax,
     .l1,
     .l2,
@@ -103,12 +103,12 @@ extension CoreML_Specification_Normalizer.NormType: CaseIterable {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_Normalizer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Normalizer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Normalizer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "normType"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -120,14 +120,14 @@ extension CoreML_Specification_Normalizer: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.normType != .lmax {
       try visitor.visitSingularEnumField(value: self.normType, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_Normalizer, rhs: CoreML_Specification_Normalizer) -> Bool {
+  public static func ==(lhs: CoreML_Specification_Normalizer, rhs: CoreML_Specification_Normalizer) -> Bool {
     if lhs.normType != rhs.normType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -135,7 +135,7 @@ extension CoreML_Specification_Normalizer: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension CoreML_Specification_Normalizer.NormType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "LMax"),
     1: .same(proto: "L1"),
     2: .same(proto: "L2"),

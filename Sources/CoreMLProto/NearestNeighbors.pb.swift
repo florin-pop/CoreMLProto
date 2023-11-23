@@ -21,13 +21,13 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  public struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  public typealias Version = _2
 }
 
 ///*
 /// A k-Nearest-Neighbor classifier
-struct CoreML_Specification_KNearestNeighborsClassifier {
+public struct CoreML_Specification_KNearestNeighborsClassifier {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -41,7 +41,7 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
   /// Returns true if `nearestNeighborsIndex` has been explicitly set.
   var hasNearestNeighborsIndex: Bool {return self._nearestNeighborsIndex != nil}
   /// Clears the value of `nearestNeighborsIndex`. Subsequent reads from it will return its default value.
-  mutating func clearNearestNeighborsIndex() {self._nearestNeighborsIndex = nil}
+  public mutating func clearNearestNeighborsIndex() {self._nearestNeighborsIndex = nil}
 
   ///*
   /// Number of neighbors to use for classification.
@@ -52,7 +52,7 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
   /// Returns true if `numberOfNeighbors` has been explicitly set.
   var hasNumberOfNeighbors: Bool {return self._numberOfNeighbors != nil}
   /// Clears the value of `numberOfNeighbors`. Subsequent reads from it will return its default value.
-  mutating func clearNumberOfNeighbors() {self._numberOfNeighbors = nil}
+  public mutating func clearNumberOfNeighbors() {self._numberOfNeighbors = nil}
 
   ///*
   /// Type of labels supported by the model. Currently supports String or Int64
@@ -116,17 +116,17 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
     set {weightingScheme = .inverseDistanceWeighting(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///*
   /// Type of labels supported by the model. Currently supports String or Int64
   /// labels.
-  enum OneOf_ClassLabels: Equatable {
+  public enum OneOf_ClassLabels: Equatable {
     case stringClassLabels(CoreML_Specification_StringVector)
     case int64ClassLabels(CoreML_Specification_Int64Vector)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_ClassLabels) -> Bool {
+    public static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_ClassLabels) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -147,12 +147,12 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
 
   ///*
   /// Default value of class label (useful when prediction is called on an empty kNN classifier)
-  enum OneOf_DefaultClassLabel: Equatable {
+  public enum OneOf_DefaultClassLabel: Equatable {
     case defaultStringLabel(String)
     case defaultInt64Label(Int64)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_DefaultClassLabel, rhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_DefaultClassLabel) -> Bool {
+    public static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_DefaultClassLabel, rhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_DefaultClassLabel) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -174,12 +174,12 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
   ///*
   /// Weighting scheme to be used when computing the majority label of a 
   /// new data point.
-  enum OneOf_WeightingScheme: Equatable {
+  public enum OneOf_WeightingScheme: Equatable {
     case uniformWeighting(CoreML_Specification_UniformWeighting)
     case inverseDistanceWeighting(CoreML_Specification_InverseDistanceWeighting)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_WeightingScheme, rhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_WeightingScheme) -> Bool {
+    public static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_WeightingScheme, rhs: CoreML_Specification_KNearestNeighborsClassifier.OneOf_WeightingScheme) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -198,7 +198,7 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _nearestNeighborsIndex: CoreML_Specification_NearestNeighborsIndex? = nil
   fileprivate var _numberOfNeighbors: CoreML_Specification_Int64Parameter? = nil
@@ -206,7 +206,7 @@ struct CoreML_Specification_KNearestNeighborsClassifier {
 
 ///*
 /// The "core" attributes of a Nearest Neighbors model.
-struct CoreML_Specification_NearestNeighborsIndex {
+public struct CoreML_Specification_NearestNeighborsIndex {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -221,7 +221,7 @@ struct CoreML_Specification_NearestNeighborsIndex {
   var floatSamples: [CoreML_Specification_FloatVector] = []
 
   ///* 
-  /// Backing data structure for the Nearest Neighbors Index. Currently supports 
+  /// Backing data public structure for the Nearest Neighbors Index. Currently supports 
   /// a linear index or a kd-tree index.
   var indexType: CoreML_Specification_NearestNeighborsIndex.OneOf_IndexType? = nil
 
@@ -254,17 +254,17 @@ struct CoreML_Specification_NearestNeighborsIndex {
     set {distanceFunction = .squaredEuclideanDistance(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///* 
-  /// Backing data structure for the Nearest Neighbors Index. Currently supports 
+  /// Backing data public structure for the Nearest Neighbors Index. Currently supports 
   /// a linear index or a kd-tree index.
-  enum OneOf_IndexType: Equatable {
+  public enum OneOf_IndexType: Equatable {
     case linearIndex(CoreML_Specification_LinearIndex)
     case singleKdTreeIndex(CoreML_Specification_SingleKdTreeIndex)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_NearestNeighborsIndex.OneOf_IndexType, rhs: CoreML_Specification_NearestNeighborsIndex.OneOf_IndexType) -> Bool {
+    public static func ==(lhs: CoreML_Specification_NearestNeighborsIndex.OneOf_IndexType, rhs: CoreML_Specification_NearestNeighborsIndex.OneOf_IndexType) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -286,11 +286,11 @@ struct CoreML_Specification_NearestNeighborsIndex {
   ///* 
   /// Distance function to be used to find neighbors. Currently only Squared Euclidean
   /// Distance is supported.
-  enum OneOf_DistanceFunction: Equatable {
+  public enum OneOf_DistanceFunction: Equatable {
     case squaredEuclideanDistance(CoreML_Specification_SquaredEuclideanDistance)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_NearestNeighborsIndex.OneOf_DistanceFunction, rhs: CoreML_Specification_NearestNeighborsIndex.OneOf_DistanceFunction) -> Bool {
+    public static func ==(lhs: CoreML_Specification_NearestNeighborsIndex.OneOf_DistanceFunction, rhs: CoreML_Specification_NearestNeighborsIndex.OneOf_DistanceFunction) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -304,50 +304,50 @@ struct CoreML_Specification_NearestNeighborsIndex {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Specifies a uniform weighting scheme (i.e. each neighbor receives equal
 /// voting power).
-struct CoreML_Specification_UniformWeighting {
+public struct CoreML_Specification_UniformWeighting {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Specifies a inverse-distance weighting scheme (i.e. closest neighbors receives higher
 /// voting power). A nearest neighbor with highest sum of (1 / distance) is picked.
-struct CoreML_Specification_InverseDistanceWeighting {
+public struct CoreML_Specification_InverseDistanceWeighting {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Specifies a flat index of data points to be searched by brute force.
-struct CoreML_Specification_LinearIndex {
+public struct CoreML_Specification_LinearIndex {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Specifies a kd-tree backend for the nearest neighbors model.
-struct CoreML_Specification_SingleKdTreeIndex {
+public struct CoreML_Specification_SingleKdTreeIndex {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -356,21 +356,21 @@ struct CoreML_Specification_SingleKdTreeIndex {
   /// Number of data points contained within a leaf node of the kd-tree.
   var leafSize: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
 /// Specifies the Squared Euclidean Distance function.
-struct CoreML_Specification_SquaredEuclideanDistance {
+public struct CoreML_Specification_SquaredEuclideanDistance {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -378,8 +378,8 @@ struct CoreML_Specification_SquaredEuclideanDistance {
 fileprivate let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_KNearestNeighborsClassifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".KNearestNeighborsClassifier"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".KNearestNeighborsClassifier"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nearestNeighborsIndex"),
     3: .same(proto: "numberOfNeighbors"),
     100: .same(proto: "stringClassLabels"),
@@ -390,7 +390,7 @@ extension CoreML_Specification_KNearestNeighborsClassifier: SwiftProtobuf.Messag
     210: .same(proto: "inverseDistanceWeighting"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -471,7 +471,7 @@ extension CoreML_Specification_KNearestNeighborsClassifier: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -518,7 +518,7 @@ extension CoreML_Specification_KNearestNeighborsClassifier: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier, rhs: CoreML_Specification_KNearestNeighborsClassifier) -> Bool {
+  public static func ==(lhs: CoreML_Specification_KNearestNeighborsClassifier, rhs: CoreML_Specification_KNearestNeighborsClassifier) -> Bool {
     if lhs._nearestNeighborsIndex != rhs._nearestNeighborsIndex {return false}
     if lhs._numberOfNeighbors != rhs._numberOfNeighbors {return false}
     if lhs.classLabels != rhs.classLabels {return false}
@@ -530,8 +530,8 @@ extension CoreML_Specification_KNearestNeighborsClassifier: SwiftProtobuf.Messag
 }
 
 extension CoreML_Specification_NearestNeighborsIndex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NearestNeighborsIndex"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NearestNeighborsIndex"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "numberOfDimensions"),
     2: .same(proto: "floatSamples"),
     100: .same(proto: "linearIndex"),
@@ -539,7 +539,7 @@ extension CoreML_Specification_NearestNeighborsIndex: SwiftProtobuf.Message, Swi
     200: .same(proto: "squaredEuclideanDistance"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -591,7 +591,7 @@ extension CoreML_Specification_NearestNeighborsIndex: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -619,7 +619,7 @@ extension CoreML_Specification_NearestNeighborsIndex: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_NearestNeighborsIndex, rhs: CoreML_Specification_NearestNeighborsIndex) -> Bool {
+  public static func ==(lhs: CoreML_Specification_NearestNeighborsIndex, rhs: CoreML_Specification_NearestNeighborsIndex) -> Bool {
     if lhs.numberOfDimensions != rhs.numberOfDimensions {return false}
     if lhs.floatSamples != rhs.floatSamples {return false}
     if lhs.indexType != rhs.indexType {return false}
@@ -630,69 +630,69 @@ extension CoreML_Specification_NearestNeighborsIndex: SwiftProtobuf.Message, Swi
 }
 
 extension CoreML_Specification_UniformWeighting: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UniformWeighting"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".UniformWeighting"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_UniformWeighting, rhs: CoreML_Specification_UniformWeighting) -> Bool {
+  public static func ==(lhs: CoreML_Specification_UniformWeighting, rhs: CoreML_Specification_UniformWeighting) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_InverseDistanceWeighting: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InverseDistanceWeighting"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".InverseDistanceWeighting"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_InverseDistanceWeighting, rhs: CoreML_Specification_InverseDistanceWeighting) -> Bool {
+  public static func ==(lhs: CoreML_Specification_InverseDistanceWeighting, rhs: CoreML_Specification_InverseDistanceWeighting) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_LinearIndex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LinearIndex"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".LinearIndex"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_LinearIndex, rhs: CoreML_Specification_LinearIndex) -> Bool {
+  public static func ==(lhs: CoreML_Specification_LinearIndex, rhs: CoreML_Specification_LinearIndex) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension CoreML_Specification_SingleKdTreeIndex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SingleKdTreeIndex"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SingleKdTreeIndex"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "leafSize"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -704,14 +704,14 @@ extension CoreML_Specification_SingleKdTreeIndex: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.leafSize != 0 {
       try visitor.visitSingularInt32Field(value: self.leafSize, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SingleKdTreeIndex, rhs: CoreML_Specification_SingleKdTreeIndex) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SingleKdTreeIndex, rhs: CoreML_Specification_SingleKdTreeIndex) -> Bool {
     if lhs.leafSize != rhs.leafSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -719,19 +719,19 @@ extension CoreML_Specification_SingleKdTreeIndex: SwiftProtobuf.Message, SwiftPr
 }
 
 extension CoreML_Specification_SquaredEuclideanDistance: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SquaredEuclideanDistance"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".SquaredEuclideanDistance"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CoreML_Specification_SquaredEuclideanDistance, rhs: CoreML_Specification_SquaredEuclideanDistance) -> Bool {
+  public static func ==(lhs: CoreML_Specification_SquaredEuclideanDistance, rhs: CoreML_Specification_SquaredEuclideanDistance) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
